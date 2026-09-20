@@ -105,6 +105,88 @@
             }
           ]
         }
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://hlpdata.com/#dataset-idealista",
+        "name": "Idealista Portugal Real Estate Property Feed (Lisbon, Porto, Algarve)",
+        "description": "Comprehensive nationwide property intelligence across 13 Portuguese districts from Idealista.pt. Features normalized square-meter pricing, exact bedroom/bathroom counts, floor levels, terrace/garage amenities, and clean geocodes.",
+        "url": "https://hlpdata.com/#datasets",
+        "sameAs": "https://www.idealista.pt/",
+        "license": "https://hlpdata.com/terms.html",
+        "creator": {
+          "@id": "https://hlpdata.com/#organization"
+        },
+        "spatialCoverage": "Portugal",
+        "temporalCoverage": "2026",
+        "keywords": [
+          "idealista portugal",
+          "real estate alternative data",
+          "portugal housing market intelligence",
+          "web scraping property feed",
+          "lisbon apartment prices"
+        ],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://hlpdata.com/samples/idealista_real_estate_sample.csv"
+          }
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://hlpdata.com/#dataset-continente",
+        "name": "Continente Supermarket FMCG Intelligence Catalog Feed",
+        "description": "Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features 3-level category hierarchy, markdown discount tracking, and normalized unit prices.",
+        "url": "https://hlpdata.com/#datasets",
+        "sameAs": "https://www.continente.pt/",
+        "license": "https://hlpdata.com/terms.html",
+        "creator": {
+          "@id": "https://hlpdata.com/#organization"
+        },
+        "spatialCoverage": "Portugal",
+        "temporalCoverage": "2026",
+        "keywords": [
+          "continente grocery scraping",
+          "fmcg supermarket pricing data",
+          "supermarket inflation tracker",
+          "retail alternative data feed"
+        ],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://hlpdata.com/samples/continente_grocery_plp_sample.csv"
+          }
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://hlpdata.com/#dataset-farfetch",
+        "name": "Farfetch Global Luxury Fashion Catalog & Pricing Feed",
+        "description": "Global designer luxury fashion catalog feed tracking SKUs, retail pricing, markdowns, materials, and inventory availability across major luxury houses.",
+        "url": "https://hlpdata.com/#datasets",
+        "sameAs": "https://www.farfetch.com/",
+        "license": "https://hlpdata.com/terms.html",
+        "creator": {
+          "@id": "https://hlpdata.com/#organization"
+        },
+        "spatialCoverage": "Global",
+        "temporalCoverage": "2026",
+        "keywords": [
+          "farfetch luxury fashion data",
+          "designer brand pricing feed",
+          "luxury goods alternative data",
+          "e-commerce web scraping"
+        ],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://hlpdata.com/samples/farfetch_luxury_fashion_sample.csv"
+          }
+        ]
       }
     ]
   }
@@ -116,7 +198,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=20260920d">
+  <link rel="stylesheet" href="style.css?v=20260920e">
 </head>
 <body>
 
@@ -245,18 +327,44 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <span class="terminal-title" data-i18n="terminal_title">buyer_audit.sh &bull; live feed</span>
+            <div class="terminal-tabs-nav" role="tablist">
+              <button type="button" class="term-tab active" data-term="audit">buyer_audit.sh</button>
+              <button type="button" class="term-tab" data-term="s3">aws_s3_sync.sh</button>
+              <button type="button" class="term-tab" data-term="python">read_feed.py</button>
+            </div>
           </div>
           <div class="terminal-body font-mono">
-            <div class="term-line"><span class="term-prompt">$</span> python3 buyer_audit.py --full-suite</div>
-            <div class="term-line text-muted">[2026-09-20] Executing Buyer Acceptance & Schema Audit...</div>
-            <div class="term-line text-emerald">[PASS] idealista.pt (2,640 units) &bull; REAL-ESTATE-BASIC: 100/100</div>
-            <div class="term-line text-emerald">[PASS] rightmove.co.uk (500 units) &bull; GPS, Floorplans: 100/100</div>
-            <div class="term-line text-emerald">[PASS] farfetch.com (120 SKUs) &bull; FASHION-PDP Luxury: 100/100</div>
-            <div class="term-line text-emerald">[PASS] continente.pt (2,059 SKUs) &bull; GROCERY-PLP: 100/100</div>
-            <div class="term-line text-muted">[SYNC] S3 Cloud Feeds: s3://enterprise-data-lake/feeds/...</div>
-            <div class="term-line text-blue">[STATUS] Ingestion Handshake: verified & complete ✓</div>
-            <div class="term-cursor">&gt; awaiting next scheduled ingestion...</div>
+            <div class="term-pane active" id="term-pane-audit">
+              <div class="term-line"><span class="term-prompt">$</span> python3 buyer_audit.py --full-suite</div>
+              <div class="term-line text-muted">[2026-09-20] Executing Buyer Acceptance & Schema Audit...</div>
+              <div class="term-line text-emerald">[PASS] idealista.pt (2,640 units) &bull; REAL-ESTATE-BASIC: 100/100</div>
+              <div class="term-line text-emerald">[PASS] rightmove.co.uk (500 units) &bull; GPS, Floorplans: 100/100</div>
+              <div class="term-line text-emerald">[PASS] farfetch.com (120 SKUs) &bull; FASHION-PDP Luxury: 100/100</div>
+              <div class="term-line text-emerald">[PASS] continente.pt (2,059 SKUs) &bull; GROCERY-PLP: 100/100</div>
+              <div class="term-line text-muted">[SYNC] S3 Cloud Feeds: s3://databoutique.com/sellers/HLP_DATA/...</div>
+              <div class="term-line text-blue">[STATUS] Ingestion Handshake: verified & complete ✓</div>
+              <div class="term-cursor">&gt; awaiting next scheduled ingestion...</div>
+            </div>
+            <div class="term-pane" id="term-pane-s3">
+              <div class="term-line"><span class="term-prompt">$</span> aws s3 sync s3://databoutique.com/sellers/HLP_DATA/feeds/ ./data/</div>
+              <div class="term-line text-muted">[INFO] Authenticating IAM Role with S3 Read Policy...</div>
+              <div class="term-line text-emerald">download: continente_grocery_plp_2026-09-20.csv (2,059 SKUs)</div>
+              <div class="term-line text-emerald">download: idealista_pt_properties_2026-09-20.csv (2,640 records)</div>
+              <div class="term-line text-emerald">download: farfetch_luxury_fashion_2026-09-20.csv (120 items)</div>
+              <div class="term-line text-blue">[100% SYNC] 3 feeds synchronized &bull; Zero-PII SHA-256 intact ✓</div>
+              <div class="term-cursor">&gt; cloud sync daemon running in background...</div>
+            </div>
+            <div class="term-pane" id="term-pane-python">
+              <div class="term-line"><span class="term-prompt">&gt;&gt;&gt;</span> import polars as pl</div>
+              <div class="term-line"><span class="term-prompt">&gt;&gt;&gt;</span> df = pl.read_csv("s3://.../idealista.csv", separator=";")</div>
+              <div class="term-line text-muted">shape: (2640, 32) &bull; Columns: listing_id, price, price_per_sqm, rooms...</div>
+              <div class="term-line text-emerald"><span class="term-prompt">&gt;&gt;&gt;</span> df.filter(pl.col("city") == "Lisboa").select(["price", "area_sqm"]).mean()</div>
+              <div class="term-line text-emerald">┌───────────────┬────────────┐</div>
+              <div class="term-line text-emerald">│ avg_price_eur │ avg_area   │</div>
+              <div class="term-line text-emerald">│ 482,500.00    │ 94.2 m²    │</div>
+              <div class="term-line text-emerald">└───────────────┴────────────┘</div>
+              <div class="term-cursor">&gt; hedge fund analytics ready...</div>
+            </div>
           </div>
           <div class="terminal-footer">
             <span class="footer-tag"><i class="fa-solid fa-server"></i> <span data-i18n="terminal_tag_engine">Native AppleScript + CDP Engine</span></span>
@@ -325,9 +433,14 @@
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary" data-i18n="ds1_btn">
-              Request Sample / License Feed
-            </a>
+            <div class="dataset-btns">
+              <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="idealista">
+                <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
+              </button>
+              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary" data-i18n="ds1_btn">
+                Request Sample / License Feed
+              </a>
+            </div>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
           </div>
         </article>
@@ -382,9 +495,14 @@
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary" data-i18n="ds2_btn">
-              Request Sample / License Feed
-            </a>
+            <div class="dataset-btns">
+              <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="continente">
+                <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
+              </button>
+              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary" data-i18n="ds2_btn">
+                Request Sample / License Feed
+              </a>
+            </div>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
           </div>
         </article>
@@ -439,9 +557,14 @@
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary" data-i18n="ds3_btn">
-              Request Sample / License Feed
-            </a>
+            <div class="dataset-btns">
+              <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="farfetch">
+                <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
+              </button>
+              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary" data-i18n="ds3_btn">
+                Request Sample / License Feed
+              </a>
+            </div>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
           </div>
         </article>
@@ -496,9 +619,14 @@
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Rightmove%20London%20Dataset" class="btn-sm btn-primary" data-i18n="ds4_btn">
-              Request Sample / License Feed
-            </a>
+            <div class="dataset-btns">
+              <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="rightmove">
+                <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
+              </button>
+              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Rightmove%20London%20Dataset" class="btn-sm btn-primary" data-i18n="ds4_btn">
+                Request Sample / License Feed
+              </a>
+            </div>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
           </div>
         </article>
@@ -685,6 +813,39 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260920d"></script>
+  <!-- Dataset Inspector & Schema Modal -->
+  <div id="dataset-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge" id="modal-badge">SCHEMA</span>
+          <h3 class="modal-title" id="modal-title">Dataset Title</h3>
+        </div>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-tabs">
+        <button type="button" class="modal-tab active" data-tab="sample" data-i18n="modal_tab_sample">Sample Data (10 Rows)</button>
+        <button type="button" class="modal-tab" data-tab="schema" data-i18n="modal_tab_schema">Schema Dictionary & SLA</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-pane active" id="pane-sample">
+          <div class="modal-table-scroll font-mono" id="modal-table-container"></div>
+        </div>
+        <div class="modal-pane" id="pane-schema">
+          <div class="modal-table-scroll font-mono" id="modal-schema-container"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a id="modal-download-btn" href="#" download class="btn btn-secondary">
+          <i class="fa-solid fa-download"></i> <span data-i18n="modal_btn_download">Download Sample CSV (20 Rows)</span>
+        </a>
+        <a id="modal-license-btn" href="mailto:hung@hlpdata.com" class="btn btn-primary">
+          <i class="fa-regular fa-envelope"></i> <span data-i18n="modal_btn_license">License Full Commercial Feed</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=20260920e"></script>
 </body>
 </html>

@@ -142,7 +142,13 @@ const I18N_DICT = {
     footer_privacy: 'Privacy Policy',
 
     copy_btn_text: 'Copy',
-    copied_btn_text: 'Copied!'
+    copied_btn_text: 'Copied!',
+
+    btn_inspect_schema: 'Inspect Schema & Sample',
+    modal_tab_sample: 'Sample Data (10 Rows)',
+    modal_tab_schema: 'Schema Dictionary & SLA',
+    modal_btn_download: 'Download Sample CSV (20 Rows)',
+    modal_btn_license: 'License Full Commercial Feed'
   },
 
   es: {
@@ -283,7 +289,13 @@ const I18N_DICT = {
     footer_privacy: 'Política de Privacidad',
 
     copy_btn_text: 'Copiar',
-    copied_btn_text: '¡Copiado!'
+    copied_btn_text: '¡Copiado!',
+
+    btn_inspect_schema: 'Examinar Schema y Muestra',
+    modal_tab_sample: 'Datos de Muestra (10 Filas)',
+    modal_tab_schema: 'Diccionario de Schema y SLA',
+    modal_btn_download: 'Descargar CSV de Muestra (20 Filas)',
+    modal_btn_license: 'Licenciar Feed Comercial Completo'
   },
 
   pt: {
@@ -424,7 +436,13 @@ const I18N_DICT = {
     footer_privacy: 'Política de Privacidade',
 
     copy_btn_text: 'Copiar',
-    copied_btn_text: 'Copiado!'
+    copied_btn_text: 'Copiado!',
+
+    btn_inspect_schema: 'Inspecionar Schema & Amostra',
+    modal_tab_sample: 'Dados de Amostra (10 Linhas)',
+    modal_tab_schema: 'Dicionário de Schema & SLA',
+    modal_btn_download: 'Descarregar CSV de Amostra (20 Linhas)',
+    modal_btn_license: 'Licenciar Feed Comercial Completo'
   }
 };
 
@@ -650,6 +668,222 @@ function copyEmail(text, btnElement) {
 // Expose copyEmail globally so inline onclick handlers and external calls work reliably
 window.copyEmail = copyEmail;
 
+/* ==========================================================================
+   Dataset Specifications & Modal Controller
+   ========================================================================== */
+const DATASET_SPECS = {
+  idealista: {
+    name: 'Idealista Portugal Real Estate Property Feed',
+    badge: 'REAL-ESTATE-BASIC • 32 Fields',
+    csvUrl: 'samples/idealista_real_estate_sample.csv',
+    filename: 'idealista_portugal_sample_2026.csv',
+    subject: '[Dataset License] Idealista Portugal Property Feed Inquiry',
+    displayCols: ['listing_id', 'property_type', 'title', 'price', 'price_per_sqm', 'area_sqm', 'rooms', 'bathrooms', 'floor', 'region', 'city', 'neighborhood'],
+    schema: [
+      { field: 'listing_id', type: 'String / ID', fill: '100%', desc: 'Unique portal listing identifier' },
+      { field: 'operation_type', type: 'Enum', fill: '100%', desc: 'sale | rent' },
+      { field: 'property_type', type: 'Enum', fill: '100%', desc: 'apartment | house | penthouse | duplex' },
+      { field: 'title', type: 'String', fill: '100%', desc: 'Listing title with property characteristics' },
+      { field: 'price', type: 'Float (€)', fill: '100%', desc: 'Current asking price in EUR' },
+      { field: 'price_original', type: 'Float (€)', fill: '100%', desc: 'Original asking price prior to cuts' },
+      { field: 'price_per_sqm', type: 'Float (€/m²)', fill: '99.4%', desc: 'Normalized price per square meter' },
+      { field: 'area_sqm', type: 'Float (m²)', fill: '99.8%', desc: 'Gross usable floor area' },
+      { field: 'rooms', type: 'Integer', fill: '98.5%', desc: 'Bedrooms count (T0 to T10+)' },
+      { field: 'bathrooms', type: 'Integer', fill: '98.1%', desc: 'Total bathrooms count' },
+      { field: 'floor', type: 'String', fill: '92.4%', desc: 'Floor index (R/C, 1º, 2º...)' },
+      { field: 'has_elevator', type: 'Boolean', fill: '100%', desc: 'Building elevator amenity' },
+      { field: 'has_parking', type: 'Boolean', fill: '100%', desc: 'Dedicated garage / parking space' },
+      { field: 'has_terrace', type: 'Boolean', fill: '100%', desc: 'Balcony or terrace amenity' },
+      { field: 'has_garden', type: 'Boolean', fill: '100%', desc: 'Private or condominium garden' },
+      { field: 'has_pool', type: 'Boolean', fill: '100%', desc: 'Swimming pool amenity' },
+      { field: 'energy_certificate', type: 'Enum', fill: '94.2%', desc: 'Official Portuguese energy rating (A+ to F)' },
+      { field: 'region', type: 'String', fill: '100%', desc: 'District (Lisboa, Porto, Faro...)' },
+      { field: 'city', type: 'String', fill: '100%', desc: 'Concelho / Municipality' },
+      { field: 'neighborhood', type: 'String', fill: '98.6%', desc: 'Freguesia / Parish' },
+      { field: 'latitude / longitude', type: 'Geo Float', fill: '100%', desc: 'WGS84 GPS coordinate pair' }
+    ]
+  },
+  continente: {
+    name: 'Continente Supermarket FMCG Intelligence Catalog',
+    badge: 'GROCERY-PLP • 31 Fields',
+    csvUrl: 'samples/continente_grocery_plp_sample.csv',
+    filename: 'continente_grocery_sample_2026.csv',
+    subject: '[Dataset License] Continente Grocery FMCG Catalog Inquiry',
+    displayCols: ['product_code', 'product_title', 'brand', 'category1', 'category2', 'category3', 'package_desc', 'full_price', 'price', 'ppu', 'unit_type', 'promotion_type'],
+    schema: [
+      { field: 'website_name', type: 'String', fill: '100%', desc: 'continente.pt' },
+      { field: 'competence_date', type: 'ISO Date', fill: '100%', desc: 'Daily execution timestamp' },
+      { field: 'product_code', type: 'String / ID', fill: '100%', desc: 'Internal SKU identifier' },
+      { field: 'brand', type: 'String', fill: '97.2%', desc: 'Manufacturer brand or private label' },
+      { field: 'product_title', type: 'String', fill: '100%', desc: 'Normalized product name' },
+      { field: 'category1', type: 'String', fill: '100%', desc: 'Tier 1 Department (Frescos, Mercearia...)' },
+      { field: 'category2', type: 'String', fill: '100%', desc: 'Tier 2 Category aisle' },
+      { field: 'category3', type: 'String', fill: '96.5%', desc: 'Tier 3 Granular sub-category' },
+      { field: 'package_desc', type: 'String', fill: '98.8%', desc: 'Net package volume / weight' },
+      { field: 'full_price', type: 'Float (€)', fill: '100%', desc: 'Standard non-discounted catalog price' },
+      { field: 'price', type: 'Float (€)', fill: '100%', desc: 'Effective transactional price' },
+      { field: 'ppu', type: 'Float (€/unit)', fill: '99.5%', desc: 'Normalized unit price (€/kg, €/L)' },
+      { field: 'unit_type', type: 'Enum', fill: '99.5%', desc: 'kg | L | un | dose' },
+      { field: 'promotion_type', type: 'String', fill: '42.1%', desc: 'Promotion indicator (e.g. -10%, Leve 2 Pague 1)' },
+      { field: 'itemurl', type: 'URL', fill: '100%', desc: 'Canonical e-commerce product URL' },
+      { field: 'imageurl', type: 'URL', fill: '100%', desc: 'High-res CDN product image link' }
+    ]
+  },
+  farfetch: {
+    name: 'Farfetch Global Luxury Fashion & Designer Feed',
+    badge: 'FASHION-PDP • 35 Fields',
+    csvUrl: 'samples/farfetch_luxury_fashion_sample.csv',
+    filename: 'farfetch_luxury_fashion_sample_2026.csv',
+    subject: '[Dataset License] Farfetch Global Luxury Fashion Feed Inquiry',
+    displayCols: ['brand', 'product_title', 'sku', 'category1', 'category2', 'color', 'size', 'full_price', 'price', 'discount_pct', 'in_stock', 'made_in', 'season'],
+    schema: [
+      { field: 'website_name', type: 'String', fill: '100%', desc: 'farfetch.com' },
+      { field: 'brand', type: 'String', fill: '100%', desc: 'Luxury designer house (Jacquemus, Valentino...)' },
+      { field: 'product_title', type: 'String', fill: '100%', desc: 'Official product model title' },
+      { field: 'sku', type: 'String / ID', fill: '100%', desc: 'Farfetch internal catalog SKU' },
+      { field: 'category1', type: 'String', fill: '100%', desc: 'Gender department (Women / Men / Kids)' },
+      { field: 'category2', type: 'String', fill: '100%', desc: 'Core category (Bags, Shoes, Clothing)' },
+      { field: 'category3', type: 'String', fill: '98.5%', desc: 'Style subcategory' },
+      { field: 'color', type: 'String', fill: '99.2%', desc: 'Normalized designer color' },
+      { field: 'size', type: 'String', fill: '98.0%', desc: 'Available size (IT/FR/US/OS)' },
+      { field: 'full_price', type: 'Float', fill: '100%', desc: 'Original suggested retail price' },
+      { field: 'price', type: 'Float', fill: '100%', desc: 'Current checkout price' },
+      { field: 'currency', type: 'ISO-4217', fill: '100%', desc: 'Transactional currency (USD, EUR, GBP)' },
+      { field: 'discount_pct', type: 'Integer (%)', fill: '100%', desc: 'Markdown percentage (0 to 70)' },
+      { field: 'in_stock', type: 'Boolean', fill: '100%', desc: 'Real-time stock status' },
+      { field: 'composition', type: 'String', fill: '94.0%', desc: 'Material & textile breakdown' },
+      { field: 'made_in', type: 'Country', fill: '91.5%', desc: 'Country of origin (Italy, France...)' },
+      { field: 'season', type: 'String', fill: '89.0%', desc: 'Collection season (FW26, SS26)' }
+    ]
+  },
+  rightmove: {
+    name: 'Rightmove London & Prime UK Property Feed',
+    badge: 'REAL-ESTATE-BASIC • 32 Fields',
+    csvUrl: 'samples/rightmove_uk_real_estate_sample.csv',
+    filename: 'rightmove_london_sample_2026.csv',
+    subject: '[Dataset License] Rightmove London Property Feed Inquiry',
+    displayCols: ['listing_id', 'property_type', 'title', 'price', 'price_per_sqm', 'area_sqm', 'rooms', 'bathrooms', 'region', 'city', 'neighborhood'],
+    schema: [
+      { field: 'listing_id', type: 'String / ID', fill: '100%', desc: 'Rightmove listing identifier' },
+      { field: 'operation_type', type: 'Enum', fill: '100%', desc: 'sale | rent' },
+      { field: 'property_type', type: 'Enum', fill: '100%', desc: 'Flat | Apartment | House | Maisonette' },
+      { field: 'title', type: 'String', fill: '100%', desc: 'Property title description' },
+      { field: 'price', type: 'Float (£)', fill: '100%', desc: 'Asking price in GBP' },
+      { field: 'price_per_sqm', type: 'Float (£/m²)', fill: '96.2%', desc: 'Normalized price per square meter' },
+      { field: 'area_sqm', type: 'Float (m²)', fill: '96.2%', desc: 'Floor area in square meters' },
+      { field: 'rooms', type: 'Integer', fill: '98.0%', desc: 'Bedrooms count' },
+      { field: 'bathrooms', type: 'Integer', fill: '97.5%', desc: 'Bathrooms count' },
+      { field: 'region', type: 'String', fill: '100%', desc: 'Greater London / UK County' },
+      { field: 'city', type: 'String', fill: '100%', desc: 'London / Prime Central' },
+      { field: 'latitude / longitude', type: 'Geo Float', fill: '100%', desc: 'WGS84 GPS coordinate pair' }
+    ]
+  }
+};
+
+// Parse semicolon-delimited CSV text
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length === 0) return { headers: [], rows: [] };
+  const headers = lines[0].split(';').map(h => h.trim().replace(/^"|"$/g, ''));
+  const rows = lines.slice(1).map(line => {
+    const values = [];
+    let insideQuote = false;
+    let entry = '';
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"') {
+        insideQuote = !insideQuote;
+      } else if (char === ';' && !insideQuote) {
+        values.push(entry.trim().replace(/^"|"$/g, ''));
+        entry = '';
+      } else {
+        entry += char;
+      }
+    }
+    values.push(entry.trim().replace(/^"|"$/g, ''));
+    return values;
+  });
+  return { headers, rows };
+}
+
+// Open dataset inspector modal
+async function openDatasetModal(datasetKey) {
+  const spec = DATASET_SPECS[datasetKey];
+  if (!spec) return;
+
+  const modal = document.getElementById('dataset-modal');
+  const badgeEl = document.getElementById('modal-badge');
+  const titleEl = document.getElementById('modal-title');
+  const tableContainer = document.getElementById('modal-table-container');
+  const schemaContainer = document.getElementById('modal-schema-container');
+  const downloadBtn = document.getElementById('modal-download-btn');
+  const licenseBtn = document.getElementById('modal-license-btn');
+
+  badgeEl.textContent = spec.badge;
+  titleEl.textContent = spec.name;
+  downloadBtn.setAttribute('href', spec.csvUrl);
+  downloadBtn.setAttribute('download', spec.filename);
+  licenseBtn.setAttribute('href', 'mailto:hung@hlpdata.com?subject=' + encodeURIComponent(spec.subject));
+
+  // Reset tabs to sample data
+  document.querySelectorAll('.modal-tab').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('data-tab') === 'sample');
+  });
+  document.getElementById('pane-sample').classList.add('active');
+  document.getElementById('pane-schema').classList.remove('active');
+
+  // Render schema tab immediately
+  let schemaHTML = '<table class="modal-table"><thead><tr><th>Field Name</th><th>Data Type</th><th>Fill Rate SLA</th><th>Description</th></tr></thead><tbody>';
+  spec.schema.forEach(row => {
+    schemaHTML += `<tr><td><strong>${row.field}</strong></td><td><span class="badge-tag">${row.type}</span></td><td><span class="text-emerald font-mono">${row.fill}</span></td><td>${row.desc}</td></tr>`;
+  });
+  schemaHTML += '</tbody></table>';
+  schemaContainer.innerHTML = schemaHTML;
+
+  // Render sample data table with loading state
+  tableContainer.innerHTML = '<div style="padding: 2.5rem; text-align: center; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Loading sanitized sample feed...</div>';
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  try {
+    const res = await fetch(spec.csvUrl);
+    const text = await res.text();
+    const { headers, rows } = parseCSV(text);
+
+    // Pick display columns or first 10 columns
+    const targetCols = spec.displayCols || headers.slice(0, 10);
+    const colIndices = targetCols.map(c => headers.indexOf(c)).filter(idx => idx !== -1);
+
+    let tableHTML = '<table class="modal-table"><thead><tr>';
+    colIndices.forEach(idx => {
+      tableHTML += `<th>${headers[idx]}</th>`;
+    });
+    tableHTML += '</tr></thead><tbody>';
+
+    const sampleRows = rows.slice(0, 10);
+    sampleRows.forEach(r => {
+      tableHTML += '<tr>';
+      colIndices.forEach(idx => {
+        const val = r[idx] || '—';
+        tableHTML += `<td>${val}</td>`;
+      });
+      tableHTML += '</tr>';
+    });
+    tableHTML += '</tbody></table>';
+    tableContainer.innerHTML = tableHTML;
+  } catch(err) {
+    tableContainer.innerHTML = '<div style="padding: 2rem; color: #ef4444; text-align: center;">Failed to load sample dataset. Please use direct download below.</div>';
+  }
+}
+
+function closeDatasetModal() {
+  const modal = document.getElementById('dataset-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -699,4 +933,49 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Terminal tabs switching (audit | s3 | python)
+  document.querySelectorAll('.term-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const termTarget = tab.getAttribute('data-term');
+      document.querySelectorAll('.term-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.term-pane').forEach(p => {
+        p.classList.toggle('active', p.id === `term-pane-${termTarget}`);
+      });
+    });
+  });
+
+  // Dataset inspector modal triggers
+  document.querySelectorAll('.inspect-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ds = btn.getAttribute('data-dataset');
+      openDatasetModal(ds);
+    });
+  });
+
+  const modalClose = document.getElementById('modal-close');
+  if (modalClose) modalClose.addEventListener('click', closeDatasetModal);
+
+  const modalOverlay = document.getElementById('dataset-modal');
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeDatasetModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDatasetModal();
+  });
+
+  // Modal tabs switching (sample | schema)
+  document.querySelectorAll('.modal-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabTarget = tab.getAttribute('data-tab');
+      document.querySelectorAll('.modal-tab').forEach(t => t.classList.toggle('active', t === tab));
+      document.querySelectorAll('.modal-pane').forEach(pane => {
+        pane.classList.toggle('active', pane.id === `pane-${tabTarget}`);
+      });
+    });
+  });
 });
+
