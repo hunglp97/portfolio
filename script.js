@@ -14,6 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.add('hidden');
       });
     });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && !toggleBtn.contains(e.target) && !mobileNav.classList.contains('hidden')) {
+        mobileNav.classList.add('hidden');
+      }
+    });
   }
 });
 
