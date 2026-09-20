@@ -540,6 +540,25 @@ body {
   font-family: var(--font-mono);
 }
 
+.table-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.45rem 0.5rem 0.15rem;
+  margin-top: 0.35rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.table-preview-footer .preview-tag {
+  color: var(--emerald);
+  font-weight: 500;
+}
+
 .dataset-meta {
   display: flex;
   flex-wrap: wrap;
