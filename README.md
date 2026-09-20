@@ -6,7 +6,7 @@
 
 ## 🌟 Features
 
-- **High-Impact Showcase**: Highlights real-world data pipelines (Data Boutique, Idealista Real Estate, Continente FMCG).
+- **High-Impact Showcase**: Highlights real-world data pipelines (Idealista Real Estate, Continente FMCG, Enterprise Cloud Delivery).
 - **Glassmorphism & Obsidian Dark Aesthetic**: Modern tech theme inspired by Linear, Raycast, and Vercel.
 - **Interactive Capabilities**: Animated counters, 1-click clipboard email copy, responsive navigation.
 - **Print / PDF CV Export**: Native `@media print` CSS stylesheet allowing 1-click export to a clean 2-page PDF resume (`Cmd + P`).
