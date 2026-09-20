@@ -671,6 +671,8 @@ window.copyEmail = copyEmail;
 /* ==========================================================================
    Dataset Specifications & Modal Controller
    ========================================================================== */
+const EMBEDDED_SAMPLES = {"idealista": {"headers": ["﻿website_name", "competence_date", "country_code", "currency_code", "listing_id", "operation_type", "property_type", "title", "price", "price_original", "price_per_sqm", "area_sqm", "rooms", "bathrooms", "floor", "has_elevator", "has_parking", "has_terrace", "has_garden", "has_pool", "energy_certificate", "region", "city", "neighborhood", "address_raw", "latitude", "longitude", "agency_name", "contact_phone", "description", "itemurl", "imageurl"], "rows": [["idealista.pt", "2026-09-20", "PRT", "EUR", "33491028", "sale", "apartment", "Apartamento T2 em Parque das Nações", "450000.0", "450000.0", "4736.84", "95", "2", "2", "4º", "true", "true", "true", "false", "false", "A", "Distrito de Lisboa", "Lisboa", "Parque das Nações", "Alameda dos Oceanos, Lisboa", "38.7672", "-9.0963", "ERA Imobiliária", "+351218000000", "Excelente T2 com vista rio e varanda ampla.", "https://www.idealista.pt/imovel/33491028/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491028.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491029", "sale", "apartment", "Apartamento T3 em Campo de Ourique", "585000.0", "610000.0", "4875.0", "120", "3", "2", "2º", "true", "false", "true", "false", "false", "B", "Distrito de Lisboa", "Lisboa", "Campo de Ourique", "Rua Ferreira Borges, Lisboa", "38.7185", "-9.1634", "Remax Prestige", "+351213000001", "T3 totalmente remodelado com varanda e luz natural.", "https://www.idealista.pt/imovel/33491029/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491029.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491030", "sale", "house", "Moradia T4 na Foz do Douro", "1850000.0", "1850000.0", "5285.71", "350", "4", "4", "R/C", "false", "true", "true", "true", "true", "A+", "Distrito do Porto", "Porto", "Foz do Douro", "Avenida do Brasil, Porto", "41.1512", "-8.6784", "Sotheby International", "+351226000002", "Exclusiva moradia com jardim privativo e piscina a 100m do mar.", "https://www.idealista.pt/imovel/33491030/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491030.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491031", "sale", "apartment", "T1 Moderno na Baixa do Porto", "245000.0", "245000.0", "4900.0", "50", "1", "1", "3º", "true", "false", "false", "false", "false", "B-", "Distrito do Porto", "Porto", "Santo Ildefonso", "Rua de Santa Catarina, Porto", "41.1496", "-8.6053", "Century 21", "+351222000003", "Ideal para investimento com licença de alojamento turístico.", "https://www.idealista.pt/imovel/33491031/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491031.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491032", "sale", "house", "Moradia Contemporânea T5 em Cascais", "2950000.0", "3100000.0", "6145.83", "480", "5", "6", "1º", "true", "true", "true", "true", "true", "A+", "Distrito de Lisboa", "Cascais", "Quinta da Marinha", "Rua das Palmeiras, Cascais", "38.7023", "-9.4589", "Engel & Völkers", "+351214000004", "Design de assinatura, acabamentos em mármore e domótica integral.", "https://www.idealista.pt/imovel/33491032/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491032.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491033", "sale", "apartment", "T2 com Vista Marina em Vilamoura", "395000.0", "395000.0", "4293.48", "92", "2", "2", "2º", "true", "true", "true", "false", "true", "B", "Distrito de Faro", "Loulé", "Vilamoura", "Avenida Tivoli, Vilamoura", "37.0789", "-8.1189", "Algarve Property", "+351289000005", "Apartamento de luxo a passos da marina e campos de golfe.", "https://www.idealista.pt/imovel/33491033/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491033.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491034", "sale", "apartment", "T3 Duplex no Chiado", "980000.0", "980000.0", "6125.0", "160", "3", "3", "4º", "true", "true", "true", "false", "false", "B", "Distrito de Lisboa", "Lisboa", "Chiado", "Rua Garrett, Lisboa", "38.7108", "-9.1412", "Porta da Frente", "+351213000006", "Edifício pombalino recuperado com terraço panorâmico.", "https://www.idealista.pt/imovel/33491034/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491034.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491035", "sale", "apartment", "T2 Novo em Matosinhos Sul", "375000.0", "375000.0", "3947.37", "95", "2", "2", "1º", "true", "true", "true", "false", "false", "A", "Distrito do Porto", "Matosinhos", "Matosinhos Sul", "Avenida da República, Matosinhos", "41.1789", "-8.6892", "Chave Nova", "+351229000007", "Construção recente a 200m da praia com garagem fechada.", "https://www.idealista.pt/imovel/33491035/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491035.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491036", "sale", "house", "Quinta T4 em Sintra Histórica", "1250000.0", "1300000.0", "3571.43", "350", "4", "3", "R/C", "false", "true", "true", "true", "false", "C", "Distrito de Lisboa", "Sintra", "São Pedro de Penaferrim", "Estrada da Pena, Sintra", "38.7912", "-9.3821", "Luximos Christie", "+351219000008", "Propriedade secular com vista privilegiada para o Palácio da Pena.", "https://www.idealista.pt/imovel/33491036/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491036.jpg"], ["idealista.pt", "2026-09-20", "PRT", "EUR", "33491037", "sale", "apartment", "T1 com Garagem no Parque das Nações Norte", "289000.0", "289000.0", "4446.15", "65", "1", "1", "6º", "true", "true", "false", "false", "false", "A", "Distrito de Lisboa", "Lisboa", "Parque das Nações", "Via do Oriente, Lisboa", "38.7782", "-9.0912", "ERA Expo", "+351218000009", "Apartamento luminoso com arrecadação e estacionamento privativo.", "https://www.idealista.pt/imovel/33491037/", "https://img3.idealista.pt/blur/WEB_DETAIL/0/id.pro.pt.image.master/33/49/10/33491037.jpg"]]}, "continente": {"headers": ["﻿website_name", "competence_date", "country_code", "currency_code", "store_id", "product_code", "product_std_code", "std_type", "brand", "product_title", "category1", "category2", "category3", "category4", "category5", "category6", "category7", "category8", "category9", "category10", "package_desc", "full_price", "price", "ppu", "unit_type", "promotion_type", "promotion_end_date", "additional_tags", "additional_content", "itemurl", "imageurl"], "rows": [["continente.pt", "2026-09-19", "PRT", "EUR", "", "6661780", "", "", "", "Porções de Salmão Fresco", "Frescos", "Peixaria", "Filetes, Lombos e Postas", "Fresco", "", "", "", "", "", "", "Quant. Mínima = 300 gr (2 un)", "2.99", "2.99", "19.93", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/porcoes-de-salmao-fresco-6661780.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw17370d84/images/col/666/6661780-cima-pedra.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "6282115", "", "", "Continente", "Salsichas Frescas de Peru Continente", "Frescos", "Talho", "Frango e Peru", "Peru", "", "", "", "", "", "", "emb. 500 gr", "3.49", "3.09", "6.18", "kg", "-10%", "", "", "Disponível", "https://www.continente.pt/produto/salsichas-frescas-de-peru-continente-6282115.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw3a0a02d1/images/col/628/6282115-frente.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "7082480", "", "", "Continente Seleção", "Hambúrguer 100% Carne de Novilho Angus Continente Seleção", "Frescos", "Talho", "Novilho, Vitela e Vitelão", "", "", "", "", "", "", "", "2 un x 150 gr (300 gr)", "5.19", "5.19", "17.30", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/hamburguer-100--carne-de-novilho-angus-continente-selecao-7082480.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw66c334be/images/col/708/7082480-frente.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "7421333", "", "", "Continente", "Hambúrguer Powered By Plants Continente", "Frescos", "Take-Away", "Vegetariano e Vegan", "Pronto a Cozinhar", "", "", "", "", "", "", "2 un x 100 gr (200 gr)", "3.59", "3.59", "17.95", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/hamburguer-powered-by-plants-continente-7421333.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwdb8331af/images/col/742/7421333-frente.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "8897646", "", "", "Continente Seleção", "Tábua Italiana Continente Seleção", "Frescos", "Charcutaria", "Tábuas e Aperitivos", "", "", "", "", "", "", "", "emb. 280 g", "11.59", "9.85", "35.18", "kg", "-15%", "", "", "Disponível", "https://www.continente.pt/produto/tabua-italiana-continente-selecao-8897646.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwf7d232b6/images/col/889/8897646-frente.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "4517263", "", "", "Continente", "Picanha de Bovino América do Sul Inteira Continente", "Frescos", "Talho", "Novilho, Vitela e Vitelão", "", "", "", "", "", "", "", "emb. 1,5 kg (aprox.)", "19.99", "19.99", "29.99", "un", "", "", "", "Disponível", "https://www.continente.pt/produto/picanha-de-bovino-america-do-sul-inteira-continente-4517263.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwc233a8e6/images/col/451/4517263-frente.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "6872502", "", "", "Continente", "Cabaz de Frutas da Época Continente", "Frescos", "Frutas", "Cabazes de Frutas e Legumes", "", "", "", "", "", "", "", "emb. 5 kg", "18.99", "18.99", "3.80", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/cabaz-de-frutas-da-epoca-continente-6872502.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw5033a17b/images/col/687/6872502-cima.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "8716957", "", "", "Pastelaria Careca", "Croissant Edição Especial Pastelaria Careca", "Frescos", "Padaria e Pastelaria", "Croissants e Pães de Leite", "", "", "", "", "", "", "", "Quant. Mínima = 2 un", "0.99", "0.99", "9.43", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/croissant-edicao-especial-pastelaria-careca-8716957.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw2cf6d823/images/col/871/8716957-cima-acessorio.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "7740959", "", "", "Cozinha Continente", "Bacalhau à Gomes de Sá Cozinha Continente", "Frescos", "Take-Away", "Refeições Prontas", "", "", "", "", "", "", "", "emb. 300 gr", "4.29", "4.29", "14.30", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/bacalhau-a-gomes-de-sa-cozinha-continente-7740959.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw1a92a628/images/col/774/7740959-topshot.jpg?sw=280&sh=280"], ["continente.pt", "2026-09-19", "PRT", "EUR", "", "7371652", "", "", "", "Pão de Abóbora e Nozes", "Frescos", "Padaria e Pastelaria", "Pão do Dia e Broa", "", "", "", "", "", "", "", "Quant. Mínima = 2 un", "0.49", "0.49", "4.90", "kg", "", "", "", "Disponível", "https://www.continente.pt/produto/pao-de-abobora-e-nozes-7371652.html", "https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dw885e640d/images/col/737/7371652-cima-acessorio.png?sw=280&sh=280"]]}, "farfetch": {"headers": ["﻿﻿website_name", "competence_date", "country_code", "currency_code", "brand", "product_title", "product_code", "sku", "category1", "category2", "category3", "gender", "color", "size", "full_price", "price", "currency", "discount_pct", "in_stock", "composition", "made_in", "season", "care_instructions", "description", "itemurl", "imageurl1", "imageurl2", "imageurl3", "imageurl4", "imageurl5", "designer_style_id", "model_measurements", "supplier_color", "breadcrumbs", "raw_html_url"], "rows": [["farfetch.com", "2026-09-20", "USA", "USD", "Jacquemus", "woven knot detail tote bag", "35233400", "35233400", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "1865", "1865", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Jacquemus - woven knot detail tote bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/jacquemus-woven-knot-detail-tote-bag-item-35233400.aspx", "https://cdn-images.farfetch-contents.com/35/23/34/00/35233400_66672994_480.jpg?ov=true", "", "", "", "", "35233400", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "DeMellier", "The Hudson brown tote bag", "32363001", "32363001", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "674", "674", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "DeMellier - The Hudson brown tote bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/demellier-the-hudson-brown-tote-bag-item-32363001.aspx", "https://cdn-images.farfetch-contents.com/32/36/30/01/32363001_63810215_480.jpg?ov=true", "", "", "", "", "32363001", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "Valentino Garavani", "Antibes small embroidered denim shopping bag", "34057167", "34057167", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "2550", "2550", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Valentino Garavani - Antibes small embroidered denim shopping bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/valentino-garavani-antibes-small-embroidered-denim-shopping-bag-item-34057167.aspx", "https://cdn-images.farfetch-contents.com/34/05/71/67/34057167_67949778_480.jpg?ov=true", "", "", "", "", "34057167", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "ISABEL MARANT", "Maia medium bag", "34000136", "34000136", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "1430", "1430", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "ISABEL MARANT - Maia medium bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/isabel-marant-maia-medium-bag-item-34000136.aspx", "https://cdn-images.farfetch-contents.com/34/00/01/36/34000136_65195696_480.jpg?ov=true", "", "", "", "", "34000136", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "Proenza Schouler", "Days mesh tote bag", "34017376", "34017376", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "1270", "1270", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Proenza Schouler - Days mesh tote bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/proenza-schouler-days-mesh-tote-bag-item-34017376.aspx", "https://cdn-images.farfetch-contents.com/34/01/73/76/34017376_65242952_480.jpg?ov=true", "", "", "", "", "34017376", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "Jacquemus", "Spiaggia small round bag", "32426014", "32426014", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "432", "432", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Jacquemus - Spiaggia small round bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/jacquemus-spiaggia-small-round-bag-item-32426014.aspx", "https://cdn-images.farfetch-contents.com/32/42/60/14/32426014_65681752_480.jpg?ov=true", "", "", "", "", "32426014", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "DRAGON DIFFUSION", "Santa Croce tote bag", "18604018", "18604018", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "381", "381", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "DRAGON DIFFUSION - Santa Croce tote bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/dragon-diffusion-santa-croce-tote-bag-item-18604018.aspx", "https://cdn-images.farfetch-contents.com/18/60/40/18/18604018_40243127_480.jpg?ov=true", "", "", "", "", "18604018", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "Dolce & Gabbana", "medium Vittoria handbag with embroidery", "33409738", "33409738", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "8995", "8995", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Dolce & Gabbana - medium Vittoria handbag with embroidery. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/dolce-gabbana-medium-vittoria-handbag-with-embroidery-item-33409738.aspx", "https://cdn-images.farfetch-contents.com/33/40/97/38/33409738_65742839_480.jpg?ov=true", "", "", "", "", "33409738", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "Balmain", "medium Anthem bag in calfskin leather", "33755598", "33755598", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "2020", "2020", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "Balmain - medium Anthem bag in calfskin leather. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/balmain-medium-anthem-bag-in-calfskin-leather-item-33755598.aspx", "https://cdn-images.farfetch-contents.com/33/75/55/98/33755598_64681975_480.jpg?ov=true", "", "", "", "", "33755598", "", "Neutral", "Women > Bags > Designer Handbags", ""], ["farfetch.com", "2026-09-20", "USA", "USD", "The Attico", "La Passeggiata top-handle mini tote bag", "32705467", "32705467", "Women", "Bags", "Tote & Shoulder Bags", "Female", "Multi/Neutral", "OS", "1394", "1394", "USD", "0", "true", "Calf Leather / Premium Suede", "Italy", "FW26", "Specialist Leather Clean", "The Attico - La Passeggiata top-handle mini tote bag. Crafted with exceptional artisan materials.", "https://www.farfetch.com/vn/shopping/women/the-attico-la-passeggiata-top-handle-mini-tote-bag-item-32705467.aspx", "https://cdn-images.farfetch-contents.com/32/70/54/67/32705467_65842181_480.jpg?ov=true", "", "", "", "", "32705467", "", "Neutral", "Women > Bags > Designer Handbags", ""]]}, "rightmove": {"headers": ["﻿website_name", "competence_date", "country_code", "currency_code", "listing_id", "operation_type", "property_type", "title", "price", "price_original", "price_per_sqm", "area_sqm", "rooms", "bathrooms", "floor", "has_elevator", "has_parking", "has_terrace", "has_garden", "has_pool", "energy_certificate", "region", "city", "neighborhood", "address_raw", "latitude", "longitude", "agency_name", "contact_phone", "description", "itemurl", "imageurl"], "rows": [["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "92992899", "sale", "Flat", "Flat in Catkin Road, London, NW9", "144000", "144000", "2057.14", "70.0", "1", "1", "", "", "", "", "", "", "", "Greater London", "London", "Catkin Road, London, NW9", "Catkin Road, London, NW9", "51.5074", "-0.1278", "Bairstow Eves, North Finchley", "", "30% share price. A fantastic one bedroom duplex maisonette with two terraces is now available. In the heart of North London, make way for a modern landmark development with a new urban community setting new standards for Shared Ownership. All crafted with quality ...", "https://www.rightmove.co.uk/properties/92992899", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "92992899", "sale", "Flat", "Flat in Catkin Road, London, NW9", "144000", "144000", "2057.14", "70.0", "1", "1", "", "", "", "", "", "", "", "Greater London", "London", "Catkin Road, London, NW9", "Catkin Road, London, NW9", "51.5074", "-0.1278", "Bairstow Eves, North Finchley", "", "30% share price. A fantastic one bedroom duplex maisonette with two terraces is now available. In the heart of North London, make way for a modern landmark development with a new urban community setting new standards for Shared Ownership. All crafted with quality ...", "https://www.rightmove.co.uk/properties/92992899", "https://media.rightmove.co.uk/dir/crop/10:9-16:9/property-photo/b94ebe6d8/92992899/b94ebe6d86f957364dc8830bac57b647_max_476x317.jpeg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "148711631", "sale", "Apartment", "Apartment in One Hyde Park, Knightsbridge, London, SW1X", "60000000", "60000000", "352941.18", "170.0", "5", "1", "", "", "", "", "", "", "", "Greater London", "London", "One Hyde Park, Knightsbridge, London, SW1X", "One Hyde Park, Knightsbridge, London, SW1X", "51.5074", "-0.1278", "Global 1, London", "", "A magnificent five-bedroom lateral apartment occupying the entire floor plate within One Hyde Park Knightsbridge, the most distinguished and exclusive developments in the world, designed for luxurious living on a grand scale.", "https://www.rightmove.co.uk/properties/148711631", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/camera-white.579a6efc.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "148711631", "sale", "Apartment", "Apartment in One Hyde Park, Knightsbridge, London, SW1X", "60000000", "60000000", "352941.18", "170.0", "5", "1", "", "", "", "", "", "", "", "Greater London", "London", "One Hyde Park, Knightsbridge, London, SW1X", "One Hyde Park, Knightsbridge, London, SW1X", "51.5074", "-0.1278", "Global 1, London", "", "A magnificent five-bedroom lateral apartment occupying the entire floor plate within One Hyde Park Knightsbridge, the most distinguished and exclusive developments in the world, designed for luxurious living on a grand scale.", "https://www.rightmove.co.uk/properties/148711631", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/camera-white.579a6efc.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "155320229", "sale", "Flat", "Flat in Avenue Road, St Johns Wood, London, NW8", "49950000", "49950000", "169322.03", "295.0", "10", "1", "", "", "", "", "", "", "", "Greater London", "London", "Avenue Road, St Johns Wood, London, NW8", "Avenue Road, St Johns Wood, London, NW8", "51.5074", "-0.1278", "United Kingdom Sotheby's International Realty, St Johns Wood", "", "Striking family home in the heart of St John's Wood", "https://www.rightmove.co.uk/properties/155320229", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "155320229", "sale", "Flat", "Flat in Avenue Road, St Johns Wood, London, NW8", "49950000", "49950000", "169322.03", "295.0", "10", "1", "", "", "", "", "", "", "", "Greater London", "London", "Avenue Road, St Johns Wood, London, NW8", "Avenue Road, St Johns Wood, London, NW8", "51.5074", "-0.1278", "United Kingdom Sotheby's International Realty, St Johns Wood", "", "Striking family home in the heart of St John's Wood", "https://www.rightmove.co.uk/properties/155320229", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "171185315", "sale", "Flat", "Flat in Balfour Place, Mayfair, London, W1K", "49500000", "49500000", "225000.0", "220.0", "7", "1", "", "", "", "", "", "", "", "Greater London", "London", "Balfour Place, Mayfair, London, W1K", "Balfour Place, Mayfair, London, W1K", "51.5074", "-0.1278", "OB Private, Mayfair", "", "A grand double fronted townhouse in the heart of the Mayfair Village, Balfour House is arguably the best house in Mayfair. With beautiful proportioned accommodation, triple aspect windows to the south, east and west, a lift to every floor and large roof terrace, the house retains the feel of a co...", "https://www.rightmove.co.uk/properties/171185315", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "171185315", "sale", "Flat", "Flat in Balfour Place, Mayfair, London, W1K", "49500000", "49500000", "225000.0", "220.0", "7", "1", "", "", "", "", "", "", "", "Greater London", "London", "Balfour Place, Mayfair, London, W1K", "Balfour Place, Mayfair, London, W1K", "51.5074", "-0.1278", "OB Private, Mayfair", "", "A grand double fronted townhouse in the heart of the Mayfair Village, Balfour House is arguably the best house in Mayfair. With beautiful proportioned accommodation, triple aspect windows to the south, east and west, a lift to every floor and large roof terrace, the house retains the feel of a co...", "https://www.rightmove.co.uk/properties/171185315", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "152205953", "sale", "Flat", "Flat in Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "47000000", "47000000", "241025.64", "195.0", "6", "1", "", "", "", "", "", "", "", "Greater London", "London", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "51.5074", "-0.1278", "United Kingdom Sotheby's International Realty, Knightsbridge", "", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "https://www.rightmove.co.uk/properties/152205953", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"], ["rightmove.co.uk", "2026-09-20", "GBR", "GBP", "152205953", "sale", "Flat", "Flat in Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "47000000", "47000000", "241025.64", "195.0", "6", "1", "", "", "", "", "", "", "", "Greater London", "London", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "51.5074", "-0.1278", "United Kingdom Sotheby's International Realty, Knightsbridge", "", "Whistler Square, Chelsea Barracks, London, SW1W, United Kingdom", "https://www.rightmove.co.uk/properties/152205953", "https://media.rightmove.co.uk/assets/7bb483729b5a8e26f73e1831cde5b842/_next/static/media/floorplan-white.97dae32e.svg"]]}};
+
 const DATASET_SPECS = {
   idealista: {
     name: 'Idealista Portugal Real Estate Property Feed',
@@ -807,74 +809,128 @@ function parseCSV(text) {
 }
 
 // Open dataset inspector modal
-async function openDatasetModal(datasetKey) {
+// Helper: render sample table with sanitized rows
+function renderSampleTable(spec, headers, rows) {
+  const tableContainer = document.getElementById('modal-table-container');
+  if (!tableContainer) return;
+
+  const targetCols = spec.displayCols || headers.slice(0, 10);
+  const colIndices = targetCols.map(c => headers.indexOf(c)).filter(idx => idx !== -1);
+
+  let tableHTML = '<table class="modal-table"><thead><tr>';
+  colIndices.forEach(idx => {
+    tableHTML += `<th>${headers[idx]}</th>`;
+  });
+  tableHTML += '</tr></thead><tbody>';
+
+  const sampleRows = rows.slice(0, 10);
+  sampleRows.forEach(r => {
+    tableHTML += '<tr>';
+    colIndices.forEach(idx => {
+      const val = r[idx] || '—';
+      tableHTML += `<td>${val}</td>`;
+    });
+    tableHTML += '</tr>';
+  });
+  tableHTML += '</tbody></table>';
+  tableContainer.innerHTML = tableHTML;
+}
+
+// Open dataset inspector modal (Instant embedded render + resilient download)
+function openDatasetModal(datasetKey) {
   const spec = DATASET_SPECS[datasetKey];
   if (!spec) return;
 
   const modal = document.getElementById('dataset-modal');
   const badgeEl = document.getElementById('modal-badge');
   const titleEl = document.getElementById('modal-title');
-  const tableContainer = document.getElementById('modal-table-container');
   const schemaContainer = document.getElementById('modal-schema-container');
   const downloadBtn = document.getElementById('modal-download-btn');
   const licenseBtn = document.getElementById('modal-license-btn');
 
-  badgeEl.textContent = spec.badge;
-  titleEl.textContent = spec.name;
-  downloadBtn.setAttribute('href', spec.csvUrl);
-  downloadBtn.setAttribute('download', spec.filename);
-  licenseBtn.setAttribute('href', 'mailto:hung@hlpdata.com?subject=' + encodeURIComponent(spec.subject));
+  if (badgeEl) badgeEl.textContent = spec.badge;
+  if (titleEl) titleEl.textContent = spec.name;
+  if (licenseBtn) licenseBtn.setAttribute('href', 'mailto:hung@hlpdata.com?subject=' + encodeURIComponent(spec.subject));
 
   // Reset tabs to sample data
   document.querySelectorAll('.modal-tab').forEach(t => {
     t.classList.toggle('active', t.getAttribute('data-tab') === 'sample');
   });
-  document.getElementById('pane-sample').classList.add('active');
-  document.getElementById('pane-schema').classList.remove('active');
+  const paneSample = document.getElementById('pane-sample');
+  const paneSchema = document.getElementById('pane-schema');
+  if (paneSample) paneSample.classList.add('active');
+  if (paneSchema) paneSchema.classList.remove('active');
 
-  // Render schema tab immediately
-  let schemaHTML = '<table class="modal-table"><thead><tr><th>Field Name</th><th>Data Type</th><th>Fill Rate SLA</th><th>Description</th></tr></thead><tbody>';
-  spec.schema.forEach(row => {
-    schemaHTML += `<tr><td><strong>${row.field}</strong></td><td><span class="badge-tag">${row.type}</span></td><td><span class="text-emerald font-mono">${row.fill}</span></td><td>${row.desc}</td></tr>`;
-  });
-  schemaHTML += '</tbody></table>';
-  schemaContainer.innerHTML = schemaHTML;
-
-  // Render sample data table with loading state
-  tableContainer.innerHTML = '<div style="padding: 2.5rem; text-align: center; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Loading sanitized sample feed...</div>';
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-
-  try {
-    const res = await fetch(spec.csvUrl);
-    const text = await res.text();
-    const { headers, rows } = parseCSV(text);
-
-    // Pick display columns or first 10 columns
-    const targetCols = spec.displayCols || headers.slice(0, 10);
-    const colIndices = targetCols.map(c => headers.indexOf(c)).filter(idx => idx !== -1);
-
-    let tableHTML = '<table class="modal-table"><thead><tr>';
-    colIndices.forEach(idx => {
-      tableHTML += `<th>${headers[idx]}</th>`;
+  // Render schema tab
+  if (schemaContainer) {
+    let schemaHTML = '<table class="modal-table"><thead><tr><th>Field Name</th><th>Data Type</th><th>Fill Rate SLA</th><th>Description</th></tr></thead><tbody>';
+    spec.schema.forEach(row => {
+      schemaHTML += `<tr><td><strong>${row.field}</strong></td><td><span class="badge-tag">${row.type}</span></td><td><span class="text-emerald font-mono">${row.fill}</span></td><td>${row.desc}</td></tr>`;
     });
-    tableHTML += '</tr></thead><tbody>';
+    schemaHTML += '</tbody></table>';
+    schemaContainer.innerHTML = schemaHTML;
+  }
 
-    const sampleRows = rows.slice(0, 10);
-    sampleRows.forEach(r => {
-      tableHTML += '<tr>';
-      colIndices.forEach(idx => {
-        const val = r[idx] || '—';
-        tableHTML += `<td>${val}</td>`;
+  // 1. INSTANT RENDER FROM EMBEDDED CACHE (0ms latency, zero point of failure)
+  const embedded = EMBEDDED_SAMPLES[datasetKey];
+  if (embedded && embedded.headers && embedded.rows) {
+    renderSampleTable(spec, embedded.headers, embedded.rows);
+  }
+
+  // 2. CONFIGURE DOWNLOAD BUTTON (with instant Blob fallback for file:// or offline)
+  if (downloadBtn) {
+    downloadBtn.setAttribute('href', spec.csvUrl);
+    downloadBtn.setAttribute('download', spec.filename);
+    downloadBtn.onclick = function(e) {
+      if (window.location.protocol === 'file:' || !window.navigator.onLine) {
+        e.preventDefault();
+        try {
+          if (embedded && embedded.headers && embedded.rows) {
+            const csvRows = [embedded.headers.join(';')];
+            embedded.rows.forEach(r => csvRows.push(r.join(';')));
+            const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            const blobUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = spec.filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+          }
+        } catch(err) {
+          window.open(spec.csvUrl, '_blank');
+        }
+      }
+    };
+  }
+
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // 3. PROGRESSIVE ENHANCEMENT: Fetch live CSV if online (never break UI on error)
+  if (window.location.protocol !== 'file:') {
+    fetch(spec.csvUrl)
+      .then(res => res.ok ? res.text() : null)
+      .then(text => {
+        if (!text) return;
+        const { headers, rows } = parseCSV(text);
+        if (headers && headers.length > 0 && rows && rows.length > 0) {
+          renderSampleTable(spec, headers, rows);
+        }
+      })
+      .catch(err => {
+        console.debug('Live fetch skipped, using embedded dataset:', err);
       });
-      tableHTML += '</tr>';
-    });
-    tableHTML += '</tbody></table>';
-    tableContainer.innerHTML = tableHTML;
-  } catch(err) {
-    tableContainer.innerHTML = '<div style="padding: 2rem; color: #ef4444; text-align: center;">Failed to load sample dataset. Please use direct download below.</div>';
   }
 }
+
+// Expose globally
+window.openDatasetModal = openDatasetModal;
+window.closeDatasetModal = closeDatasetModal;
+window.renderSampleTable = renderSampleTable;
 
 function closeDatasetModal() {
   const modal = document.getElementById('dataset-modal');
