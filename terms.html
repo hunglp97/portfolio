@@ -7,6 +7,21 @@
   <meta name="description" content="Terms of Service, Ethical Crawling Standards, and Data Compliance Policy for HLP Data.">
   <link rel="canonical" href="https://hlpdata.com/terms.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,5 +163,6 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

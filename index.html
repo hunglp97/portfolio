@@ -8,6 +8,20 @@
   <link rel="canonical" href="https://hlpdata.com/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
   
   <!-- OpenGraph / Social Metadata -->
   <meta property="og:type" content="website">
@@ -115,15 +129,27 @@
       </a>
 
       <nav class="nav">
-        <a href="#datasets" class="nav-link">Datasets</a>
-        <a href="#pipeline" class="nav-link">Architecture</a>
-        <a href="#stack" class="nav-link">Stack</a>
-        <a href="#experience" class="nav-link">Track Record</a>
+        <a href="#datasets" class="nav-link" data-i18n="nav_datasets">Datasets</a>
+        <a href="#pipeline" class="nav-link" data-i18n="nav_pipeline">Architecture</a>
+        <a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_experience">Track Record</a>
       </nav>
 
       <div class="header-actions">
+        <!-- Theme & Language Switchers -->
+        <div class="control-group">
+          <div class="lang-switcher" role="group" aria-label="Language selection">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button>
+            <button type="button" class="lang-btn" data-lang="vi">VI</button>
+          </div>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa-regular fa-sun theme-icon-sun"></i>
+            <i class="fa-regular fa-moon theme-icon-moon"></i>
+          </button>
+        </div>
+
         <a href="mailto:hung@hlpdata.com" class="btn-sm btn-primary">
-          <i class="fa-regular fa-envelope"></i> Contact
+          <i class="fa-regular fa-envelope"></i> <span data-i18n="nav_contact_btn">Contact</span>
         </a>
         <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
           <i class="fa-solid fa-bars"></i>
@@ -133,11 +159,22 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav" class="mobile-nav hidden">
-      <a href="#datasets" class="mobile-link">Datasets</a>
-      <a href="#pipeline" class="mobile-link">Architecture</a>
-      <a href="#stack" class="mobile-link">Stack</a>
-      <a href="#experience" class="mobile-link">Track Record</a>
-      <a href="mailto:hung@hlpdata.com" class="mobile-link highlight">Contact Me</a>
+      <a href="#datasets" class="mobile-link" data-i18n="nav_datasets">Datasets</a>
+      <a href="#pipeline" class="mobile-link" data-i18n="nav_pipeline">Architecture</a>
+      <a href="#stack" class="mobile-link" data-i18n="nav_stack">Stack</a>
+      <a href="#experience" class="mobile-link" data-i18n="nav_experience">Track Record</a>
+      <a href="mailto:hung@hlpdata.com" class="mobile-link highlight" data-i18n="mobile_contact_me">Contact Me</a>
+      
+      <div class="mobile-controls">
+        <div class="lang-switcher" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="vi">VI</button>
+        </div>
+        <button type="button" class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -149,26 +186,26 @@
         
         <div class="status-pill">
           <span class="pulse-dot"></span>
-          <span>Available for Data Engineering & Cloud Crawler Contracts</span>
+          <span data-i18n="hero_status">Available for Data Engineering & Cloud Crawler Contracts</span>
         </div>
 
-        <h1 class="hero-headline">
+        <h1 class="hero-headline" data-i18n="hero_headline">
           Data engineer building resilient web crawlers & cloud feeds.
         </h1>
 
-        <p class="hero-subtext">
+        <p class="hero-subtext" data-i18n="hero_subtext">
           I build autonomous collection pipelines that overcome modern anti-bot systems (Turnstile, WAF) and deliver verified, 100% schema-compliant datasets directly into AWS S3.
         </p>
 
         <div class="hero-cta-group">
-          <a href="#datasets" class="btn btn-primary">
+          <a href="#datasets" class="btn btn-primary" data-i18n="hero_cta_explore">
             Explore Datasets
           </a>
-          <a href="mailto:hung@hlpdata.com" class="btn btn-secondary">
+          <a href="mailto:hung@hlpdata.com" class="btn btn-secondary" data-i18n="hero_cta_hire">
             Hire / Request Data
           </a>
           <button onclick="window.print()" class="btn btn-ghost" title="Save resume as PDF">
-            <i class="fa-solid fa-file-arrow-down"></i> Print CV
+            <i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="hero_cta_cv">Print CV</span>
           </button>
         </div>
 
@@ -176,22 +213,22 @@
         <div class="hero-metrics">
           <div class="metric-cell">
             <span class="metric-val">3,140+</span>
-            <span class="metric-lbl">Properties (PT & UK)</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_1">Properties (PT & UK)</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
             <span class="metric-val">2,179+</span>
-            <span class="metric-lbl">SKUs (Retail & Luxury)</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_2">SKUs (Retail & Luxury)</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
             <span class="metric-val">100 / 100</span>
-            <span class="metric-lbl">Buyer Audit Score</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_3">Buyer Audit Score</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
             <span class="metric-val">0</span>
-            <span class="metric-lbl">PII Exposure (Strict B2B)</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_4">PII Exposure (Strict B2B)</span>
           </div>
         </div>
 
@@ -206,7 +243,7 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <span class="terminal-title">buyer_audit.sh &bull; active</span>
+            <span class="terminal-title" data-i18n="terminal_title">buyer_audit.sh &bull; active</span>
           </div>
           <div class="terminal-body font-mono">
             <div class="term-line"><span class="term-prompt">$</span> python3 buyer_audit.py --full-suite</div>
@@ -220,8 +257,8 @@
             <div class="term-cursor">&gt; awaiting next scheduled ingestion...</div>
           </div>
           <div class="terminal-footer">
-            <span class="footer-tag"><i class="fa-solid fa-server"></i> Native AppleScript + CDP Engine</span>
-            <span class="footer-tag"><i class="fa-brands fa-aws"></i> S3 Ingestion Ready</span>
+            <span class="footer-tag"><i class="fa-solid fa-server"></i> <span data-i18n="terminal_tag_engine">Native AppleScript + CDP Engine</span></span>
+            <span class="footer-tag"><i class="fa-brands fa-aws"></i> <span data-i18n="terminal_tag_s3">S3 Ingestion Ready</span></span>
           </div>
         </div>
       </div>
@@ -230,8 +267,8 @@
     <!-- LIVE DATASETS SECTION: Real data products, not placeholders -->
     <section id="datasets" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading">Verified Datasets & Deliverables</h2>
-        <p class="section-desc">Production-grade datasets extracted, validated, and packaged for commercial delivery.</p>
+        <h2 class="section-heading" data-i18n="datasets_heading">Verified Datasets & Deliverables</h2>
+        <p class="section-desc" data-i18n="datasets_desc">Production-grade datasets extracted, validated, and packaged for commercial delivery.</p>
       </div>
 
       <div class="datasets-grid">
@@ -239,20 +276,20 @@
         <!-- Dataset 1: Idealista -->
         <article class="dataset-card">
           <div class="dataset-top">
-            <span class="badge-tag">Real Estate &bull; Portugal</span>
-            <span class="badge-status">Commercial Ready</span>
+            <span class="badge-tag" data-i18n="ds1_badge">Real Estate &bull; Portugal</span>
+            <span class="badge-status" data-i18n="ds1_status">Commercial Ready</span>
           </div>
-          <h3 class="dataset-name">Idealista Portugal Nationwide Feed</h3>
-          <p class="dataset-summary">
+          <h3 class="dataset-name" data-i18n="ds1_name">Idealista Portugal Nationwide Feed</h3>
+          <p class="dataset-summary" data-i18n="ds1_summary">
             Structured real estate catalog spanning 13 Portuguese districts (Lisboa, Porto, Algarve, Setúbal, Braga, Coimbra, etc.). Includes square-meter valuation, bedrooms, floor elevations, terrace/garage amenities, and normalized geocodes.
           </p>
           
           <div class="dataset-table-preview">
             <div class="table-row table-header">
-              <span>Sample Property</span>
-              <span>Price</span>
-              <span>Area</span>
-              <span>Region</span>
+              <span data-i18n="ds1_th_prop">Sample Property</span>
+              <span data-i18n="ds1_th_price">Price</span>
+              <span data-i18n="ds1_th_area">Area</span>
+              <span data-i18n="ds1_th_region">Region</span>
             </div>
             <div class="table-row">
               <span class="text-truncate">Apartamento T2 Campo de Ourique</span>
@@ -273,20 +310,20 @@
               <span>Faro / Algarve</span>
             </div>
             <div class="table-preview-footer">
-              <span class="preview-tag">🔒 Sample Preview: 3 of 2,640 records</span>
-              <span>Full commercial feed delivered via private S3 / API</span>
+              <span class="preview-tag" data-i18n="ds1_preview_tag">🔒 Sample Preview: 3 of 2,640 records</span>
+              <span data-i18n="ds1_preview_footer">Full commercial feed delivered via private S3 / API</span>
             </div>
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>2,640</strong> records</div>
-            <div class="meta-item"><strong>32</strong> columns</div>
+            <div class="meta-item" data-i18n-html="ds1_meta_records"><strong>2,640</strong> records</div>
+            <div class="meta-item" data-i18n-html="ds1_meta_cols"><strong>32</strong> columns</div>
             <div class="meta-item"><strong>REAL-ESTATE-BASIC</strong></div>
-            <div class="meta-item"><strong>Daily/Weekly</strong> feed</div>
+            <div class="meta-item" data-i18n-html="ds1_meta_freq"><strong>Daily/Weekly</strong> feed</div>
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary">
+            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary" data-i18n="ds1_btn">
               Request Sample / Purchase
             </a>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
@@ -296,20 +333,20 @@
         <!-- Dataset 2: Continente -->
         <article class="dataset-card">
           <div class="dataset-top">
-            <span class="badge-tag">Retail & FMCG &bull; Portugal</span>
-            <span class="badge-status approved">Verified Commercial Feed</span>
+            <span class="badge-tag" data-i18n="ds2_badge">Retail & FMCG &bull; Portugal</span>
+            <span class="badge-status approved" data-i18n="ds2_status">Verified Commercial Feed</span>
           </div>
-          <h3 class="dataset-name">Continente Supermarket FMCG Catalog</h3>
-          <p class="dataset-summary">
+          <h3 class="dataset-name" data-i18n="ds2_name">Continente Supermarket FMCG Catalog</h3>
+          <p class="dataset-summary" data-i18n="ds2_summary">
             Full-spectrum pricing and product intelligence for Portugal's leading supermarket chain. Features 3-tier category taxonomy, promotional markdown tracking, unit prices (€/kg, €/L), and packaging dimensions.
           </p>
 
           <div class="dataset-table-preview">
             <div class="table-row table-header">
-              <span>SKU / Product</span>
-              <span>Standard</span>
-              <span>Promo</span>
-              <span>Unit Price</span>
+              <span data-i18n="ds2_th_sku">SKU / Product</span>
+              <span data-i18n="ds2_th_std">Standard</span>
+              <span data-i18n="ds2_th_promo">Promo</span>
+              <span data-i18n="ds2_th_unit">Unit Price</span>
             </div>
             <div class="table-row">
               <span class="text-truncate">Azeite Virgem Extra Oliveira 750ml</span>
@@ -330,20 +367,20 @@
               <span class="text-mono">€16.63/kg</span>
             </div>
             <div class="table-preview-footer">
-              <span class="preview-tag">🔒 Sample Preview: 3 of 2,059 SKUs</span>
-              <span>Full commercial feed delivered via private S3 / API</span>
+              <span class="preview-tag" data-i18n="ds2_preview_tag">🔒 Sample Preview: 3 of 2,059 SKUs</span>
+              <span data-i18n="ds2_preview_footer">Full commercial feed delivered via private S3 / API</span>
             </div>
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>2,059</strong> SKUs</div>
-            <div class="meta-item"><strong>31</strong> columns</div>
+            <div class="meta-item" data-i18n-html="ds2_meta_records"><strong>2,059</strong> SKUs</div>
+            <div class="meta-item" data-i18n-html="ds2_meta_cols"><strong>31</strong> columns</div>
             <div class="meta-item"><strong>GROCERY-PLP</strong></div>
-            <div class="meta-item"><strong>S3 verified</strong></div>
+            <div class="meta-item" data-i18n-html="ds2_meta_s3"><strong>S3 verified</strong></div>
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary">
+            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary" data-i18n="ds2_btn">
               Request Sample / Purchase
             </a>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
@@ -353,20 +390,20 @@
         <!-- Dataset 3: Farfetch Luxury Fashion -->
         <article class="dataset-card">
           <div class="dataset-top">
-            <span class="badge-tag">Luxury Fashion &bull; Global</span>
-            <span class="badge-status approved">Buyer Audit: 100/100</span>
+            <span class="badge-tag" data-i18n="ds3_badge">Luxury Fashion &bull; Global</span>
+            <span class="badge-status approved" data-i18n="ds3_status">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name">Farfetch Global Luxury Fashion & Designer Feed</h3>
-          <p class="dataset-summary">
+          <h3 class="dataset-name" data-i18n="ds3_name">Farfetch Global Luxury Fashion & Designer Feed</h3>
+          <p class="dataset-summary" data-i18n="ds3_summary">
             Curated catalog of 120 verified luxury items across premier fashion houses: Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, Saint Laurent, Christian Louboutin, Tom Ford, and Moncler. Strict 35-attribute FASHION-PDP schema with original prices, sale discounts, multi-currency values, stock availability, and image links.
           </p>
 
           <div class="dataset-table-preview">
             <div class="table-row table-header">
-              <span>Brand / Item</span>
-              <span>Price (USD)</span>
-              <span>Category</span>
-              <span>Origin</span>
+              <span data-i18n="ds3_th_brand">Brand / Item</span>
+              <span data-i18n="ds3_th_price">Price (USD)</span>
+              <span data-i18n="ds3_th_cat">Category</span>
+              <span data-i18n="ds3_th_origin">Origin</span>
             </div>
             <div class="table-row">
               <span class="text-truncate">Jacquemus Woven Knot Tote</span>
@@ -387,20 +424,20 @@
               <span>USA</span>
             </div>
             <div class="table-preview-footer">
-              <span class="preview-tag">🔒 Sample Preview: 3 of 120 items</span>
-              <span>Full commercial feed delivered via private S3 / API</span>
+              <span class="preview-tag" data-i18n="ds3_preview_tag">🔒 Sample Preview: 3 of 120 items</span>
+              <span data-i18n="ds3_preview_footer">Full commercial feed delivered via private S3 / API</span>
             </div>
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>120</strong> verified SKUs</div>
-            <div class="meta-item"><strong>35</strong> cols (FASHION-PDP)</div>
-            <div class="meta-item"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item" data-i18n-html="ds3_meta_records"><strong>120</strong> verified SKUs</div>
+            <div class="meta-item" data-i18n-html="ds3_meta_cols"><strong>35</strong> cols (FASHION-PDP)</div>
+            <div class="meta-item" data-i18n-html="ds3_meta_audit"><strong>100 / 100</strong> Buyer Audit</div>
             <div class="meta-item"><strong>Jacquemus, Valentino, Balmain+</strong></div>
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary">
+            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary" data-i18n="ds3_btn">
               Request Sample / Purchase
             </a>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
@@ -410,20 +447,20 @@
         <!-- Dataset 4: Rightmove UK Real Estate -->
         <article class="dataset-card">
           <div class="dataset-top">
-            <span class="badge-tag">Real Estate &bull; United Kingdom</span>
-            <span class="badge-status approved">Buyer Audit: 100/100</span>
+            <span class="badge-tag" data-i18n="ds4_badge">Real Estate &bull; United Kingdom</span>
+            <span class="badge-status approved" data-i18n="ds4_status">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name">Rightmove London / UK Real Estate Intelligence</h3>
-          <p class="dataset-summary">
+          <h3 class="dataset-name" data-i18n="ds4_name">Rightmove London / UK Real Estate Intelligence</h3>
+          <p class="dataset-summary" data-i18n="ds4_summary">
             Comprehensive market intelligence covering 500 verified properties across Greater London and Prime Central London. Fully compliant with REAL-ESTATE-BASIC schema across all 32 required attributes: exact GPS latitude/longitude, living area sqm, sale prices, bedroom/bathroom breakdown, energy ratings, agency info, and floor plan links.
           </p>
 
           <div class="dataset-table-preview">
             <div class="table-row table-header">
-              <span>Property Location</span>
-              <span>Price</span>
-              <span>Beds</span>
-              <span>Agency</span>
+              <span data-i18n="ds4_th_loc">Property Location</span>
+              <span data-i18n="ds4_th_price">Price</span>
+              <span data-i18n="ds4_th_beds">Beds</span>
+              <span data-i18n="ds4_th_agency">Agency</span>
             </div>
             <div class="table-row">
               <span class="text-truncate">One Hyde Park, Knightsbridge</span>
@@ -444,20 +481,20 @@
               <span>OB Private</span>
             </div>
             <div class="table-preview-footer">
-              <span class="preview-tag">🔒 Sample Preview: 3 of 500 listings</span>
-              <span>Full commercial feed delivered via private S3 / API</span>
+              <span class="preview-tag" data-i18n="ds4_preview_tag">🔒 Sample Preview: 3 of 500 listings</span>
+              <span data-i18n="ds4_preview_footer">Full commercial feed delivered via private S3 / API</span>
             </div>
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>500</strong> verified properties</div>
-            <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
-            <div class="meta-item"><strong>100 / 100</strong> Buyer Audit</div>
-            <div class="meta-item"><strong>GPS & Floorplans</strong></div>
+            <div class="meta-item" data-i18n-html="ds4_meta_records"><strong>500</strong> verified properties</div>
+            <div class="meta-item" data-i18n-html="ds4_meta_cols"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
+            <div class="meta-item" data-i18n-html="ds4_meta_audit"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item" data-i18n-html="ds4_meta_gps"><strong>GPS & Floorplans</strong></div>
           </div>
 
           <div class="dataset-actions">
-            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Rightmove%20London%20Dataset" class="btn-sm btn-primary">
+            <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Rightmove%20London%20Dataset" class="btn-sm btn-primary" data-i18n="ds4_btn">
               Request Sample / Purchase
             </a>
             <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
@@ -470,16 +507,16 @@
     <!-- ARCHITECTURE & PIPELINE: Real engineering depth -->
     <section id="pipeline" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading">Extraction & Verification Architecture</h2>
-        <p class="section-desc">How data flows from target DOMs to enterprise-ready data lakes with zero human intervention.</p>
+        <h2 class="section-heading" data-i18n="pipeline_heading">Extraction & Verification Architecture</h2>
+        <p class="section-desc" data-i18n="pipeline_desc">How data flows from target DOMs to enterprise-ready data lakes with zero human intervention.</p>
       </div>
 
       <div class="pipeline-grid">
         
         <div class="pipeline-step">
           <div class="step-num">01</div>
-          <h4 class="step-title">Resilient Ingestion Engine</h4>
-          <p class="step-desc">
+          <h4 class="step-title" data-i18n="step1_title">Resilient Ingestion Engine</h4>
+          <p class="step-desc" data-i18n="step1_desc">
             Dual-engine architecture utilizing Chrome DevTools Protocol (CDP) combined with native OS-level AppleScript bridges. Bypasses Cloudflare Turnstile, browser fingerprinting, and dynamic canvas challenges with authentic human jitter.
           </p>
           <div class="step-chips">
@@ -491,8 +528,8 @@
 
         <div class="pipeline-step">
           <div class="step-num">02</div>
-          <h4 class="step-title">Strict Schema Validation</h4>
-          <p class="step-desc">
+          <h4 class="step-title" data-i18n="step2_title">Strict Schema Validation</h4>
+          <p class="step-desc" data-i18n="step2_desc">
             Automated quality gates check 100% of rows prior to release. Enforces strict schema definitions (e.g. 32-col Real Estate, 31-col FMCG), non-negative pricing bounds, geocode boundary validation, and UTF-8-SIG encoding with semicolon delimiters.
           </p>
           <div class="step-chips">
@@ -504,8 +541,8 @@
 
         <div class="pipeline-step">
           <div class="step-num">03</div>
-          <h4 class="step-title">Autonomous Cloud Delivery</h4>
-          <p class="step-desc">
+          <h4 class="step-title" data-i18n="step3_title">Autonomous Cloud Delivery</h4>
+          <p class="step-desc" data-i18n="step3_desc">
             Data is pushed directly into Amazon S3 storage buckets (`s3://enterprise-data-lake/feeds/...`). The pipeline monitors automated integrity checks and cloud handshakes to confirm delivery without manual oversight.
           </p>
           <div class="step-chips">
@@ -521,38 +558,38 @@
     <!-- TECHNICAL STACK & CAPABILITIES -->
     <section id="stack" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading">Core Technical Stack</h2>
-        <p class="section-desc">Tools, frameworks, and protocols deployed across daily operations.</p>
+        <h2 class="section-heading" data-i18n="stack_heading">Core Technical Stack</h2>
+        <p class="section-desc" data-i18n="stack_desc">Tools, frameworks, and protocols deployed across daily operations.</p>
       </div>
 
       <div class="stack-grid">
         <div class="stack-col">
-          <h4 class="stack-cat">Scraping & Automation</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat1">Scraping & Automation</h4>
           <ul class="stack-list">
-            <li><strong>Playwright & Puppeteer:</strong> Headless & headful automation</li>
-            <li><strong>CDP (Chrome DevTools Protocol):</strong> Low-level socket control</li>
-            <li><strong>macOS AppleScript Bridge:</strong> Native browser IPC</li>
-            <li><strong>BeautifulSoup4 / lxml / Scrapy:</strong> High-throughput DOM parsers</li>
+            <li data-i18n-html="stack_item_playwright"><strong>Playwright & Puppeteer:</strong> Headless & headful automation</li>
+            <li data-i18n-html="stack_item_cdp"><strong>CDP (Chrome DevTools Protocol):</strong> Low-level socket control</li>
+            <li data-i18n-html="stack_item_applescript"><strong>macOS AppleScript Bridge:</strong> Native browser IPC</li>
+            <li data-i18n-html="stack_item_bs4"><strong>BeautifulSoup4 / lxml / Scrapy:</strong> High-throughput DOM parsers</li>
           </ul>
         </div>
 
         <div class="stack-col">
-          <h4 class="stack-cat">Data & Cloud</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat2">Data & Cloud</h4>
           <ul class="stack-list">
-            <li><strong>Amazon S3 & AWS SDK (Boto3):</strong> Cloud data lake delivery</li>
-            <li><strong>Pandas & NumPy:</strong> Normalization & outlier filtration</li>
-            <li><strong>PostgreSQL & SQLite:</strong> Local staging & deduplication</li>
-            <li><strong>Docker & Bash:</strong> Autonomous daemons & scheduled cron</li>
+            <li data-i18n-html="stack_item_s3"><strong>Amazon S3 & AWS SDK (Boto3):</strong> Cloud data lake delivery</li>
+            <li data-i18n-html="stack_item_pandas"><strong>Pandas & NumPy:</strong> Normalization & outlier filtration</li>
+            <li data-i18n-html="stack_item_db"><strong>PostgreSQL & SQLite:</strong> Local staging & deduplication</li>
+            <li data-i18n-html="stack_item_docker"><strong>Docker & Bash:</strong> Autonomous daemons & scheduled cron</li>
           </ul>
         </div>
 
         <div class="stack-col">
-          <h4 class="stack-cat">Marketplaces & Protocols</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat3">Marketplaces & Protocols</h4>
           <ul class="stack-list">
-            <li><strong>Enterprise Data Feeds:</strong> High-volume commercial data feeds & automated delivery</li>
-            <li><strong>Datarade:</strong> Provider pipeline onboarding & enterprise feeds</li>
-            <li><strong>GDPR & Compliance:</strong> 100% public catalog data, zero PII</li>
-            <li><strong>PayPal Business:</strong> Verified commercial billing</li>
+            <li data-i18n-html="stack_item_databoutique"><strong>Enterprise Data Feeds:</strong> High-volume commercial data feeds & automated delivery</li>
+            <li data-i18n-html="stack_item_datarade"><strong>Datarade:</strong> Provider pipeline onboarding & enterprise feeds</li>
+            <li data-i18n-html="stack_item_compliance"><strong>GDPR & Compliance:</strong> 100% public catalog data, zero PII</li>
+            <li data-i18n-html="stack_item_paypal"><strong>PayPal Business:</strong> Verified commercial billing</li>
           </ul>
         </div>
       </div>
@@ -561,19 +598,19 @@
     <!-- TRACK RECORD & MILESTONES -->
     <section id="experience" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading">Track Record</h2>
-        <p class="section-desc">Professional journey in data engineering and automation.</p>
+        <h2 class="section-heading" data-i18n="record_heading">Track Record</h2>
+        <p class="section-desc" data-i18n="record_desc">Professional journey in data engineering and automation.</p>
       </div>
 
       <div class="timeline">
         <div class="timeline-row">
           <div class="timeline-meta">
             <span class="timeline-year">2024 — Present</span>
-            <span class="timeline-badge">Active</span>
+            <span class="timeline-badge" data-i18n="record_badge_active">Active</span>
           </div>
           <div class="timeline-body">
-            <h4 class="timeline-heading">Lead Data Engineer & Founder &bull; Independent Data Studio</h4>
-            <p class="timeline-text">
+            <h4 class="timeline-heading" data-i18n="record_role1">Lead Data Engineer & Founder &bull; Independent Data Studio</h4>
+            <p class="timeline-text" data-i18n="record_desc1">
               Building and commercializing high-precision data extraction pipelines targeting top European retail and real estate portals. Achieved 100% acceptance rate on enterprise cloud deliveries and verified commercial standing.
             </p>
           </div>
@@ -584,8 +621,8 @@
             <span class="timeline-year">2021 — 2024</span>
           </div>
           <div class="timeline-body">
-            <h4 class="timeline-heading">Software Automation & Backend Engineer</h4>
-            <p class="timeline-text">
+            <h4 class="timeline-heading" data-i18n="record_role2">Software Automation & Backend Engineer</h4>
+            <p class="timeline-text" data-i18n="record_desc2">
               Engineered resilient backend scrapers, API integrations, and cloud ingestion workflows. Developed automated testing suites to validate live schema integrity and prevent silent failure modes in high-volume production jobs.
             </p>
           </div>
@@ -596,33 +633,33 @@
     <!-- CONTACT & COMMERCIAL INQUIRY -->
     <section id="contact" class="section contact-section">
       <div class="contact-box">
-        <h2 class="contact-heading">Need custom data or an anti-bot pipeline?</h2>
-        <p class="contact-sub">
+        <h2 class="contact-heading" data-i18n="contact_heading">Need custom data or an anti-bot pipeline?</h2>
+        <p class="contact-sub" data-i18n="contact_sub">
           Available for bespoke data scraping contracts, recurring marketplace feeds, and technical consulting.
         </p>
 
         <div class="contact-grid">
           <div class="contact-tile">
-            <span class="tile-lbl">Business Email</span>
+            <span class="tile-lbl" data-i18n="contact_lbl_email">Business Email</span>
             <a href="mailto:hung@hlpdata.com" class="tile-val">hung@hlpdata.com</a>
-            <button class="copy-pill" onclick="copyEmail('hung@hlpdata.com', this)">Copy</button>
+            <button class="copy-pill" onclick="copyEmail('hung@hlpdata.com', this)" data-i18n="copy_btn_text">Copy</button>
           </div>
 
           <div class="contact-tile">
-            <span class="tile-lbl">PayPal Commercial Billing</span>
+            <span class="tile-lbl" data-i18n="contact_lbl_paypal">PayPal Commercial Billing</span>
             <span class="tile-val">hunglp97@gmail.com</span>
-            <span class="badge-emerald">Verified Business</span>
+            <span class="badge-emerald" data-i18n="contact_badge_paypal">Verified Business</span>
           </div>
 
           <div class="contact-tile">
-            <span class="tile-lbl">GitHub Code Repositories</span>
+            <span class="tile-lbl" data-i18n="contact_lbl_github">GitHub Code Repositories</span>
             <a href="https://github.com/hunglp97" target="_blank" rel="noopener" class="tile-val">github.com/hunglp97</a>
-            <span class="badge-neutral">Open Source</span>
+            <span class="badge-neutral" data-i18n="contact_badge_github">Open Source</span>
           </div>
         </div>
 
         <div class="contact-cta">
-          <a href="mailto:hung@hlpdata.com?subject=[Data%20Contract]%20Pipeline%20Inquiry" class="btn btn-primary">
+          <a href="mailto:hung@hlpdata.com?subject=[Data%20Contract]%20Pipeline%20Inquiry" class="btn btn-primary" data-i18n="contact_cta_btn">
             Start a Conversation
           </a>
         </div>
@@ -633,13 +670,13 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-copy">
+      <div class="footer-copy" data-i18n-html="footer_copy">
         &copy; 2026 <strong>HLP Data</strong> &bull; Lead Architect: Le Phuoc Hung &bull; Built with clean, anti-slop engineering standards.
       </div>
       <div class="footer-links">
-        <a href="#hero">Back to top</a>
-        <a href="terms.html">Terms & Compliance</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="#hero" data-i18n="footer_top">Back to top</a>
+        <a href="terms.html" data-i18n="footer_terms">Terms & Compliance</a>
+        <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
         <a href="https://github.com/hunglp97" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:hung@hlpdata.com">Email</a>
       </div>
