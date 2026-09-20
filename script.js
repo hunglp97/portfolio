@@ -598,9 +598,31 @@ function initTheme() {
   }
 }
 
+// Fallback copy implementation for non-secure or restricted contexts
+function fallbackCopyText(text) {
+  try {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.opacity = '0';
+    textArea.setAttribute('readonly', '');
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    return successful;
+  } catch (err) {
+    return false;
+  }
+}
+
 // Copy Email Utility with localized feedback
 function copyEmail(text, btnElement) {
-  navigator.clipboard.writeText(text).then(() => {
+  const applySuccessUI = () => {
+    if (!btnElement) return;
     const originalText = btnElement.innerText;
     const copiedText = I18N_DICT[currentLang]?.copied_btn_text || 'Copied!';
     btnElement.innerText = copiedText;
@@ -610,15 +632,36 @@ function copyEmail(text, btnElement) {
       btnElement.innerText = I18N_DICT[currentLang]?.copy_btn_text || originalText;
       btnElement.style.color = '';
     }, 2000);
-  }).catch(err => {
-    console.error('Copy failed:', err);
-  });
+  };
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(applySuccessUI)
+      .catch(() => {
+        fallbackCopyText(text);
+        applySuccessUI();
+      });
+  } else {
+    fallbackCopyText(text);
+    applySuccessUI();
+  }
 }
+
+// Expose copyEmail globally so inline onclick handlers and external calls work reliably
+window.copyEmail = copyEmail;
 
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   detectInitialLanguage();
+
+  // Attach direct click listener to copy pills
+  document.querySelectorAll('.copy-pill').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      copyEmail('hung@hlpdata.com', btn);
+    });
+  });
 
   // Mobile drawer toggle
   const toggleBtn = document.getElementById('mobile-toggle');
