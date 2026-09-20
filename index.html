@@ -85,18 +85,18 @@
         <!-- Metric strip: Honest, verified numbers -->
         <div class="hero-metrics">
           <div class="metric-cell">
-            <span class="metric-val">2,640+</span>
-            <span class="metric-lbl">Properties (Portugal)</span>
+            <span class="metric-val">3,140+</span>
+            <span class="metric-lbl">Properties (PT & UK)</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
-            <span class="metric-val">2,059+</span>
-            <span class="metric-lbl">Grocery SKUs Delivered</span>
+            <span class="metric-val">2,179+</span>
+            <span class="metric-lbl">SKUs (Retail & Luxury)</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
-            <span class="metric-val">100%</span>
-            <span class="metric-lbl">S3 Schema Compliance</span>
+            <span class="metric-val">100 / 100</span>
+            <span class="metric-lbl">Buyer Audit Score</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
@@ -116,16 +116,16 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <span class="terminal-title">pipeline_monitor.sh &bull; active</span>
+            <span class="terminal-title">buyer_audit.sh &bull; active</span>
           </div>
           <div class="terminal-body font-mono">
-            <div class="term-line"><span class="term-prompt">$</span> python3 verify_dataset.py --target idealista_pt</div>
-            <div class="term-line text-muted">[2026-09-20] Target: idealista.pt (13 regions)</div>
-            <div class="term-line text-muted">[2026-09-20] Extracted listings: 2,640 clean items</div>
-            <div class="term-line text-emerald">[PASS] Schema 'REAL-ESTATE-BASIC': 32/32 columns</div>
-            <div class="term-line text-emerald">[PASS] Coordinate verification: 100% valid Lat/Lng</div>
-            <div class="term-line text-emerald">[PASS] Encoding: UTF-8-SIG, Delimiter: ';'</div>
-            <div class="term-line text-muted">[SYNC] S3 Cloud Feed: s3://enterprise-data-lake/feeds/...</div>
+            <div class="term-line"><span class="term-prompt">$</span> python3 buyer_audit.py --full-suite</div>
+            <div class="term-line text-muted">[2026-09-20] Executing Buyer Acceptance & Schema Audit...</div>
+            <div class="term-line text-emerald">[PASS] idealista.pt (2,640 units) &bull; REAL-ESTATE-BASIC: 100/100</div>
+            <div class="term-line text-emerald">[PASS] rightmove.co.uk (500 units) &bull; GPS, Floorplans: 100/100</div>
+            <div class="term-line text-emerald">[PASS] farfetch.com (120 SKUs) &bull; FASHION-PDP Luxury: 100/100</div>
+            <div class="term-line text-emerald">[PASS] continente.pt (2,059 SKUs) &bull; GROCERY-PLP: 100/100</div>
+            <div class="term-line text-muted">[SYNC] S3 Cloud Feeds: s3://enterprise-data-lake/feeds/...</div>
             <div class="term-line text-blue">[STATUS] Ingestion Handshake: verified & complete ✓</div>
             <div class="term-cursor">&gt; awaiting next scheduled ingestion...</div>
           </div>
@@ -256,11 +256,11 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag">Luxury Fashion &bull; Global</span>
-            <span class="badge-status">Commercial Ready</span>
+            <span class="badge-status approved">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name">Farfetch Luxury Designer Fashion Feed</h3>
+          <h3 class="dataset-name">Farfetch Global Luxury Fashion & Designer Feed</h3>
           <p class="dataset-summary">
-            High-precision catalog tracking premier fashion houses (Jacquemus, Valentino, Saint Laurent, Amiri). Extracts 35 attributes including SKU, composition, seasonal collection (FW26), stock availability, and luxury price tags.
+            Curated catalog of 120 verified luxury items across premier fashion houses: Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, Saint Laurent, Christian Louboutin, Tom Ford, and Moncler. Strict 35-attribute FASHION-PDP schema with original prices, sale discounts, multi-currency values, stock availability, and image links.
           </p>
 
           <div class="dataset-table-preview">
@@ -291,10 +291,10 @@
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>FASHION-PDP</strong> schema</div>
-            <div class="meta-item"><strong>35</strong> attributes</div>
-            <div class="meta-item"><strong>Zero</strong> WAF trip</div>
-            <div class="meta-item"><strong>Daily/Weekly</strong> sync</div>
+            <div class="meta-item"><strong>120</strong> verified SKUs</div>
+            <div class="meta-item"><strong>35</strong> cols (FASHION-PDP)</div>
+            <div class="meta-item"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item"><strong>Jacquemus, Valentino, Balmain+</strong></div>
           </div>
 
           <div class="dataset-actions">
@@ -309,11 +309,11 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag">Real Estate &bull; United Kingdom</span>
-            <span class="badge-status">Commercial Ready</span>
+            <span class="badge-status approved">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name">Rightmove Greater London Property Feed</h3>
+          <h3 class="dataset-name">Rightmove London / UK Real Estate Intelligence</h3>
           <p class="dataset-summary">
-            Prime Central & Greater London residential market intelligence. Covers super-prime estates (Mayfair, Knightsbridge, One Hyde Park, St John's Wood) to residential apartments, featuring agency contacts, square footage, and geocodes.
+            Comprehensive market intelligence covering 500 verified properties across Greater London and Prime Central London. Fully compliant with REAL-ESTATE-BASIC schema across all 32 required attributes: exact GPS latitude/longitude, living area sqm, sale prices, bedroom/bathroom breakdown, energy ratings, agency info, and floor plan links.
           </p>
 
           <div class="dataset-table-preview">
@@ -344,10 +344,10 @@
           </div>
 
           <div class="dataset-meta">
-            <div class="meta-item"><strong>REAL-ESTATE-BASIC</strong></div>
-            <div class="meta-item"><strong>32</strong> columns</div>
-            <div class="meta-item"><strong>Super-Prime & Resi</strong></div>
-            <div class="meta-item"><strong>Weekly</strong> refresh</div>
+            <div class="meta-item"><strong>500</strong> verified properties</div>
+            <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
+            <div class="meta-item"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item"><strong>GPS & Floorplans</strong></div>
           </div>
 
           <div class="dataset-actions">
