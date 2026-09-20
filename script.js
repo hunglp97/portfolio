@@ -1,4 +1,7 @@
-// HLP Data — Portfolio Script (Taste-skill clean, theme switcher, i18n with IP auto-detection)
+// HLP Data — Portfolio Script (Taste-skill clean, theme switcher, i18n [EN | ES | PT] with IP auto-detection)
+
+const LUSOPHONE_COUNTRIES = ['PT', 'BR', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL'];
+const HISPANOPHONE_COUNTRIES = ['ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
 
 const I18N_DICT = {
   en: {
@@ -142,145 +145,286 @@ const I18N_DICT = {
     copied_btn_text: 'Copied!'
   },
 
-  vi: {
-    nav_datasets: 'Bộ dữ liệu',
-    nav_pipeline: 'Kiến trúc',
-    nav_stack: 'Công nghệ',
-    nav_experience: 'Kinh nghiệm',
-    nav_contact_btn: 'Liên hệ',
-    mobile_contact_me: 'Liên hệ trực tiếp',
+  es: {
+    nav_datasets: 'Datasets',
+    nav_pipeline: 'Arquitectura',
+    nav_stack: 'Tecnologías',
+    nav_experience: 'Trayectoria',
+    nav_contact_btn: 'Contacto',
+    mobile_contact_me: 'Contactar',
 
-    hero_status: 'Sẵn sàng nhận hợp đồng Trích xuất Dữ liệu & Luồng cấp Đám mây',
-    hero_headline: 'Kiến trúc sư pipeline dữ liệu & web crawler quy mô lớn.',
-    hero_subtext: 'Chuyên sâu xây dựng hạ tầng thu thập tự động hóa cao, vượt qua các rào cản anti-bot hiện đại (Cloudflare Turnstile, WAF) và bàn giao bộ dữ liệu chuẩn 100% schema trực tiếp vào data lake AWS S3.',
-    hero_cta_explore: 'Xem Các Bộ Dữ Liệu',
-    hero_cta_hire: 'Đặt Hàng Luồng Dữ Liệu',
-    hero_cta_cv: 'Xuất CV Kỹ Sư (PDF)',
+    hero_status: 'Disponible para Contratos de Data Engineering y Feeds Cloud',
+    hero_headline: 'Pipelines de datos autónomos y web crawlers resilientes a escala.',
+    hero_subtext: 'Especializado en infraestructura de extracción de alto rendimiento que supera sistemas anti-bot modernos (Cloudflare Turnstile, WAF) y entrega datasets 100% verificados directamente en data lakes AWS S3.',
+    hero_cta_explore: 'Explorar Datasets',
+    hero_cta_hire: 'Solicitar Feed a Medida',
+    hero_cta_cv: 'Imprimir CV (PDF)',
 
-    metric_lbl_1: 'Bất động sản đã nghiệm thu (BĐN & Anh)',
-    metric_lbl_2: 'Mã sản phẩm thương mại (Bán lẻ & Xa xỉ)',
-    metric_lbl_3: 'Tỷ lệ Nghiệm thu từ Buyer',
-    metric_lbl_4: 'Rủi ro PII (Dữ liệu danh mục 100% sạch)',
+    metric_lbl_1: 'Inmuebles Verificados (PT y UK)',
+    metric_lbl_2: 'SKUs en Catálogo (FMCG y Lujo)',
+    metric_lbl_3: 'Tasa de Aceptación de Compradores',
+    metric_lbl_4: 'Riesgo de PII (Exclusivo Catálogo Público)',
 
-    terminal_title: 'buyer_audit.sh • đang vận hành',
-    terminal_tag_engine: 'Động cơ Native AppleScript + CDP',
-    terminal_tag_s3: 'Sẵn sàng đẩy dữ liệu S3',
+    terminal_title: 'buyer_audit.sh • en ejecución',
+    terminal_tag_engine: 'Motor Nativo AppleScript + CDP',
+    terminal_tag_s3: 'Listo para Ingesta S3',
 
-    datasets_heading: 'Bộ Dữ Liệu Thương Mại & Luồng Cấp Đã Kiểm Định',
-    datasets_desc: 'Các sản phẩm dữ liệu cấp thương mại bóc tách từ các hệ thống phức tạp, vượt qua kiểm định schema khắt khe của buyer và sẵn sàng đồng bộ trực tiếp vào AWS S3.',
+    datasets_heading: 'Datasets Comerciales Verificados y Feeds en Producción',
+    datasets_desc: 'Datasets de grado empresarial extraídos de portales complejos, auditados frente a estrictos esquemas de compradores y listos para integración S3.',
 
-    ds1_badge: 'Bất động sản • Bồ Đào Nha',
-    ds1_status: 'Sẵn sàng thương mại',
-    ds1_name: 'Dữ liệu Thị trường Bất động sản Toàn quốc Idealista Bồ Đào Nha',
-    ds1_summary: 'Toàn bộ thông tin thị trường bất động sản cấu trúc hóa qua 13 quận trọng điểm Bồ Đào Nha (Lisboa, Porto, Algarve, Setúbal, Braga, Coimbra,...). Chuẩn hóa đơn giá theo m², số phòng ngủ/tắm, cao độ tầng, tiện ích sân vườn/gara và tọa độ địa lý.',
-    ds1_th_prop: 'Mẫu bất động sản',
-    ds1_th_price: 'Giá bán',
-    ds1_th_area: 'Diện tích',
-    ds1_th_region: 'Khu vực',
-    ds1_preview_tag: '🔒 Xem mẫu: 3 trong 2.640 bản ghi',
-    ds1_preview_footer: 'Luồng dữ liệu thương mại đầy đủ cấp qua AWS S3 / API bảo mật',
-    ds1_meta_records: '<strong>2.640</strong> bản ghi',
-    ds1_meta_cols: '<strong>32</strong> trường dữ liệu',
-    ds1_meta_freq: 'Cập nhật <strong>Hàng ngày/Tuần</strong>',
-    ds1_btn: 'Yêu Cầu File Mẫu / Cấp Bản Quyền',
+    ds1_badge: 'Inmobiliario • Portugal',
+    ds1_status: 'Listo Comercial',
+    ds1_name: 'Feed Inmobiliario Nacional Idealista Portugal',
+    ds1_summary: 'Inteligencia inmobiliaria integral que abarca 13 distritos de Portugal (Lisboa, Oporto, Algarve, Setúbal, Braga, Coímbra, etc.). Incluye valoración por m², dormitorios, baños, elevación de planta, comodidades (terraza/garaje) y geocodificación normalizada.',
+    ds1_th_prop: 'Inmueble de Muestra',
+    ds1_th_price: 'Precio',
+    ds1_th_area: 'Superficie',
+    ds1_th_region: 'Región',
+    ds1_preview_tag: '🔒 Vista previa: 3 de 2.640 registros',
+    ds1_preview_footer: 'Feed comercial completo entregado vía S3 privado / API',
+    ds1_meta_records: '<strong>2.640</strong> registros',
+    ds1_meta_cols: '<strong>32</strong> columnas',
+    ds1_meta_freq: 'Feed <strong>Diario/Semanal</strong>',
+    ds1_btn: 'Solicitar Muestra / Licencia',
 
-    ds2_badge: 'Bán lẻ & FMCG • Bồ Đào Nha',
-    ds2_status: 'Luồng thương mại đã duyệt',
-    ds2_name: 'Danh mục Định giá & Khuyến mãi Siêu thị FMCG Continente',
-    ds2_summary: 'Bóc tách chi tiết giá niêm yết, cấu trúc phân cấp danh mục 3 tầng và dữ liệu giảm giá của chuỗi siêu thị dẫn đầu Bồ Đào Nha. Hỗ trợ theo dõi biến động khuyến mãi, đơn giá quy đổi chuẩn (€/kg, €/L) và quy cách đóng gói.',
-    ds2_th_sku: 'Sản phẩm / Mặt hàng',
-    ds2_th_std: 'Giá gốc',
-    ds2_th_promo: 'Khuyến mãi',
-    ds2_th_unit: 'Đơn vị',
-    ds2_preview_tag: '🔒 Xem mẫu: 3 trong 2.059 sản phẩm',
-    ds2_preview_footer: 'Luồng dữ liệu thương mại đầy đủ cấp qua AWS S3 / API bảo mật',
-    ds2_meta_records: '<strong>2.059</strong> mặt hàng',
-    ds2_meta_cols: '<strong>31</strong> trường dữ liệu',
-    ds2_meta_s3: '<strong>Đã kiểm duyệt S3</strong>',
-    ds2_btn: 'Yêu Cầu File Mẫu / Cấp Bản Quyền',
+    ds2_badge: 'Retail & FMCG • Portugal',
+    ds2_status: 'Feed Comercial Verificado',
+    ds2_name: 'Catálogo de Inteligencia FMCG Continente',
+    ds2_summary: 'Datos de precios, taxonomía de marcas y promociones de la cadena de supermercados líder en Portugal. Jerarquía de categorías en 3 niveles, seguimiento de descuentos promocionales, precios unitarios (€/kg, €/L) y dimensiones de empaque.',
+    ds2_th_sku: 'SKU / Producto',
+    ds2_th_std: 'Estándar',
+    ds2_th_promo: 'Promo',
+    ds2_th_unit: 'Precio Unitario',
+    ds2_preview_tag: '🔒 Vista previa: 3 de 2.059 SKUs',
+    ds2_preview_footer: 'Feed comercial completo entregado vía S3 privado / API',
+    ds2_meta_records: '<strong>2.059</strong> SKUs',
+    ds2_meta_cols: '<strong>31</strong> columnas',
+    ds2_meta_s3: '<strong>Verificado en S3</strong>',
+    ds2_btn: 'Solicitar Muestra / Licencia',
 
-    ds3_badge: 'Thời trang Xa xỉ • Toàn cầu',
-    ds3_status: 'Nghiệm thu Buyer: 100/100',
-    ds3_name: 'Luồng Dữ liệu Định giá Hàng Xa xỉ Toàn cầu Farfetch',
-    ds3_summary: 'Dữ liệu tinh hoa từ các thương hiệu thời trang cao cấp thế giới: Jacquemus, Valentino, Balmain, Bottega Veneta, Saint Laurent, Christian Louboutin, Tom Ford và Moncler. Đáp ứng chuẩn xác 35 trường schema FASHION-PDP gồm giá gốc, giá sale, đa tiền tệ, tình trạng tồn kho và link ảnh gốc.',
-    ds3_th_brand: 'Thương hiệu / Mặt hàng',
-    ds3_th_price: 'Giá (USD)',
-    ds3_th_cat: 'Phân loại',
-    ds3_th_origin: 'Xuất xứ',
-    ds3_preview_tag: '🔒 Xem mẫu: 3 trong 120 sản phẩm',
-    ds3_preview_footer: 'Luồng dữ liệu thương mại đầy đủ cấp qua AWS S3 / API bảo mật',
-    ds3_meta_records: '<strong>120</strong> sản phẩm xác thực',
-    ds3_meta_cols: '<strong>35</strong> cột (FASHION-PDP)',
-    ds3_meta_audit: '<strong>100 / 100</strong> Nghiệm thu Buyer',
-    ds3_btn: 'Yêu Cầu File Mẫu / Cấp Bản Quyền',
+    ds3_badge: 'Moda de Lujo • Global',
+    ds3_status: 'Auditoría Comprador: 100/100',
+    ds3_name: 'Feed Global de Moda de Lujo y Precios Farfetch',
+    ds3_summary: 'Inteligencia curada de 120 artículos de lujo de las principales casas de moda: Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, Saint Laurent, Christian Louboutin, Tom Ford y Moncler. Esquema FASHION-PDP de 35 atributos con precios originales, descuentos, multimoneda, stock y enlaces de imágenes.',
+    ds3_th_brand: 'Marca / Artículo',
+    ds3_th_price: 'Precio (USD)',
+    ds3_th_cat: 'Categoría',
+    ds3_th_origin: 'Origen',
+    ds3_preview_tag: '🔒 Vista previa: 3 de 120 artículos',
+    ds3_preview_footer: 'Feed comercial completo entregado vía S3 privado / API',
+    ds3_meta_records: '<strong>120</strong> SKUs verificados',
+    ds3_meta_cols: '<strong>35</strong> cols (FASHION-PDP)',
+    ds3_meta_audit: '<strong>100 / 100</strong> Auditoría Comprador',
+    ds3_btn: 'Solicitar Muestra / Licencia',
 
-    ds4_badge: 'Bất động sản • Vương quốc Anh',
-    ds4_status: 'Nghiệm thu Buyer: 100/100',
-    ds4_name: 'Dữ liệu Bất động sản London & Thị trường Trọng điểm Anh Rightmove',
-    ds4_summary: 'Dữ liệu thị trường toàn diện bao gồm 500 bất động sản tại Greater London và trung tâm thủ đô London. Tuân thủ 100% schema REAL-ESTATE-BASIC với 32 thuộc tính bắt buộc: tọa độ GPS chính xác, diện tích sàn m², giá chào bán, phân bổ phòng ngủ/tắm, chứng chỉ năng lượng EPC và link sơ đồ nhà.',
-    ds4_th_loc: 'Vị trí bất động sản',
-    ds4_th_price: 'Giá bán',
-    ds4_th_beds: 'Phòng ngủ',
-    ds4_th_agency: 'Đại lý',
-    ds4_preview_tag: '🔒 Xem mẫu: 3 trong 500 tin đăng',
-    ds4_preview_footer: 'Luồng dữ liệu thương mại đầy đủ cấp qua AWS S3 / API bảo mật',
-    ds4_meta_records: '<strong>500</strong> bất động sản duyệt',
-    ds4_meta_cols: '<strong>32</strong> cột (REAL-ESTATE-BASIC)',
-    ds4_meta_audit: '<strong>100 / 100</strong> Nghiệm thu Buyer',
-    ds4_meta_gps: '<strong>GPS & Sơ đồ nhà</strong>',
-    ds4_btn: 'Yêu Cầu File Mẫu / Cấp Bản Quyền',
+    ds4_badge: 'Inmobiliario • Reino Unido',
+    ds4_status: 'Auditoría Comprador: 100/100',
+    ds4_name: 'Feed Inmobiliario de Londres y Reino Unido Rightmove',
+    ds4_summary: 'Inteligencia de mercado exhaustiva que cubre 500 propiedades verificadas en Gran Londres y Prime Central London. 100% conforme con el esquema REAL-ESTATE-BASIC en 32 atributos obligatorios: coordenadas GPS, m² habitables, precios de venta, dormitorios/baños, calificaciones energéticas EPC y planos.',
+    ds4_th_loc: 'Ubicación Inmueble',
+    ds4_th_price: 'Precio',
+    ds4_th_beds: 'Dormitorios',
+    ds4_th_agency: 'Agencia',
+    ds4_preview_tag: '🔒 Vista previa: 3 de 500 anuncios',
+    ds4_preview_footer: 'Feed comercial completo entregado vía S3 privado / API',
+    ds4_meta_records: '<strong>500</strong> propiedades verificadas',
+    ds4_meta_cols: '<strong>32</strong> cols (REAL-ESTATE-BASIC)',
+    ds4_meta_audit: '<strong>100 / 100</strong> Auditoría Comprador',
+    ds4_meta_gps: '<strong>GPS y Planos</strong>',
+    ds4_btn: 'Solicitar Muestra / Licencia',
 
-    pipeline_heading: 'Kiến Trúc Pipeline Vận Hành Tự Động',
-    pipeline_desc: 'Được thiết kế tối ưu cho tính bền bỉ, vận hành không cần con người can thiệp và bàn giao đám mây xác định.',
-    step1_title: 'Động Cơ Thu Thập Kháng Anti-Bot',
-    step1_desc: 'Kiến trúc lai kết hợp điều khiển socket cấp thấp Chrome DevTools (CDP) và cầu nối native AppleScript. Vô hiệu hóa Cloudflare Turnstile, fingerprint entropy và thử thách canvas động với độ trễ vi mô mô phỏng thao tác người dùng thật.',
-    step2_title: 'Cổng Kiểm Định Schema Nghiêm Ngặt',
-    step2_desc: 'Kiểm tra tự động 100% bản ghi trước khi xuất dữ liệu. Cam kết chuẩn xác tuyệt đối theo schema (32 cột BĐS, 31 cột FMCG, 35 cột Xa xỉ), biên độ giá dương, tọa độ chuẩn xác và định dạng UTF-8-SIG phân tách dấu chấm phẩy.',
-    step3_title: 'Phân Phối S3 & Nghiệm Thu Tự Động',
-    step3_desc: 'Dữ liệu nộp trực tiếp vào bucket Amazon S3 của sàn hoặc doanh nghiệp. Hệ thống tự động bắt tín hiệu nghiệm thu (approved.txt), tự xử lý cơ chế retry và ghi nhận giao dịch thanh toán không cần can thiệp thủ công.',
+    pipeline_heading: 'Arquitectura de Pipeline Autónoma',
+    pipeline_desc: 'Diseñada para resiliencia, cero intervención humana y entrega determinista en la nube.',
+    step1_title: 'Motor de Ingestión Resiliente',
+    step1_desc: 'Arquitectura híbrida que combina el control de sockets Chrome DevTools Protocol (CDP) con puentes IPC nativos a nivel de SO. Neutraliza Cloudflare Turnstile, la entropía de huellas digitales y canvas dinámicos con fluctuaciones de comportamiento humano real.',
+    step2_title: 'Comprobación Determinista de Esquemas',
+    step2_desc: 'Filtros automatizados verifican el 100% de las filas antes de su entrega. Garantiza la adherencia al esquema (32 cols Inmobiliario, 31 cols FMCG, 35 cols Lujo), límites de precios positivos, geocódigos válidos y codificación UTF-8-SIG con punto y coma.',
+    step3_title: 'Entrega Cloud S3 y Handshake Autónomo',
+    step3_desc: 'Entrega automatizada directa a buckets de almacenamiento Amazon S3 del comprador. El pipeline supervisa los recibos de aceptación automáticos (approved.txt), gestiona reintentos exponenciales y registra métricas de liquidación de forma desatendida.',
 
-    stack_heading: 'Công Nghệ Lõi Vận Hành',
-    stack_desc: 'Bộ công cụ, thư viện và giao thức thực chiến được triển khai trong các tác vụ thu thập tải trọng cao.',
-    stack_cat1: 'Cào Dữ Liệu & Tự Động Hóa',
-    stack_cat2: 'Hạ Tầng Dữ Liệu & Điện Toán Đám Mây',
-    stack_cat3: 'Sàn Thương Mại & Chuẩn Pháp Lý',
-    stack_item_playwright: '<strong>Playwright & Puppeteer:</strong> Tự động hóa headless & headful',
-    stack_item_cdp: '<strong>CDP (Chrome DevTools Protocol):</strong> Điều khiển socket cấp thấp',
-    stack_item_applescript: '<strong>macOS AppleScript Bridge:</strong> Giao tiếp tiến trình native trên macOS',
-    stack_item_bs4: '<strong>BeautifulSoup4 / lxml / Scrapy:</strong> Bóc tách DOM hiệu năng cao',
-    stack_item_s3: '<strong>Amazon S3 & AWS SDK (Boto3):</strong> Giao nộp data lake đám mây',
-    stack_item_pandas: '<strong>Pandas & NumPy:</strong> Chuẩn hóa & lọc nhiễu dữ liệu',
-    stack_item_db: '<strong>PostgreSQL & SQLite:</strong> Lưu trữ trung gian & khử trùng lặp',
-    stack_item_docker: '<strong>Docker & Bash:</strong> Tiến trình chạy nền & lập lịch tự động',
-    stack_item_databoutique: '<strong>Enterprise Data Feeds:</strong> Luồng cấp dữ liệu thương mại & nộp tự động',
-    stack_item_datarade: '<strong>Datarade:</strong> Kênh nhà cung cấp dữ liệu doanh nghiệp',
-    stack_item_compliance: '<strong>GDPR & Thu Thập Đạo Đức:</strong> 100% dữ liệu công khai, không thu thập PII',
-    stack_item_paypal: '<strong>PayPal Business:</strong> Thanh toán thương mại đã xác thực',
+    stack_heading: 'Tecnologías Centrales',
+    stack_desc: 'Herramientas, frameworks y protocolos implementados en operaciones diarias de extracción intensiva.',
+    stack_cat1: 'Scraping y Automatización',
+    stack_cat2: 'Infraestructura de Datos y Cloud',
+    stack_cat3: 'Mercados y Gobernanza',
+    stack_item_playwright: '<strong>Playwright & Puppeteer:</strong> Automatización headless y visual',
+    stack_item_cdp: '<strong>CDP (Chrome DevTools Protocol):</strong> Control de sockets de bajo nivel',
+    stack_item_applescript: '<strong>macOS AppleScript Bridge:</strong> IPC nativo del navegador',
+    stack_item_bs4: '<strong>BeautifulSoup4 / lxml / Scrapy:</strong> Parsers DOM de alto rendimiento',
+    stack_item_s3: '<strong>Amazon S3 & AWS SDK (Boto3):</strong> Entrega en data lakes cloud',
+    stack_item_pandas: '<strong>Pandas & NumPy:</strong> Normalización y filtrado de anomalías',
+    stack_item_db: '<strong>PostgreSQL & SQLite:</strong> Almacenamiento intermedio y desduplicación',
+    stack_item_docker: '<strong>Docker & Bash:</strong> Demonios autónomos y cron programado',
+    stack_item_databoutique: '<strong>Enterprise Data Feeds:</strong> Feeds de datos comerciales de alto volumen y entrega automatizada',
+    stack_item_datarade: '<strong>Datarade:</strong> Integración de proveedores y feeds corporativos',
+    stack_item_compliance: '<strong>GDPR y Scraping Ético:</strong> 100% datos de catálogos públicos, cero PII',
+    stack_item_paypal: '<strong>PayPal Business:</strong> Facturación comercial verificada',
 
-    record_heading: 'Hồ Sơ Năng Lực & Kinh Nghiệm Thực Chiến',
-    record_desc: 'Minh chứng năng lực qua các hợp đồng dữ liệu thương mại nộp thành công cho sàn quốc tế và đối tác doanh nghiệp.',
-    record_badge_active: 'Hiện tại',
-    record_role1: 'Kỹ sư Dữ liệu Trưởng & Nhà sáng lập • HLP Data Studio',
-    record_desc1: 'Thiết kế kiến trúc và thương mại hóa hệ thống trích xuất dữ liệu quy mô lớn cho các cổng bán lẻ và bất động sản châu Âu. Duy trì tỷ lệ nghiệm thu 100% trên các đợt giao nhận Amazon S3 và xác lập uy tín thương mại doanh nghiệp.',
-    record_role2: 'Kỹ sư Tự Động Hóa & Lập Trình Backend',
-    record_desc2: 'Phát triển scraper backend, tích hợp API và luồng xử lý cloud ingestion. Xây dựng các bộ kiểm thử tự động xác thực tính toàn vẹn schema, triệt tiêu lỗi ngầm trong các tác vụ tải trọng lớn.',
+    record_heading: 'Trayectoria y Logros',
+    record_desc: 'Fiabilidad demostrada en la entrega de datasets comerciales a marketplaces globales y compradores institucionales.',
+    record_badge_active: 'Activo',
+    record_role1: 'Lead Data Engineer & Fundador • HLP Data Studio',
+    record_desc1: 'Diseño y comercialización de sistemas de extracción de alto rendimiento para portales inmobiliarios y de retail europeos. Mantenimiento de una tasa de aceptación del comprador del 100% en entregas cloud Amazon S3 y estatus comercial verificado.',
+    record_role2: 'Ingeniero de Automatización de Software y Backend',
+    record_desc2: 'Desarrollo de scrapers backend resilientes, integraciones de API y flujos de ingesta en la nube. Creación de suites de pruebas automatizadas para validar la integridad de esquemas y eliminar la degradación silenciosa de datos.',
 
-    contact_heading: 'Cần đặt hàng dữ liệu riêng hoặc giải pháp vượt anti-bot?',
-    contact_sub: 'Sẵn sàng tiếp nhận hợp đồng cào dữ liệu theo yêu cầu, luồng cấp dữ liệu định kỳ qua S3 và tư vấn giải pháp kỹ thuật chuyên sâu.',
-    contact_lbl_email: 'Email Doanh Nghiệp',
-    contact_lbl_paypal: 'Thanh Toán Thương Mại PayPal',
-    contact_badge_paypal: 'Doanh Nghiệp Đã Xác Minh',
-    contact_lbl_github: 'Kho Mã Nguồn GitHub',
-    contact_badge_github: 'Mã Nguồn Mở',
-    contact_cta_btn: 'Bắt Đầu Trao Đổi',
+    contact_heading: '¿Necesita un dataset personalizado o un pipeline de scraping especializado?',
+    contact_sub: 'Disponible para contratos de ingeniería de datos a medida, feeds cloud recurrentes y consultoría para superar sistemas anti-bot.',
+    contact_lbl_email: 'Correo Corporativo',
+    contact_lbl_paypal: 'Facturación Comercial PayPal',
+    contact_badge_paypal: 'Empresa Verificada',
+    contact_lbl_github: 'Repositorios en GitHub',
+    contact_badge_github: 'Código Abierto',
+    contact_cta_btn: 'Iniciar Conversación',
 
-    footer_copy: '&copy; 2026 <strong>HLP Data</strong> &bull; Kỹ sư trưởng: Lê Phước Hùng &bull; Xây dựng theo tiêu chuẩn kỹ thuật tinh gọn, chống slop.',
-    footer_top: 'Lên đầu trang',
-    footer_terms: 'Điều khoản & Tuân thủ',
-    footer_privacy: 'Chính sách Quyền riêng tư',
+    footer_copy: '&copy; 2026 <strong>HLP Data</strong> &bull; Arquitecto Principal: Le Phuoc Hung &bull; Construido con estándares de ingeniería limpia anti-slop.',
+    footer_top: 'Volver arriba',
+    footer_terms: 'Términos y Conformidad',
+    footer_privacy: 'Política de Privacidad',
 
-    copy_btn_text: 'Sao chép',
-    copied_btn_text: 'Đã chép!'
+    copy_btn_text: 'Copiar',
+    copied_btn_text: '¡Copiado!'
+  },
+
+  pt: {
+    nav_datasets: 'Datasets',
+    nav_pipeline: 'Arquitetura',
+    nav_stack: 'Tecnologias',
+    nav_experience: 'Trajetória',
+    nav_contact_btn: 'Contacto',
+    mobile_contact_me: 'Contactar',
+
+    hero_status: 'Disponível para Contratos de Data Engineering e Feeds Cloud',
+    hero_headline: 'Pipelines de dados autónomos & web crawlers resilientes em escala.',
+    hero_subtext: 'Especialista em infraestrutura de recolha de alto débito que contorna sistemas anti-bot modernos (Cloudflare Turnstile, WAF) e entrega conjuntos de dados 100% validados diretamente em data lakes AWS S3.',
+    hero_cta_explore: 'Explorar Datasets',
+    hero_cta_hire: 'Solicitar Feed Dedicado',
+    hero_cta_cv: 'Imprimir CV (PDF)',
+
+    metric_lbl_1: 'Imóveis Verificados (PT & UK)',
+    metric_lbl_2: 'SKUs em Catálogo (FMCG & Luxo)',
+    metric_lbl_3: 'Taxa de Aceitação do Comprador',
+    metric_lbl_4: 'Risco de PII (Exclusivo Catálogo Público)',
+
+    terminal_title: 'buyer_audit.sh • em execução',
+    terminal_tag_engine: 'Motor Nativo AppleScript + CDP',
+    terminal_tag_s3: 'Pronto para Ingestão S3',
+
+    datasets_heading: 'Conjuntos de Dados Comerciais & Feeds em Produção',
+    datasets_desc: 'Conjuntos de dados de nível empresarial extraídos de portais complexos, auditados contra esquemas rigorosos de compradores e prontos para sincronização S3.',
+
+    ds1_badge: 'Imobiliário • Portugal',
+    ds1_status: 'Pronto Comercial',
+    ds1_name: 'Feed Imobiliário Nacional Idealista Portugal',
+    ds1_summary: 'Inteligência imobiliária abrangente cobrindo 13 distritos de Portugal (Lisboa, Porto, Algarve, Setúbal, Braga, Coimbra, etc.). Inclui valorização por m², quartos, casas de banho, pisos, comodidades (terraço/garagem) e geocódigos normalizados.',
+    ds1_th_prop: 'Imóvel de Amostra',
+    ds1_th_price: 'Preço',
+    ds1_th_area: 'Área',
+    ds1_th_region: 'Região',
+    ds1_preview_tag: '🔒 Pré-visualização: 3 de 2.640 registos',
+    ds1_preview_footer: 'Feed comercial completo entregue via S3 privado / API',
+    ds1_meta_records: '<strong>2.640</strong> registos',
+    ds1_meta_cols: '<strong>32</strong> colunas',
+    ds1_meta_freq: 'Feed <strong>Diário/Semanal</strong>',
+    ds1_btn: 'Solicitar Amostra / Licença',
+
+    ds2_badge: 'Retalho & FMCG • Portugal',
+    ds2_status: 'Feed Comercial Verificado',
+    ds2_name: 'Catálogo de Inteligência FMCG Continente',
+    ds2_summary: 'Inteligência granular de preços, marcas e promoções para a principal cadeia de supermercados em Portugal. Estrutura de categorias em 3 níveis, acompanhamento de descontos, preços unitários normalizados (€/kg, €/L) e dimensões de embalagem.',
+    ds2_th_sku: 'SKU / Produto',
+    ds2_th_std: 'Padrão',
+    ds2_th_promo: 'Promo',
+    ds2_th_unit: 'Preço Unitário',
+    ds2_preview_tag: '🔒 Pré-visualização: 3 de 2.059 SKUs',
+    ds2_preview_footer: 'Feed comercial completo entregue via S3 privado / API',
+    ds2_meta_records: '<strong>2.059</strong> SKUs',
+    ds2_meta_cols: '<strong>31</strong> colunas',
+    ds2_meta_s3: '<strong>Verificado no S3</strong>',
+    ds2_btn: 'Solicitar Amostra / Licença',
+
+    ds3_badge: 'Moda de Luxo • Global',
+    ds3_status: 'Auditoria Comprador: 100/100',
+    ds3_name: 'Feed Global de Moda de Luxo & Preços Farfetch',
+    ds3_summary: 'Inteligência selecionada de 120 artigos de luxo das principais casas de moda: Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, Saint Laurent, Christian Louboutin, Tom Ford e Moncler. Esquema FASHION-PDP de 35 atributos com preços originais, descontos, valores multimoeda, disponibilidade de stock e imagens de alta resolução.',
+    ds3_th_brand: 'Marca / Artigo',
+    ds3_th_price: 'Preço (USD)',
+    ds3_th_cat: 'Categoria',
+    ds3_th_origin: 'Origem',
+    ds3_preview_tag: '🔒 Pré-visualização: 3 de 120 artigos',
+    ds3_preview_footer: 'Feed comercial completo entregue via S3 privado / API',
+    ds3_meta_records: '<strong>120</strong> SKUs verificados',
+    ds3_meta_cols: '<strong>35</strong> cols (FASHION-PDP)',
+    ds3_meta_audit: '<strong>100 / 100</strong> Auditoria Comprador',
+    ds3_btn: 'Solicitar Amostra / Licença',
+
+    ds4_badge: 'Imobiliário • Reino Unido',
+    ds4_status: 'Auditoria Comprador: 100/100',
+    ds4_name: 'Feed Imobiliário de Londres & Reino Unido Rightmove',
+    ds4_summary: 'Inteligência de mercado completa abrangendo 500 propriedades verificadas na Grande Londres e no centro nobre de Londres. 100% compatível com o esquema REAL-ESTATE-BASIC em 32 atributos obrigatórios: coordenadas GPS, m² de área útil, preços de venda, quartos/casas de banho, certificações energéticas EPC e plantas.',
+    ds4_th_loc: 'Localização do Imóvel',
+    ds4_th_price: 'Preço',
+    ds4_th_beds: 'Quartos',
+    ds4_th_agency: 'Agência',
+    ds4_preview_tag: '🔒 Pré-visualização: 3 de 500 anúncios',
+    ds4_preview_footer: 'Feed comercial completo entregue via S3 privado / API',
+    ds4_meta_records: '<strong>500</strong> imóveis verificados',
+    ds4_meta_cols: '<strong>32</strong> cols (REAL-ESTATE-BASIC)',
+    ds4_meta_audit: '<strong>100 / 100</strong> Auditoria Comprador',
+    ds4_meta_gps: '<strong>GPS & Plantas</strong>',
+    ds4_btn: 'Solicitar Amostra / Licença',
+
+    pipeline_heading: 'Arquitetura de Pipeline Autónoma',
+    pipeline_desc: 'Concebida para resiliência, zero intervenção humana e entrega determinística na cloud.',
+    step1_title: 'Motor de Ingestão Resiliente',
+    step1_desc: 'Arquitetura híbrida que combina o controlo de sockets Chrome DevTools Protocol (CDP) com pontes IPC nativas a nível do SO. Neutraliza Cloudflare Turnstile, entropia de impressões digitais e desafios canvas com variação realista de comportamento humano.',
+    step2_title: 'Validação Determinística de Esquema',
+    step2_desc: 'Pontos de controlo automatizados verificam 100% das linhas antes da entrega. Garante conformidade total de esquema (32 cols Imobiliário, 31 cols FMCG, 35 cols Luxo), limites de preços positivos, coordenadas válidas e codificação UTF-8-SIG delimitada por ponto e vírgula.',
+    step3_title: 'Entrega Cloud S3 & Handshake Autónomo',
+    step3_desc: 'Entrega direta automatizada nos buckets de armazenamento Amazon S3 do comprador. O pipeline monitoriza recibos de aceitação automáticos (approved.txt), efetua repetições automáticas e regista métricas de liquidação sem supervisão manual.',
+
+    stack_heading: 'Tecnologias Centrais',
+    stack_desc: 'Ferramentas, bibliotecas e protocolos implementados em operações diárias de extração de alto débito.',
+    stack_cat1: 'Scraping & Automação',
+    stack_cat2: 'Infraestrutura de Dados & Cloud',
+    stack_cat3: 'Mercados & Governança',
+    stack_item_playwright: '<strong>Playwright & Puppeteer:</strong> Automação headless e com interface',
+    stack_item_cdp: '<strong>CDP (Chrome DevTools Protocol):</strong> Controlo de sockets de baixo nível',
+    stack_item_applescript: '<strong>macOS AppleScript Bridge:</strong> IPC nativo do browser',
+    stack_item_bs4: '<strong>BeautifulSoup4 / lxml / Scrapy:</strong> Parsers DOM de alto débito',
+    stack_item_s3: '<strong>Amazon S3 & AWS SDK (Boto3):</strong> Entrega em data lakes na cloud',
+    stack_item_pandas: '<strong>Pandas & NumPy:</strong> Normalização e filtragem de anomalias',
+    stack_item_db: '<strong>PostgreSQL & SQLite:</strong> Armazenamento local e desduplicação',
+    stack_item_docker: '<strong>Docker & Bash:</strong> Daemons autónomos e cron agendado',
+    stack_item_databoutique: '<strong>Enterprise Data Feeds:</strong> Feeds comerciais de grande volume e entrega automatizada',
+    stack_item_datarade: '<strong>Datarade:</strong> Integração de fornecedores e feeds corporativos',
+    stack_item_compliance: '<strong>GDPR & Scraping Ético:</strong> 100% dados de catálogo público, zero PII',
+    stack_item_paypal: '<strong>PayPal Business:</strong> Faturação comercial verificada',
+
+    record_heading: 'Trajetória & Marcos',
+    record_desc: 'Fiabilidade comprovada no fornecimento de datasets comerciais a marketplaces globais e compradores institucionais.',
+    record_badge_active: 'Ativo',
+    record_role1: 'Lead Data Engineer & Fundador • HLP Data Studio',
+    record_desc1: 'Conceção e comercialização de sistemas de extração de dados de alto rendimento para os principais portais europeus de retalho e imobiliário. Manutenção de taxa de aceitação de 100% nas entregas na cloud Amazon S3 e estatuto comercial verificado.',
+    record_role2: 'Engenheiro de Automação de Software & Backend',
+    record_desc2: 'Desenvolvimento de scrapers backend resilientes, integrações de API e fluxos de ingestão cloud. Criação de testes automatizados para validar a integridade de esquemas e eliminar erros silenciosos em produção.',
+
+    contact_heading: 'Necessita de um dataset personalizado ou pipeline especializado?',
+    contact_sub: 'Disponível para contratos de engenharia de dados à medida, feeds cloud recorrentes e consultoria para contorno de sistemas anti-bot.',
+    contact_lbl_email: 'Email Profissional',
+    contact_lbl_paypal: 'Faturação Comercial PayPal',
+    contact_badge_paypal: 'Empresa Verificada',
+    contact_lbl_github: 'Repositórios GitHub',
+    contact_badge_github: 'Código Aberto',
+    contact_cta_btn: 'Iniciar Conversação',
+
+    footer_copy: '&copy; 2026 <strong>HLP Data</strong> &bull; Arquiteto Principal: Le Phuoc Hung &bull; Construído com padrões de engenharia limpa anti-slop.',
+    footer_top: 'Volver ao topo',
+    footer_terms: 'Termos & Conformidade',
+    footer_privacy: 'Política de Privacidade',
+
+    copy_btn_text: 'Copiar',
+    copied_btn_text: 'Copiado!'
   }
 };
 
@@ -330,7 +474,7 @@ async function detectInitialLanguage() {
   // 1. Check user manual override in localStorage
   try {
     const savedLang = localStorage.getItem('hlp_lang');
-    if (savedLang && (savedLang === 'en' || savedLang === 'vi')) {
+    if (savedLang && (savedLang === 'en' || savedLang === 'es' || savedLang === 'pt')) {
       setLanguage(savedLang, false);
       return;
     }
@@ -340,8 +484,10 @@ async function detectInitialLanguage() {
   try {
     const cachedCountry = sessionStorage.getItem('hlp_country');
     if (cachedCountry) {
-      if (cachedCountry === 'VN') {
-        setLanguage('vi', false);
+      if (LUSOPHONE_COUNTRIES.includes(cachedCountry)) {
+        setLanguage('pt', false);
+      } else if (HISPANOPHONE_COUNTRIES.includes(cachedCountry)) {
+        setLanguage('es', false);
       } else {
         setLanguage('en', false);
       }
@@ -351,8 +497,10 @@ async function detectInitialLanguage() {
 
   // 3. Fast immediate fallback: browser language
   const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  if (navLang.startsWith('vi')) {
-    setLanguage('vi', false);
+  if (navLang.startsWith('pt')) {
+    setLanguage('pt', false);
+  } else if (navLang.startsWith('es')) {
+    setLanguage('es', false);
   } else {
     setLanguage('en', false);
   }
@@ -367,14 +515,17 @@ async function detectInitialLanguage() {
     if (res.ok) {
       const data = await res.json();
       if (data && data.country) {
+        const country = data.country.toUpperCase();
         try {
-          sessionStorage.setItem('hlp_country', data.country);
+          sessionStorage.setItem('hlp_country', country);
         } catch (e) {}
 
         // If user hasn't explicitly clicked a language button during load
         if (!localStorage.getItem('hlp_lang')) {
-          if (data.country === 'VN') {
-            setLanguage('vi', false);
+          if (LUSOPHONE_COUNTRIES.includes(country)) {
+            setLanguage('pt', false);
+          } else if (HISPANOPHONE_COUNTRIES.includes(country)) {
+            setLanguage('es', false);
           } else {
             setLanguage('en', false);
           }
@@ -391,9 +542,14 @@ async function detectInitialLanguage() {
       if (r2.ok) {
         const d2 = await r2.json();
         if (d2 && d2.country_code) {
-          try { sessionStorage.setItem('hlp_country', d2.country_code); } catch(e) {}
-          if (!localStorage.getItem('hlp_lang') && d2.country_code === 'VN') {
-            setLanguage('vi', false);
+          const cCode = d2.country_code.toUpperCase();
+          try { sessionStorage.setItem('hlp_country', cCode); } catch(e) {}
+          if (!localStorage.getItem('hlp_lang')) {
+            if (LUSOPHONE_COUNTRIES.includes(cCode)) {
+              setLanguage('pt', false);
+            } else if (HISPANOPHONE_COUNTRIES.includes(cCode)) {
+              setLanguage('es', false);
+            }
           }
         }
       }
