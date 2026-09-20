@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service & Compliance — HLP Data</title>
+  <meta name="description" content="Terms of Service, Ethical Crawling Standards, and Data Compliance Policy for HLP Data.">
+  <link rel="canonical" href="https://hlpdata.com/terms.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlp.data</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/#datasets" class="nav-link">Datasets</a>
+        <a href="/#pipeline" class="nav-link">Architecture</a>
+        <a href="/#stack" class="nav-link">Stack</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="mailto:hung@hlpdata.com" class="btn-sm btn-primary">
+          <i class="fa-regular fa-envelope"></i> Contact
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 860px; margin: 0 auto;">
+    
+    <div style="margin-bottom: 2rem;">
+      <a href="/" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; items-center; gap: 0.5rem;">
+        &larr; Back to Catalog & Overview
+      </a>
+      <h1 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em;">
+        Terms of Service & Data Compliance Policy
+      </h1>
+      <p style="color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); margin-top: 0.5rem;">
+        Last Updated: September 20, 2026 &bull; Effective Immediately
+      </p>
+    </div>
+
+    <article style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 2rem; margin-bottom: 3rem; font-size: 0.925rem; line-height: 1.7; color: var(--text-secondary);">
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          1. Operational Scope & Service Model
+        </h2>
+        <p>
+          HLP Data ("we", "us", or "our") operates as an independent data engineering studio providing bespoke web data extraction, structured alternative data feeds, and recurring data pipelines for commercial analytics, hedge funds, and enterprise business intelligence.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          2. 100% Public Data Sourcing Standard
+        </h2>
+        <p>
+          HLP Data exclusively extracts and compiles facts, figures, and listings that are freely and publicly available on the open web. We do <strong>NOT</strong>:
+        </p>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
+          <li>Circumvent paywalls, subscription access gates, or private user credentials.</li>
+          <li>Access non-public backends, unauthorized internal APIs, or confidential databases.</li>
+          <li>Collect data behind private user authentication.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          3. Strict Zero-PII Policy (GDPR & CCPA Compliance)
+        </h2>
+        <p>
+          We strictly adhere to global privacy regulations including the European Union General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+        </p>
+        <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid var(--accent-emerald); padding: 1rem; margin-top: 0.75rem; border-radius: 0.25rem;">
+          <strong style="color: var(--accent-emerald-light);">Zero Personally Identifiable Information Guarantee:</strong>
+          <p style="margin-top: 0.25rem; font-size: 0.875rem;">
+            Our extraction schemas (e.g. REAL-ESTATE-BASIC, GROCERY-PLP, FASHION-PDP) contain exclusively commercial and aggregate data: product titles, stock codes, pricing, specs, geocodes, and dimensions. We do not extract, store, or redistribute personal emails, telephone numbers, private identity records, or individual consumer profiles.
+          </p>
+        </div>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          4. Ethical Crawling & Server Respect
+        </h2>
+        <p>
+          Our automated ingestion engines are engineered for zero-impact crawling:
+        </p>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
+          <li><strong>Artificial Jitter & Delay:</strong> Requests maintain pacing intervals between 1.0s and 3.0s to avoid placing resource strain on origin servers.</li>
+          <li><strong>Zero DDoS Footprint:</strong> Strict concurrency caps prevent traffic spikes or performance degradation on target websites.</li>
+          <li><strong>Clean Architecture:</strong> We do not inject persistent trackers, invasive scripts, or malicious payloads into target domains.</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          5. Commercial Delivery & Licensing
+        </h2>
+        <p>
+          Datasets provided through bespoke contracts or marketplace platforms (e.g., S3 push delivery, CSV, JSON feeds) are delivered for the purchaser's internal market intelligence, research, benchmarking, and analytical use. Redistribution or re-licensing rights are governed by individual bespoke service contracts.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          6. Takedown & Compliance Inquiries
+        </h2>
+        <p>
+          If you represent a website or organization and have inquiries, opt-out requests, or questions regarding public catalog data attribution, our compliance officer is directly accessible:
+        </p>
+        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
+          Email: <a href="mailto:hung@hlpdata.com" style="color: var(--accent-emerald-light);">hung@hlpdata.com</a><br>
+          Entity: HLP Data Solutions &bull; Le Phuoc Hung
+        </p>
+      </section>
+
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Built with clean, anti-slop engineering standards.
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="terms.html">Terms & Compliance</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:hung@hlpdata.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
