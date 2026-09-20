@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Phuoc Hung — Senior Data Engineer & Automation Specialist</title>
+  <meta name="description" content="Portfolio and interactive CV of Le Phuoc Hung — Specialist in High-Precision Web Scraping, Anti-Bot Bypass, Enterprise Data Pipelines, and AWS Cloud Delivery.">
+  <meta name="keywords" content="Le Phuoc Hung, Data Engineer, Web Scraping, Anti-Bot, Python, AWS S3, Data Boutique, Automation">
+  <meta property="og:title" content="Le Phuoc Hung — Data Engineer & Automation Specialist">
+  <meta property="og:description" content="High-Precision Web Data Extraction, Anti-Bot Resilience & Enterprise Cloud Pipelines.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-slate-200 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Glow Background Accents -->
+  <div class="glow-sphere glow-1"></div>
+  <div class="glow-sphere glow-2"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-container">
+    <div class="nav-content">
+      <a href="#hero" class="brand-logo">
+        <span class="text-gradient font-bold tracking-tight">LPH</span>
+        <span class="badge-tag">DATA LABS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Capabilities</a>
+        <a href="#projects" class="nav-link">Datasets & Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-btn">Contact Me</a>
+      </div>
+      <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#skills" class="mobile-nav-link">Capabilities</a>
+    <a href="#projects" class="mobile-nav-link">Datasets & Projects</a>
+    <a href="#experience" class="mobile-nav-link">Experience</a>
+    <a href="#contact" class="mobile-nav-link text-indigo-400">Contact</a>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6 pt-32 pb-24">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span class="status-text">Available for Data Contracts & Engineering Roles</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Le Phuoc Hung</span>
+          </h1>
+          
+          <h2 class="hero-subtitle">
+            Senior Data Engineer <span class="text-indigo-400">&bull;</span> Automation Specialist <span class="text-indigo-400">&bull;</span> Scraping Architect
+          </h2>
+          
+          <p class="hero-bio">
+            I design and operate bulletproof, high-yield web data extraction engines, anti-bot bypass pipelines (Cloudflare Turnstile, WAF, PerimeterX), and automated AWS S3 cloud delivery architectures. Delivering high-precision datasets with 99.8% schema fidelity for global data marketplaces and enterprise intelligence.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <i class="fa-solid fa-layer-group mr-2"></i> Explore Datasets & Pipeline
+            </a>
+            <a href="#contact" class="btn-secondary">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Get In Touch
+            </a>
+            <button onclick="window.print()" class="btn-outline" title="Export as PDF / Print CV">
+              <i class="fa-solid fa-file-pdf mr-2"></i> Print / Save CV
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="badge-item">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Data Boutique Verified Seller</span>
+            </div>
+            <div class="badge-item">
+              <i class="fa-brands fa-paypal text-blue-400"></i>
+              <span>PayPal Business Verified</span>
+            </div>
+            <div class="badge-item">
+              <i class="fa-brands fa-aws text-amber-400"></i>
+              <span>AWS S3 Automated Ingestion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-container">
+          <div class="profile-card glass-panel">
+            <div class="profile-avatar">
+              <div class="avatar-ring">
+                <span class="avatar-initials">LH</span>
+              </div>
+            </div>
+            <h3 class="card-name">Le Phuoc Hung</h3>
+            <p class="card-title">Data Extraction & Pipeline Specialist</p>
+            <div class="card-location">
+              <i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> Vietnam &bull; Global Remote
+            </div>
+            
+            <div class="card-divider"></div>
+
+            <div class="quick-stats-grid">
+              <div class="quick-stat">
+                <div class="stat-number text-gradient" data-target="500">500K+</div>
+                <div class="stat-label">Records Cleaned</div>
+              </div>
+              <div class="quick-stat">
+                <div class="stat-number text-emerald-400" data-target="99">99.8%</div>
+                <div class="stat-label">Schema Compliance</div>
+              </div>
+              <div class="quick-stat">
+                <div class="stat-number text-indigo-400" data-target="100">100%</div>
+                <div class="stat-label">S3 Settlement Rate</div>
+              </div>
+            </div>
+
+            <div class="card-socials">
+              <a href="https://github.com/hunglp97" target="_blank" rel="noopener" class="social-icon" title="GitHub Profile">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="mailto:hunglp97@gmail.com" class="social-icon" title="Email Le Phuoc Hung">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="#contact" class="social-icon" title="Contract Inquiry">
+                <i class="fa-solid fa-briefcase"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY STATS & METRICS COUNTER -->
+    <section class="stats-banner glass-panel">
+      <div class="stat-box">
+        <span class="stat-val text-gradient">2,640+</span>
+        <span class="stat-desc">Real Estate Units Extracted Across 13 Regions</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val text-emerald-400">2,050+</span>
+        <span class="stat-desc">FMCG & Grocery SKUs Verified & Delivered</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val text-indigo-400">0s</span>
+        <span class="stat-desc">Bot Detection Footprint (Dual CDP + AppleScript Engine)</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val text-amber-400">32+</span>
+        <span class="stat-desc">Strict Schema Attributes Validated per Record</span>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERING PROFILE</span>
+        <h2 class="section-title">Specialized in Complex Web Data & High-Fidelity Feeds</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-panel p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center text-indigo-300">
+            <i class="fa-solid fa-terminal mr-3 text-indigo-400"></i> The Technical Philosophy
+          </h3>
+          <p class="text-slate-300 leading-relaxed mb-4">
+            Web scraping in 2026 is no longer about naive HTTP requests and static HTML parsing. Modern web platforms are protected by sophisticated behavioral WAFs (Cloudflare Turnstile, DataDome, PerimeterX) and client-side hydration frameworks.
+          </p>
+          <p class="text-slate-300 leading-relaxed">
+            I engineer <strong>resilient, dual-engine collection pipelines</strong> combining native browser automation (Chrome DevTools Protocol, AppleScript OS bridges) with optimized HTTP streaming. Every dataset is programmatically audited for 100% schema alignment, UTF-8-sig encoding, exact coordinate geolocation, and strict price sanity before automated ingestion into cloud data lakes.
+          </p>
+        </div>
+
+        <div class="glass-panel p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center text-emerald-300">
+            <i class="fa-solid fa-shield-halved mr-3 text-emerald-400"></i> Enterprise Compliance & Quality
+          </h3>
+          <ul class="space-y-3 text-slate-300">
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-3"></i>
+              <span><strong>Zero PII Guarantee:</strong> All scrapers target strictly public catalog and marketplace data, zero personal or confidential info.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-3"></i>
+              <span><strong>Automated Verification:</strong> Automated quality gates checking price ranges, non-empty critical attributes, and hierarchical categorization.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-3"></i>
+              <span><strong>Cloud Native Settlement:</strong> Direct AWS S3 integration with automated delivery, handshake verification, and instant marketplace settlement.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE CAPABILITIES / SKILLS -->
+    <section id="skills" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">TECH STACK & CAPABILITIES</span>
+        <h2 class="section-title">Architected for Speed, Resilience & Scale</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Card 1 -->
+        <div class="skill-card glass-panel">
+          <div class="skill-icon text-indigo-400">
+            <i class="fa-solid fa-spider"></i>
+          </div>
+          <h3 class="skill-title">Advanced Web Scraping</h3>
+          <p class="skill-desc">Dynamic DOM extraction, pagination unrolling, lazy-loaded infinite scroll, headless & headful browser orchestration.</p>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">CDP Engine</span>
+            <span class="tag">BeautifulSoup</span>
+            <span class="tag">Scrapy</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="skill-card glass-panel">
+          <div class="skill-icon text-emerald-400">
+            <i class="fa-solid fa-user-secret"></i>
+          </div>
+          <h3 class="skill-title">Anti-Bot & WAF Resilience</h3>
+          <p class="skill-desc">Defeating Cloudflare Turnstile, Cloudflare Challenge, rate-limiting, and fingerprinting with organic browser jitter and OS-level AppleScript bridges.</p>
+          <div class="skill-tags">
+            <span class="tag">Cloudflare Bypass</span>
+            <span class="tag">AppleScript</span>
+            <span class="tag">Organic Delays</span>
+            <span class="tag">User Agent Rotation</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="skill-card glass-panel">
+          <div class="skill-icon text-amber-400">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <h3 class="skill-title">Cloud ETL & Data Delivery</h3>
+          <p class="skill-desc">Automated ingestion into Amazon S3, prefix-based data lake structure, CSV/JSON normalization with semicolon delimiters & UTF-8 BOM encoding.</p>
+          <div class="skill-tags">
+            <span class="tag">AWS S3</span>
+            <span class="tag">Boto3</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">ETL Pipelines</span>
+            <span class="tag">Data Boutique Protocol</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="skill-card glass-panel">
+          <div class="skill-icon text-cyan-400">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="skill-title">Full-Stack & Systems</h3>
+          <p class="skill-desc">Building resilient CLI utilities, web automation daemons, REST API endpoints, and real-time marketplace scrapers.</p>
+          <div class="skill-tags">
+            <span class="tag">TypeScript / JS</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Git & CI/CD</span>
+            <span class="tag">Shell / Zsh</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & DATASETS SHOWCASE -->
+    <section id="projects" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">PORTFOLIO & LIVE DATASETS</span>
+        <h2 class="section-title">Battle-Tested Deliverables & Data Products</h2>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <div class="project-card glass-panel">
+          <div class="project-header">
+            <span class="project-category text-emerald-400">
+              <i class="fa-solid fa-building-circle-check mr-1"></i> Real Estate Intelligence
+            </span>
+            <span class="badge-status-green">Production Ready</span>
+          </div>
+          <h3 class="project-title">Idealista Portugal — Nationwide Real Estate Dataset</h3>
+          <p class="project-summary">
+            Comprehensive real estate property dataset scraping across all 13 major districts of Portugal (Lisboa, Porto, Algarve, Braga, Coimbra, etc.). Extracted 2,640+ listings with pricing per m2, rooms, floor levels, exterior amenities, and exact coordinates.
+          </p>
+          <div class="project-metrics">
+            <div><strong>2,640</strong> Listings</div>
+            <div><strong>32</strong> Schema Columns</div>
+            <div><strong>100%</strong> Verified</div>
+          </div>
+          <div class="project-tech">
+            <span class="tag">REAL-ESTATE-BASIC</span>
+            <span class="tag">AppleScript Chrome Bridge</span>
+            <span class="tag">JSON-LD Parsing</span>
+            <span class="tag">UTF-8-SIG CSV</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card glass-panel">
+          <div class="project-header">
+            <span class="project-category text-indigo-400">
+              <i class="fa-solid fa-cart-shopping mr-1"></i> E-Commerce & Retail FMCG
+            </span>
+            <span class="badge-status-indigo">Sold & Approved (€40)</span>
+          </div>
+          <h3 class="project-title">Continente Hypermarket — Grocery & Retail Price Feed</h3>
+          <p class="project-summary">
+            Full catalog pricing and SKU intelligence for Continente Portugal. Mapped 3-tier deep product taxonomy (Supermarket > Dairy/Produce > Subcategory), standard prices, promotional discounts, unit-weight normalized costs, and package sizes.
+          </p>
+          <div class="project-metrics">
+            <div><strong>2,059</strong> SKUs</div>
+            <div><strong>31</strong> Schema Columns</div>
+            <div><strong>approved.txt</strong> Handshake</div>
+          </div>
+          <div class="project-tech">
+            <span class="tag">GROCERY-PLP</span>
+            <span class="tag">Automated S3 Upload</span>
+            <span class="tag">Catalog Normalization</span>
+            <span class="tag">Data Boutique</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card glass-panel">
+          <div class="project-header">
+            <span class="project-category text-amber-400">
+              <i class="fa-solid fa-robot mr-1"></i> Automation Infrastructure
+            </span>
+            <span class="badge-status-amber">Autonomous</span>
+          </div>
+          <h3 class="project-title">DataBoutique-Pilot: Automated S3 & Bid Settlement Agent</h3>
+          <p class="project-summary">
+            End-to-end automated framework designed to scan marketplace bids, trigger autonomous crawler subagents, validate schema integrity with strict zero-fail rules, upload to AWS S3, and verify settlement logs without human intervention.
+          </p>
+          <div class="project-metrics">
+            <div><strong>Dual Engine</strong> HTTP & Chrome</div>
+            <div><strong>Zero</strong> Timeout Faults</div>
+            <div><strong>AWS S3</strong> Native Integration</div>
+          </div>
+          <div class="project-tech">
+            <span class="tag">Boto3 Cloud Client</span>
+            <span class="tag">Schema Validation Suite</span>
+            <span class="tag">TabPilot MCP Bridge</span>
+            <span class="tag">Python 3.12</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & TIMELINE -->
+    <section id="experience" class="section-container">
+      <div class="section-header">
+        <span class="section-tag">TRACK RECORD</span>
+        <h2 class="section-title">Experience & Milestones</h2>
+      </div>
+
+      <div class="timeline-container">
+        
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass-panel">
+            <div class="timeline-date">2024 — Present</div>
+            <h3 class="timeline-role">Lead Data Extraction Specialist & Founder</h3>
+            <div class="timeline-company text-indigo-400">Independent Data Operations & Studio</div>
+            <p class="timeline-desc">
+              Directing autonomous scraping workflows targeting top European retail and real estate marketplaces. Architected multi-stage data verification suites enforcing 100% column conformity and zero-PII policies for international B2B buyers.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content glass-panel">
+            <div class="timeline-date">2022 — 2024</div>
+            <h3 class="timeline-role">Senior Automation & Full-Stack Engineer</h3>
+            <div class="timeline-company text-indigo-400">Enterprise Web Solutions</div>
+            <p class="timeline-desc">
+              Developed distributed web scrapers, REST API integrations, and cloud storage systems. Engineered custom browser automation drivers capable of surviving aggressive anti-bot countermeasures with minimal resource overhead.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & HIRE ME SECTION -->
+    <section id="contact" class="section-container">
+      <div class="glass-panel p-10 text-center relative overflow-hidden">
+        <div class="contact-glow"></div>
+        <span class="section-tag">GET IN TOUCH</span>
+        <h2 class="text-3xl font-extrabold text-white mb-4">Have a Data or Scraping Project?</h2>
+        <p class="text-slate-300 max-w-xl mx-auto mb-8">
+          Whether you require bespoke real estate data feeds, e-commerce pricing trackers, or an anti-bot resilient scraping pipeline — I'm open to contract engagements and enterprise partnerships.
+        </p>
+
+        <div class="contact-card-grid">
+          <div class="contact-card">
+            <div class="contact-icon text-indigo-400">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Direct Business Email</span>
+              <a href="mailto:hunglp97@gmail.com" class="contact-value">hunglp97@gmail.com</a>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('hunglp97@gmail.com', this)" title="Copy Email">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon text-blue-400">
+              <i class="fa-brands fa-paypal"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">PayPal Business Verified</span>
+              <span class="contact-value">hunglp97@gmail.com</span>
+            </div>
+            <span class="badge-status-green">Verified</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon text-slate-300">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">GitHub Repository & Code</span>
+              <a href="https://github.com/hunglp97" target="_blank" rel="noopener" class="contact-value">github.com/hunglp97</a>
+            </div>
+            <a href="https://github.com/hunglp97" target="_blank" rel="noopener" class="copy-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="mailto:hunglp97@gmail.com?subject=[Data%20Inquiry]%20Web%20Extraction%20Project" class="btn-primary">
+            <i class="fa-solid fa-paper-plane mr-2"></i> Send Project Inquiry
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-container">
+    <div class="footer-content">
+      <div class="footer-copy">
+        &copy; 2026 <strong>Le Phuoc Hung</strong>. Built with precision for data-driven enterprises.
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Back to top</a>
+        <a href="https://github.com/hunglp97" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:hunglp97@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
