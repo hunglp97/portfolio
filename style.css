@@ -1672,3 +1672,59 @@ body {
     padding: 2rem 0 !important;
   }
 }
+
+/* ====================
+   Dataset modal: coverage line + disclosure notes
+   Rendered under the schema table. A buyer should meet a dataset's rough
+   edges before licensing it, not after — so these are styled to be read,
+   not to be skipped.
+   ==================== */
+.modal-coverage {
+  margin: 0.85rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.modal-coverage strong {
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+.modal-notes {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-emerald);
+  border-radius: 0.5rem;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.modal-notes h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-emerald-light);
+}
+
+.modal-notes ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.modal-notes li {
+  margin-bottom: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.modal-notes li:last-child {
+  margin-bottom: 0;
+}
+
+[data-theme="light"] .modal-notes {
+  background: rgba(16, 185, 129, 0.07);
+}
