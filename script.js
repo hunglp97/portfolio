@@ -696,7 +696,7 @@ const DATASET_SPECS = {
       { field: 'country_code', type: 'ISO 3166-1', fill: '100%', desc: 'PRT' },
       { field: 'currency_code', type: 'ISO 4217', fill: '100%', desc: 'EUR' },
       { field: 'listing_id', type: 'String / ID', fill: '100%', desc: 'Portal listing identifier \u2014 100% unique, zero duplicates' },
-      { field: 'operation_type', type: 'Enum', fill: '100%', desc: 'sale \u2014 this dataset contains no rental listings' },
+      { field: 'operation_type', type: 'Enum', fill: '100%', placeholder: true, desc: 'sale — this dataset contains no rental listings' },
       { field: 'property_type', type: 'Enum', fill: '100%', desc: 'apartment (53.6%) | house (46.4%)' },
       { field: 'title', type: 'String', fill: '100%', desc: 'Listing title as published by the portal' },
       { field: 'price', type: 'Float (\u20ac)', fill: '100%', desc: 'Asking price in EUR \u2014 median \u20ac572,500' },
