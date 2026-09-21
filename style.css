@@ -1728,3 +1728,13 @@ body {
 [data-theme="light"] .modal-notes {
   background: rgba(16, 185, 129, 0.07);
 }
+
+/* Cột chỉ có đúng một giá trị trên toàn dataset: đầy 100% nhưng không mang thông tin.
+   Phải nhìn là biết ngay, nếu không buyer sẽ đọc thành dữ liệu thật. */
+.schema-placeholder {
+  color: #b45309;
+  font-weight: 600;
+  white-space: nowrap;
+}
+[data-theme="light"] .schema-placeholder { color: #92400e; }
+

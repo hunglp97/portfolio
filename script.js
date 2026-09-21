@@ -915,7 +915,12 @@ function openDatasetModal(datasetKey) {
   if (schemaContainer) {
     let schemaHTML = '<table class="modal-table"><thead><tr><th>Field Name</th><th>Data Type</th><th>Fill Rate SLA</th><th>Description</th></tr></thead><tbody>';
     spec.schema.forEach(row => {
-      schemaHTML += `<tr><td><strong>${row.field}</strong></td><td><span class="badge-tag">${row.type}</span></td><td><span class="text-emerald font-mono">${row.fill}</span></td><td>${row.desc}</td></tr>`;
+      // Cột chỉ có một giá trị duy nhất thì "100%" là con số gây ngộ nhận: ô có
+      // đầy nhưng không mang thông tin nào. Phải hiện khác màu và nói rõ.
+      const fillCell = row.placeholder
+        ? `<span class="schema-placeholder" title="Single constant value across the entire dataset — not usable as a variable">${row.fill} &middot; 1 value</span>`
+        : `<span class="text-emerald font-mono"${row.basis === 'positive' ? ' title="Share of records carrying a value above zero"' : ''}>${row.fill}</span>`;
+      schemaHTML += `<tr><td><strong>${row.field}</strong></td><td><span class="badge-tag">${row.type}</span></td><td>${fillCell}</td><td>${row.desc}</td></tr>`;
     });
     schemaHTML += '</tbody></table>';
 
