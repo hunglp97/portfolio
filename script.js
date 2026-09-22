@@ -151,6 +151,7 @@ const I18N_DICT = {
     modal_btn_license: 'License Full Commercial Feed',
 
     nav_analytics: 'Intelligence',
+    nav_explore: 'Live Explorer',
     hero_cta_analytics: 'Live Intelligence',
     analytics_badge: 'Production Data Analytics',
     analytics_heading: 'Market Intelligence & Econometric Trends',
@@ -167,6 +168,7 @@ const I18N_DICT = {
   es: {
     nav_datasets: 'Datasets',
     nav_analytics: 'Inteligencia',
+    nav_explore: 'Explorador en Vivo',
     nav_pipeline: 'Arquitectura',
     nav_stack: 'Tecnologías',
     nav_experience: 'Trayectoria',
@@ -328,6 +330,7 @@ const I18N_DICT = {
   pt: {
     nav_datasets: 'Datasets',
     nav_analytics: 'Inteligência',
+    nav_explore: 'Explorador em Direto',
     nav_pipeline: 'Arquitetura',
     nav_stack: 'Tecnologias',
     nav_experience: 'Trajetória',
