@@ -258,6 +258,7 @@
 
       <nav class="nav">
         <a href="#datasets" class="nav-link" data-i18n="nav_datasets">Datasets</a>
+        <a href="#analytics" class="nav-link" data-i18n="nav_analytics">Intelligence</a>
         <a href="#pipeline" class="nav-link" data-i18n="nav_pipeline">Architecture</a>
         <a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
         <a href="#experience" class="nav-link" data-i18n="nav_experience">Track Record</a>
@@ -289,6 +290,7 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav" class="mobile-nav hidden">
       <a href="#datasets" class="mobile-link" data-i18n="nav_datasets">Datasets</a>
+      <a href="#analytics" class="mobile-link" data-i18n="nav_analytics">Intelligence</a>
       <a href="#pipeline" class="mobile-link" data-i18n="nav_pipeline">Architecture</a>
       <a href="#stack" class="mobile-link" data-i18n="nav_stack">Stack</a>
       <a href="#experience" class="mobile-link" data-i18n="nav_experience">Track Record</a>
@@ -314,9 +316,17 @@
     <section id="hero" class="hero">
       <div class="hero-content">
         
-        <div class="status-pill">
-          <span class="pulse-dot"></span>
-          <span data-i18n="hero_status">Available for Enterprise Scraping Contracts & Bespoke Feeds</span>
+        <div class="status-pill-group">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero_status">Available for Enterprise Scraping Contracts & Bespoke Feeds</span>
+          </div>
+          <div class="telemetry-pill">
+            <span class="pulse-dot emerald"></span>
+            <span class="font-mono text-xs" id="live-telemetry">
+              <strong>LIVE CENSUS:</strong> 18,107 Portugal properties synced &bull; S3 100% Approved
+            </span>
+          </div>
         </div>
 
         <h1 class="hero-headline" data-i18n="hero_headline">
@@ -331,8 +341,8 @@
           <a href="#datasets" class="btn btn-primary" data-i18n="hero_cta_explore">
             Explore Datasets
           </a>
-          <a href="mailto:hung@hlpdata.com" class="btn btn-secondary" data-i18n="hero_cta_hire">
-            Request Custom Feed
+          <a href="#analytics" class="btn btn-secondary" data-i18n="hero_cta_analytics">
+            Live Intelligence
           </a>
           <button onclick="window.print()" class="btn btn-ghost" title="Save resume as PDF">
             <i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="hero_cta_cv">Print CV (PDF)</span>
@@ -342,7 +352,7 @@
         <!-- Metric strip: Honest, verified numbers -->
         <div class="hero-metrics">
           <div class="metric-cell">
-            <span class="metric-val">547,142</span>
+            <span class="metric-val">562,609</span>
             <span class="metric-lbl" data-i18n="metric_lbl_1">Verified Properties (PT & UK)</span>
           </div>
           <div class="metric-divider"></div>
@@ -680,6 +690,137 @@
       </div>
     </section>
 
+    <!-- MARKET INTELLIGENCE & INTERACTIVE ANALYTICS -->
+    <section id="analytics" class="section">
+      <div class="section-title-wrap">
+        <div class="status-pill mb-2">
+          <span class="pulse-dot"></span>
+          <span data-i18n="analytics_badge">Production Data Analytics</span>
+        </div>
+        <h2 class="section-heading" data-i18n="analytics_heading">Market Intelligence &amp; Econometric Trends</h2>
+        <p class="section-desc" data-i18n="analytics_desc">Going beyond raw CSV scraping: aggregated price densities, cross-district disparity, and retail markdown dynamics computed directly from verified census feeds.</p>
+      </div>
+
+      <div class="analytics-grid">
+        <!-- Analytics Card 1: Idealista Portugal Price Disparity -->
+        <div class="analytics-card">
+          <div class="analytics-card-header">
+            <div>
+              <div class="analytics-tag"><i class="fa-solid fa-building-wheat"></i> Real Estate &bull; Portugal Census</div>
+              <h3 class="analytics-title" data-i18n="chart1_title">Portugal Housing Disparity: Median Asking Price &amp; €/m² by District</h3>
+            </div>
+            <div class="analytics-controls">
+              <div class="btn-group-toggle" role="group" aria-label="Metric selection">
+                <button type="button" class="toggle-btn active" id="btn-chart1-sqm" data-metric="sqm">€ / m²</button>
+                <button type="button" class="toggle-btn" id="btn-chart1-price" data-metric="price">Median Price (€)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-kpis">
+            <div class="kpi-box">
+              <span class="kpi-label">Highest District</span>
+              <span class="kpi-val text-emerald">Lisboa</span>
+              <span class="kpi-sub">€6,798 / m² median</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Coastal Hub</span>
+              <span class="kpi-val text-blue">Faro (Algarve)</span>
+              <span class="kpi-sub">€4,236 / m² median</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Value Opportunity</span>
+              <span class="kpi-val">Viseu</span>
+              <span class="kpi-sub">€1,716 / m² median</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Disparity Ratio</span>
+              <span class="kpi-val">3.96x</span>
+              <span class="kpi-sub">Lisboa vs Viseu</span>
+            </div>
+          </div>
+
+          <div class="chart-container" style="position: relative; height: 320px; width: 100%;">
+            <canvas id="idealistaDistrictChart"></canvas>
+          </div>
+
+          <div class="analytics-footer">
+            <div class="insight-bullet">
+              <i class="fa-solid fa-lightbulb text-emerald"></i>
+              <span data-i18n="chart1_insight"><strong>Key Market Insight:</strong> Lisbon commands a 43.2% premium over Porto (€4,747/m²) and nearly 4x over the central interior. 100% census coverage across all 13 major Portuguese districts.</span>
+            </div>
+            <span class="source-tag">Source: 18,107 Verified Idealista Listings &bull; Normalized WGS84 Census</span>
+          </div>
+        </div>
+
+        <!-- Analytics Card 2: Continente Supermarket Markdown & Promo -->
+        <div class="analytics-card">
+          <div class="analytics-card-header">
+            <div>
+              <div class="analytics-tag"><i class="fa-solid fa-cart-shopping"></i> Supermarket Retail &bull; Continente FMCG</div>
+              <h3 class="analytics-title" data-i18n="chart2_title">Supermarket Retail Intelligence: Promotion Rate vs Discount Depth</h3>
+            </div>
+            <div class="analytics-badge-status">
+              <span class="font-mono text-xs text-muted">11,711 SKUs Tracked</span>
+            </div>
+          </div>
+
+          <div class="analytics-kpis">
+            <div class="kpi-box">
+              <span class="kpi-label">Highest Promo Frequency</span>
+              <span class="kpi-val text-emerald">Bebé (Baby Care)</span>
+              <span class="kpi-sub">84.6% products on promo</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Deepest Markdown</span>
+              <span class="kpi-val text-blue">Bebidas (Wine &amp; Drinks)</span>
+              <span class="kpi-sub">65.2% avg discount depth</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Fresh Produce (Frescos)</span>
+              <span class="kpi-val">8.7%</span>
+              <span class="kpi-sub">17.5% avg discount depth</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Inelastic Staple</span>
+              <span class="kpi-val">Dairy &amp; Eggs</span>
+              <span class="kpi-sub">0% promotional volatility</span>
+            </div>
+          </div>
+
+          <div class="chart-container" style="position: relative; height: 320px; width: 100%;">
+            <canvas id="continentePromoChart"></canvas>
+          </div>
+
+          <div class="analytics-footer">
+            <div class="insight-bullet">
+              <i class="fa-solid fa-lightbulb text-emerald"></i>
+              <span data-i18n="chart2_insight"><strong>Key Retail Insight:</strong> Grocery pricing strategy exhibits sharp bifurcation: staples (Dairy, Household) maintain strict price discipline, whereas infant care and alcohol utilize aggressive loss-leader promotional markdowns.</span>
+            </div>
+            <span class="source-tag">Source: Continente Grocery PLP (11,711 SKUs, 3-level taxonomy)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enterprise Analytics Call to Action -->
+      <div class="analytics-cta-banner">
+        <div class="cta-banner-content">
+          <div class="cta-banner-icon">
+            <i class="fa-solid fa-chart-line text-emerald"></i>
+          </div>
+          <div>
+            <h4 class="cta-banner-title" data-i18n="analytics_cta_title">Looking for Bespoke Market Intelligence or Custom Hedonic Models?</h4>
+            <p class="cta-banner-desc" data-i18n="analytics_cta_desc">We deliver customized time-series inflation tracking, automated price disparity alerts, and institutional data pipelines tailored for hedge funds and retail analysts.</p>
+          </div>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Bespoke%20Market%20Intelligence%20Feed" class="btn btn-primary" data-i18n="analytics_cta_btn">
+            Request Custom Analytics Feed
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ARCHITECTURE & PIPELINE: Real engineering depth -->
     <section id="pipeline" class="section">
       <div class="section-title-wrap">
@@ -892,6 +1033,8 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260920f"></script>
+  <!-- Chart.js for High-Performance Production Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js?v=20260922a"></script>
 </body>
 </html>
