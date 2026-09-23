@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Web Datasets Catalog — HLP Data</title>
+  <meta name="description" content="Explore verified commercial datasets covering European real estate, FMCG supermarket retail, and luxury goods. Standardized schemas, 100% row audits, and cloud delivery.">
+  <link rel="canonical" href="https://hlpdata.com/datasets/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/datasets/">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Commercial Web Datasets Catalog — HLP Data">
+  <meta property="og:description" content="Explore verified commercial datasets covering European real estate, FMCG retail, and luxury fashion.">
+  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=20260922a">
+</head>
+<body>
+
+  <!-- Floating Minimal Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="../index.html#datasets" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
+        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="../custom-data.html" class="nav-link">Custom Data</a>
+        <a href="../api.html" class="nav-link">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="../custom-data.html" class="btn-sm btn-primary">
+          <i class="fa-regular fa-paper-plane"></i> Request Feed
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1180px; margin: 0 auto; padding-bottom: 5rem;">
+    
+    <div style="margin-bottom: 2.5rem;">
+      <a href="../index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        &larr; Back to Overview
+      </a>
+      <div class="status-pill mt-3 mb-2">
+        <span class="pulse-dot"></span>
+        <span>Commercial Catalog</span>
+      </div>
+      <h1 style="font-size: 2.5rem; font-weight: 800; margin-top: 0.75rem; letter-spacing: -0.02em;">
+        Verified Commercial Dataset Catalog
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 0.5rem; line-height: 1.6; max-width: 800px;">
+        Production-ready datasets extracted from high-friction public web portals, pre-audited against standardized schemas (REAL-ESTATE-BASIC, GROCERY-PLP, FASHION-PDP), and available for automated cloud synchronization.
+      </p>
+    </div>
+
+    <!-- Datasets Grid -->
+    <div class="datasets-grid">
+      
+      <!-- Rightmove UK -->
+      <article class="dataset-card">
+        <div class="dataset-top">
+          <span class="badge-tag">Real Estate &bull; United Kingdom</span>
+          <span class="badge-status approved">Buyer Audit: 100/100</span>
+        </div>
+        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="rightmove-uk.html" style="color: inherit; text-decoration: none;">Rightmove UK National Real Estate Census</a>
+        </h3>
+        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
+          Complete national census of the UK residential sale market: 544,502 verified listings covering 100% of all 3,121 postal outcodes across England, Scotland, and Wales across 32 standardized attributes.
+        </p>
+        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
+          <div class="meta-item"><strong>544,502</strong> records</div>
+          <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
+          <div class="meta-item"><strong>100%</strong> 3,121 Outcodes</div>
+          <div class="meta-item"><strong>Weekly/Monthly</strong> feed</div>
+        </div>
+        <div class="dataset-actions" style="display: flex; gap: 0.75rem;">
+          <a href="rightmove-uk.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
+          <a href="../samples/rightmove_uk_national_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
+        </div>
+      </article>
+
+      <!-- Idealista Portugal -->
+      <article class="dataset-card">
+        <div class="dataset-top">
+          <span class="badge-tag">Real Estate &bull; Portugal</span>
+          <span class="badge-status approved">Commercial Ready</span>
+        </div>
+        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="idealista-portugal.html" style="color: inherit; text-decoration: none;">Idealista Portugal Nationwide Property Feed</a>
+        </h3>
+        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
+          Nationwide sale-listing coverage across all 13 Portuguese districts (Lisboa, Porto, Faro, Setúbal, Braga, Coimbra+). 100% fill on asking price, price/m², floor area, and bedroom count.
+        </p>
+        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
+          <div class="meta-item"><strong>2,640</strong> records</div>
+          <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
+          <div class="meta-item"><strong>13</strong> Districts</div>
+          <div class="meta-item"><strong>Daily/Weekly</strong> feed</div>
+        </div>
+        <div class="dataset-actions" style="display: flex; gap: 0.75rem;">
+          <a href="idealista-portugal.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
+          <a href="../samples/idealista_real_estate_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
+        </div>
+      </article>
+
+      <!-- Continente FMCG -->
+      <article class="dataset-card">
+        <div class="dataset-top">
+          <span class="badge-tag">Retail & FMCG &bull; Portugal</span>
+          <span class="badge-status approved">Verified Commercial Feed</span>
+        </div>
+        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="continente-portugal.html" style="color: inherit; text-decoration: none;">Continente Supermarket FMCG Intelligence Catalog</a>
+        </h3>
+        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
+          Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features complete 3-level category hierarchy, markdown tracking, and normalized unit prices (€/kg, €/L).
+        </p>
+        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
+          <div class="meta-item"><strong>11,711</strong> SKUs</div>
+          <div class="meta-item"><strong>31</strong> cols (GROCERY-PLP)</div>
+          <div class="meta-item"><strong>S3 Verified</strong></div>
+          <div class="meta-item"><strong>Daily</strong> feed</div>
+        </div>
+        <div class="dataset-actions" style="display: flex; gap: 0.75rem;">
+          <a href="continente-portugal.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
+          <a href="../samples/continente_grocery_plp_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
+        </div>
+      </article>
+
+      <!-- Farfetch Luxury -->
+      <article class="dataset-card">
+        <div class="dataset-top">
+          <span class="badge-tag">Luxury Goods &bull; Global</span>
+          <span class="badge-status approved">Buyer Audit: 100/100</span>
+        </div>
+        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="farfetch-luxury.html" style="color: inherit; text-decoration: none;">Farfetch Luxury Handbag Catalog</a>
+        </h3>
+        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
+          Curated catalog of 960 women’s handbag listings across 125 premier designer brands including Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, and Saint Laurent.
+        </p>
+        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
+          <div class="meta-item"><strong>960</strong> SKUs</div>
+          <div class="meta-item"><strong>35</strong> cols (FASHION-PDP)</div>
+          <div class="meta-item"><strong>125</strong> Brands</div>
+          <div class="meta-item"><strong>Weekly</strong> feed</div>
+        </div>
+        <div class="dataset-actions" style="display: flex; gap: 0.75rem;">
+          <a href="farfetch-luxury.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
+          <a href="../samples/farfetch_luxury_fashion_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Need another dataset banner -->
+    <div class="analytics-cta-banner" style="margin-top: 3.5rem;">
+      <div class="cta-banner-content">
+        <div class="cta-banner-icon">
+          <i class="fa-solid fa-server text-emerald"></i>
+        </div>
+        <div>
+          <h4 class="cta-banner-title">Need a Public Website Dataset Not Listed Here?</h4>
+          <p class="cta-banner-desc">We build and operate custom web data pipelines tailored to your schema, frequency, and delivery requirements.</p>
+        </div>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="../custom-data.html" class="btn btn-primary">
+          <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Custom Dataset
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../custom-data.html">Custom Data</a>
+        <a href="../api.html">API Docs</a>
+        <a href="../terms.html">Terms & Compliance</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=20260922a"></script>
+</body>
+</html>

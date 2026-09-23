@@ -1,10 +1,6 @@
 /* 
-  Le Phuoc Hung — Engineering Portfolio & Dataset Showcase
-  Built according to taste-skill anti-slop guidelines:
-  - Strict layout discipline (Header clearance, Grid over Flex math, No clipping)
-  - Color calibration: Deep Zinc (#0a0e17) + Crisp Slate + Single Emerald Accent
-  - Zero AI-purple slop, zero blurry glow spheres, zero fake buzzwords
-  - High-density terminal & verified dataset preview
+  HLP Data — Enterprise Design System & Utility Tokens
+  Clean, high-performance typography, dark-mode/light-mode variables, and accessible components.
 */
 
 :root {
@@ -1998,6 +1994,136 @@ body {
   .chart-container {
     height: 270px;
   }
+}
+
+/* Business Use Cases Section */
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.use-case-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.use-case-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.use-case-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 0.375rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.use-case-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.use-case-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.use-case-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-emerald-light);
+  background: rgba(16, 185, 129, 0.06);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-emerald);
+}
+
+@media (max-width: 960px) {
+  .use-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Custom Data & API Forms & Lead Capture */
+.lead-form-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2.25rem;
+  box-shadow: var(--card-shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.form-input, .form-select, .form-textarea {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 

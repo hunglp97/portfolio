@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continente Supermarket FMCG Intelligence Catalog — HLP Data</title>
+  <meta name="description" content="11,711 verified supermarket grocery SKUs covering Portuguese retail FMCG. 31-attribute GROCERY-PLP schema with prices, PPU, promotions, and 3-level taxonomy.">
+  <link rel="canonical" href="https://hlpdata.com/datasets/continente-portugal.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/datasets/continente-portugal.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Continente Supermarket FMCG Intelligence Catalog — HLP Data">
+  <meta property="og:description" content="Complete grocery catalog crawl of Continente.pt: 11,711 verified SKUs across 31 standardized attributes including unit prices and promotions.">
+  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
+
+  <!-- Schema.org Dataset Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Continente Supermarket FMCG Intelligence Catalog",
+    "description": "Complete grocery catalog crawl of Continente.pt retail supermarket: 11,711 verified consumer packaged goods across 31 standardized attributes including unit prices and promotional mechanics.",
+    "url": "https://hlpdata.com/datasets/continente-portugal.html",
+    "sameAs": "https://www.continente.pt/",
+    "license": "https://hlpdata.com/terms.html",
+    "creator": {
+      "@type": "Organization",
+      "name": "HLP Data",
+      "url": "https://hlpdata.com/"
+    },
+    "spatialCoverage": "Portugal",
+    "temporalCoverage": "2026",
+    "variableMeasured": [
+      "regular price",
+      "discounted price",
+      "price per unit",
+      "brand",
+      "product title",
+      "category hierarchy",
+      "promotions",
+      "package volume"
+    ],
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "text/csv",
+        "contentUrl": "https://hlpdata.com/samples/continente_grocery_plp_sample.csv"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=20260922a">
+</head>
+<body>
+
+  <!-- Floating Minimal Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
+        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="../custom-data.html" class="nav-link">Custom Data</a>
+        <a href="../api.html" class="nav-link">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset" class="btn-sm btn-primary">
+          <i class="fa-regular fa-envelope"></i> Request Pricing
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
+    
+    <!-- Breadcrumb -->
+    <div style="margin-bottom: 1.5rem;">
+      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Continente FMCG</span>
+    </div>
+
+    <!-- Header Section -->
+    <div style="margin-bottom: 2.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="badge-tag">E-Commerce &bull; FMCG Retail</span>
+        <span class="badge-status approved">Production Verified</span>
+        <span class="badge-tag">GROCERY-PLP (31 Attributes)</span>
+      </div>
+      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+        Continente Supermarket FMCG Intelligence Catalog
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
+        A comprehensive retail intelligence catalog from Continente.pt: 11,711 verified consumer goods across 10 departmental aisles. Normalized with standard prices, unit prices (€/kg, €/L), promotional mechanics, brand extraction, package descriptions, and 3-tier category hierarchy.
+      </p>
+    </div>
+
+    <!-- Key Metrics Grid -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total SKUs</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">11,711</div>
+        <div style="font-size: 0.75rem; color: var(--accent-emerald-light); margin-top: 0.25rem;">Zero duplicate SKUs</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Category Depth</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">3 Tiers</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Aisle, category, subcategory</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Brand Extraction</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">99.0%</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Manufacturer &amp; private label</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Update Schedule</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">Daily / Weekly</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Direct S3 & API</div>
+      </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+      <a href="../samples/continente_grocery_plp_sample.csv" download class="btn btn-secondary">
+        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
+      </a>
+      <a href="mailto:sales@hlpdata.com?subject=[License%20Inquiry]%20Continente%20FMCG%20Catalog" class="btn btn-primary">
+        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Request Pricing & Feed Licensing
+      </a>
+      <a href="../custom-data.html" class="btn btn-ghost">
+        Request Custom Category Scope
+      </a>
+    </div>
+
+    <!-- Data Schema Table -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Schema Specification (31 Columns)</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
+        Standardized according to GROCERY-PLP specification with measured fill-rate SLAs and automated shelf consistency audits.
+      </p>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
+        <table class="modal-table" style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Data Type</th>
+              <th>Fill Rate SLA</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>website_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>continente.pt</td></tr>
+            <tr><td><strong>competence_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Daily execution timestamp</td></tr>
+            <tr><td><strong>country_code</strong></td><td><span class="badge-tag">ISO 3166-1</span></td><td><span class="text-emerald font-mono">100%</span></td><td>PRT</td></tr>
+            <tr><td><strong>currency_code</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>EUR</td></tr>
+            <tr><td><strong>store_id</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>product_code</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Internal SKU identifier</td></tr>
+            <tr><td><strong>product_std_code</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>std_type</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>brand</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">99.0%</span></td><td>Manufacturer brand or private label</td></tr>
+            <tr><td><strong>product_title</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Normalized product name</td></tr>
+            <tr><td><strong>category1</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">99.9%</span></td><td>Tier 1 Department (Frescos, Mercearia, Bebidas...)</td></tr>
+            <tr><td><strong>category2</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">93.3%</span></td><td>Tier 2 Category aisle</td></tr>
+            <tr><td><strong>category3</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">87.4%</span></td><td>Tier 3 Granular sub-category</td></tr>
+            <tr><td><strong>category4</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">5.2%</span></td><td>Tier 4 Specific category classification</td></tr>
+            <tr><td><strong>category5</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">2.1%</span></td><td>Tier 5 Granular category classification</td></tr>
+            <tr><td><strong>category6</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>category7</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>category8</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>category9</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>category10</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>package_desc</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">97.6%</span></td><td>Net package volume / weight</td></tr>
+            <tr><td><strong>full_price</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Standard non-discounted catalog price</td></tr>
+            <tr><td><strong>price</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Effective transactional price</td></tr>
+            <tr><td><strong>ppu</strong></td><td><span class="badge-tag">Float (€/unit)</span></td><td><span class="text-emerald font-mono">82.2%</span></td><td>Normalized unit price (€/kg, €/L)</td></tr>
+            <tr><td><strong>unit_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">82.2%</span></td><td>kg | L | un | dose</td></tr>
+            <tr><td><strong>promotion_type</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">31.4%</span></td><td>Promotion indicator (e.g. -10%, PVPR -20%, Leve 2 Pague 1)</td></tr>
+            <tr><td><strong>promotion_end_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
+            <tr><td><strong>additional_tags</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">4.6%</span></td><td>Product tags and seasonal campaign flags (e.g. Bio, Sem Lactose)</td></tr>
+            <tr><td><strong>additional_content</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Availability indicator (Disponível)</td></tr>
+            <tr><td><strong>itemurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Canonical e-commerce product URL</td></tr>
+            <tr><td><strong>imageurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>High-res CDN product image link</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Transparent Caveats -->
+    <div class="modal-notes" style="margin-bottom: 3rem;">
+      <h4>Data notes &amp; known caveats</h4>
+      <ul>
+        <li>Standard supermarket retail catalog feed formatted according to GROCERY-PLP schema contract (31 fields).</li>
+        <li>Six optional taxonomy levels (category6 through category10) and store_id/product_std_code arrive empty as they are not exposed by the portal interface.</li>
+        <li>Price per unit (PPU) is captured for 82.2% of SKUs where measurable units (weight, volume, doses) apply. Items sold strictly by individual count without weight information leave PPU blank.</li>
+        <li>Promotional mechanics represent active shelf tags at the moment of catalog collection.</li>
+        <li>100% public retail catalog intelligence. Zero consumer or personal data.</li>
+      </ul>
+    </div>
+
+    <!-- Commercial License & Delivery -->
+    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Commercial Licensing & Delivery Options</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Available for retail analytics teams, consumer brand pricing managers, FMCG market researchers, and competitive intelligence systems.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">Amazon S3 Sync</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Daily/weekly automated push to your AWS S3 bucket with receipt validation.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">REST API Feeds</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Query products by category aisle, brand, promotional status, or price changes.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">Catalog Snapshot</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time complete catalog delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
+        </div>
+      </div>
+      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset%20Pricing" class="btn btn-primary">
+        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Pricing & Sample License
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Datasets</a>
+        <a href="../custom-data.html">Custom Data</a>
+        <a href="../api.html">API Docs</a>
+        <a href="../terms.html">Terms & Compliance</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=20260922a"></script>
+</body>
+</html>

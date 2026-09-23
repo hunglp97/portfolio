@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HLP Data — Enterprise Web Scraping & Alternative Data Feeds</title>
-  <meta name="description" content="HLP Data delivers bespoke web scraping, enterprise alternative data feeds, and anti-bot bypass pipelines for hedge funds, e-commerce, and real estate intelligence.">
+  <title>HLP Data — Web Data Intelligence & Commercial Data Feeds</title>
+  <meta name="description" content="Structured product, pricing, retail, and real-estate datasets delivered through API, CSV, JSON, or S3. Request sample data or a custom web data feed.">
   <link rel="canonical" href="https://hlpdata.com/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="theme-color" content="#090d16">
@@ -27,14 +27,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/">
   <meta property="og:site_name" content="HLP Data">
-  <meta property="og:title" content="HLP Data — Enterprise Web Scraping & Alternative Data Feeds">
-  <meta property="og:description" content="Bespoke web data extraction, Cloudflare Turnstile bypass pipelines, and verified commercial datasets by HLP Data.">
+  <meta property="og:title" content="HLP Data — Web Data Intelligence & Commercial Data Feeds">
+  <meta property="og:description" content="Structured pricing, retail, product, and real-estate datasets delivered through API, CSV, JSON, or S3. Verified commercial feeds by HLP Data.">
   <meta property="og:image" content="https://hlpdata.com/favicon.svg">
 
   <!-- Twitter Metadata -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="HLP Data — Enterprise Web Scraping & Alternative Data Feeds">
-  <meta name="twitter:description" content="Bespoke web data extraction, Cloudflare Turnstile bypass pipelines, and verified commercial datasets by HLP Data.">
+  <meta name="twitter:title" content="HLP Data — Web Data Intelligence & Commercial Data Feeds">
+  <meta name="twitter:description" content="Structured pricing, retail, product, and real-estate datasets delivered through API, CSV, JSON, or S3. Verified commercial feeds by HLP Data.">
 
   <!-- Schema.org JSON-LD Entity Graph -->
   <script type="application/ld+json">
@@ -47,18 +47,9 @@
                   "name": "HLP Data",
                   "url": "https://hlpdata.com/",
                   "logo": "https://hlpdata.com/favicon.svg",
-                  "founder": {
-                        "@type": "Person",
-                        "name": "Le Phuoc Hung",
-                        "jobTitle": "Lead Data Engineer & Scraping Architect",
-                        "email": "hung@hlpdata.com",
-                        "sameAs": [
-                              "https://github.com/hunglp97"
-                        ]
-                  },
                   "contactPoint": {
                         "@type": "ContactPoint",
-                        "email": "hung@hlpdata.com",
+                        "email": "sales@hlpdata.com",
                         "contactType": "sales",
                         "availableLanguage": [
                               "English",
@@ -66,7 +57,7 @@
                               "Portuguese"
                         ]
                   },
-                  "description": "Bespoke web scraping, verified commercial datasets, and automated data feeds for hedge funds and market intelligence."
+                  "description": "Structured web data feeds, verified commercial datasets, and cloud delivery pipelines for business intelligence and quantitative market analysis."
             },
             {
                   "@type": "WebSite",
@@ -258,11 +249,12 @@
 
       <nav class="nav">
         <a href="#datasets" class="nav-link" data-i18n="nav_datasets">Datasets</a>
+        <a href="#use-cases" class="nav-link">Use Cases</a>
         <a href="#analytics" class="nav-link" data-i18n="nav_analytics">Intelligence</a>
         <a href="https://explore.hlpdata.com" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent); font-weight: 700;"><i class="fa-solid fa-bolt" style="font-size: 0.8rem; margin-right: 4px;"></i><span data-i18n="nav_explore">Live Explorer</span></a>
-        <a href="#pipeline" class="nav-link" data-i18n="nav_pipeline">Architecture</a>
-        <a href="#stack" class="nav-link" data-i18n="nav_stack">Stack</a>
-        <a href="#experience" class="nav-link" data-i18n="nav_experience">Track Record</a>
+        <a href="#pipeline" class="nav-link" data-i18n="nav_pipeline">Infrastructure</a>
+        <a href="custom-data.html" class="nav-link">Custom Data</a>
+        <a href="api.html" class="nav-link">API</a>
       </nav>
 
       <div class="header-actions">
@@ -279,8 +271,8 @@
           </button>
         </div>
 
-        <a href="mailto:hung@hlpdata.com" class="btn-sm btn-primary">
-          <i class="fa-regular fa-envelope"></i> <span data-i18n="nav_contact_btn">Contact</span>
+        <a href="custom-data.html" class="btn-sm btn-primary">
+          <i class="fa-regular fa-paper-plane"></i> <span data-i18n="hero_cta_hire">Request Custom Feed</span>
         </a>
         <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
           <i class="fa-solid fa-bars"></i>
@@ -291,11 +283,12 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-nav" class="mobile-nav hidden">
       <a href="#datasets" class="mobile-link" data-i18n="nav_datasets">Datasets</a>
+      <a href="#use-cases" class="mobile-link">Use Cases</a>
       <a href="#analytics" class="mobile-link" data-i18n="nav_analytics">Intelligence</a>
-      <a href="#pipeline" class="mobile-link" data-i18n="nav_pipeline">Architecture</a>
-      <a href="#stack" class="mobile-link" data-i18n="nav_stack">Stack</a>
-      <a href="#experience" class="mobile-link" data-i18n="nav_experience">Track Record</a>
-      <a href="mailto:hung@hlpdata.com" class="mobile-link highlight" data-i18n="mobile_contact_me">Contact Me</a>
+      <a href="#pipeline" class="mobile-link" data-i18n="nav_pipeline">Infrastructure</a>
+      <a href="custom-data.html" class="mobile-link">Custom Data</a>
+      <a href="api.html" class="mobile-link">API Docs</a>
+      <a href="custom-data.html" class="mobile-link highlight" data-i18n="mobile_contact_me">Request Custom Dataset</a>
       
       <div class="mobile-controls">
         <div class="lang-switcher" role="group" aria-label="Language selection">
@@ -320,7 +313,7 @@
         <div class="status-pill-group">
           <div class="status-pill">
             <span class="pulse-dot"></span>
-            <span data-i18n="hero_status">Available for Enterprise Scraping Contracts & Bespoke Feeds</span>
+            <span data-i18n="hero_status">Production Web Data Infrastructure & Commercial Feeds</span>
           </div>
           <div class="telemetry-pill">
             <span class="pulse-dot emerald"></span>
@@ -331,23 +324,23 @@
         </div>
 
         <h1 class="hero-headline" data-i18n="hero_headline">
-          Autonomous data pipelines & resilient web crawlers at scale.
+          Reliable web data for business intelligence.
         </h1>
 
         <p class="hero-subtext" data-i18n="hero_subtext">
-          Specializing in high-throughput collection infrastructure that bypasses modern anti-bot systems (Cloudflare Turnstile, WAF) and delivers verified, 100% schema-compliant datasets directly to enterprise S3 data lakes.
+          Structured product, pricing, retail, and real-estate datasets with reliable refresh schedules, historical tracking, and production-ready delivery through API, CSV, JSON, or S3.
         </p>
 
         <div class="hero-cta-group">
           <a href="#datasets" class="btn btn-primary" data-i18n="hero_cta_explore">
-            Explore Datasets
+            <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Get Sample Data
           </a>
-          <a href="#analytics" class="btn btn-secondary" data-i18n="hero_cta_analytics">
-            Live Intelligence
+          <a href="custom-data.html" class="btn btn-secondary" data-i18n="hero_cta_hire">
+            <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Custom Dataset
           </a>
-          <button onclick="window.print()" class="btn btn-ghost" title="Save resume as PDF">
-            <i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="hero_cta_cv">Print CV (PDF)</span>
-          </button>
+          <a href="#use-cases" class="btn btn-ghost" data-i18n="hero_cta_cv">
+            Explore Use Cases
+          </a>
         </div>
 
         <!-- Metric strip: Honest, verified numbers -->
@@ -424,7 +417,7 @@
             </div>
           </div>
           <div class="terminal-footer">
-            <span class="footer-tag"><i class="fa-solid fa-server"></i> <span data-i18n="terminal_tag_engine">Native AppleScript + CDP Engine</span></span>
+            <span class="footer-tag"><i class="fa-solid fa-server"></i> <span data-i18n="terminal_tag_engine">Resilient Collection Infrastructure</span></span>
             <span class="footer-tag"><i class="fa-brands fa-aws"></i> <span data-i18n="terminal_tag_s3">S3 Ingestion Ready</span></span>
           </div>
         </div>
@@ -436,6 +429,11 @@
       <div class="section-title-wrap">
         <h2 class="section-heading" data-i18n="datasets_heading">Verified Commercial Datasets & Production Feeds</h2>
         <p class="section-desc" data-i18n="datasets_desc">Production-grade datasets extracted from high-friction targets, pre-audited against strict buyer schemas, and ready for immediate S3 deployment.</p>
+        <div style="margin-top: 1rem;">
+          <a href="datasets/index.html" class="btn-sm btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-layer-group"></i> Browse Complete Dataset Catalog &rarr;
+          </a>
+        </div>
       </div>
 
       <div class="datasets-grid">
@@ -446,7 +444,7 @@
             <span class="badge-tag" data-i18n="ds1_badge">Real Estate &bull; Portugal</span>
             <span class="badge-status" data-i18n="ds1_status">Commercial Ready</span>
           </div>
-          <h3 class="dataset-name" data-i18n="ds1_name">Idealista Portugal Nationwide Property Feed</h3>
+          <h3 class="dataset-name"><a href="datasets/idealista-portugal.html" style="color: inherit; text-decoration: none;" data-i18n="ds1_name">Idealista Portugal Nationwide Property Feed</a></h3>
           <p class="dataset-summary" data-i18n="ds1_summary">
             Nationwide sale-listing coverage across all 13 Portuguese districts (Lisboa, Porto, Faro, Setúbal, Braga, Coimbra and 7 more). 2,640 listings with 100% fill on asking price, price per m², floor area and bedroom count, plus advertised amenities. Median asking price €572,500. Geocoordinates, bathroom counts and agency attribution are not collected for this source.
           </p>
@@ -491,10 +489,13 @@
 
           <div class="dataset-actions">
             <div class="dataset-btns">
+              <a href="datasets/idealista-portugal.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
+                <i class="fa-solid fa-file-lines"></i> Specs
+              </a>
               <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="idealista">
                 <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
               </button>
-              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary" data-i18n="ds1_btn">
+              <a href="mailto:sales@hlpdata.com?subject=Inquiry:%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary" data-i18n="ds1_btn">
                 Request Sample / License Feed
               </a>
             </div>
@@ -508,7 +509,7 @@
             <span class="badge-tag" data-i18n="ds2_badge">Retail & FMCG &bull; Portugal</span>
             <span class="badge-status approved" data-i18n="ds2_status">Verified Commercial Feed</span>
           </div>
-          <h3 class="dataset-name" data-i18n="ds2_name">Continente Supermarket FMCG Intelligence Catalog</h3>
+          <h3 class="dataset-name"><a href="datasets/continente-portugal.html" style="color: inherit; text-decoration: none;" data-i18n="ds2_name">Continente Supermarket FMCG Intelligence Catalog</a></h3>
           <p class="dataset-summary" data-i18n="ds2_summary">
             Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features complete 3-level category hierarchy, markdown discount tracking, normalized unit prices (€/kg, €/L), and packaging dimensions.
           </p>
@@ -553,10 +554,13 @@
 
           <div class="dataset-actions">
             <div class="dataset-btns">
+              <a href="datasets/continente-portugal.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
+                <i class="fa-solid fa-file-lines"></i> Specs
+              </a>
               <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="continente">
                 <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
               </button>
-              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary" data-i18n="ds2_btn">
+              <a href="mailto:sales@hlpdata.com?subject=Inquiry:%20Continente%20Grocery%20Dataset" class="btn-sm btn-primary" data-i18n="ds2_btn">
                 Request Sample / License Feed
               </a>
             </div>
@@ -570,7 +574,7 @@
             <span class="badge-tag" data-i18n="ds3_badge">Luxury Handbags &bull; Global</span>
             <span class="badge-status approved" data-i18n="ds3_status">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name" data-i18n="ds3_name">Farfetch Luxury Handbag Catalog</h3>
+          <h3 class="dataset-name"><a href="datasets/farfetch-luxury.html" style="color: inherit; text-decoration: none;" data-i18n="ds3_name">Farfetch Luxury Handbag Catalog</a></h3>
           <p class="dataset-summary" data-i18n="ds3_summary">
             Curated catalog of 960 women’s handbag listings across 125 premier luxury designer brands including Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, Saint Laurent, and Tom Ford. 35-attribute FASHION-PDP schema tracking transactional and original prices, SKU identifiers, and high-res media links.
           </p>
@@ -615,10 +619,13 @@
 
           <div class="dataset-actions">
             <div class="dataset-btns">
+              <a href="datasets/farfetch-luxury.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
+                <i class="fa-solid fa-file-lines"></i> Specs
+              </a>
               <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="farfetch">
                 <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
               </button>
-              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary" data-i18n="ds3_btn">
+              <a href="mailto:sales@hlpdata.com?subject=Inquiry:%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary" data-i18n="ds3_btn">
                 Request Sample / License Feed
               </a>
             </div>
@@ -632,7 +639,7 @@
             <span class="badge-tag" data-i18n="ds4_badge">Real Estate &bull; United Kingdom</span>
             <span class="badge-status approved" data-i18n="ds4_status">Buyer Audit: 100/100</span>
           </div>
-          <h3 class="dataset-name" data-i18n="ds4_name">Rightmove UK National Real Estate Census</h3>
+          <h3 class="dataset-name"><a href="datasets/rightmove-uk.html" style="color: inherit; text-decoration: none;" data-i18n="ds4_name">Rightmove UK National Real Estate Census</a></h3>
           <p class="dataset-summary" data-i18n="ds4_summary">
             A complete national census of the UK residential sale market: 544,502 verified listings covering 100% of all 3,121 postal outcodes across England, Scotland and Wales &mdash; 402 regions and 61 property types. 100% compliant with REAL-ESTATE-BASIC across 32 attributes: WGS84 geocoordinates, floor area in m&sup2;, asking and original prices, price per m&sup2;, bedroom and bathroom counts, and listing agency. Zero duplicate listing IDs; every product URL absolute.
           </p>
@@ -677,10 +684,13 @@
 
           <div class="dataset-actions">
             <div class="dataset-btns">
+              <a href="datasets/rightmove-uk.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
+                <i class="fa-solid fa-file-lines"></i> Specs
+              </a>
               <button type="button" class="btn-sm btn-secondary inspect-btn" data-dataset="rightmove">
                 <i class="fa-regular fa-eye"></i> <span data-i18n="btn_inspect_schema">Inspect Schema & Sample</span>
               </button>
-              <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Rightmove%20UK%20National%20Census%20Dataset" class="btn-sm btn-primary" data-i18n="ds4_btn">
+              <a href="mailto:sales@hlpdata.com?subject=Inquiry:%20Rightmove%20UK%20National%20Census%20Dataset" class="btn-sm btn-primary" data-i18n="ds4_btn">
                 Request Sample / License Feed
               </a>
             </div>
@@ -688,6 +698,62 @@
           </div>
         </article>
 
+      </div>
+    </section>
+
+    <!-- BUSINESS USE CASES: Transform data into commercial value -->
+    <section id="use-cases" class="section">
+      <div class="section-title-wrap">
+        <div class="status-pill mb-2">
+          <span class="pulse-dot"></span>
+          <span>Commercial Solutions</span>
+        </div>
+        <h2 class="section-heading">Business Use Cases</h2>
+        <p class="section-desc">Empowering investment research, retail intelligence, and competitive benchmarking with structured, production-grade web data.</p>
+      </div>
+
+      <div class="use-cases-grid">
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-tags text-emerald"></i></div>
+          <h3 class="use-case-title">Pricing Intelligence</h3>
+          <p class="use-case-desc">Monitor competitor price movements, track markdown cadences, and identify pricing anomalies across thousands of daily retail listings.</p>
+          <div class="use-case-meta">Retail &bull; FMCG &bull; Luxury Goods</div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-boxes-stacked text-blue"></i></div>
+          <h3 class="use-case-title">Product &amp; Assortment Monitoring</h3>
+          <p class="use-case-desc">Track catalog breadth, out-of-stock events, new category launches, and brand presence across leading European and global retail marketplaces.</p>
+          <div class="use-case-meta">E-Commerce &bull; Brand Equity &bull; Merchandising</div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-percent text-emerald"></i></div>
+          <h3 class="use-case-title">Promotion Tracking</h3>
+          <p class="use-case-desc">Analyze markdown depth, promotional frequency, loss-leader strategies, and multi-buy packaging mechanics down to normalized unit prices (€/kg, €/L).</p>
+          <div class="use-case-meta">Supermarkets &bull; FMCG Brands &bull; Consumer Analytics</div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-city text-blue"></i></div>
+          <h3 class="use-case-title">Real-Estate Market Intelligence</h3>
+          <p class="use-case-desc">Comprehensive nationwide property censuses with 100% postal outcode coverage, asking vs original pricing, floor space, and geographical coordinates.</p>
+          <div class="use-case-meta">Hedge Funds &bull; REITs &bull; PropTech &bull; Appraisers</div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-chart-line text-emerald"></i></div>
+          <h3 class="use-case-title">Historical Market Analysis</h3>
+          <p class="use-case-desc">Build longitudinal time-series models to track inflation, inventory velocity, and structural market changes over weeks, months, and years.</p>
+          <div class="use-case-meta">Macro Research &bull; Quantitative Strategy &bull; Econometrics</div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon"><i class="fa-solid fa-cloud-arrow-down text-blue"></i></div>
+          <h3 class="use-case-title">Custom Data Feeds</h3>
+          <p class="use-case-desc">Need web data from another public domain? HLP Data engineers, operates, and monitors bespoke recurring pipelines delivered straight to your AWS S3 bucket.</p>
+          <div class="use-case-meta">Bespoke Schemas &bull; Daily/Weekly Feeds &bull; REST API</div>
+        </div>
       </div>
     </section>
 
@@ -818,7 +884,7 @@
           <a href="https://explore.hlpdata.com" target="_blank" rel="noopener" class="btn btn-secondary">
             <i class="fa-solid fa-terminal" style="margin-right: 6px;"></i> In-Browser SQL Explorer
           </a>
-          <a href="mailto:hung@hlpdata.com?subject=Inquiry:%20Bespoke%20Market%20Intelligence%20Feed" class="btn btn-primary" data-i18n="analytics_cta_btn">
+          <a href="mailto:sales@hlpdata.com?subject=Inquiry:%20Bespoke%20Market%20Intelligence%20Feed" class="btn btn-primary" data-i18n="analytics_cta_btn">
             Request Custom Analytics Feed
           </a>
         </div>
@@ -828,30 +894,30 @@
     <!-- ARCHITECTURE & PIPELINE: Real engineering depth -->
     <section id="pipeline" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading" data-i18n="pipeline_heading">Autonomous Pipeline Architecture</h2>
-        <p class="section-desc" data-i18n="pipeline_desc">Engineered for resilience, zero human intervention, and deterministic cloud delivery.</p>
+        <h2 class="section-heading" data-i18n="pipeline_heading">Data Infrastructure &amp; Quality Pipeline</h2>
+        <p class="section-desc" data-i18n="pipeline_desc">Engineered for resilience, continuous schema validation, and deterministic cloud delivery.</p>
       </div>
 
       <div class="pipeline-grid">
         
         <div class="pipeline-step">
           <div class="step-num">01</div>
-          <h4 class="step-title" data-i18n="step1_title">Resilient Ingestion Engine</h4>
+          <h4 class="step-title" data-i18n="step1_title">Resilient Collection Infrastructure</h4>
           <p class="step-desc" data-i18n="step1_desc">
-            Hybrid architecture combining Chrome DevTools Protocol (CDP) socket control with native OS-level IPC bridges. Neutralizes Cloudflare Turnstile, fingerprint entropy, and dynamic canvas challenges with realistic human behavioral jitter.
+            High-throughput collection infrastructure engineered to handle dynamic website structures and large-scale public data feeds with continuous reliability.
           </p>
           <div class="step-chips">
-            <span>CDP Automation</span>
-            <span>Zero-Fingerprint</span>
-            <span>Turnstile Bypass</span>
+            <span>Resilient Ingestion</span>
+            <span>High Throughput</span>
+            <span>Automated Retry</span>
           </div>
         </div>
 
         <div class="pipeline-step">
           <div class="step-num">02</div>
-          <h4 class="step-title" data-i18n="step2_title">Deterministic Schema Gates</h4>
+          <h4 class="step-title" data-i18n="step2_title">Deterministic Schema &amp; Quality Gates</h4>
           <p class="step-desc" data-i18n="step2_desc">
-            Strict programmatic validation checks 100% of rows before delivery. Guarantees schema adherence (32-col Real Estate, 31-col FMCG, 35-col Luxury), strict positive pricing bounds, valid coordinates, and UTF-8-SIG semicolon formatting.
+            Strict programmatic validation audits 100% of rows before delivery. Guarantees schema adherence (32-col Real Estate, 31-col FMCG, 35-col Luxury), strict positive pricing bounds, valid coordinates, and UTF-8-SIG semicolon formatting.
           </p>
           <div class="step-chips">
             <span>Automated QA</span>
@@ -862,14 +928,14 @@
 
         <div class="pipeline-step">
           <div class="step-num">03</div>
-          <h4 class="step-title" data-i18n="step3_title">Autonomous Cloud Delivery & Handshake</h4>
+          <h4 class="step-title" data-i18n="step3_title">Enterprise Cloud Delivery &amp; Synchronization</h4>
           <p class="step-desc" data-i18n="step3_desc">
-            Direct automated delivery to buyer Amazon S3 storage buckets. The pipeline monitors automated acceptance receipts (approved.txt), handles retry backoffs, and logs settlement metrics automatically.
+            Direct automated delivery to buyer Amazon S3 storage buckets or REST API endpoints. Automated acceptance verification monitors receipts (approved.txt), handles retry backoffs, and logs delivery metrics.
           </p>
           <div class="step-chips">
-            <span>AWS S3</span>
-            <span>Boto3 Engine</span>
-            <span>Automated Settlement</span>
+            <span>AWS S3 Sync</span>
+            <span>REST API Feeds</span>
+            <span>Delivery Verification</span>
           </div>
         </div>
 
@@ -885,17 +951,17 @@
 
       <div class="stack-grid">
         <div class="stack-col">
-          <h4 class="stack-cat" data-i18n="stack_cat1">Scraping & Automation</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat1">Data Extraction &amp; Automation</h4>
           <ul class="stack-list">
-            <li data-i18n-html="stack_item_playwright"><strong>Playwright & Puppeteer:</strong> Headless & headful automation</li>
-            <li data-i18n-html="stack_item_cdp"><strong>CDP (Chrome DevTools Protocol):</strong> Low-level socket control</li>
-            <li data-i18n-html="stack_item_applescript"><strong>macOS AppleScript Bridge:</strong> Native browser IPC</li>
+            <li data-i18n-html="stack_item_playwright"><strong>Playwright & Puppeteer:</strong> Headless & dynamic DOM collection</li>
+            <li data-i18n-html="stack_item_cdp"><strong>CDP (Chrome DevTools Protocol):</strong> Resilient browser automation</li>
+            <li data-i18n-html="stack_item_applescript"><strong>Native IPC Bridges:</strong> High-reliability automation pipelines</li>
             <li data-i18n-html="stack_item_bs4"><strong>BeautifulSoup4 / lxml / Scrapy:</strong> High-throughput DOM parsers</li>
           </ul>
         </div>
 
         <div class="stack-col">
-          <h4 class="stack-cat" data-i18n="stack_cat2">Data Infrastructure & Cloud</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat2">Data Infrastructure &amp; Cloud</h4>
           <ul class="stack-list">
             <li data-i18n-html="stack_item_s3"><strong>Amazon S3 & AWS SDK (Boto3):</strong> Cloud data lake delivery</li>
             <li data-i18n-html="stack_item_pandas"><strong>Pandas & NumPy:</strong> Normalization & outlier filtration</li>
@@ -905,12 +971,12 @@
         </div>
 
         <div class="stack-col">
-          <h4 class="stack-cat" data-i18n="stack_cat3">Marketplaces & Governance</h4>
+          <h4 class="stack-cat" data-i18n="stack_cat3">Marketplaces &amp; Governance</h4>
           <ul class="stack-list">
             <li data-i18n-html="stack_item_databoutique"><strong>Enterprise Data Feeds:</strong> High-volume commercial data feeds & automated delivery</li>
             <li data-i18n-html="stack_item_datarade"><strong>Datarade:</strong> Provider pipeline onboarding & enterprise feeds</li>
             <li data-i18n-html="stack_item_compliance"><strong>GDPR & Ethical Crawling:</strong> 100% public catalog data, zero PII</li>
-            <li data-i18n-html="stack_item_paypal"><strong>PayPal Business:</strong> Verified commercial billing</li>
+            <li data-i18n-html="stack_item_paypal"><strong>PayPal Business:</strong> Verified commercial invoicing</li>
           </ul>
         </div>
       </div>
@@ -919,7 +985,7 @@
     <!-- TRACK RECORD & MILESTONES -->
     <section id="experience" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading" data-i18n="record_heading">Track Record & Milestones</h2>
+        <h2 class="section-heading" data-i18n="record_heading">Track Record &amp; Milestones</h2>
         <p class="section-desc" data-i18n="record_desc">Demonstrated reliability delivering commercial datasets to global marketplaces and enterprise buyers.</p>
       </div>
 
@@ -930,9 +996,9 @@
             <span class="timeline-badge" data-i18n="record_badge_active">Active</span>
           </div>
           <div class="timeline-body">
-            <h4 class="timeline-heading" data-i18n="record_role1">Lead Data Engineer & Founder &bull; HLP Data Studio</h4>
+            <h4 class="timeline-heading" data-i18n="record_role1">Lead Data Engineer & Founder &bull; HLP Data</h4>
             <p class="timeline-text" data-i18n="record_desc1">
-              Architecting and commercializing high-throughput web collection systems for European retail and real estate portals. Maintained a 100% buyer acceptance rate on Amazon S3 cloud deliveries and established verified commercial seller standing.
+              Architecting and operating high-throughput web collection systems for European retail and real estate portals. Maintained a 100% buyer acceptance rate on Amazon S3 cloud deliveries and established verified commercial seller standing.
             </p>
           </div>
         </div>
@@ -942,9 +1008,9 @@
             <span class="timeline-year">2021 — 2024</span>
           </div>
           <div class="timeline-body">
-            <h4 class="timeline-heading" data-i18n="record_role2">Software Automation & Backend Engineer</h4>
+            <h4 class="timeline-heading" data-i18n="record_role2">Software Automation &amp; Backend Engineer</h4>
             <p class="timeline-text" data-i18n="record_desc2">
-              Engineered resilient backend scrapers, API integrations, and cloud ingestion workflows. Developed automated testing suites to validate live schema integrity and eliminate silent data rot in high-volume production jobs.
+              Engineered resilient backend data collectors, API integrations, and cloud ingestion workflows. Developed automated testing suites to validate live schema integrity and eliminate silent data rot in high-volume production jobs.
             </p>
           </div>
         </div>
@@ -954,34 +1020,34 @@
     <!-- CONTACT & COMMERCIAL INQUIRY -->
     <section id="contact" class="section contact-section">
       <div class="contact-box">
-        <h2 class="contact-heading" data-i18n="contact_heading">Need a custom dataset or specialized scraping pipeline?</h2>
+        <h2 class="contact-heading" data-i18n="contact_heading">Need data from a specific public website?</h2>
         <p class="contact-sub" data-i18n="contact_sub">
-          Available for bespoke data engineering contracts, recurring marketplace cloud feeds, and anti-bot bypass consulting.
+          Tell us the websites, schemas, refresh frequencies, and delivery formats required for your business intelligence.
         </p>
 
         <div class="contact-grid">
           <div class="contact-tile">
-            <span class="tile-lbl" data-i18n="contact_lbl_email">Business Email</span>
-            <a href="mailto:hung@hlpdata.com" class="tile-val">hung@hlpdata.com</a>
-            <button class="copy-pill" onclick="copyEmail('hung@hlpdata.com', this)" data-i18n="copy_btn_text">Copy</button>
+            <span class="tile-lbl" data-i18n="contact_lbl_email">Commercial Inquiries</span>
+            <a href="mailto:sales@hlpdata.com" class="tile-val">sales@hlpdata.com</a>
+            <button class="copy-pill" onclick="copyEmail('sales@hlpdata.com', this)" data-i18n="copy_btn_text">Copy</button>
           </div>
 
           <div class="contact-tile">
-            <span class="tile-lbl" data-i18n="contact_lbl_paypal">PayPal Commercial Billing</span>
-            <span class="tile-val">hunglp97@gmail.com</span>
-            <span class="badge-emerald" data-i18n="contact_badge_paypal">Verified Business</span>
+            <span class="tile-lbl" data-i18n="contact_lbl_paypal">Commercial Invoicing</span>
+            <span class="tile-val">PayPal Business</span>
+            <span class="badge-emerald" data-i18n="contact_badge_paypal">Verified Merchant</span>
           </div>
 
           <div class="contact-tile">
-            <span class="tile-lbl" data-i18n="contact_lbl_github">GitHub Code Repositories</span>
-            <a href="https://github.com/hunglp97" target="_blank" rel="noopener" class="tile-val">github.com/hunglp97</a>
-            <span class="badge-neutral" data-i18n="contact_badge_github">Open Source</span>
+            <span class="tile-lbl">Data Delivery Options</span>
+            <span class="tile-val">S3 Sync &bull; API &bull; CSV</span>
+            <span class="badge-neutral">Cloud Native</span>
           </div>
         </div>
 
         <div class="contact-cta">
-          <a href="mailto:hung@hlpdata.com?subject=[Data%20Contract]%20Pipeline%20Inquiry" class="btn btn-primary" data-i18n="contact_cta_btn">
-            Start a Conversation
+          <a href="custom-data.html" class="btn btn-primary" data-i18n="contact_cta_btn">
+            Request Custom Dataset
           </a>
         </div>
       </div>
@@ -992,14 +1058,15 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-copy" data-i18n-html="footer_copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Lead Architect: Le Phuoc Hung &bull; Built with clean, anti-slop engineering standards.
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
       </div>
       <div class="footer-links">
         <a href="#hero" data-i18n="footer_top">Back to top</a>
+        <a href="custom-data.html">Custom Data</a>
+        <a href="api.html">API Docs</a>
         <a href="terms.html" data-i18n="footer_terms">Terms & Compliance</a>
         <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
-        <a href="https://github.com/hunglp97" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:hung@hlpdata.com">Email</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
       </div>
     </div>
   </footer>
@@ -1030,7 +1097,7 @@
         <a id="modal-download-btn" href="#" download class="btn btn-secondary">
           <i class="fa-solid fa-download"></i> <span data-i18n="modal_btn_download">Download Sample CSV (20 Rows)</span>
         </a>
-        <a id="modal-license-btn" href="mailto:hung@hlpdata.com" class="btn btn-primary">
+        <a id="modal-license-btn" href="mailto:sales@hlpdata.com" class="btn btn-primary">
           <i class="fa-regular fa-envelope"></i> <span data-i18n="modal_btn_license">License Full Commercial Feed</span>
         </a>
       </div>

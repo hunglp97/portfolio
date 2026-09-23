@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idealista Portugal Real Estate Property Feed — HLP Data</title>
+  <meta name="description" content="2,640 verified residential sale listings covering 13 districts across Portugal. 32-attribute REAL-ESTATE-BASIC schema with asking prices, floor area in m², and typology.">
+  <link rel="canonical" href="https://hlpdata.com/datasets/idealista-portugal.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/datasets/idealista-portugal.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Idealista Portugal Real Estate Property Feed — HLP Data">
+  <meta property="og:description" content="Structured property feed covering 13 Portuguese districts: 2,640 verified listings across 32 standardized attributes.">
+  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
+
+  <!-- Schema.org Dataset Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Idealista Portugal Real Estate Property Feed",
+    "description": "Structured residential sale property feed covering 13 districts across Portugal from Idealista.pt: 2,640 verified listings across 32 standardized attributes.",
+    "url": "https://hlpdata.com/datasets/idealista-portugal.html",
+    "sameAs": "https://www.idealista.pt/",
+    "license": "https://hlpdata.com/terms.html",
+    "creator": {
+      "@type": "Organization",
+      "name": "HLP Data",
+      "url": "https://hlpdata.com/"
+    },
+    "spatialCoverage": "Portugal",
+    "temporalCoverage": "2026",
+    "variableMeasured": [
+      "asking price",
+      "original price",
+      "price per square metre",
+      "floor area",
+      "bedrooms",
+      "property type",
+      "amenities",
+      "neighborhood",
+      "canonical URL"
+    ],
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "text/csv",
+        "contentUrl": "https://hlpdata.com/samples/idealista_real_estate_sample.csv"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=20260922a">
+</head>
+<body>
+
+  <!-- Floating Minimal Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
+        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="../custom-data.html" class="nav-link">Custom Data</a>
+        <a href="../api.html" class="nav-link">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Idealista%20Portugal%20Dataset" class="btn-sm btn-primary">
+          <i class="fa-regular fa-envelope"></i> Request Pricing
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
+    
+    <!-- Breadcrumb -->
+    <div style="margin-bottom: 1.5rem;">
+      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Idealista Portugal</span>
+    </div>
+
+    <!-- Header Section -->
+    <div style="margin-bottom: 2.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="badge-tag">Real Estate &bull; Portugal</span>
+        <span class="badge-status approved">Production Verified</span>
+        <span class="badge-tag">REAL-ESTATE-BASIC (32 Attributes)</span>
+      </div>
+      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+        Idealista Portugal Real Estate Property Feed
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
+        A structured property feed covering Portugal's primary residential markets: 2,640 verified listings across 13 districts — Lisboa, Porto, Faro, Setúbal, Braga, Coimbra, Aveiro, Madeira, Leiria, Santarém, Viseu, Viana do Castelo, and Évora. Standardized with asking prices, floor area in m², room counts, and property typology.
+      </p>
+    </div>
+
+    <!-- Key Metrics Grid -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total Listings</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">2,640</div>
+        <div style="font-size: 0.75rem; color: var(--accent-emerald-light); margin-top: 0.25rem;">Zero duplicate IDs</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Geographic Coverage</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">13 Districts</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Lisboa, Porto, Faro + 10</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Pricing Statistics</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">€572,500</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Median asking price</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Update Schedule</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">Weekly / Monthly</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Direct S3 & API</div>
+      </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+      <a href="../samples/idealista_real_estate_sample.csv" download class="btn btn-secondary">
+        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
+      </a>
+      <a href="mailto:sales@hlpdata.com?subject=[License%20Inquiry]%20Idealista%20Portugal%20Feed" class="btn btn-primary">
+        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Request Pricing & Feed Licensing
+      </a>
+      <a href="../custom-data.html" class="btn btn-ghost">
+        Request Custom Geographic Scope
+      </a>
+    </div>
+
+    <!-- Data Schema Table -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Schema Specification (32 Columns)</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
+        Standardized according to REAL-ESTATE-BASIC specification with measured fill-rate SLAs and rigorous field validation.
+      </p>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
+        <table class="modal-table" style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Data Type</th>
+              <th>Fill Rate SLA</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>website_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>idealista.pt</td></tr>
+            <tr><td><strong>competence_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Collection date (YYYY-MM-DD)</td></tr>
+            <tr><td><strong>country_code</strong></td><td><span class="badge-tag">ISO 3166-1</span></td><td><span class="text-emerald font-mono">100%</span></td><td>PRT</td></tr>
+            <tr><td><strong>currency_code</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>EUR</td></tr>
+            <tr><td><strong>listing_id</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Portal listing identifier — 100% unique, zero duplicates</td></tr>
+            <tr><td><strong>operation_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">100%</span></td><td>sale — this dataset contains no rental listings</td></tr>
+            <tr><td><strong>property_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">100%</span></td><td>apartment (53.6%) | house (46.4%)</td></tr>
+            <tr><td><strong>title</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Listing title as published by the portal</td></tr>
+            <tr><td><strong>price</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Asking price in EUR — median €572,500</td></tr>
+            <tr><td><strong>price_original</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Asking price prior to any reduction</td></tr>
+            <tr><td><strong>price_per_sqm</strong></td><td><span class="badge-tag">Float (€/m²)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Normalized price per square metre</td></tr>
+            <tr><td><strong>area_sqm</strong></td><td><span class="badge-tag">Float (m²)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Gross usable floor area</td></tr>
+            <tr><td><strong>rooms</strong></td><td><span class="badge-tag">Integer</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Bedroom count (T0 to T10+)</td></tr>
+            <tr><td><strong>bathrooms</strong></td><td><span class="badge-tag">Integer</span></td><td><span class="text-muted font-mono">—</span></td><td>Not collected for this source; column preserved, values empty</td></tr>
+            <tr><td><strong>floor</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">37.7%</span></td><td>Floor index (R/C, 1º, 2º...) where the portal states it</td></tr>
+            <tr><td><strong>has_elevator</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">37.0%</span></td><td>Elevator advertised in the listing</td></tr>
+            <tr><td><strong>has_parking</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">57.7%</span></td><td>Garage or parking space advertised</td></tr>
+            <tr><td><strong>has_terrace</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">11.7%</span></td><td>Balcony or terrace advertised</td></tr>
+            <tr><td><strong>has_garden</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">11.8%</span></td><td>Garden advertised</td></tr>
+            <tr><td><strong>has_pool</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">12.2%</span></td><td>Swimming pool advertised</td></tr>
+            <tr><td><strong>energy_certificate</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-muted font-mono">—</span></td><td>Not collected for this source; column preserved, values empty</td></tr>
+            <tr><td><strong>region</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>All 13 Portuguese districts — Lisboa 17.0%, Porto 14.8%, Faro 13.6%</td></tr>
+            <tr><td><strong>city</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>District-level locality — 13 distinct values</td></tr>
+            <tr><td><strong>neighborhood</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">89.1%</span></td><td>Freguesia / parish where published</td></tr>
+            <tr><td><strong>address_raw</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Address line as published by the portal</td></tr>
+            <tr><td><strong>latitude</strong></td><td><span class="badge-tag">Geo Float</span></td><td><span class="text-muted font-mono">—</span></td><td>Not collected for this source; column preserved, values empty</td></tr>
+            <tr><td><strong>longitude</strong></td><td><span class="badge-tag">Geo Float</span></td><td><span class="text-muted font-mono">—</span></td><td>Not collected for this source; column preserved, values empty</td></tr>
+            <tr><td><strong>agency_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not collected for this source; column preserved, values empty</td></tr>
+            <tr><td><strong>contact_phone</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Deliberately not collected; dataset contains zero personal contact data</td></tr>
+            <tr><td><strong>description</strong></td><td><span class="badge-tag">Text</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Full listing description as published</td></tr>
+            <tr><td><strong>itemurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Canonical listing URL — 100% absolute https</td></tr>
+            <tr><td><strong>imageurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Primary listing image URL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Transparent Caveats -->
+    <div class="modal-notes" style="margin-bottom: 3rem;">
+      <h4>Data notes &amp; known caveats</h4>
+      <ul>
+        <li>Six schema fields (bathrooms, energy_certificate, latitude, longitude, agency_name, contact_phone) are not collected for this source and arrive empty. They remain in the file to keep the 32-column REAL-ESTATE-BASIC contract intact. If you need geocoding or agency attribution, please discuss prior to licensing.</li>
+        <li>Amenity flags (has_parking, has_elevator, has_terrace, has_garden, has_pool) carry the value only where the portal advertises the amenity. An empty cell indicates &ldquo;not advertised&rdquo;, not &ldquo;confirmed absent&rdquo; — do not interpret empty as an explicit negative.</li>
+        <li>Every record is a sale listing; there are no rentals in this dataset. Asking prices span EUR 15,000 to EUR 12,500,000, median EUR 572,500.</li>
+        <li>Zero personal data (no private phone numbers, names, or individual email addresses). 100% public property catalog intelligence.</li>
+      </ul>
+    </div>
+
+    <!-- Commercial License & Delivery -->
+    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Commercial Licensing & Delivery Options</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Available for investment funds, real estate platforms, PropTech companies, and appraisal engines under commercial enterprise license terms.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">Amazon S3 Sync</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Automated scheduled pushes to your private AWS S3 bucket with delivery manifests.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">REST API Feeds</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Programmatic query access filtered by district, municipality, price, or property typology.</p>
+        </div>
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
+          <strong style="color: var(--text-primary); font-size: 0.9rem;">Snapshot Export</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time national/regional delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
+        </div>
+      </div>
+      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Idealista%20Portugal%20Dataset%20Pricing" class="btn btn-primary">
+        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Pricing & Sample License
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Datasets</a>
+        <a href="../custom-data.html">Custom Data</a>
+        <a href="../api.html">API Docs</a>
+        <a href="../terms.html">Terms & Compliance</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=20260922a"></script>
+</body>
+</html>
