@@ -236,6 +236,21 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css?v=20260920f">
+
+  <!-- Analytics: GA4 + Cloudflare Web Analytics (Lean B2B Hybrid) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XX0HJQJQN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8XX0HJQJQN', {
+      send_page_view: true,
+      anonymize_ip: true
+    });
+  </script>
+  <!-- Cloudflare Web Analytics Beacon (0-Cookie, Privacy-first, <5KB) -->
+  <!-- Nếu dùng DNS-only thì dán token vào đây: -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "CLOUDFLARE_BEACON_TOKEN"}'></script> -->
 </head>
 <body>
 

@@ -491,9 +491,29 @@ const I18N_DICT = {
 
 let currentLang = 'en';
 
+// ==========================================
+// Analytics Event Dispatcher (GA4 & Extensible)
+// ==========================================
+function trackEvent(eventName, params = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, params);
+    }
+  } catch (err) {
+    // Fail silently to never interrupt UX
+  }
+}
+window.trackEvent = trackEvent;
+
 // Set active language across document
 function setLanguage(lang, persist = true) {
   if (!I18N_DICT[lang]) lang = 'en';
+  if (persist && currentLang !== lang) {
+    trackEvent('switch_language', {
+      target_lang: lang,
+      previous_lang: currentLang
+    });
+  }
   currentLang = lang;
 
   document.documentElement.lang = lang;
@@ -686,6 +706,11 @@ function fallbackCopyText(text) {
 
 // Copy Email Utility with localized feedback
 function copyEmail(text, btnElement) {
+  trackEvent('copy_email', {
+    email: text,
+    location: btnElement ? (btnElement.closest('section')?.id || 'general') : 'unknown'
+  });
+
   const applySuccessUI = () => {
     if (!btnElement) return;
     const originalText = btnElement.innerText;
@@ -977,6 +1002,11 @@ function openDatasetModal(datasetKey) {
   const spec = DATASET_SPECS[datasetKey];
   if (!spec) return;
 
+  trackEvent('view_dataset_sample', {
+    dataset_key: datasetKey,
+    dataset_name: spec.name
+  });
+
   const modal = document.getElementById('dataset-modal');
   const badgeEl = document.getElementById('modal-badge');
   const titleEl = document.getElementById('modal-title');
@@ -1147,6 +1177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.term-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const termTarget = tab.getAttribute('data-term');
+      trackEvent('switch_terminal_tab', { tab: termTarget });
       document.querySelectorAll('.term-tab').forEach(t => t.classList.toggle('active', t === tab));
       document.querySelectorAll('.term-pane').forEach(p => {
         p.classList.toggle('active', p.id === `term-pane-${termTarget}`);
@@ -1180,6 +1211,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.modal-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const tabTarget = tab.getAttribute('data-tab');
+      trackEvent('switch_modal_tab', {
+        tab: tabTarget,
+        dataset: document.getElementById('modal-title')?.textContent || 'unknown'
+      });
       document.querySelectorAll('.modal-tab').forEach(t => t.classList.toggle('active', t === tab));
       document.querySelectorAll('.modal-pane').forEach(pane => {
         pane.classList.toggle('active', pane.id === `pane-${tabTarget}`);
@@ -1209,6 +1244,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Analytics Charts
   initAnalyticsCharts();
+
+  // High-Intent Conversion Trackers
+  // 1. Modal Download Sample CSV
+  const modalDownload = document.getElementById('modal-download-btn');
+  if (modalDownload) {
+    modalDownload.addEventListener('click', () => {
+      trackEvent('download_sample_csv', {
+        dataset: document.getElementById('modal-title')?.textContent || 'unknown',
+        filename: modalDownload.getAttribute('download') || ''
+      });
+    });
+  }
+
+  // 2. Modal License Commercial Feed
+  const modalLicense = document.getElementById('modal-license-btn');
+  if (modalLicense) {
+    modalLicense.addEventListener('click', () => {
+      trackEvent('license_inquiry_click', {
+        dataset: document.getElementById('modal-title')?.textContent || 'unknown'
+      });
+    });
+  }
+
+  // 3. Print CV (PDF) button
+  document.querySelectorAll('button[onclick*="window.print"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      trackEvent('print_cv', { placement: 'hero' });
+    });
+  });
+
+  // 4. Mailto link tracking (Inquiries & Contact)
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href') || '';
+      let category = 'contact_general';
+      if (href.includes('Inquiry:')) category = 'dataset_card_inquiry';
+      else if (link.closest('.hero-cta-group')) category = 'hero_hire';
+      else if (link.closest('.header-actions') || link.closest('.mobile-nav')) category = 'header_contact';
+
+      trackEvent('mailto_click', {
+        category: category,
+        href: href
+      });
+    });
+  });
 });
 
 // ==========================================================================
