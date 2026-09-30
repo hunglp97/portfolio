@@ -79,7 +79,7 @@ const I18N_DICT = {
     ds4_badge: 'Real Estate • United Kingdom',
     ds4_status: 'Buyer Audit: 100/100',
     ds4_name: 'Rightmove UK National Real Estate Census',
-    ds4_summary: 'A complete national census of the UK residential sale market: 544,502 verified listings covering 100% of all 3,121 postal outcodes across England, Scotland and Wales — 402 regions and 61 property types. 100% compliant with REAL-ESTATE-BASIC across 32 attributes: WGS84 geocoordinates, floor area in m², asking and original prices, price per m², bedroom and bathroom counts, and listing agency. Zero duplicate listing IDs; every product URL absolute.',
+    ds4_summary: 'A complete national census of the UK residential sale market: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland and Wales — 402 regions and 61 property types. 100% compliant with REAL-ESTATE-BASIC across 32 attributes: WGS84 geocoordinates, floor area in m², asking and original prices, price per m², bedroom and bathroom counts, and listing agency. Zero duplicate listing IDs; every product URL absolute.',
     ds4_th_loc: 'Property Location',
     ds4_th_price: 'Price',
     ds4_th_beds: 'Beds',
