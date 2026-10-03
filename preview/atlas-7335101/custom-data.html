@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Custom Dataset — HLP Data</title>
+  <meta name="description" content="Request bespoke web data extraction feeds, custom crawl schedules, and structured delivery via Amazon S3, REST API, or CSV.">
+  <link rel="canonical" href="https://hlpdata.com/custom-data.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/custom-data.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Request Custom Dataset — HLP Data">
+  <meta property="og:description" content="Request custom web datasets with structured delivery to your AWS S3 bucket, REST API, or CSV feeds.">
+  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=20260922a">
+</head>
+<body>
+
+  <!-- Floating Minimal Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#datasets" class="nav-link">Datasets</a>
+        <a href="index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="custom-data.html" class="nav-link active" style="color: var(--accent-emerald-light);">Custom Data</a>
+        <a href="api.html" class="nav-link">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="mailto:sales@hlpdata.com" class="btn-sm btn-primary">
+          <i class="fa-regular fa-envelope"></i> Contact
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 860px; margin: 0 auto; padding-bottom: 4rem;">
+    
+    <div style="margin-bottom: 2rem;">
+      <a href="index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        &larr; Back to Catalog & Overview
+      </a>
+      <div class="status-pill mt-3 mb-2">
+        <span class="pulse-dot"></span>
+        <span>Bespoke Engineering</span>
+      </div>
+      <h1 style="font-size: 2.25rem; font-weight: 800; margin-top: 0.75rem; letter-spacing: -0.02em;">
+        Need data from a specific public website?
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 0.5rem; line-height: 1.6;">
+        Tell us the target websites, required schema fields, refresh frequencies, and delivery formats. We engineer and operate dedicated collection pipelines delivered straight to your data lake.
+      </p>
+    </div>
+
+    <div class="lead-form-box">
+      <form id="customDataForm" onsubmit="handleCustomDataSubmit(event)">
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fullName">Your Name *</label>
+            <input type="text" id="fullName" name="fullName" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="workEmail">Work Email *</label>
+            <input type="email" id="workEmail" name="workEmail" class="form-input" placeholder="sarah@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="company">Company / Organization *</label>
+            <input type="text" id="company" name="company" class="form-input" placeholder="e.g. Apex Analytics Ltd" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="targetWebsite">Target Website(s) *</label>
+            <input type="text" id="targetWebsite" name="targetWebsite" class="form-input" placeholder="e.g. target-portal.com or domain list" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="updateFrequency">Update Frequency *</label>
+            <select id="updateFrequency" name="updateFrequency" class="form-select">
+              <option value="Daily">Daily Scheduled Refresh</option>
+              <option value="Weekly">Weekly Scheduled Refresh</option>
+              <option value="Monthly">Monthly Scheduled Refresh</option>
+              <option value="One-time">One-time Historical Snapshot</option>
+              <option value="Custom">Custom Cadence (Intraday / Bi-weekly)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="deliveryPreference">Delivery Method *</label>
+            <select id="deliveryPreference" name="deliveryPreference" class="form-select">
+              <option value="AWS S3 Push">Amazon S3 Push Delivery</option>
+              <option value="REST API">REST API Feed (JSON)</option>
+              <option value="CSV / Parquet">CSV / Semicolon / Parquet Download</option>
+              <option value="SFTP">Secure SFTP Sync</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="dataFields">Data Fields & Requirements *</label>
+            <textarea id="dataFields" name="dataFields" class="form-textarea" placeholder="List key fields (e.g. product title, SKU, regular price, promo price, stock status, category hierarchy, geocoordinates, etc.)" required></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="notes">Additional Scope / Volume Estimates</label>
+            <textarea id="notes" name="notes" class="form-textarea" placeholder="Estimated total records, specific geographical regions, historical lookback requirements, or compliance considerations..."></textarea>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">
+            <i class="fa-solid fa-lock text-emerald"></i> 100% Confidential &bull; Enterprise SLA Guaranteed
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Submit Request
+          </button>
+        </div>
+      </form>
+
+      <!-- Success Confirmation Box -->
+      <div id="formSuccessMessage" class="hidden" style="text-align: center; padding: 2.5rem 1rem;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(16, 185, 129, 0.12); border: 1px solid var(--border-emerald); display: inline-flex; align-items: center; justify-content: center; font-size: 1.75rem; color: var(--accent-emerald); margin-bottom: 1rem;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Custom Request Received</h3>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+          Thank you for submitting your custom dataset specification. Our data engineering team will review the target architecture and respond with a sample schema and feasibility audit within 1 business day.
+        </p>
+        <a href="index.html" class="btn btn-secondary">
+          Return to Catalog
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="custom-data.html">Custom Data</a>
+        <a href="api.html">API Docs</a>
+        <a href="terms.html">Terms & Compliance</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260922a"></script>
+  <script>
+    function handleCustomDataSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('customDataForm');
+      const success = document.getElementById('formSuccessMessage');
+      
+      const fullName = document.getElementById('fullName').value;
+      const workEmail = document.getElementById('workEmail').value;
+      const company = document.getElementById('company').value;
+      const targetWebsite = document.getElementById('targetWebsite').value;
+      const updateFrequency = document.getElementById('updateFrequency').value;
+      const deliveryPreference = document.getElementById('deliveryPreference').value;
+      const dataFields = document.getElementById('dataFields').value;
+      const notes = document.getElementById('notes').value;
+
+      // Construct mailto backup for transparency and zero-secret client-side reliability
+      const subject = encodeURIComponent(`[Custom Dataset Request] ${company} - ${targetWebsite}`);
+      const body = encodeURIComponent(
+        `Name: ${fullName}\n` +
+        `Work Email: ${workEmail}\n` +
+        `Company: ${company}\n` +
+        `Target Website: ${targetWebsite}\n` +
+        `Update Frequency: ${updateFrequency}\n` +
+        `Delivery Preference: ${deliveryPreference}\n\n` +
+        `Required Fields:\n${dataFields}\n\n` +
+        `Additional Notes:\n${notes}`
+      );
+
+      // Attempt mailto trigger in background
+      const mailtoUrl = `mailto:sales@hlpdata.com?subject=${subject}&body=${body}`;
+      
+      // Render success state
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+
+      // Open email client safely
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 600);
+    }
+  </script>
+</body>
+</html>

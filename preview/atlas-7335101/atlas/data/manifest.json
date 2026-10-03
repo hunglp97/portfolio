@@ -1,0 +1,28 @@
+{
+ "bundle_version": "atlas-bundle-v1",
+ "files": {
+  "PRT/real-estate/concelhos.json": {
+   "bytes": 359945,
+   "sha256": "643eae901c339b8591c19ef3c80d3752057613432eaa659da701a06802cc5cdd"
+  },
+  "PRT/real-estate/summary.json": {
+   "bytes": 10467,
+   "sha256": "132510a49de982d7b51a40e545627bd5ead79ce3d336ca4df55e5676bc0837ba"
+  },
+  "index.json": {
+   "bytes": 269,
+   "sha256": "c36ebad0a0847d2a448b27085ef4a4a1f71b9a3506d0e4105a45f67605a71920"
+  }
+ },
+ "generated_on": "2026-10-03",
+ "inputs": {
+  "kwportugal.pt": {
+   "records": 13613,
+   "sha256": "dbc63620e57e3f1704dd63ad5d7c1023a3d66a34323ab21be9769fd38dd01691"
+  },
+  "remax.pt": {
+   "records": 48954,
+   "sha256": "3c29354a727ec9935c1c8f6906c4a2d8993b62f15ba4104be673a414d9633c4d"
+  }
+ }
+}

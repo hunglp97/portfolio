@@ -1,0 +1,15 @@
+{
+ "bundle_version": "atlas-bundle-v1",
+ "cells": [
+  {
+   "cell": "PRT/real-estate",
+   "concelhos_with_listings": 307,
+   "country": "PRT",
+   "records": 62567,
+   "sources": 2,
+   "status": "live",
+   "vertical": "real-estate"
+  }
+ ],
+ "generated_on": "2026-10-03"
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation & Feeds — HLP Data</title>
+  <meta name="description" content="Technical documentation for HLP Data commercial feeds, REST API access, pagination, schema definitions, and automated S3 sync.">
+  <link rel="canonical" href="https://hlpdata.com/api.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/api.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="API Documentation & Feeds — HLP Data">
+  <meta property="og:description" content="Access structured web data via enterprise REST API feeds and scheduled Amazon S3 delivery.">
+  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=20260922a">
+</head>
+<body>
+
+  <!-- Floating Minimal Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#datasets" class="nav-link">Datasets</a>
+        <a href="index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="custom-data.html" class="nav-link">Custom Data</a>
+        <a href="api.html" class="nav-link active" style="color: var(--accent-emerald-light);">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="mailto:sales@hlpdata.com?subject=API%20Access%20Request" class="btn-sm btn-primary">
+          <i class="fa-solid fa-key"></i> Request Key
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 960px; margin: 0 auto; padding-bottom: 5rem;">
+    
+    <div style="margin-bottom: 2.5rem;">
+      <a href="index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        &larr; Back to Catalog & Overview
+      </a>
+      <div class="status-pill mt-3 mb-2">
+        <span class="pulse-dot"></span>
+        <span>Developer Documentation</span>
+      </div>
+      <h1 style="font-size: 2.4rem; font-weight: 800; margin-top: 0.75rem; letter-spacing: -0.02em;">
+        Enterprise REST API & Cloud Ingestion
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 0.5rem; line-height: 1.6; max-width: 780px;">
+        HLP Data delivers verified datasets through programmatic REST APIs and automated Amazon S3 cloud synchronization. Feeds are pre-audited against standardized schemas and updated on predictable schedules.
+      </p>
+    </div>
+
+    <!-- API Status Card -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span class="pulse-dot emerald"></span>
+          <strong style="font-family: var(--font-mono); font-size: 0.9rem;">Commercial API Status: Active / Enterprise by Request</strong>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">
+          Base URL: <code style="font-family: var(--font-mono); background: var(--bg-subtle); padding: 0.15rem 0.4rem; border-radius: 0.25rem;">https://api.hlpdata.com/v1</code>
+        </p>
+      </div>
+      <a href="mailto:sales@hlpdata.com?subject=API%20Key%20Inquiry" class="btn btn-primary btn-sm">
+        <i class="fa-solid fa-key" style="margin-right: 4px;"></i> Request API Access
+      </a>
+    </div>
+
+    <!-- Section 1: Authentication -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">1. Authentication</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        All API requests must include a valid commercial API key in the HTTP <code class="font-mono" style="color: var(--accent-emerald-light);">Authorization</code> header using the Bearer scheme:
+      </p>
+      
+      <div class="terminal-card" style="margin-bottom: 1rem;">
+        <div class="terminal-bar">
+          <div class="window-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <span class="font-mono text-xs text-muted">HTTP Request Header</span>
+        </div>
+        <div class="terminal-body font-mono text-xs" style="padding: 1rem;">
+          <div class="term-line"><span class="text-blue">Authorization:</span> Bearer hlp_live_xxxxxxxxxxxxxxxxxxxxxxxx</div>
+          <div class="term-line"><span class="text-blue">Accept:</span> application/json</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Endpoints -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">2. Core Endpoints</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+        Endpoints return deterministic JSON responses structured according to our verified marketplace schemas.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        
+        <!-- Endpoint 1 -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="badge-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald-light); font-weight: 700;">GET</span>
+              <code class="font-mono" style="font-weight: 600;">/v1/datasets</code>
+            </div>
+            <span class="text-muted font-mono text-xs">Catalog Index</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+            Returns metadata for all available datasets, latest observation timestamps, total record counts, and schema definitions.
+          </p>
+        </div>
+
+        <!-- Endpoint 2 -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="badge-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald-light); font-weight: 700;">GET</span>
+              <code class="font-mono" style="font-weight: 600;">/v1/datasets/:id/records</code>
+            </div>
+            <span class="text-muted font-mono text-xs">Paginated Records</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+            Retrieve filtered, paginated records. Query parameters support <code class="font-mono text-xs">limit</code> (default 100, max 1000), <code class="font-mono text-xs">offset</code>, <code class="font-mono text-xs">observed_after</code>, and field-level filters.
+          </p>
+        </div>
+
+        <!-- Endpoint 3 -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="badge-tag" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald-light); font-weight: 700;">GET</span>
+              <code class="font-mono" style="font-weight: 600;">/v1/datasets/:id/latest-export</code>
+            </div>
+            <span class="text-muted font-mono text-xs">Pre-signed S3 Download</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+            Generates a temporary, pre-signed AWS S3 URL for downloading the complete latest census snapshot in CSV or Parquet format.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Code Examples -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">3. Implementation Examples</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        Easily integrate HLP Data feeds into Python, Polars, Pandas, or shell automation scripts:
+      </p>
+
+      <div class="terminal-card">
+        <div class="terminal-bar">
+          <div class="window-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <span class="font-mono text-xs text-muted">Python (Polars / Requests)</span>
+        </div>
+        <div class="terminal-body font-mono text-xs" style="padding: 1.25rem; line-height: 1.6;">
+          <div class="term-line"><span class="term-prompt">import</span> requests</div>
+          <div class="term-line"><span class="term-prompt">import</span> polars <span class="term-prompt">as</span> pl</div>
+          <div class="term-line text-muted"># Authenticated feed request</div>
+          <div class="term-line">headers = {<span class="text-emerald">"Authorization"</span>: <span class="text-emerald">"Bearer hlp_live_YOUR_KEY"</span>}</div>
+          <div class="term-line">res = requests.get(<span class="text-emerald">"https://api.hlpdata.com/v1/datasets/continente-pt/records?limit=1000"</span>, headers=headers)</div>
+          <div class="term-line">df = pl.DataFrame(res.json()[<span class="text-emerald">"data"</span>])</div>
+          <div class="term-line text-muted"># Analyze retail markdowns</div>
+          <div class="term-line">print(df.select([<span class="text-emerald">"product_name"</span>, <span class="text-emerald">"price"</span>, <span class="text-emerald">"discount_pct"</span>]))</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Enterprise AWS S3 Direct Push -->
+    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-bottom: 3rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-brands fa-aws text-blue"></i> Preferred Enterprise Delivery: Direct S3 Data Lake Sync
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        For hedge funds and enterprise analysts consuming high-volume datasets (500K+ rows), direct S3 bucket synchronization eliminates API rate limits and HTTP timeout risks.
+      </p>
+      <ul style="padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7;">
+        <li>Automated push to buyer bucket: <code class="font-mono text-xs">s3://buyer-data-lake/hlpdata/&lt;DATASET&gt;/&lt;DATE&gt;/data_file.csv</code></li>
+        <li>Automated receipt handshake (<code class="font-mono text-xs">approved.txt</code> verification).</li>
+        <li>SHA-256 checksums and UTF-8-SIG byte order validation included with every delivery.</li>
+      </ul>
+      <div style="margin-top: 1.5rem;">
+        <a href="custom-data.html" class="btn btn-secondary btn-sm">
+          Configure S3 Cloud Delivery
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="custom-data.html">Custom Data</a>
+        <a href="api.html">API Docs</a>
+        <a href="terms.html">Terms & Compliance</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260922a"></script>
+</body>
+</html>

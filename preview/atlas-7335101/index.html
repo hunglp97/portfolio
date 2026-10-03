@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Atlas browser QA</title>
+<style>body{font:14px/1.5 system-ui;background:#eef1ec;color:#17281e;margin:24px}
+nav{display:flex;gap:12px;flex-wrap:wrap}a{color:#245f31}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+iframe{display:block;border:0;height:3200px;margin-top:20px;max-width:none}
+</style></head><body><h1>Atlas browser QA</h1><p>One document at a time. This is a QA wrapper, not the published homepage.</p>
+<nav id="cases"></nav><p id="label"></p><pre id="probe" role="status">Waiting for the frame</pre>
+<iframe id="candidate" title="Atlas candidate"></iframe>
+<script id="preview-config" type="application/json">{"languages": ["en", "pt"], "bundleManifestSHA256": "c61026ca8b625ae8a1e12bb37a7cc78cb7a941399fce03c2aa0c6b784e0859f9"}</script>
+<script>
+'use strict';
+const config=JSON.parse(document.getElementById('preview-config').textContent);
+const params=new URLSearchParams(location.search);
+const language=config.languages.includes(params.get('language'))?params.get('language'):'en';
+const width=params.get('width')==='1440'?1440:360;
+const scheme=params.get('scheme')==='dark'?'dark':'light';
+const frame=document.getElementById('candidate');
+for(const lang of config.languages) for(const size of [360,1440]) for(const theme of ['light','dark']) {
+ const a=document.createElement('a');a.href='?'+new URLSearchParams({language:lang,width:size,scheme:theme});
+ a.textContent=`${lang} · ${size}px · ${theme}`;document.getElementById('cases').append(a);
+}
+frame.style.width=width+'px';frame.style.colorScheme=scheme;
+frame.src='atlas/'+(language==='pt'?'pt/':'')+'index.html';
+document.getElementById('label').textContent=`Requested: ${language}, ${width}px, ${scheme}. Compare with the actual probe and screenshot.`;
+const start=Date.now();
+const timer=setInterval(()=>{
+ try {
+  const win=frame.contentWindow,doc=win.document,style=win.getComputedStyle(doc.documentElement);
+  const dataStatus=doc.getElementById('data-status'),mapStatus=doc.getElementById('map-status');
+  const cards=[...doc.querySelectorAll('#region-metrics [data-claim]')].map(el=>({
+   pointer:el.dataset.claim,value:el.querySelector('strong')?.textContent,sample:el.querySelector('small')?.textContent}));
+  document.getElementById('probe').textContent=JSON.stringify({
+   bundleManifestSHA256:config.bundleManifestSHA256,documentURL:win.location.href,
+   requested:{language,width,scheme},actual:{width:win.innerWidth,language:doc.documentElement.lang,
+    prefersLight:win.matchMedia('(prefers-color-scheme: light)').matches,
+    reducedMotion:win.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    colorScheme:style.colorScheme,background:win.getComputedStyle(doc.body).backgroundColor,
+    horizontalOverflow:doc.documentElement.scrollWidth>win.innerWidth,
+    dataStatus:dataStatus?.textContent,mapStatus:mapStatus?.hidden?'hidden':mapStatus?.textContent,
+    interactive:doc.getElementById('region')?.disabled===false},cards},null,2);
+ } catch(error) {document.getElementById('probe').textContent='Frame probe failed: '+error.message;}
+ if(Date.now()-start>60000) clearInterval(timer);
+},500);
+</script></body></html>
