@@ -1,0 +1,538 @@
+{
+ "bundle_version": "atlas-bundle-v1",
+ "cell": "PRT/real-estate",
+ "deduplicated_across_sources": false,
+ "facts": {
+  "highest_asking_eur_m2": [
+   {
+    "code": "0804",
+    "fact_id": "median_asking_eur_m2_sale:0804",
+    "n": 108,
+    "name": "Castro Marim",
+    "value": 10381
+   },
+   {
+    "code": "1106",
+    "fact_id": "median_asking_eur_m2_sale:1106",
+    "n": 3278,
+    "name": "Lisboa",
+    "value": 7291
+   },
+   {
+    "code": "1105",
+    "fact_id": "median_asking_eur_m2_sale:1105",
+    "n": 1273,
+    "name": "Cascais",
+    "value": 7126
+   },
+   {
+    "code": "1509",
+    "fact_id": "median_asking_eur_m2_sale:1509",
+    "n": 94,
+    "name": "Santiago do Cacém",
+    "value": 6557
+   },
+   {
+    "code": "3103",
+    "fact_id": "median_asking_eur_m2_sale:3103",
+    "n": 662,
+    "name": "Funchal",
+    "value": 6323
+   },
+   {
+    "code": "1110",
+    "fact_id": "median_asking_eur_m2_sale:1110",
+    "n": 692,
+    "name": "Oeiras",
+    "value": 6246
+   },
+   {
+    "code": "1513",
+    "fact_id": "median_asking_eur_m2_sale:1513",
+    "n": 70,
+    "name": "Sines",
+    "value": 6116
+   },
+   {
+    "code": "3107",
+    "fact_id": "median_asking_eur_m2_sale:3107",
+    "n": 33,
+    "name": "Ribeira Brava",
+    "value": 6111
+   },
+   {
+    "code": "0807",
+    "fact_id": "median_asking_eur_m2_sale:0807",
+    "n": 194,
+    "name": "Lagos",
+    "value": 6078
+   },
+   {
+    "code": "3101",
+    "fact_id": "median_asking_eur_m2_sale:3101",
+    "n": 126,
+    "name": "Calheta",
+    "value": 5929
+   }
+  ],
+  "highest_gross_yield": [
+   {
+    "code": "1111",
+    "fact_id": "gross_rental_yield_pct:1111",
+    "n": 108,
+    "name": "Sintra",
+    "value": 5.1
+   },
+   {
+    "code": "1115",
+    "fact_id": "gross_rental_yield_pct:1115",
+    "n": 56,
+    "name": "Amadora",
+    "value": 5.0
+   },
+   {
+    "code": "1116",
+    "fact_id": "gross_rental_yield_pct:1116",
+    "n": 62,
+    "name": "Odivelas",
+    "value": 4.9
+   },
+   {
+    "code": "0303",
+    "fact_id": "gross_rental_yield_pct:0303",
+    "n": 68,
+    "name": "Braga",
+    "value": 4.8
+   },
+   {
+    "code": "1114",
+    "fact_id": "gross_rental_yield_pct:1114",
+    "n": 30,
+    "name": "Vila Franca de Xira",
+    "value": 4.7
+   },
+   {
+    "code": "1503",
+    "fact_id": "gross_rental_yield_pct:1503",
+    "n": 71,
+    "name": "Almada",
+    "value": 4.5
+   },
+   {
+    "code": "0603",
+    "fact_id": "gross_rental_yield_pct:0603",
+    "n": 45,
+    "name": "Coimbra",
+    "value": 4.4
+   },
+   {
+    "code": "1107",
+    "fact_id": "gross_rental_yield_pct:1107",
+    "n": 61,
+    "name": "Loures",
+    "value": 4.4
+   },
+   {
+    "code": "1317",
+    "fact_id": "gross_rental_yield_pct:1317",
+    "n": 77,
+    "name": "Vila Nova de Gaia",
+    "value": 4.3
+   },
+   {
+    "code": "1512",
+    "fact_id": "gross_rental_yield_pct:1512",
+    "n": 36,
+    "name": "Setúbal",
+    "value": 4.3
+   }
+  ],
+  "largest_asking_premium_over_transactions": [
+   {
+    "code": "0804",
+    "fact_id": "asking_vs_transaction_pct:0804",
+    "n": 108,
+    "name": "Castro Marim",
+    "value": 308.4
+   },
+   {
+    "code": "3107",
+    "fact_id": "asking_vs_transaction_pct:3107",
+    "n": 33,
+    "name": "Ribeira Brava",
+    "value": 305.2
+   },
+   {
+    "code": "3101",
+    "fact_id": "asking_vs_transaction_pct:3101",
+    "n": 126,
+    "name": "Calheta",
+    "value": 244.3
+   },
+   {
+    "code": "1610",
+    "fact_id": "asking_vs_transaction_pct:1610",
+    "n": 139,
+    "name": "Vila Nova de Cerveira",
+    "value": 234.9
+   },
+   {
+    "code": "1821",
+    "fact_id": "asking_vs_transaction_pct:1821",
+    "n": 157,
+    "name": "Tondela",
+    "value": 228.8
+   },
+   {
+    "code": "1509",
+    "fact_id": "asking_vs_transaction_pct:1509",
+    "n": 94,
+    "name": "Santiago do Cacém",
+    "value": 224.8
+   },
+   {
+    "code": "3105",
+    "fact_id": "asking_vs_transaction_pct:3105",
+    "n": 30,
+    "name": "Ponta do Sol",
+    "value": 223.5
+   },
+   {
+    "code": "1803",
+    "fact_id": "asking_vs_transaction_pct:1803",
+    "n": 55,
+    "name": "Castro Daire",
+    "value": 156.7
+   },
+   {
+    "code": "1802",
+    "fact_id": "asking_vs_transaction_pct:1802",
+    "n": 45,
+    "name": "Carregal do Sal",
+    "value": 151.6
+   },
+   {
+    "code": "1513",
+    "fact_id": "asking_vs_transaction_pct:1513",
+    "n": 70,
+    "name": "Sines",
+    "value": 147.3
+   }
+  ],
+  "lowest_asking_eur_m2": [
+   {
+    "code": "0507",
+    "fact_id": "median_asking_eur_m2_sale:0507",
+    "n": 51,
+    "name": "Penamacor",
+    "value": 536
+   },
+   {
+    "code": "1824",
+    "fact_id": "median_asking_eur_m2_sale:1824",
+    "n": 40,
+    "name": "Vouzela",
+    "value": 586
+   },
+   {
+    "code": "1212",
+    "fact_id": "median_asking_eur_m2_sale:1212",
+    "n": 30,
+    "name": "Nisa",
+    "value": 610
+   },
+   {
+    "code": "1413",
+    "fact_id": "median_asking_eur_m2_sale:1413",
+    "n": 36,
+    "name": "Mação",
+    "value": 642
+   },
+   {
+    "code": "0505",
+    "fact_id": "median_asking_eur_m2_sale:0505",
+    "n": 51,
+    "name": "Idanha-a-Nova",
+    "value": 671
+   },
+   {
+    "code": "1003",
+    "fact_id": "median_asking_eur_m2_sale:1003",
+    "n": 60,
+    "name": "Ansião",
+    "value": 692
+   },
+   {
+    "code": "1002",
+    "fact_id": "median_asking_eur_m2_sale:1002",
+    "n": 38,
+    "name": "Alvaiázere",
+    "value": 726
+   },
+   {
+    "code": "0906",
+    "fact_id": "median_asking_eur_m2_sale:0906",
+    "n": 39,
+    "name": "Gouveia",
+    "value": 727
+   },
+   {
+    "code": "0509",
+    "fact_id": "median_asking_eur_m2_sale:0509",
+    "n": 54,
+    "name": "Sertã",
+    "value": 769
+   },
+   {
+    "code": "1804",
+    "fact_id": "median_asking_eur_m2_sale:1804",
+    "n": 71,
+    "name": "Cinfães",
+    "value": 778
+   }
+  ],
+  "most_price_reductions": [
+   {
+    "code": "1807",
+    "fact_id": "price_reduced_share_pct:1807",
+    "n": 33,
+    "name": "Moimenta da Beira",
+    "value": 48.5
+   },
+   {
+    "code": "0606",
+    "fact_id": "price_reduced_share_pct:0606",
+    "n": 32,
+    "name": "Góis",
+    "value": 46.9
+   },
+   {
+    "code": "0815",
+    "fact_id": "price_reduced_share_pct:0815",
+    "n": 56,
+    "name": "Vila do Bispo",
+    "value": 41.1
+   },
+   {
+    "code": "1819",
+    "fact_id": "price_reduced_share_pct:1819",
+    "n": 35,
+    "name": "Tabuaço",
+    "value": 40.0
+   },
+   {
+    "code": "0614",
+    "fact_id": "price_reduced_share_pct:0614",
+    "n": 40,
+    "name": "Penela",
+    "value": 37.5
+   },
+   {
+    "code": "1005",
+    "fact_id": "price_reduced_share_pct:1005",
+    "n": 43,
+    "name": "Bombarral",
+    "value": 37.2
+   },
+   {
+    "code": "0601",
+    "fact_id": "price_reduced_share_pct:0601",
+    "n": 74,
+    "name": "Arganil",
+    "value": 36.5
+   },
+   {
+    "code": "1712",
+    "fact_id": "price_reduced_share_pct:1712",
+    "n": 45,
+    "name": "Valpaços",
+    "value": 35.6
+   },
+   {
+    "code": "0914",
+    "fact_id": "price_reduced_share_pct:0914",
+    "n": 31,
+    "name": "Vila Nova de Foz Côa",
+    "value": 35.5
+   },
+   {
+    "code": "1606",
+    "fact_id": "price_reduced_share_pct:1606",
+    "n": 107,
+    "name": "Ponte da Barca",
+    "value": 35.5
+   }
+  ],
+  "slowest_markets_days": [
+   {
+    "code": "0502",
+    "fact_id": "median_days_on_market:0502",
+    "n": 329,
+    "name": "Castelo Branco",
+    "value": 729
+   },
+   {
+    "code": "0508",
+    "fact_id": "median_days_on_market:0508",
+    "n": 42,
+    "name": "Proença-a-Nova",
+    "value": 726
+   },
+   {
+    "code": "4101",
+    "fact_id": "median_days_on_market:4101",
+    "n": 41,
+    "name": "Vila do Porto",
+    "value": 663
+   },
+   {
+    "code": "0509",
+    "fact_id": "median_days_on_market:0509",
+    "n": 146,
+    "name": "Sertã",
+    "value": 622
+   },
+   {
+    "code": "0815",
+    "fact_id": "median_days_on_market:0815",
+    "n": 56,
+    "name": "Vila do Bispo",
+    "value": 601
+   },
+   {
+    "code": "1601",
+    "fact_id": "median_days_on_market:1601",
+    "n": 177,
+    "name": "Arcos de Valdevez",
+    "value": 558
+   },
+   {
+    "code": "0801",
+    "fact_id": "median_days_on_market:0801",
+    "n": 702,
+    "name": "Albufeira",
+    "value": 538
+   },
+   {
+    "code": "0405",
+    "fact_id": "median_days_on_market:0405",
+    "n": 36,
+    "name": "Macedo de Cavaleiros",
+    "value": 528
+   },
+   {
+    "code": "0507",
+    "fact_id": "median_days_on_market:0507",
+    "n": 203,
+    "name": "Penamacor",
+    "value": 494
+   },
+   {
+    "code": "1002",
+    "fact_id": "median_days_on_market:1002",
+    "n": 121,
+    "name": "Alvaiázere",
+    "value": 493
+   }
+  ]
+ },
+ "generated_on": "2026-10-03",
+ "geo": {
+  "concelhos_with_listings": 307,
+  "matched_pct": 100.0,
+  "matched_to_concelho": 62550,
+  "methods": {
+   "name": 62238,
+   "name+distrito": 312,
+   "unknown": 17
+  },
+  "records": 62567
+ },
+ "listing_count_note": "Số tin rao, chưa khử trùng giữa các nguồn; một bất động sản có thể xuất hiện ở nhiều nguồn.",
+ "min_sample": 30,
+ "national": {
+  "agencies": {
+   "n": 62558,
+   "value": 425
+  },
+  "gross_rental_yield_pct": {
+   "n": 2911,
+   "value": 5.9
+  },
+  "listings_rent": {
+   "n": 4474,
+   "value": 4474
+  },
+  "listings_sale": {
+   "n": 58093,
+   "value": 58093
+  },
+  "median_asking_eur_m2_sale": {
+   "n": 35123,
+   "value": 3729
+  },
+  "median_asking_price_sale": {
+   "n": 35378,
+   "value": 380000
+  },
+  "median_days_on_market": {
+   "n": 48954,
+   "value": 160
+  },
+  "median_rent_eur_m2": {
+   "n": 2911,
+   "value": 18.4
+  },
+  "median_rent_month": {
+   "n": 2927,
+   "value": 1475
+  },
+  "price_reduced_share_pct": {
+   "n": 48758,
+   "value": 20.7
+  },
+  "top_agency_share_pct": {
+   "n": 62558,
+   "value": 2.4
+  }
+ },
+ "property_types": {
+  "apartment": 23580,
+  "building": 1104,
+  "commercial": 3618,
+  "farm": 1786,
+  "garage": 503,
+  "house": 15447,
+  "land": 14557,
+  "office": 535,
+  "other": 470,
+  "room": 10,
+  "warehouse": 957
+ },
+ "reference": {
+  "attribution": [
+   "Limites administrativos: CAOP 2025, Direção-Geral do Território (CC BY 4.0)",
+   "Preços de transação: INE, Estatísticas de preços da habitação ao nível local",
+   "Alojamento local: RNAL, Turismo de Portugal"
+  ],
+  "ine_concelhos": 304,
+  "ine_period": "2026Q1",
+  "rnal_concelhos": 277
+ },
+ "sources": [
+  {
+   "coverage_pct": 100.0,
+   "domain": "kwportugal.pt",
+   "job_id": "job-745@1790990006025",
+   "records": 13613,
+   "site_total": 13614
+  },
+  {
+   "coverage_pct": 100.0,
+   "domain": "remax.pt",
+   "job_id": "job-744@1790966056200",
+   "records": 48954,
+   "site_total": 48972
+  }
+ ]
+}

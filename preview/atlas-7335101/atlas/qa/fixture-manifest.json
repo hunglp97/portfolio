@@ -1,0 +1,17 @@
+{
+  "fixture_only": true,
+  "namespace": "preview/atlas-7335101/atlas/qa/",
+  "app_sha256": "a736386d8effca4f73948ccdfdc6f682213b1b910d77044ccd24493042403629",
+  "files": {
+    "bundle-integrity/data/PRT/real-estate/concelhos.json": "643eae901c339b8591c19ef3c80d3752057613432eaa659da701a06802cc5cdd",
+    "bundle-integrity/data/PRT/real-estate/summary.json": "132510a49de982d7b51a40e545627bd5ead79ce3d336ca4df55e5676bc0837ba",
+    "bundle-integrity/data/manifest.json": "864279ec6f901341e0375ddf2e36e55fb5d3b6f9fbb44985afabb2472870a860",
+    "bundle-integrity/en/index.html": "fd7e988b84e61da967bb1d6e6952abf46709ba3b3ee2931c5bd11a05178237a6",
+    "bundle-integrity/pt/index.html": "63d1d3920a7fe7b5b278162010764882c9de3f3c4776365b48d5da9b0895c4c0",
+    "cdn-off/en/index.html": "06d7cd9a5775bc37e91046f7f730ddb75ffff4c860f691eed50d71c8f1763026",
+    "cdn-off/pt/index.html": "3235ed566533544b85fb6ea995fa7aed22df933495e26d6eea4dd10a4d90d812",
+    "webgl-unavailable/en/index.html": "564e41c0ab2229973fa102765f1d860ddccb7a558898847a6cac2151617151ac",
+    "webgl-unavailable/pt/index.html": "fb830e48cc07bb69550984cf0d11efddf3a869bef901973cf8de99e6d4070a3c",
+    "webgl-unavailable/webgl-unavailable.js": "39946244dc156bf1af1c38141ce877c5b7513b162e7e919a64c95eaae3919fc7"
+  }
+}
