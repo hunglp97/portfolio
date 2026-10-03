@@ -151,7 +151,9 @@
   async function loadMap() {
     try { await loadScript('https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js'); }
     catch { mapMessage(t('map_unavailable')); return; }
-    if (typeof maplibregl === 'undefined' || !maplibregl.supported()) {
+    // The pinned MapLibre v5 API has no supported(); Map checks WebGL itself.
+    // Keep constructor failures inside the fallback catch below.
+    if (typeof maplibregl === 'undefined') {
       mapMessage(t('map_unavailable')); return;
     }
     try {

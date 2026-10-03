@@ -342,7 +342,7 @@
     "atlas/PRT/real-estate/4802/index.html": "96a026ed394584c5492ab7b2cf29f68ba82b9490572a30cded7e636bf99e1e1c",
     "atlas/PRT/real-estate/4901/index.html": "820e5a33ff85c5f9d77f4b87fcee6569de317dd0b03531fbbddfb83611f179bf",
     "atlas/atlas.css": "f01275fe1918fafa4581dda95973ba060032ae6ac9b63d2b9681a385bf47384c",
-    "atlas/atlas.js": "c1f40c537328f1ecee495da07d2fc3164ee219fe8fc64877fdc8b8a453f11faa",
+    "atlas/atlas.js": "a736386d8effca4f73948ccdfdc6f682213b1b910d77044ccd24493042403629",
     "atlas/data/PRT/real-estate/concelhos.json": "643eae901c339b8591c19ef3c80d3752057613432eaa659da701a06802cc5cdd",
     "atlas/data/PRT/real-estate/summary.json": "132510a49de982d7b51a40e545627bd5ead79ce3d336ca4df55e5676bc0837ba",
     "atlas/data/boundary-manifest.json": "957eb200ec9258b56c5a1c66a1dbd877ba93e865954ee4980db4d09eaaba1f38",
@@ -350,7 +350,7 @@
     "atlas/data/index.json": "c36ebad0a0847d2a448b27085ef4a4a1f71b9a3506d0e4105a45f67605a71920",
     "atlas/data/manifest.json": "c61026ca8b625ae8a1e12bb37a7cc78cb7a941399fce03c2aa0c6b784e0859f9",
     "atlas/data/municipality-indicators.csv": "c749876ce5c593c96334d4d633857eb3f39a802e258befb167993a5d9cb0b768",
-    "atlas/index.html": "95a67da918d936e2c3047a4174bca1ea2e8af7bcb4c3880a552a669337223766",
+    "atlas/index.html": "db705e505db8fbb9bb60eb1960d632d5f647845481db651fd2828eaa9e0fd115",
     "atlas/pt/PRT/real-estate/0101/index.html": "b77584cdbb1f7859c254ecbffe2c435a108fe195363a77bbfa87bc0784bd1e15",
     "atlas/pt/PRT/real-estate/0102/index.html": "11591dd9aab4afbfe5d794ec8b1ee1b370b5d93106f5c37c14248a47c27d1923",
     "atlas/pt/PRT/real-estate/0103/index.html": "e3ed91d9f16fe050122a84ecbd4b5a79cb9d79df15604d8ed36ed718e6e0197a",
@@ -659,10 +659,10 @@
     "atlas/pt/PRT/real-estate/4801/index.html": "6c6b4e24567c1d47311f24e8ef1aa43122a6bc8fc876b427cc6b024e0c4f0a26",
     "atlas/pt/PRT/real-estate/4802/index.html": "d42b48052131d31f56d00b32fef3f83fb31643a9f44c63ca1c0c113991a2b8c1",
     "atlas/pt/PRT/real-estate/4901/index.html": "acc292eb71ba31d5766f9db09dbb4c28cd234cde7d3fc16f203825556a87df44",
-    "atlas/pt/index.html": "231e0c174b1587edc6fc2e9414678c487914f3cd3a1277c13ac686f3005925c3",
+    "atlas/pt/index.html": "f6e889ef7b7e9b65258a62495381ae7ae13a707ddf259c0db05ae4b7369212be",
     "atlas/pt/regions.html": "1c83a8c3ff78b7ce61006ce729ac5373fd8a17dc20fed450432d24448d3a4dd3",
     "atlas/regions.html": "5e340777912ba2028d33121ec2ac33c5eb30e1f3c1fb2814a080f31015892526",
-    "atlas/site-manifest.json": "85e147daf23cd5c4f582d94a84d3b0e1b901cac393867854f0a546252c1a4534",
+    "atlas/site-manifest.json": "2d19b35b409ad6599462640f2ba4e894cca6ad8776710ec235a1d915f18dbfad",
     "atlas/sitemap.xml": "ae8c7a340e384a0bf75bcc866dc90f4206e22bfa01d13d73197f5abdde36d28c",
     "custom-data.html": "11d89fa13bed3e5ea4a4e0c8ec5b07322c9cc67d131fdc10a137a6aaa6a51ab4",
     "datasets-home.html": "eb507c6aa7f0f80fcdc524bb0bf750810e5f59d881aaa2c243725f1cee143507",
@@ -697,6 +697,6 @@
     "reduced-motion is observed, not changed by this wrapper"
   ],
   "portfolioBaseCommit": "79875ba925b20e4ef2f83e7c004370a4cf064b10",
-  "siteManifestSHA256": "85e147daf23cd5c4f582d94a84d3b0e1b901cac393867854f0a546252c1a4534",
+  "siteManifestSHA256": "2d19b35b409ad6599462640f2ba4e894cca6ad8776710ec235a1d915f18dbfad",
   "version": "atlas-qa-preview-v1"
 }
