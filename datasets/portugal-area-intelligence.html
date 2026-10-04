@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portugal Area Intelligence — 308 Municipalities — HLP Data</title>
+  <meta name="description" content="Official municipal data pack for Portugal: INE dwelling sale and rent medians, Census 2021 population and dwellings for all 308 concelhos on CAOP 2025 codes. Release d735276c69252568.">
+  <link rel="canonical" href="https://hlpdata.com/datasets/portugal-area-intelligence.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#090d16">
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        if ((savedTheme || (prefersLight ? 'light' : 'dark')) === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch(e) {}
+    })();
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/datasets/portugal-area-intelligence.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Portugal Area Intelligence — 308 Municipalities — HLP Data">
+  <meta property="og:description" content="Official municipal data pack for Portugal: INE dwelling sale and rent medians, Census 2021 population and dwellings for all 308 concelhos on CAOP 2025 codes. Release d735276c69252568.">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Portugal Area Intelligence — 308 Municipalities",
+  "description": "Official municipal data pack for Portugal: INE dwelling sale and rent medians, Census 2021 population and dwellings for all 308 concelhos on CAOP 2025 codes. Release d735276c69252568.",
+  "url": "https://hlpdata.com/datasets/portugal-area-intelligence.html",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "HLP Data",
+    "url": "https://hlpdata.com/"
+  },
+  "isBasedOn": [
+    "https://www.ine.pt/",
+    "https://www.dgterritorio.gov.pt/"
+  ],
+  "spatialCoverage": "Portugal",
+  "temporalCoverage": "2019/2026",
+  "variableMeasured": [
+    "median dwelling sale price per m2",
+    "median rent per m2 of new lease contracts",
+    "resident population",
+    "classic family dwellings"
+  ],
+  "version": "d735276c69252568",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://hlpdata.com/samples/pt_area_intelligence_sample.csv"
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=20260922a">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo"><span class="logo-mark"></span><span class="logo-text">hlpdata.com</span></a>
+      <nav class="nav">
+        <a href="../index.html#datasets" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
+        <a href="../custom-data.html" class="nav-link">Custom Data</a>
+        <a href="../api.html" class="nav-link">API</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i><i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <a href="../index.html#datasets" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
+      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
+      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Portugal Area Intelligence</span>
+    </div>
+
+    <div style="margin-bottom: 2.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="badge-tag">Official Statistics &bull; Portugal</span>
+        <span class="badge-tag">Snapshot &bull; release d735276c69252568</span>
+        <span class="badge-tag">INE + CAOP 2025</span>
+      </div>
+      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">Portugal Area Intelligence — 308 Municipalities</h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
+        Compare every concelho of Portugal on one table: INE dwelling sale prices (transactions, 26 quarters), rents of
+        new lease contracts, and Census 2021 population and housing stock — normalised, mapped to CAOP 2025 codes, with
+        every blank value explained. Built for buyer's agents, relocation and location-analysis teams.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Municipalities</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">308</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">All concelhos, CAOP 2025</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Sale price history</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">26 quarters</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">to 2026-Q1; 304 with a value</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Rent</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">2024-S2</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">212 concelhos with a value</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Observations</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">8,932</div>
+        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Long file, one row per value</div>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+      <a href="https://payhip.com/b/CAYJH" target="_blank" rel="noopener" class="btn btn-buy"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download ($19.00)</a>
+      <a href="../samples/pt_area_intelligence_sample.csv" download class="btn btn-secondary">
+        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Free Sample (10 concelhos)
+      </a>
+      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Portugal%20Area%20Intelligence" class="btn btn-ghost">Ask a question</a>
+    </div>
+
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Columns (wide file, one row per concelho)</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
+        The pack also contains a long file (CSV and Parquet) with every observation, including the full sale-price history.
+      </p>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
+        <table class="modal-table" style="width: 100%;">
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>concelho_code</strong></td><td><span class="badge-tag">String</span></td><td>CAOP 2025 DICO code (4 chars), join key</td></tr>
+            <tr><td><strong>concelho / distrito / region</strong></td><td><span class="badge-tag">String</span></td><td>Official names; region = Continente, Madeira or Açores</td></tr>
+            <tr><td><strong>median_sale_eur_m2</strong></td><td><span class="badge-tag">Decimal (€/m²)</span></td><td>INE median dwelling sale price (transactions), last 12 months</td></tr>
+            <tr><td><strong>median_rent_eur_m2_new_contracts</strong></td><td><span class="badge-tag">Decimal (€/m²)</span></td><td>INE median rent of new lease contracts, last 12 months</td></tr>
+            <tr><td><strong>resident_population_2021</strong></td><td><span class="badge-tag">Integer</span></td><td>Census 2021 resident population</td></tr>
+            <tr><td><strong>classic_dwellings_2021</strong></td><td><span class="badge-tag">Integer</span></td><td>Census 2021 classic family dwellings</td></tr>
+            <tr><td><strong>*_period / *_status</strong></td><td><span class="badge-tag">String</span></td><td>Reference period and status of each value; blanks always explained</td></tr>
+            <tr><td><strong>sale_eur_m2_change_12m_pct</strong></td><td><span class="badge-tag">Decimal (%)</span></td><td>Change of the sale median vs. same quarter a year earlier</td></tr>
+            <tr><td><strong>dwellings_per_1000_residents</strong></td><td><span class="badge-tag">Decimal</span></td><td>Census 2021 dwellings / residents × 1000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="modal-notes" style="margin-bottom: 3rem;">
+      <h4>Data notes &amp; known limits</h4>
+      <ul>
+        <li>One-off snapshot, not a live feed. Latest periods: sale 2026-Q1, rent 2024-S2, census 2021.</li>
+        <li>Sale prices are INE transaction medians, not listing (asking) prices. No property listings are included.</li>
+        <li>INE does not publish medians where there are too few transactions or contracts; those cells are blank with status NULL_OR_NOT_APPLICABLE, never zero.</li>
+        <li>Census counts reconcile exactly with INE national totals; the build is deterministic and checksummed.</li>
+        <li>Short-term rental registry data is not included (no stated licence; mainland only).</li>
+      </ul>
+    </div>
+
+    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Sources &amp; licences</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        Built from official open data reused under Creative Commons CC BY (INE: CC BY 4.0; DGT CAOP 2025: CC BY).
+        This pack is a modified version; keep these credits when you redistribute derived work:
+      </p>
+      <ul style="color: var(--text-secondary); line-height: 1.6;">
+        <li>Direção-Geral do Território (DGT), Carta Administrativa Oficial de Portugal CAOP 2025, CC BY. Informação modificada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">&copy; 2026 <strong>HLP Data</strong></div>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../terms.html">Terms &amp; Compliance</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../script.js?v=20260922a"></script>
+</body>
+</html>
