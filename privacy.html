@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — HLP Data</title>
-  <meta name="description" content="Privacy Policy and Cookie Disclosure for HLP Data website visitors and clients.">
+  <meta name="description" content="How HLP Data handles personal data: Google Analytics 4 cookies, Payhip purchases, emails and browser preferences.">
   <link rel="canonical" href="https://hlpdata.com/privacy.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="theme-color" content="#090d16">
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css?v=20261005a">
 
-  <!-- Analytics: GA4 + Cloudflare Web Analytics (Lean B2B Hybrid) -->
+  <!-- Analytics: Google Analytics 4 (see section 2 of this page) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XX0HJQJQN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -78,7 +78,7 @@
         Privacy Policy
       </h1>
       <p style="color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); margin-top: 0.5rem;">
-        Last Updated: September 20, 2026 &bull; Effective Immediately
+        Last Updated: October 5, 2026
       </p>
     </div>
 
@@ -86,59 +86,78 @@
 
       <section style="margin-bottom: 2rem;">
         <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          1. Overview & Data Controller
+          1. Who We Are
         </h2>
         <p>
-          HLP Data ("we", "us") values your privacy. This Privacy Policy describes how we handle information received via our public website (<a href="https://hlpdata.com" style="color: var(--accent-emerald-light);">hlpdata.com</a>) and commercial client communications.
+          This policy explains what personal data HLP Data ("we", "us") handles when you visit <a href="https://hlpdata.com" style="color: var(--accent-emerald-light);">hlpdata.com</a>, buy a dataset, or write to us. For any privacy question or request, email <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>.
         </p>
       </section>
 
       <section style="margin-bottom: 2rem;">
         <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          2. Information We Collect
-        </h2>
-        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
-          <li><strong>Direct Inquiries:</strong> When you email us directly at <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>, we collect your name, business email address, and any project requirements you share to respond to your inquiry and deliver proposals.</li>
-          <li><strong>Zero Tracking Cookies:</strong> We do not run third-party advertising cookies, cross-site trackers, or invasive analytics pixels on hlpdata.com. Standard web server access logs (IP address, user-agent, timestamp) may be logged ephemerally for security and DDoS defense.</li>
-        </ul>
-      </section>
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          3. How We Use Information
+          2. Website Analytics (Google Analytics 4)
         </h2>
         <p>
-          Any information provided to us is used exclusively to:
+          We use Google Analytics 4 (measurement ID <code>G-8XX0HJQJQN</code>) on every page to produce aggregate statistics: how many people visit, which pages they view, where visits come from, and clicks on key buttons such as buying a dataset, downloading a sample file or opening an email link.
         </p>
         <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
-          <li>Communicate regarding data extraction contracts and pipeline deliverables.</li>
-          <li>Provision secure S3 storage bucket credentials for dataset delivery.</li>
-          <li>Generate commercial invoices and verify PayPal business billing.</li>
+          <li><strong>Cookies:</strong> Google Analytics sets first-party cookies (such as <code>_ga</code> and <code>_ga_&lt;ID&gt;</code>) in your browser to tell visits apart.</li>
+          <li><strong>Data sent to Google:</strong> page address, referrer, browser and device information, approximate location derived by Google from your IP address, and the events listed above. Google acts as our analytics provider; see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent-emerald-light);">Google&rsquo;s Privacy Policy</a>.</li>
+          <li><strong>How to opt out:</strong> block or delete cookies for this site in your browser, use a content blocker, or install Google&rsquo;s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color: var(--accent-emerald-light);">Analytics opt-out browser add-on</a>. The site works the same without analytics.</li>
         </ul>
         <p style="margin-top: 0.5rem;">
-          We never sell, rent, or trade your contact details to third parties.
+          We use these statistics only to understand and improve the site. We do not run advertising cookies or use the data for ad targeting.
         </p>
       </section>
 
       <section style="margin-bottom: 2rem;">
         <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          4. Data Security & Storage
+          3. Preferences Stored in Your Browser
         </h2>
         <p>
-          Commercial datasets and client communication credentials are encrypted in transit via TLS/HTTPS and encrypted at rest within enterprise AWS S3 infrastructure with IAM role-based least-privilege access policies.
+          Your theme (light/dark) and language choice are saved in your browser&rsquo;s local storage (<code>hlp_theme</code>, <code>hlp_lang</code>). They stay on your device and are not sent to us. If you have not picked a language, the site uses your browser&rsquo;s language setting; it does not look up your IP address or location to choose one.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          4. Purchases (Payhip, PayPal, Stripe)
+        </h2>
+        <p>
+          Dataset purchases are processed by Payhip, which takes card and PayPal payments through PayPal or Stripe. On some pages the Payhip checkout opens on top of our page using Payhip&rsquo;s script; Payhip&rsquo;s own privacy policy applies to the checkout. We never see your full card details. Payhip shares with us the order details needed to deliver and support your purchase, such as your name, email address, the product bought and the amount paid.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          5. Emails and Custom Data Requests
+        </h2>
+        <p>
+          When you email <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a> or <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>, we use your name, email address and the content of your message to answer your request, prepare quotes, deliver data and issue invoices. The custom data form on this site does not send anything to a server: it prepares an email in your own email app, and nothing is sent until you send that email.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          We do not sell, rent or trade your contact details.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          6. Hosting and Third-Party Resources
+        </h2>
+        <p>
+          The site is hosted on GitHub Pages, which may log visitor IP addresses for security purposes. Pages also load fonts from Google Fonts, icons from cdnjs (Cloudflare) and, on the home page, a chart library from jsDelivr; these providers receive your IP address when your browser fetches those files.
         </p>
       </section>
 
       <section>
         <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          5. Contact Information
+          7. Your Rights and Contact
         </h2>
         <p>
-          For privacy inquiries, data deletion requests, or questions regarding our privacy practices, please contact:
+          You can ask us to access, correct or delete the personal data we hold about you (for example, your emails and order records), subject to records we must keep for accounting purposes. Analytics data is kept according to the retention setting of our Google Analytics property. Send requests to:
         </p>
         <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
-          Email: <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a><br>
-          Commercial Entity: HLP Data &bull; Commercial Data Solutions
+          Email: <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>
         </p>
       </section>
 

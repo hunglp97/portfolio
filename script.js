@@ -1,7 +1,4 @@
-// HLP Data — Portfolio Script (Taste-skill clean, theme switcher, i18n [EN | ES | PT] with IP auto-detection)
-
-const LUSOPHONE_COUNTRIES = ['PT', 'BR', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL'];
-const HISPANOPHONE_COUNTRIES = ['ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
+// HLP Data — Portfolio Script (theme switcher, i18n [EN | ES | PT] from saved choice or browser language)
 
 const I18N_DICT = {
   en: {
@@ -550,33 +547,17 @@ function setLanguage(lang, persist = true) {
   }
 }
 
-// IP-based country detection + browser language fallback
-async function detectInitialLanguage() {
-  // 1. Check user manual override in localStorage
+// Initial language: the visitor's saved choice, else the browser language.
+// No IP or geolocation lookup is made (see privacy.html).
+function detectInitialLanguage() {
   try {
     const savedLang = localStorage.getItem('hlp_lang');
-    if (savedLang && (savedLang === 'en' || savedLang === 'es' || savedLang === 'pt')) {
+    if (savedLang && I18N_DICT[savedLang]) {
       setLanguage(savedLang, false);
       return;
     }
   } catch (e) {}
 
-  // 2. Check session cache for detected country
-  try {
-    const cachedCountry = sessionStorage.getItem('hlp_country');
-    if (cachedCountry) {
-      if (LUSOPHONE_COUNTRIES.includes(cachedCountry)) {
-        setLanguage('pt', false);
-      } else if (HISPANOPHONE_COUNTRIES.includes(cachedCountry)) {
-        setLanguage('es', false);
-      } else {
-        setLanguage('en', false);
-      }
-      return;
-    }
-  } catch (e) {}
-
-  // 3. Fast immediate fallback: browser language
   const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
   if (navLang.startsWith('pt')) {
     setLanguage('pt', false);
@@ -584,57 +565,6 @@ async function detectInitialLanguage() {
     setLanguage('es', false);
   } else {
     setLanguage('en', false);
-  }
-
-  // 4. Background IP Geolocation Check (Cloudflare-backed edge API)
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 1600);
-    const res = await fetch('https://api.country.is', { signal: controller.signal });
-    clearTimeout(timeoutId);
-
-    if (res.ok) {
-      const data = await res.json();
-      if (data && data.country) {
-        const country = data.country.toUpperCase();
-        try {
-          sessionStorage.setItem('hlp_country', country);
-        } catch (e) {}
-
-        // If user hasn't explicitly clicked a language button during load
-        if (!localStorage.getItem('hlp_lang')) {
-          if (LUSOPHONE_COUNTRIES.includes(country)) {
-            setLanguage('pt', false);
-          } else if (HISPANOPHONE_COUNTRIES.includes(country)) {
-            setLanguage('es', false);
-          } else {
-            setLanguage('en', false);
-          }
-        }
-      }
-    }
-  } catch (err) {
-    // Graceful secondary fallback: ipapi.co
-    try {
-      const ctrl = new AbortController();
-      const tId = setTimeout(() => ctrl.abort(), 1400);
-      const r2 = await fetch('https://ipapi.co/json/', { signal: ctrl.signal });
-      clearTimeout(tId);
-      if (r2.ok) {
-        const d2 = await r2.json();
-        if (d2 && d2.country_code) {
-          const cCode = d2.country_code.toUpperCase();
-          try { sessionStorage.setItem('hlp_country', cCode); } catch(e) {}
-          if (!localStorage.getItem('hlp_lang')) {
-            if (LUSOPHONE_COUNTRIES.includes(cCode)) {
-              setLanguage('pt', false);
-            } else if (HISPANOPHONE_COUNTRIES.includes(cCode)) {
-              setLanguage('es', false);
-            }
-          }
-        }
-      }
-    } catch (e2) {}
   }
 }
 
