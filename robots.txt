@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
 
 Sitemap: https://hlpdata.com/sitemap.xml
