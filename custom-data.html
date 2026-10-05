@@ -18,12 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="style.css?v=20261005d">
+  <link rel="stylesheet" href="style.css?v=20261005e">
   <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
   <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
-  <script defer src="script.js?v=20261005d"></script>
+  <script defer src="script.js?v=20261005e"></script>
   <!-- /site:assets -->
 </head>
 <body data-nav="custom">
@@ -63,12 +63,21 @@
     <div class="container">
       <header class="page-head">
         <h1>Request custom data</h1>
-        <p class="lead">Tell us which public website you need, the fields, how often and in what format. We reply with a written quote covering scope, schedule and price.</p>
+        <p class="lead">Tell us which public website you need, the fields, how often and in what format. We reply by email with a written quote covering scope, schedule and price.</p>
       </header>
 
       <div class="form-layout">
-        <div>
-          <form class="form-card" id="customDataForm" novalidate>
+        <div id="request">
+          <div class="notice" id="formStatus" role="status" tabindex="-1" hidden>
+            <h2 id="formStatusTitle"></h2>
+            <p id="formStatusText"></p>
+          </div>
+          <form class="form-card" id="customDataForm" action="https://admin.hlpdata.com/api/leads" method="post" novalidate>
+            <input type="hidden" name="t" value="">
+            <div class="hp-field" aria-hidden="true">
+              <label for="hlp_hp">Leave this field empty</label>
+              <input type="text" id="hlp_hp" name="hlp_hp" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-grid">
               <div class="field-group">
                 <label for="fullName">Your name <span class="req">(required)</span></label>
@@ -122,19 +131,11 @@
               </div>
             </div>
             <div class="form-actions">
-              <p>This form opens your email app with the request filled in. Nothing is sent until you send that email.</p>
-              <button class="btn btn-primary" type="submit" id="submitBtn">Write the request email</button>
+              <p>We store your request so we can reply, as described in the <a href="privacy.html#emails-and-custom-data-requests">privacy policy</a>.</p>
+              <button class="btn btn-primary" type="submit" id="submitBtn">Send request</button>
             </div>
           </form>
 
-          <div class="notice" id="formMailtoNotice" role="status" tabindex="-1" hidden>
-            <h2>Your email app should now be open with the request</h2>
-            <p>Send that email to reach us. If no email app opened, copy the request and send it to <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>.</p>
-            <div class="actions">
-              <button class="btn btn-secondary btn-sm" type="button" id="copyRequestBtn"><i class="ph ph-copy" aria-hidden="true"></i><span id="copyRequestLabel">Copy request text</span></button>
-              <a class="btn btn-secondary btn-sm" id="reopenMailtoLink" href="mailto:sales@hlpdata.com">Open the email again</a>
-            </div>
-          </div>
         </div>
 
         <aside class="aside-list" aria-label="What happens next">

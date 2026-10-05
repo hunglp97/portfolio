@@ -248,17 +248,49 @@
   }
 
   // ------------------------------------------------------------------
-  // Custom data form: validates inline, then hands the request to the
-  // visitor's email app (the site has no backend). Never claims receipt.
+  // Custom data form: validates inline, then posts to admin.hlpdata.com/api/leads, which stores the
+  // request and redirects back here with ?sent=<reference> or ?error=<code>. The page only says
+  // "received" when the server sent a reference back: it never assumes receipt.
   // ------------------------------------------------------------------
+  const LEAD_ERRORS = {
+    missing: 'A required field was empty. Please fill it in and send again.',
+    bad_email: 'The email address was not accepted. Please check it and send again.',
+    too_long: 'One of the fields is too long. Please shorten it and send again.',
+    too_fast: 'The form was sent too quickly to be checked. Please wait a few seconds and send again.',
+    too_large: 'The request is too long. Please shorten it and send again.',
+    rate: 'Several requests came from your connection in the last hour. Please email sales@hlpdata.com instead.',
+    server: 'We could not save your request just now. Please email sales@hlpdata.com instead.'
+  };
+
+  function showLeadStatus() {
+    const box = document.getElementById('formStatus');
+    if (!box) return;
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent');
+    const error = params.get('error');
+    if (!sent && !error) return;
+    const title = document.getElementById('formStatusTitle');
+    const text = document.getElementById('formStatusText');
+    if (sent) {
+      title.textContent = 'Request received';
+      text.textContent = (/^HLP-[0-9A-F]{6}$/.test(sent) ? 'Your reference is ' + sent + '. ' : '') +
+        'We reply by email to the address you gave, usually with questions or a quote.';
+      hlpTrack('generate_lead', { page: window.location.pathname, method: 'custom_form' });
+    } else {
+      box.classList.add('is-error');
+      title.textContent = 'Your request was not sent';
+      text.textContent = LEAD_ERRORS[error] || LEAD_ERRORS.server;
+    }
+    box.hidden = false;
+    box.focus();
+  }
+
   function initRequestForm() {
+    showLeadStatus();
     const form = document.getElementById('customDataForm');
     if (!form) return;
-    const notice = document.getElementById('formMailtoNotice');
-    const reopen = document.getElementById('reopenMailtoLink');
-    const copyBtn = document.getElementById('copyRequestBtn');
-    const copyLabel = document.getElementById('copyRequestLabel');
-    let lastRequestText = '';
+    const started = form.querySelector('input[name="t"]');
+    if (started) started.value = String(Date.now());
 
     function validate(input) {
       const group = input.closest('.field-group');
@@ -268,7 +300,8 @@
       return ok;
     }
 
-    form.querySelectorAll('input, textarea, select').forEach(function (input) {
+    const fields = form.querySelectorAll('.field-group input, .field-group textarea, .field-group select');
+    fields.forEach(function (input) {
       input.addEventListener('blur', function () { if (input.value) validate(input); });
       input.addEventListener('input', function () {
         const group = input.closest('.field-group');
@@ -277,43 +310,18 @@
     });
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
       let firstBad = null;
-      form.querySelectorAll('input, textarea, select').forEach(function (input) {
+      fields.forEach(function (input) {
         if (!validate(input) && !firstBad) firstBad = input;
       });
-      if (firstBad) { firstBad.focus(); return; }
-      const val = function (id) { return document.getElementById(id).value.trim(); };
-      const subject = '[Custom Dataset Request] ' + val('company') + ' - ' + val('targetWebsite');
-      const body =
-        'Name: ' + val('fullName') + '\n' +
-        'Work Email: ' + val('workEmail') + '\n' +
-        'Company: ' + val('company') + '\n' +
-        'Target Website: ' + val('targetWebsite') + '\n' +
-        'Update Frequency: ' + val('updateFrequency') + '\n' +
-        'Delivery Preference: ' + val('deliveryPreference') + '\n\n' +
-        'Required Fields:\n' + val('dataFields') + '\n\n' +
-        'Additional Notes:\n' + val('notes');
-      lastRequestText = 'To: sales@hlpdata.com\nSubject: ' + subject + '\n\n' + body;
-      const mailtoUrl = 'mailto:sales@hlpdata.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      if (reopen) reopen.setAttribute('href', mailtoUrl);
-      if (copyLabel) copyLabel.textContent = 'Copy request text';
-      if (notice) { notice.hidden = false; notice.focus(); }
-      hlpTrack('generate_lead', { page: window.location.pathname, method: 'custom_form' });
-      window.location.href = mailtoUrl;
+      if (firstBad) {
+        e.preventDefault();
+        firstBad.focus();
+        return;
+      }
+      const btn = document.getElementById('submitBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending'; }
     });
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function () {
-        if (!lastRequestText) return;
-        const done = function (ok) { if (copyLabel) copyLabel.textContent = ok ? 'Copied' : 'Copy failed, select the text in your email app instead'; };
-        if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(lastRequestText).then(function () { done(true); }, function () { done(false); });
-        } else {
-          done(false);
-        }
-      });
-    }
   }
 
   function ready(fn) {

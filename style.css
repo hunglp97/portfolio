@@ -828,8 +828,10 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .form-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--border); }
 .form-actions p { color: var(--text-3); font-size: var(--step--1); max-width: 40ch; }
 
-.notice { margin-top: var(--space-5); padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-2); }
+.notice { margin-bottom: var(--space-5); padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-2); }
 .notice[hidden] { display: none; }
+.notice.is-error { border-color: #b42318; }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .notice h2 { font-size: var(--step-0); }
 .notice p { margin-top: var(--space-2); color: var(--text-2); }
 .notice .actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
