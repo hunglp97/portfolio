@@ -1434,18 +1434,19 @@ function initAnalyticsCharts() {
 
 // ==========================================================================
 // Funnel measurement: begin_checkout, file_download, generate_lead.
-// Self-contained, no dependency. Sends to GA4 (gtag) and/or Umami when the
-// page has them; otherwise does nothing. No form content or email address
-// is sent. Capture phase so the Payhip overlay script cannot swallow clicks.
+// Self-contained, no dependency. Sends to Umami (cookieless) when its
+// script has loaded; a legacy gtag, if one is ever present, also receives it.
+// Otherwise does nothing. No form content or email address is sent.
+// Capture phase so the Payhip overlay script cannot swallow clicks.
 // ==========================================================================
 (function () {
   function hlpTrack(name, params) {
     const p = params || {};
     try {
-      if (typeof window.gtag === 'function') window.gtag('event', name, p);
+      if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, p);
     } catch (e) {}
     try {
-      if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, p);
+      if (typeof window.gtag === 'function') window.gtag('event', name, p);
     } catch (e) {}
   }
   window.hlpTrack = hlpTrack;
