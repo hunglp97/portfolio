@@ -28,13 +28,13 @@
   <meta property="og:url" content="https://hlpdata.com/">
   <meta property="og:site_name" content="HLP Data">
   <meta property="og:title" content="HLP Data — Web Data Intelligence & Commercial Data Feeds">
-  <meta property="og:description" content="Structured pricing, retail, product, and real-estate datasets delivered through API, CSV, JSON, or S3. Verified commercial feeds by HLP Data.">
+  <meta property="og:description" content="Structured pricing, retail, product, real-estate and official-statistics datasets: one-off snapshots with free samples, or custom feeds refreshed on request. By HLP Data.">
   <meta property="og:image" content="https://hlpdata.com/favicon.svg">
 
   <!-- Twitter Metadata -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HLP Data — Web Data Intelligence & Commercial Data Feeds">
-  <meta name="twitter:description" content="Structured pricing, retail, product, and real-estate datasets delivered through API, CSV, JSON, or S3. Verified commercial feeds by HLP Data.">
+  <meta name="twitter:description" content="Structured pricing, retail, product, real-estate and official-statistics datasets: one-off snapshots with free samples, or custom feeds refreshed on request. By HLP Data.">
 
   <!-- Schema.org JSON-LD Entity Graph -->
   <script type="application/ld+json">
@@ -57,7 +57,7 @@
                               "Portuguese"
                         ]
                   },
-                  "description": "Structured web data feeds, verified commercial datasets, and cloud delivery pipelines for business intelligence and quantitative market analysis."
+                  "description": "Structured web datasets sold as one-off snapshots with free samples, plus custom data feeds with recurring refresh on request."
             },
             {
                   "@type": "WebSite",
@@ -146,7 +146,7 @@
             {
                   "@type": "Dataset",
                   "@id": "https://hlpdata.com/#dataset-idealista",
-                  "name": "Idealista Portugal Real Estate Property Feed (Lisbon, Porto, Algarve)",
+                  "name": "Idealista Portugal Real Estate Property Feed",
                   "description": "Nationwide sale-listing coverage across all 13 Portuguese districts from Idealista.pt: 2,640 listings with 100% fill on asking price, price per square metre, floor area and bedroom count, plus advertised amenities. Median asking price EUR 572,500. Geocoordinates, bathroom counts and agency attribution are not collected for this source.",
                   "url": "https://hlpdata.com/#datasets",
                   "sameAs": "https://www.idealista.pt/",
@@ -174,7 +174,7 @@
             {
                   "@type": "Dataset",
                   "@id": "https://hlpdata.com/#dataset-continente",
-                  "name": "Continente Supermarket FMCG Intelligence Catalog Feed",
+                  "name": "Continente Supermarket FMCG Intelligence Catalog",
                   "description": "Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features 3-level category hierarchy, markdown discount tracking, and normalized unit prices.",
                   "url": "https://hlpdata.com/#datasets",
                   "sameAs": "https://www.continente.pt/",
@@ -331,9 +331,8 @@
             <span data-i18n="hero_status">Production Web Data Infrastructure & Commercial Feeds</span>
           </div>
           <div class="telemetry-pill">
-            <span class="pulse-dot emerald"></span>
-            <span class="font-mono text-xs" id="live-telemetry">
-              <strong>LIVE CENSUS:</strong> 18,107 Portugal properties synced &bull; S3 100% Approved
+            <span class="font-mono text-xs" id="catalog-telemetry">
+              <strong>CATALOG:</strong> 5 datasets &bull; one-off snapshots &bull; free sample for each
             </span>
           </div>
         </div>
@@ -343,7 +342,7 @@
         </h1>
 
         <p class="hero-subtext" data-i18n="hero_subtext">
-          Structured product, pricing, retail, and real-estate datasets with reliable refresh schedules, historical tracking, and production-ready delivery through API, CSV, JSON, or S3.
+          Structured product, pricing, retail, real-estate and official-statistics datasets. Buy a one-off snapshot today, or order a custom feed with recurring refresh on request.
         </p>
 
         <div class="hero-cta-group">
@@ -361,8 +360,8 @@
         <!-- Metric strip: Honest, verified numbers -->
         <div class="hero-metrics">
           <div class="metric-cell">
-            <span class="metric-val">562,609</span>
-            <span class="metric-lbl" data-i18n="metric_lbl_1">Verified Properties (PT & UK)</span>
+            <span class="metric-val">547,142</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_1">Property Listings (PT & UK snapshots)</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
@@ -371,8 +370,8 @@
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
-            <span class="metric-val">100 / 100</span>
-            <span class="metric-lbl" data-i18n="metric_lbl_3">Buyer Acceptance Rate</span>
+            <span class="metric-val">5</span>
+            <span class="metric-lbl" data-i18n="metric_lbl_3">Datasets with a Free Sample CSV</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-cell">
@@ -393,47 +392,45 @@
               <span class="dot green"></span>
             </div>
             <div class="terminal-tabs-nav" role="tablist">
-              <button type="button" class="term-tab active" data-term="audit">buyer_audit.sh</button>
-              <button type="button" class="term-tab" data-term="s3">aws_s3_sync.sh</button>
+              <button type="button" class="term-tab active" data-term="audit">catalog.sh</button>
+              <button type="button" class="term-tab" data-term="s3">get_samples.sh</button>
               <button type="button" class="term-tab" data-term="python">read_feed.py</button>
             </div>
           </div>
           <div class="terminal-body font-mono">
             <div class="term-pane active" id="term-pane-audit">
-              <div class="term-line"><span class="term-prompt">$</span> python3 buyer_audit.py --full-suite</div>
-              <div class="term-line text-muted">[2026-09-20] Executing Buyer Acceptance & Schema Audit...</div>
-              <div class="term-line text-emerald">[PASS] idealista.pt (2,640 units) &bull; REAL-ESTATE-BASIC: 100/100</div>
-              <div class="term-line text-emerald">[PASS] rightmove.co.uk (544,502 units) &bull; 3,121/3,121 outcodes: 100/100</div>
-              <div class="term-line text-emerald">[PASS] farfetch.com (960 SKUs) &bull; FASHION-PDP Luxury: 100/100</div>
-              <div class="term-line text-emerald">[PASS] continente.pt (11,711 SKUs) &bull; GROCERY-PLP: 100/100</div>
-              <div class="term-line text-muted">[SYNC] S3 Cloud Feeds: s3://databoutique.com/sellers/HLP_DATA/...</div>
-              <div class="term-line text-blue">[STATUS] Ingestion Handshake: verified & complete ✓</div>
-              <div class="term-cursor">&gt; awaiting next scheduled ingestion...</div>
+              <div class="term-line"><span class="term-prompt">$</span> hlp catalog --list</div>
+              <div class="term-line text-emerald">idealista.pt &bull; 2,640 listings &bull; snapshot 2026-09-20 &bull; 32 cols</div>
+              <div class="term-line text-emerald">rightmove.co.uk &bull; 544,502 listings &bull; snapshot 2026-09-21 &bull; 32 cols</div>
+              <div class="term-line text-emerald">farfetch.com &bull; 960 SKUs &bull; snapshot 2026-09-21 &bull; 35 cols</div>
+              <div class="term-line text-emerald">continente.pt &bull; 11,711 SKUs &bull; snapshot 2026-09-19 &bull; 31 cols</div>
+              <div class="term-line text-emerald">INE + DGT &bull; 308 concelhos &bull; release d735276c69252568</div>
+              <div class="term-cursor">&gt; one-off snapshots &bull; recurring refresh on request (custom feed)</div>
             </div>
             <div class="term-pane" id="term-pane-s3">
-              <div class="term-line"><span class="term-prompt">$</span> aws s3 sync s3://databoutique.com/sellers/HLP_DATA/feeds/ ./data/</div>
-              <div class="term-line text-muted">[INFO] Authenticating IAM Role with S3 Read Policy...</div>
-              <div class="term-line text-emerald">download: continente_grocery_plp_2026-09-22.csv (11,711 SKUs)</div>
-              <div class="term-line text-emerald">download: idealista_pt_properties_2026-09-20.csv (2,640 records)</div>
-              <div class="term-line text-emerald">download: farfetch_luxury_fashion_2026-09-21.csv (960 items)</div>
-              <div class="term-line text-blue">[100% SYNC] 3 feeds synchronized &bull; Zero-PII SHA-256 intact ✓</div>
-              <div class="term-cursor">&gt; cloud sync daemon running in background...</div>
+              <div class="term-line"><span class="term-prompt">$</span> curl -sO https://hlpdata.com/samples/continente_grocery_plp_sample.csv</div>
+              <div class="term-line"><span class="term-prompt">$</span> curl -sO https://hlpdata.com/samples/idealista_real_estate_sample.csv</div>
+              <div class="term-line"><span class="term-prompt">$</span> curl -sO https://hlpdata.com/samples/farfetch_luxury_fashion_sample.csv</div>
+              <div class="term-line text-emerald">continente_grocery_plp_sample.csv &bull; 20 rows &bull; 2026-09-19</div>
+              <div class="term-line text-emerald">idealista_real_estate_sample.csv &bull; 20 rows &bull; 2026-09-20</div>
+              <div class="term-line text-emerald">farfetch_luxury_fashion_sample.csv &bull; 20 rows &bull; 2026-09-21</div>
+              <div class="term-cursor">&gt; free samples &bull; full snapshot files after purchase</div>
             </div>
             <div class="term-pane" id="term-pane-python">
               <div class="term-line"><span class="term-prompt">&gt;&gt;&gt;</span> import polars as pl</div>
-              <div class="term-line"><span class="term-prompt">&gt;&gt;&gt;</span> df = pl.read_csv("s3://.../idealista.csv", separator=";")</div>
+              <div class="term-line"><span class="term-prompt">&gt;&gt;&gt;</span> df = pl.read_csv("idealista_portugal_2026-09-20.csv", separator=";")</div>
               <div class="term-line text-muted">shape: (2640, 32) &bull; Columns: listing_id, price, price_per_sqm, rooms...</div>
-              <div class="term-line text-emerald"><span class="term-prompt">&gt;&gt;&gt;</span> df.filter(pl.col("city") == "Lisboa").select(["price", "area_sqm"]).mean()</div>
-              <div class="term-line text-emerald">┌───────────────┬────────────┐</div>
-              <div class="term-line text-emerald">│ avg_price_eur │ avg_area   │</div>
-              <div class="term-line text-emerald">│ 482,500.00    │ 94.2 m²    │</div>
-              <div class="term-line text-emerald">└───────────────┴────────────┘</div>
-              <div class="term-cursor">&gt; hedge fund analytics ready...</div>
+              <div class="term-line text-emerald"><span class="term-prompt">&gt;&gt;&gt;</span> df.filter(pl.col("region") == "Distrito de Lisboa").select(["price", "price_per_sqm"]).median()</div>
+              <div class="term-line text-emerald">┌───────────────┬───────────────┐</div>
+              <div class="term-line text-emerald">│ price         │ price_per_sqm │</div>
+              <div class="term-line text-emerald">│ 799,000.00    │ 6,797.50      │</div>
+              <div class="term-line text-emerald">└───────────────┴───────────────┘</div>
+              <div class="term-cursor">&gt; ready for analysis</div>
             </div>
           </div>
           <div class="terminal-footer">
             <span class="footer-tag"><i class="fa-solid fa-server"></i> <span data-i18n="terminal_tag_engine">Resilient Collection Infrastructure</span></span>
-            <span class="footer-tag"><i class="fa-brands fa-aws"></i> <span data-i18n="terminal_tag_s3">S3 Ingestion Ready</span></span>
+            <span class="footer-tag"><i class="fa-solid fa-file-csv"></i> <span data-i18n="terminal_tag_s3">CSV Snapshots &bull; Free Samples</span></span>
           </div>
         </div>
       </div>
@@ -442,8 +439,8 @@
     <!-- LIVE DATASETS SECTION: Real data products, not placeholders -->
     <section id="datasets" class="section">
       <div class="section-title-wrap">
-        <h2 class="section-heading" data-i18n="datasets_heading">Verified Commercial Datasets & Production Feeds</h2>
-        <p class="section-desc" data-i18n="datasets_desc">Production-grade datasets extracted from high-friction targets, pre-audited against strict buyer schemas, and ready for immediate S3 deployment.</p>
+        <h2 class="section-heading" data-i18n="datasets_heading">Ready-to-Use Datasets</h2>
+        <p class="section-desc" data-i18n="datasets_desc">Each scraped dataset is a one-off snapshot with its collection date, a free sample CSV and a schema with measured fill rates. Need recurring refresh? Order a custom feed.</p>
         <div style="margin-top: 1rem;">
           <a href="datasets/index.html" class="btn-sm btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
             <i class="fa-solid fa-layer-group"></i> Browse Complete Dataset Catalog &rarr;
@@ -457,9 +454,9 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag" data-i18n="ds1_badge">Real Estate &bull; Portugal</span>
-            <span class="badge-status" data-i18n="ds1_status">Commercial Ready</span>
+            <span class="badge-status" data-i18n="ds1_status">Snapshot 2026-09-20</span>
           </div>
-          <h3 class="dataset-name"><a href="datasets/idealista-portugal.html" style="color: inherit; text-decoration: none;" data-i18n="ds1_name">Idealista Portugal Nationwide Property Feed</a></h3>
+          <h3 class="dataset-name"><a href="datasets/idealista-portugal.html" style="color: inherit; text-decoration: none;" data-i18n="ds1_name">Idealista Portugal Real Estate Property Feed</a></h3>
           <p class="dataset-summary" data-i18n="ds1_summary">
             Nationwide sale-listing coverage across all 13 Portuguese districts (Lisboa, Porto, Faro, Setúbal, Braga, Coimbra and 7 more). 2,640 listings with 100% fill on asking price, price per m², floor area and bedroom count, plus advertised amenities. Median asking price €572,500. Geocoordinates, bathroom counts and agency attribution are not collected for this source.
           </p>
@@ -491,7 +488,7 @@
             </div>
             <div class="table-preview-footer">
               <span class="preview-tag" data-i18n="ds1_preview_tag">🔒 Sample Preview: 3 of 2,640 records</span>
-              <span data-i18n="ds1_preview_footer">Full commercial feed delivered via private S3 / API</span>
+              <span data-i18n="ds1_preview_footer">Full snapshot: instant download after purchase</span>
             </div>
           </div>
 
@@ -499,12 +496,12 @@
             <div class="meta-item" data-i18n-html="ds1_meta_records"><strong>2,640</strong> records</div>
             <div class="meta-item" data-i18n-html="ds1_meta_cols"><strong>32</strong> columns</div>
             <div class="meta-item"><strong>REAL-ESTATE-BASIC</strong></div>
-            <div class="meta-item" data-i18n-html="ds1_meta_freq"><strong>Daily/Weekly</strong> feed</div>
+            <div class="meta-item" data-i18n-html="ds1_meta_freq"><strong>One-off</strong> snapshot</div>
           </div>
 
           <div class="dataset-actions">
             <div class="dataset-btns">
-              <a href="https://payhip.com/b/EgXZm?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Direct download verified snapshot from Payhip (Use code WELCOME50 for 50% off)">
+              <a href="https://payhip.com/b/EgXZm?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Instant download of the snapshot from Payhip">
                 <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($9.90)</span>
               </a>
               <a href="datasets/idealista-portugal.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
@@ -517,7 +514,7 @@
                 Request Sample / License Feed
               </a>
             </div>
-            <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
+            <span class="text-muted font-mono text-xs">CSV snapshot</span>
           </div>
         </article>
 
@@ -525,7 +522,7 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag" data-i18n="ds2_badge">Retail & FMCG &bull; Portugal</span>
-            <span class="badge-status approved" data-i18n="ds2_status">Verified Commercial Feed</span>
+            <span class="badge-status approved" data-i18n="ds2_status">Snapshot 2026-09-19</span>
           </div>
           <h3 class="dataset-name"><a href="datasets/continente-portugal.html" style="color: inherit; text-decoration: none;" data-i18n="ds2_name">Continente Supermarket FMCG Intelligence Catalog</a></h3>
           <p class="dataset-summary" data-i18n="ds2_summary">
@@ -559,7 +556,7 @@
             </div>
             <div class="table-preview-footer">
               <span class="preview-tag" data-i18n="ds2_preview_tag">🔒 Sample Preview: 3 of 11,711 SKUs</span>
-              <span data-i18n="ds2_preview_footer">Full commercial feed delivered via private S3 / API</span>
+              <span data-i18n="ds2_preview_footer">Full snapshot: instant download after purchase</span>
             </div>
           </div>
 
@@ -567,12 +564,12 @@
             <div class="meta-item" data-i18n-html="ds2_meta_records"><strong>11,711</strong> SKUs</div>
             <div class="meta-item" data-i18n-html="ds2_meta_cols"><strong>31</strong> columns</div>
             <div class="meta-item"><strong>GROCERY-PLP</strong></div>
-            <div class="meta-item" data-i18n-html="ds2_meta_s3"><strong>S3 verified</strong></div>
+            <div class="meta-item" data-i18n-html="ds2_meta_s3"><strong>One-off</strong> snapshot</div>
           </div>
 
           <div class="dataset-actions">
             <div class="dataset-btns">
-              <a href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Direct download verified snapshot from Payhip (Use code WELCOME50 for 50% off)">
+              <a href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Instant download of the snapshot from Payhip">
                 <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($9.90)</span>
               </a>
               <a href="datasets/continente-portugal.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
@@ -585,7 +582,7 @@
                 Request Sample / License Feed
               </a>
             </div>
-            <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
+            <span class="text-muted font-mono text-xs">CSV snapshot</span>
           </div>
         </article>
 
@@ -593,7 +590,7 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag" data-i18n="ds3_badge">Luxury Handbags &bull; Global</span>
-            <span class="badge-status approved" data-i18n="ds3_status">Buyer Audit: 100/100</span>
+            <span class="badge-status approved" data-i18n="ds3_status">Snapshot 2026-09-21</span>
           </div>
           <h3 class="dataset-name"><a href="datasets/farfetch-luxury.html" style="color: inherit; text-decoration: none;" data-i18n="ds3_name">Farfetch Luxury Handbag Catalog</a></h3>
           <p class="dataset-summary" data-i18n="ds3_summary">
@@ -627,14 +624,14 @@
             </div>
             <div class="table-preview-footer">
               <span class="preview-tag" data-i18n="ds3_preview_tag">🔒 Sample Preview: 3 of 960 items</span>
-              <span data-i18n="ds3_preview_footer">Full commercial feed delivered via private S3 / API</span>
+              <span data-i18n="ds3_preview_footer">Full file available on request</span>
             </div>
           </div>
 
           <div class="dataset-meta">
             <div class="meta-item" data-i18n-html="ds3_meta_records"><strong>960</strong> verified SKUs</div>
             <div class="meta-item" data-i18n-html="ds3_meta_cols"><strong>35</strong> cols (FASHION-PDP)</div>
-            <div class="meta-item" data-i18n-html="ds3_meta_audit"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item" data-i18n-html="ds3_meta_audit"><strong>One-off</strong> snapshot</div>
             <div class="meta-item"><strong>Jacquemus, Valentino, Balmain+</strong></div>
           </div>
 
@@ -650,7 +647,7 @@
                 Request Sample / License Feed
               </a>
             </div>
-            <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
+            <span class="text-muted font-mono text-xs">CSV snapshot</span>
           </div>
         </article>
 
@@ -658,7 +655,7 @@
         <article class="dataset-card">
           <div class="dataset-top">
             <span class="badge-tag" data-i18n="ds4_badge">Real Estate &bull; United Kingdom</span>
-            <span class="badge-status approved" data-i18n="ds4_status">Buyer Audit: 100/100</span>
+            <span class="badge-status approved" data-i18n="ds4_status">Snapshot 2026-09-21</span>
           </div>
           <h3 class="dataset-name"><a href="datasets/rightmove-uk.html" style="color: inherit; text-decoration: none;" data-i18n="ds4_name">Rightmove UK National Real Estate Census</a></h3>
           <p class="dataset-summary" data-i18n="ds4_summary">
@@ -692,20 +689,20 @@
             </div>
             <div class="table-preview-footer">
               <span class="preview-tag" data-i18n="ds4_preview_tag">🔒 Sample Preview: 3 of 544,502 listings</span>
-              <span data-i18n="ds4_preview_footer">Full commercial feed delivered via private S3 / API</span>
+              <span data-i18n="ds4_preview_footer">Full snapshot: instant download after purchase</span>
             </div>
           </div>
 
           <div class="dataset-meta">
             <div class="meta-item" data-i18n-html="ds4_meta_records"><strong>544,502</strong> verified properties</div>
             <div class="meta-item" data-i18n-html="ds4_meta_cols"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
-            <div class="meta-item" data-i18n-html="ds4_meta_audit"><strong>100 / 100</strong> Buyer Audit</div>
+            <div class="meta-item" data-i18n-html="ds4_meta_audit"><strong>One-off</strong> snapshot</div>
             <div class="meta-item" data-i18n-html="ds4_meta_gps"><strong>GPS + 3,121 Outcodes</strong></div>
           </div>
 
           <div class="dataset-actions">
             <div class="dataset-btns">
-              <a href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Direct download verified snapshot from Payhip (Use code WELCOME50 for 50% off)">
+              <a href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" title="Instant download of the snapshot from Payhip">
                 <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($14.90)</span>
               </a>
               <a href="datasets/rightmove-uk.html" class="btn-sm btn-ghost" title="View Full Specification & Schema">
@@ -718,7 +715,7 @@
                 Request Sample / License Feed
               </a>
             </div>
-            <span class="text-muted font-mono text-xs">CSV / JSON / S3 Sync</span>
+            <span class="text-muted font-mono text-xs">CSV snapshot</span>
           </div>
         </article>
 
@@ -802,8 +799,8 @@
         <div class="use-case-card">
           <div class="use-case-icon"><i class="fa-solid fa-cloud-arrow-down text-blue"></i></div>
           <h3 class="use-case-title">Custom Data Feeds</h3>
-          <p class="use-case-desc">Need web data from another public domain? HLP Data engineers, operates, and monitors bespoke recurring pipelines delivered straight to your AWS S3 bucket.</p>
-          <div class="use-case-meta">Bespoke Schemas &bull; Daily/Weekly Feeds &bull; REST API</div>
+          <p class="use-case-desc">Need web data from another public domain? HLP Data can build a custom feed for it, with recurring refresh on request, delivered as files or to your AWS S3 bucket.</p>
+          <div class="use-case-meta">Bespoke Schemas &bull; Refresh on Request &bull; CSV / API</div>
         </div>
       </div>
     </section>
@@ -816,7 +813,7 @@
           <span data-i18n="analytics_badge">Production Data Analytics</span>
         </div>
         <h2 class="section-heading" data-i18n="analytics_heading">Market Intelligence &amp; Econometric Trends</h2>
-        <p class="section-desc" data-i18n="analytics_desc">Going beyond raw CSV scraping: aggregated price densities, cross-district disparity, and retail markdown dynamics computed directly from verified census feeds.</p>
+        <p class="section-desc" data-i18n="analytics_desc">Going beyond raw CSV scraping: aggregated price densities, cross-district disparity, and retail markdown dynamics computed directly from our dataset snapshots.</p>
       </div>
 
       <div class="analytics-grid">
@@ -824,7 +821,7 @@
         <div class="analytics-card">
           <div class="analytics-card-header">
             <div>
-              <div class="analytics-tag"><i class="fa-solid fa-building-wheat"></i> Real Estate &bull; Portugal Census</div>
+              <div class="analytics-tag"><i class="fa-solid fa-building-wheat"></i> Real Estate &bull; Portugal Snapshot</div>
               <h3 class="analytics-title" data-i18n="chart1_title">Portugal Housing Disparity: Median Asking Price &amp; €/m² by District</h3>
             </div>
             <div class="analytics-controls">
@@ -865,9 +862,9 @@
           <div class="analytics-footer">
             <div class="insight-bullet">
               <i class="fa-solid fa-lightbulb text-emerald"></i>
-              <span data-i18n="chart1_insight"><strong>Key Market Insight:</strong> Lisbon commands a 43.2% premium over Porto (€4,747/m²) and nearly 4x over the central interior. 100% census coverage across all 13 major Portuguese districts.</span>
+              <span data-i18n="chart1_insight"><strong>Key Market Insight:</strong> Lisbon commands a 43.2% premium over Porto (€4,747/m²) and nearly 4x over the central interior. Computed from 2,640 sale listings across 13 districts.</span>
             </div>
-            <span class="source-tag">Source: 18,107 Verified Idealista Listings &bull; Normalized WGS84 Census</span>
+            <span class="source-tag">Source: Idealista Portugal snapshot &bull; 2,640 sale listings collected 2026-09-20</span>
           </div>
         </div>
 
@@ -1049,7 +1046,7 @@
           <div class="timeline-body">
             <h4 class="timeline-heading" data-i18n="record_role1">Lead Data Engineer & Founder &bull; HLP Data</h4>
             <p class="timeline-text" data-i18n="record_desc1">
-              Architecting and operating high-throughput web collection systems for European retail and real estate portals. Maintained a 100% buyer acceptance rate on Amazon S3 cloud deliveries and established verified commercial seller standing.
+              Architecting and operating web collection systems for European retail and real estate portals, and delivering the resulting datasets to data marketplaces and direct buyers.
             </p>
           </div>
         </div>
@@ -1134,7 +1131,7 @@
       </div>
       <div class="modal-tabs">
         <button type="button" class="modal-tab active" data-tab="sample" data-i18n="modal_tab_sample">Sample Data (10 Rows)</button>
-        <button type="button" class="modal-tab" data-tab="schema" data-i18n="modal_tab_schema">Schema Dictionary & SLA</button>
+        <button type="button" class="modal-tab" data-tab="schema" data-i18n="modal_tab_schema">Schema Dictionary</button>
       </div>
       <div class="modal-body">
         <div class="modal-pane active" id="pane-sample">
@@ -1149,7 +1146,7 @@
           <i class="fa-solid fa-download"></i> <span data-i18n="modal_btn_download">Download Sample CSV (20 Rows)</span>
         </a>
         <a id="modal-license-btn" href="mailto:sales@hlpdata.com" class="btn btn-primary">
-          <i class="fa-regular fa-envelope"></i> <span data-i18n="modal_btn_license">License Full Commercial Feed</span>
+          <i class="fa-regular fa-envelope"></i> <span data-i18n="modal_btn_license">Ask About This Dataset</span>
         </a>
       </div>
     </div>
@@ -1157,6 +1154,6 @@
 
   <!-- Chart.js for High-Performance Production Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script src="script.js?v=20260922a"></script>
+  <script src="script.js?v=20261005a"></script>
 </body>
 </html>
