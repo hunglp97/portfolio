@@ -98,7 +98,7 @@
       "@type": "Dataset",
       "@id": "https://hlpdata.com/#dataset-idealista",
       "name": "Idealista Portugal Real Estate Property Feed",
-      "description": "Nationwide sale-listing coverage across all 13 Portuguese districts from Idealista.pt: 2,640 listings with 100% fill on asking price, price per square metre, floor area and bedroom count, plus advertised amenities. Median asking price EUR 572,500. Geocoordinates, bathroom counts and agency attribution are not collected for this source.",
+      "description": "101,868 residential sale listings from idealista.pt across 20 Portuguese districts and island regions, collected 2026-09-22 to 2026-09-25. Asking price, price per square metre, floor area and bedrooms in every row.",
       "url": "https://hlpdata.com/datasets/idealista-portugal.html",
       "sameAs": "https://www.idealista.pt/",
       "license": "https://hlpdata.com/terms.html",
@@ -126,7 +126,7 @@
       "@type": "Dataset",
       "@id": "https://hlpdata.com/#dataset-continente",
       "name": "Continente Supermarket FMCG Intelligence Catalog",
-      "description": "Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features 3-level category hierarchy, markdown discount tracking, and normalized unit prices.",
+      "description": "53,610 products from the continente.pt online catalogue with list and selling prices, promotion tags, brands and a three-level category tree, collected 2026-09-26.",
       "url": "https://hlpdata.com/datasets/continente-portugal.html",
       "sameAs": "https://www.continente.pt/",
       "license": "https://hlpdata.com/terms.html",
@@ -184,6 +184,15 @@
       "creator": {
         "@id": "https://hlpdata.com/#organization"
       }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://hlpdata.com/#dataset-onthemarket",
+      "name": "OnTheMarket UK Residential Sale Listings",
+      "url": "https://hlpdata.com/datasets/onthemarket-uk.html",
+      "creator": {
+        "@id": "https://hlpdata.com/#organization"
+      }
     }
   ]
 }
@@ -238,20 +247,20 @@
           <h1 id="hero-title">Inspect the data before you buy.</h1>
           <p class="lead">Property, grocery, luxury and municipal datasets. Each one ships with a free sample, a full schema and measured fill rates.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#datasets">Browse the 5 datasets</a>
+            <a class="btn btn-primary" href="#datasets">Browse the 6 datasets</a>
             <a class="link-arrow" href="custom-data.html">Request custom data</a>
           </div>
           <dl class="hero-facts">
-            <div><dt>property listings</dt><dd>547,142</dd></div>
-            <div><dt>retail products</dt><dd>12,671</dd></div>
+            <div><dt>property listings</dt><dd>1,066,814</dd></div>
+            <div><dt>retail products</dt><dd>54,570</dd></div>
             <div><dt>Portuguese municipalities</dt><dd>308</dd></div>
           </dl>
         </div>
 
         <figure class="file-preview">
           <figcaption class="file-preview-head">
-            <span class="file-name">idealista_portugal_2026-09-20.csv</span>
-            <span class="file-meta">2,640 rows &middot; 32 columns &middot; excerpt of the free sample</span>
+            <span class="file-name">idealista_portugal_2026-09-25.csv</span>
+            <span class="file-meta">101,868 rows &middot; 32 columns &middot; excerpt of the free sample</span>
           </figcaption>
           <div class="table-scroll">
             <table class="table table-compact">
@@ -262,18 +271,18 @@
                 <tr><td class="clip" title="Apartamento T2 na Rua de Campo de Ourique">Apartamento T2 na Rua de Campo de Ourique</td><td class="num">469,000</td><td class="num">7,817</td><td>Distrito de Lisboa</td></tr>
                 <tr><td class="clip" title="Apartamento T5 na Rua de Sá da Bandeira">Apartamento T5 na Rua de Sá da Bandeira</td><td class="num">770,000</td><td class="num">3,392</td><td>Distrito do Porto</td></tr>
                 <tr><td class="clip" title="Apartamento T2 na Rua Agosto Azul, Praia da Rocha">Apartamento T2 na Rua Agosto Azul</td><td class="num">399,000</td><td class="num">4,385</td><td>Distrito de Faro</td></tr>
-                <tr><td class="clip" title="Moradia independente no Centro de Ovar">Moradia independente no Centro de Ovar</td><td class="num">725,000</td><td class="num">2,369</td><td>Distrito de Aveiro</td></tr>
+                <tr><td class="clip" title="Moradia independente no Caminho das Neves">Moradia independente no Caminho das Neves</td><td class="num">1,690,000</td><td class="num">3,772</td><td>Região Autónoma da Madeira</td></tr>
               </tbody>
             </table>
           </div>
           <div class="file-preview-foot">
             <h2 class="visually-hidden">Measured fill rates</h2>
-            <p class="xs muted">Share of the 2,640 rows with a value, measured on the delivered file</p>
+            <p class="xs muted">Share of the 101,868 rows with a value, measured on the delivered file</p>
             <div class="fill-grid">
               <div class="fill"><span class="fill-label">price</span><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div>
               <div class="fill"><span class="fill-label">price_per_sqm</span><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div>
-              <div class="fill"><span class="fill-label">neighborhood</span><span class="fill-value">89.1%</span><span class="fill-bar"><span style="--pct: 89.1%"></span></span></div>
-              <div class="fill"><span class="fill-label">floor</span><span class="fill-value">37.7%</span><span class="fill-bar"><span style="--pct: 37.7%"></span></span></div>
+              <div class="fill"><span class="fill-label">has_parking</span><span class="fill-value">53.7%</span><span class="fill-bar"><span style="--pct: 53.7%"></span></span></div>
+              <div class="fill"><span class="fill-label">floor</span><span class="fill-value">42.9%</span><span class="fill-bar"><span style="--pct: 42.9%"></span></span></div>
             </div>
             <a class="link-arrow small" href="datasets/idealista-portugal.html">See all 32 columns</a>
           </div>
@@ -292,8 +301,8 @@
         </div>
 
         <div class="filters" data-dataset-filter="home-list" role="group" aria-label="Filter datasets">
-          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">5</span></button>
-          <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">2</span></button>
+          <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">6</span></button>
+          <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">3</span></button>
           <button class="filter-chip" type="button" data-filter="retail" aria-pressed="false">Retail<span class="filter-count">2</span></button>
           <button class="filter-chip" type="button" data-filter="official-statistics" aria-pressed="false">Official statistics<span class="filter-count">1</span></button>
           <p class="visually-hidden" id="home-list-status" aria-live="polite"></p>
@@ -318,16 +327,33 @@
               <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
             </div>
           </li>
-          <li class="dataset-row" data-tags="real-estate portugal" data-id="idealista-portugal">
+          <li class="dataset-row" data-tags="real-estate uk" data-id="onthemarket-uk">
             <div>
-              <p class="kicker"><span>Real estate</span><span>Portugal</span><span>Snapshot 2026-09-20</span></p>
-              <h3><a href="datasets/idealista-portugal.html">Idealista Portugal Real Estate Property Feed</a></h3>
-              <p class="summary">Sale listings across 13 districts with asking price, price per m², floor area and bedrooms filled for every row, plus advertised amenities.</p>
+              <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Snapshot 2026-10-03</span></p>
+              <h3><a href="datasets/onthemarket-uk.html">OnTheMarket UK Residential Sale Listings</a></h3>
+              <p class="summary">UK sale listings with coordinates, floor area, asking price, bedrooms and bathrooms, and the listing agency with its office number.</p>
             </div>
             <dl class="facts">
-              <dt>Records</dt><dd>2,640</dd>
+              <dt>Records</dt><dd>420,444</dd>
               <dt>Columns</dt><dd>32</dd>
-              <dt>Districts</dt><dd>13</dd>
+              <dt>Agencies</dt><dd>12,719</dd>
+            </dl>
+            <div class="buy-box">
+              <p class="price"><span class="amount text">On request</span></p>
+              <a class="btn btn-primary btn-sm" href="mailto:sales@hlpdata.com?subject=OnTheMarket%20UK%20dataset">Ask for the file</a>
+              <a class="btn btn-secondary btn-sm" href="samples/onthemarket_uk_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+            </div>
+          </li>
+          <li class="dataset-row" data-tags="real-estate portugal" data-id="idealista-portugal">
+            <div>
+              <p class="kicker"><span>Real estate</span><span>Portugal</span><span>Snapshot 2026-09-25</span></p>
+              <h3><a href="datasets/idealista-portugal.html">Idealista Portugal Real Estate Property Feed</a></h3>
+              <p class="summary">Sale listings across all 20 districts and island regions with asking price, price per m², floor area and bedrooms in every row, plus advertised amenities.</p>
+            </div>
+            <dl class="facts">
+              <dt>Records</dt><dd>101,868</dd>
+              <dt>Columns</dt><dd>32</dd>
+              <dt>Regions</dt><dd>20</dd>
             </dl>
             <div class="buy-box">
               <p class="price"><span class="amount">$9.90</span><span class="unit">CSV snapshot</span></p>
@@ -338,12 +364,12 @@
           </li>
           <li class="dataset-row" data-tags="retail portugal" data-id="continente-portugal">
             <div>
-              <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-19</span></p>
+              <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-26</span></p>
               <h3><a href="datasets/continente-portugal.html">Continente Supermarket FMCG Intelligence Catalog</a></h3>
-              <p class="summary">Shelf and promotion prices, unit prices per kg or litre, brand and a three-level category tree for Portugal's leading supermarket chain.</p>
+              <p class="summary">List and selling prices, promotion tags, brands and a three-level category tree from the Continente online catalogue, including its book department.</p>
             </div>
             <dl class="facts">
-              <dt>Records</dt><dd>11,711</dd>
+              <dt>Records</dt><dd>53,610</dd>
               <dt>Columns</dt><dd>31</dd>
               <dt>Format</dt><dd>CSV</dd>
             </dl>
@@ -438,45 +464,56 @@
               </div>
             </div>
             <ul class="bars">
-            <li class="is-top" data-sqm="6798" data-price="799000"><span class="label">Lisboa</span><span class="track"><span style="--pct: 100.0%"></span></span><span class="value">&euro;6,798</span></li>
-            <li data-sqm="4747" data-price="610900"><span class="label">Porto</span><span class="track"><span style="--pct: 69.8%"></span></span><span class="value">&euro;4,747</span></li>
-            <li data-sqm="4444" data-price="977500"><span class="label">Madeira</span><span class="track"><span style="--pct: 65.4%"></span></span><span class="value">&euro;4,444</span></li>
-            <li data-sqm="4236" data-price="699250"><span class="label">Faro</span><span class="track"><span style="--pct: 62.3%"></span></span><span class="value">&euro;4,236</span></li>
-            <li data-sqm="3858" data-price="650000"><span class="label">Setúbal</span><span class="track"><span style="--pct: 56.8%"></span></span><span class="value">&euro;3,858</span></li>
-            <li data-sqm="2717" data-price="539500"><span class="label">Leiria</span><span class="track"><span style="--pct: 40.0%"></span></span><span class="value">&euro;2,717</span></li>
-            <li data-sqm="2396" data-price="350000"><span class="label">Viana do Castelo</span><span class="track"><span style="--pct: 35.2%"></span></span><span class="value">&euro;2,396</span></li>
-            <li data-sqm="2298" data-price="390000"><span class="label">Aveiro</span><span class="track"><span style="--pct: 33.8%"></span></span><span class="value">&euro;2,298</span></li>
-            <li data-sqm="2201" data-price="470000"><span class="label">Santarém</span><span class="track"><span style="--pct: 32.4%"></span></span><span class="value">&euro;2,201</span></li>
-            <li data-sqm="2164" data-price="425000"><span class="label">Braga</span><span class="track"><span style="--pct: 31.8%"></span></span><span class="value">&euro;2,164</span></li>
-            <li data-sqm="2141" data-price="452750"><span class="label">Évora</span><span class="track"><span style="--pct: 31.5%"></span></span><span class="value">&euro;2,141</span></li>
-            <li data-sqm="2119" data-price="337500"><span class="label">Coimbra</span><span class="track"><span style="--pct: 31.2%"></span></span><span class="value">&euro;2,119</span></li>
-            <li data-sqm="1716" data-price="325000"><span class="label">Viseu</span><span class="track"><span style="--pct: 25.2%"></span></span><span class="value">&euro;1,716</span></li>
+            <li class="is-top" data-sqm="4870" data-price="599900"><span class="label">Lisboa</span><span class="track"><span style="--pct: 100.0%"></span></span><span class="value">&euro;4,870</span></li>
+            <li data-sqm="4091" data-price="650000"><span class="label">Faro</span><span class="track"><span style="--pct: 84.0%"></span></span><span class="value">&euro;4,091</span></li>
+            <li data-sqm="4039" data-price="750000"><span class="label">Madeira</span><span class="track"><span style="--pct: 82.9%"></span></span><span class="value">&euro;4,039</span></li>
+            <li data-sqm="3657" data-price="585000"><span class="label">Setúbal</span><span class="track"><span style="--pct: 75.1%"></span></span><span class="value">&euro;3,657</span></li>
+            <li data-sqm="3036" data-price="385000"><span class="label">Porto</span><span class="track"><span style="--pct: 62.3%"></span></span><span class="value">&euro;3,036</span></li>
+            <li data-sqm="2355" data-price="420000"><span class="label">Leiria</span><span class="track"><span style="--pct: 48.4%"></span></span><span class="value">&euro;2,355</span></li>
+            <li data-sqm="2333" data-price="395000"><span class="label">Açores</span><span class="track"><span style="--pct: 47.9%"></span></span><span class="value">&euro;2,333</span></li>
+            <li data-sqm="2156" data-price="370000"><span class="label">Braga</span><span class="track"><span style="--pct: 44.3%"></span></span><span class="value">&euro;2,156</span></li>
+            <li data-sqm="2151" data-price="379000"><span class="label">Aveiro</span><span class="track"><span style="--pct: 44.2%"></span></span><span class="value">&euro;2,151</span></li>
+            <li data-sqm="1894" data-price="330000"><span class="label">Santarém</span><span class="track"><span style="--pct: 38.9%"></span></span><span class="value">&euro;1,894</span></li>
+            <li data-sqm="1852" data-price="325000"><span class="label">Viana do Castelo</span><span class="track"><span style="--pct: 38.0%"></span></span><span class="value">&euro;1,852</span></li>
+            <li data-sqm="1767" data-price="299999"><span class="label">Évora</span><span class="track"><span style="--pct: 36.3%"></span></span><span class="value">&euro;1,767</span></li>
+            <li data-sqm="1500" data-price="250000"><span class="label">Coimbra</span><span class="track"><span style="--pct: 30.8%"></span></span><span class="value">&euro;1,500</span></li>
+            <li data-sqm="1464" data-price="245000"><span class="label">Beja</span><span class="track"><span style="--pct: 30.1%"></span></span><span class="value">&euro;1,464</span></li>
+            <li data-sqm="1281" data-price="260000"><span class="label">Viseu</span><span class="track"><span style="--pct: 26.3%"></span></span><span class="value">&euro;1,281</span></li>
+            <li data-sqm="1032" data-price="160000"><span class="label">Portalegre</span><span class="track"><span style="--pct: 21.2%"></span></span><span class="value">&euro;1,032</span></li>
+            <li data-sqm="922" data-price="185000"><span class="label">Vila Real</span><span class="track"><span style="--pct: 18.9%"></span></span><span class="value">&euro;922</span></li>
+            <li data-sqm="920" data-price="140000"><span class="label">Castelo Branco</span><span class="track"><span style="--pct: 18.9%"></span></span><span class="value">&euro;920</span></li>
+            <li data-sqm="694" data-price="139500"><span class="label">Bragança</span><span class="track"><span style="--pct: 14.3%"></span></span><span class="value">&euro;694</span></li>
+            <li data-sqm="589" data-price="90000"><span class="label">Guarda</span><span class="track"><span style="--pct: 12.1%"></span></span><span class="value">&euro;589</span></li>
             </ul>
             <figcaption>
-              <p class="chart-note">Lisboa asks &euro;6,798 per m², 43% more than Porto and almost four times Viseu.</p>
-              <p class="chart-source">Source: Idealista Portugal snapshot, 2,640 sale listings collected 2026-09-20. Medians per district.</p>
+              <p class="chart-note">Lisboa asks &euro;4,870 per m², 60% more than Porto and about 8 times Guarda.</p>
+              <p class="chart-source">Source: Idealista Portugal snapshot, 101,868 sale listings collected 2026-09-22 to 2026-09-25. Medians per district.</p>
             </figcaption>
           </figure>
 
           <figure class="chart">
             <div class="chart-head">
               <div>
-                <h3>Continente: how often and how deep each aisle discounts</h3>
-                <p>Share of products on promotion, and their average discount</p>
+                <h3>Continente: how often and how deep each department discounts</h3>
+                <p>Share of products below list price, and their average cut</p>
               </div>
             </div>
-            <p class="legend"><span>Products on promotion</span><span class="second">Average discount</span></p>
+            <p class="legend"><span>Below list price</span><span class="second">Average cut</span></p>
             <ul class="bars paired">
-            <li><span class="label">Baby care (Bebé)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 84.6%"></span></span><span class="value">84.6%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 20.0%"></span></span><span class="value">20.0%</span></span></span></li>
-            <li><span class="label">Fresh (Frescos)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 8.7%"></span></span><span class="value">8.7%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 17.5%"></span></span><span class="value">17.5%</span></span></span></li>
-            <li><span class="label">Pets (Animais)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 4.9%"></span></span><span class="value">4.9%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 21.2%"></span></span><span class="value">21.2%</span></span></span></li>
-            <li><span class="label">Pantry (Mercearia)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 4.2%"></span></span><span class="value">4.2%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 14.4%"></span></span><span class="value">14.4%</span></span></span></li>
-            <li><span class="label">Drinks (Bebidas)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 1.1%"></span></span><span class="value">1.1%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 65.2%"></span></span><span class="value">65.2%</span></span></span></li>
-            <li><span class="label">Frozen (Congelados)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 0.5%"></span></span><span class="value">0.5%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 19.0%"></span></span><span class="value">19.0%</span></span></span></li>
+            <li><span class="label">Drinks (Bebidas)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 2.1%"></span></span><span class="value">2.1%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 35.2%"></span></span><span class="value">35.2%</span></span></span></li>
+            <li><span class="label">Pantry (Mercearia)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 1.0%"></span></span><span class="value">1.0%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 18.9%"></span></span><span class="value">18.9%</span></span></span></li>
+            <li><span class="label">Home and garden</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 12.8%"></span></span><span class="value">12.8%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 33.2%"></span></span><span class="value">33.2%</span></span></span></li>
+            <li><span class="label">Beauty and hygiene</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 1.3%"></span></span><span class="value">1.3%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 21.9%"></span></span><span class="value">21.9%</span></span></span></li>
+            <li><span class="label">Fresh (Frescos)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 7.1%"></span></span><span class="value">7.1%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 15.3%"></span></span><span class="value">15.3%</span></span></span></li>
+            <li><span class="label">Toys and games</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 6.5%"></span></span><span class="value">6.5%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 29.6%"></span></span><span class="value">29.6%</span></span></span></li>
+            <li><span class="label">Cleaning (Limpeza)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 1.0%"></span></span><span class="value">1.0%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 23.6%"></span></span><span class="value">23.6%</span></span></span></li>
+            <li><span class="label">Stationery</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 37.1%"></span></span><span class="value">37.1%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 23.0%"></span></span><span class="value">23.0%</span></span></span></li>
+            <li><span class="label">Dairy and eggs</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 0.0%"></span></span><span class="value">0.0%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 0.0%"></span></span><span class="value">0.0%</span></span></span></li>
+            <li><span class="label">Baby care (Bebé)</span><span class="pair"><span class="pair-row"><span class="track"><span style="--pct: 37.9%"></span></span><span class="value">37.9%</span></span><span class="pair-row second"><span class="track"><span style="--pct: 19.8%"></span></span><span class="value">19.8%</span></span></span></li>
             </ul>
             <figcaption>
-              <p class="chart-note">Baby care is on promotion most of the time; drinks rarely are, but cut prices hardest when they do.</p>
-              <p class="chart-source">Source: Continente snapshot, 11,711 products collected 2026-09-19.</p>
+              <p class="chart-note">Baby care and stationery sell more than a third of their range below list price; drinks rarely discount, but by 35% when they do.</p>
+              <p class="chart-source">Source: Continente snapshot, 53,610 products collected 2026-09-26. Books (18,806 rows, all below list price) are left out.</p>
             </figcaption>
           </figure>
         </div>

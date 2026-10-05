@@ -4,49 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Continente Supermarket FMCG Intelligence Catalog | HLP Data</title>
-  <meta name="description" content="11,711 verified supermarket grocery SKUs covering Portuguese retail FMCG. 31-attribute GROCERY-PLP schema with prices, PPU, promotions, and 3-level taxonomy.">
+  <meta name="description" content="53,610 products from the Continente online catalogue on 2026-09-26: prices, promotions, brands and category tree. GROCERY-PLP schema, 31 columns, measured fill rates and a free sample.">
   <link rel="canonical" href="https://hlpdata.com/datasets/continente-portugal.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/continente-portugal.html">
   <meta property="og:site_name" content="HLP Data">
   <meta property="og:title" content="Continente Supermarket FMCG Intelligence Catalog | HLP Data">
-  <meta property="og:description" content="Complete grocery catalog crawl of Continente.pt: 11,711 verified SKUs across 31 standardized attributes including unit prices and promotions.">
+  <meta property="og:description" content="53,610 products from the Continente online catalogue on 2026-09-26: prices, promotions, brands and category tree. GROCERY-PLP schema, 31 columns, measured fill rates and a free sample.">
   <meta property="og:image" content="https://hlpdata.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "Continente Supermarket FMCG Intelligence Catalog",
-    "description": "Complete grocery catalog crawl of Continente.pt retail supermarket: 11,711 verified consumer packaged goods across 31 standardized attributes including unit prices and promotional mechanics.",
-    "url": "https://hlpdata.com/datasets/continente-portugal.html",
-    "sameAs": "https://www.continente.pt/",
-    "license": "https://hlpdata.com/terms.html",
-    "creator": {
-      "@type": "Organization",
-      "name": "HLP Data",
-      "url": "https://hlpdata.com/"
-    },
-    "spatialCoverage": "Portugal",
-    "temporalCoverage": "2026",
-    "variableMeasured": [
-      "regular price",
-      "discounted price",
-      "price per unit",
-      "brand",
-      "product title",
-      "category hierarchy",
-      "promotions",
-      "package volume"
-    ],
-    "distribution": [
-      {
-        "@type": "DataDownload",
-        "encodingFormat": "text/csv",
-        "contentUrl": "https://hlpdata.com/samples/continente_grocery_plp_sample.csv"
-      }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Continente Supermarket FMCG Intelligence Catalog",
+  "description": "53,610 products from the continente.pt online catalogue with prices, promotions, brands and a category tree, collected 2026-09-26.",
+  "url": "https://hlpdata.com/datasets/continente-portugal.html",
+  "sameAs": "https://www.continente.pt/",
+  "license": "https://hlpdata.com/terms.html",
+  "creator": {
+    "@type": "Organization",
+    "name": "HLP Data",
+    "url": "https://hlpdata.com/"
+  },
+  "spatialCoverage": "Portugal",
+  "temporalCoverage": "2026-09-26",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://hlpdata.com/samples/continente_grocery_plp_sample.csv"
+    }
+  ]
+}
   </script>
   <!-- site:assets -->
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -100,14 +90,14 @@
 
     <div class="container product">
       <header class="product-head page-head">
-        <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-19</span><span>GROCERY-PLP schema</span></p>
+        <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-26</span><span>GROCERY-PLP schema</span></p>
         <h1>Continente Supermarket FMCG Intelligence Catalog</h1>
-        <p class="lead">A comprehensive retail intelligence catalog from Continente.pt: 11,711 verified consumer goods across 10 departmental aisles. Normalized with standard prices, unit prices (€/kg, €/L), promotional mechanics, brand extraction, package descriptions, and 3-tier category hierarchy.</p>
+        <p class="lead">53,610 products from the continente.pt online catalogue: list and selling price, promotion tag, brand, package size, unit price where the shop shows one, and a three-level category tree across 25 departments.</p>
         <div class="metrics">
-          <div class="metric"><span class="label">Total SKUs</span><span class="value">11,711</span><span class="sub">Zero duplicate SKUs</span></div>
-          <div class="metric"><span class="label">Category depth</span><span class="value">3 Tiers</span><span class="sub">Aisle, category, subcategory</span></div>
-          <div class="metric"><span class="label">Brand extraction</span><span class="value">99.0%</span><span class="sub">Manufacturer &amp; private label</span></div>
-          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-19</span><span class="sub">One-off snapshot; refresh on request (custom feed)</span></div>
+          <div class="metric"><span class="label">Total products</span><span class="value">53,610</span><span class="sub">Zero duplicate product codes</span></div>
+          <div class="metric"><span class="label">Departments</span><span class="value">25</span><span class="sub">Top level of a three-level tree</span></div>
+          <div class="metric"><span class="label">Brand filled</span><span class="value">98.6%</span><span class="sub">11,748 distinct values</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-26</span><span class="sub">One-off snapshot</span></div>
         </div>
       </header>
 
@@ -119,9 +109,9 @@
           <a class="btn btn-secondary btn-block" href="../samples/continente_grocery_plp_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
         </div>
         <ul class="includes">
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>11,711 rows, 31 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>53,610 rows, 31 columns</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-19, one-off snapshot</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-26, one-off snapshot</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Instant download after payment by card or PayPal</span></li>
         </ul>
@@ -130,7 +120,7 @@
 
       <section class="block" id="sample" aria-labelledby="sample-title">
         <h2 id="sample-title">Sample rows</h2>
-        <p class="block-desc">Real rows from the free sample file, which has the same columns and encoding as the full snapshot.</p>
+        <p class="block-desc">20 real rows cut from the file you buy, spread across 20 departments. Same columns and encoding as the full snapshot.</p>
         <div class="table-scroll" data-sample-src="../samples/continente_grocery_plp_sample.csv" data-columns="product_title,brand,category1,category2,package_desc,full_price,price,ppu,unit_type" data-rows="8">
           <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/continente_grocery_plp_sample.csv" download>download the CSV</a>.</p>
         </div>
@@ -138,7 +128,7 @@
 
       <section class="block" id="schema" aria-labelledby="schema-title">
         <h2 id="schema-title">Schema and fill rates</h2>
-        <p class="block-desc">31 columns in the GROCERY-PLP layout. Fill rate is the share of rows that carry a value, measured on the delivered file.</p>
+        <p class="block-desc">31 columns in the GROCERY-PLP layout. Fill rate is the share of the 53,610 rows that carry a value, measured on the delivered file.</p>
         <div class="table-scroll">
           <table class="table">
             <thead>
@@ -146,34 +136,34 @@
             </thead>
             <tbody>
               <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>continente.pt</td></tr>
-              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Daily execution timestamp</td></tr>
+              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection date, 2026-09-26</td></tr>
               <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>PRT</td></tr>
               <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>EUR</td></tr>
               <tr><td class="field">store_id</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
-              <tr><td class="field">product_code</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Internal SKU identifier</td></tr>
+              <tr><td class="field">product_code</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Continente product identifier, 100% unique</td></tr>
               <tr><td class="field">product_std_code</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">std_type</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
-              <tr><td class="field">brand</td><td class="type">String</td><td><div class="fill"><span class="fill-value">99.0%</span><span class="fill-bar"><span style="--pct: 99.0%"></span></span></div></td><td>Manufacturer brand or private label</td></tr>
+              <tr><td class="field">brand</td><td class="type">String</td><td><div class="fill"><span class="fill-value">98.6%</span><span class="fill-bar"><span style="--pct: 98.6%"></span></span></div></td><td>Manufacturer brand or private label</td></tr>
               <tr><td class="field">product_title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Normalized product name</td></tr>
-              <tr><td class="field">category1</td><td class="type">String</td><td><div class="fill"><span class="fill-value">99.9%</span><span class="fill-bar"><span style="--pct: 99.9%"></span></span></div></td><td>Tier 1 Department (Frescos, Mercearia, Bebidas...)</td></tr>
-              <tr><td class="field">category2</td><td class="type">String</td><td><div class="fill"><span class="fill-value">93.3%</span><span class="fill-bar"><span style="--pct: 93.3%"></span></span></div></td><td>Tier 2 Category aisle</td></tr>
-              <tr><td class="field">category3</td><td class="type">String</td><td><div class="fill"><span class="fill-value">87.4%</span><span class="fill-bar"><span style="--pct: 87.4%"></span></span></div></td><td>Tier 3 Granular sub-category</td></tr>
-              <tr><td class="field">category4</td><td class="type">String</td><td><div class="fill"><span class="fill-value">5.2%</span><span class="fill-bar"><span style="--pct: 5.2%"></span></span></div></td><td>Tier 4 Specific category classification</td></tr>
-              <tr><td class="field">category5</td><td class="type">String</td><td><div class="fill"><span class="fill-value">2.1%</span><span class="fill-bar"><span style="--pct: 2.1%"></span></span></div></td><td>Tier 5 Granular category classification</td></tr>
+              <tr><td class="field">category1</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Department, 25 values (Livros, Bebidas e Garrafeira, Mercearia, Casa e Jardim...)</td></tr>
+              <tr><td class="field">category2</td><td class="type">String</td><td><div class="fill"><span class="fill-value">99.8%</span><span class="fill-bar"><span style="--pct: 99.8%"></span></span></div></td><td>Tier 2 Category aisle</td></tr>
+              <tr><td class="field">category3</td><td class="type">String</td><td><div class="fill"><span class="fill-value">97.5%</span><span class="fill-bar"><span style="--pct: 97.5%"></span></span></div></td><td>Tier 3 Granular sub-category</td></tr>
+              <tr><td class="field">category4</td><td class="type">String</td><td><div class="fill"><span class="fill-value">2.9%</span><span class="fill-bar"><span style="--pct: 2.9%"></span></span></div></td><td>Fourth level, only where the shop has one</td></tr>
+              <tr><td class="field">category5</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">category6</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">category7</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">category8</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">category9</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
               <tr><td class="field">category10</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
-              <tr><td class="field">package_desc</td><td class="type">String</td><td><div class="fill"><span class="fill-value">97.6%</span><span class="fill-bar"><span style="--pct: 97.6%"></span></span></div></td><td>Net package volume / weight</td></tr>
-              <tr><td class="field">full_price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Standard non-discounted catalog price</td></tr>
-              <tr><td class="field">price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Effective transactional price</td></tr>
-              <tr><td class="field">ppu</td><td class="type">Float (€/unit)</td><td><div class="fill"><span class="fill-value">82.2%</span><span class="fill-bar"><span style="--pct: 82.2%"></span></span></div></td><td>Normalized unit price (€/kg, €/L)</td></tr>
-              <tr><td class="field">unit_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">82.2%</span><span class="fill-bar"><span style="--pct: 82.2%"></span></span></div></td><td>kg | L | un | dose</td></tr>
-              <tr><td class="field">promotion_type</td><td class="type">String</td><td><div class="fill"><span class="fill-value">31.4%</span><span class="fill-bar"><span style="--pct: 31.4%"></span></span></div></td><td>Promotion indicator (e.g. -10%, PVPR -20%, Leve 2 Pague 1)</td></tr>
+              <tr><td class="field">package_desc</td><td class="type">String</td><td><div class="fill"><span class="fill-value">58.4%</span><span class="fill-bar"><span style="--pct: 58.4%"></span></span></div></td><td>Package size or weight as shown on the shelf</td></tr>
+              <tr><td class="field">full_price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>List price in EUR before any promotion</td></tr>
+              <tr><td class="field">price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Selling price in EUR on the collection date, median €10.07</td></tr>
+              <tr><td class="field">ppu</td><td class="type">Float (€/unit)</td><td><div class="fill"><span class="fill-value">39%</span><span class="fill-bar"><span style="--pct: 39%"></span></span></div></td><td>Unit price (€/kg, €/L, €/unit) where the shop shows one</td></tr>
+              <tr><td class="field">unit_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">39%</span><span class="fill-bar"><span style="--pct: 39%"></span></span></div></td><td>Unit of ppu: kg, lt, un, dos, m</td></tr>
+              <tr><td class="field">promotion_type</td><td class="type">String</td><td><div class="fill"><span class="fill-value">54.6%</span><span class="fill-bar"><span style="--pct: 54.6%"></span></span></div></td><td>Shelf promotion tag at collection time (e.g. -20%, PVPR -25%)</td></tr>
               <tr><td class="field">promotion_end_date</td><td class="type">ISO Date</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
-              <tr><td class="field">additional_tags</td><td class="type">String</td><td><div class="fill"><span class="fill-value">4.6%</span><span class="fill-bar"><span style="--pct: 4.6%"></span></span></div></td><td>Product tags and seasonal campaign flags (e.g. Bio, Sem Lactose)</td></tr>
-              <tr><td class="field">additional_content</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Availability indicator (Disponível)</td></tr>
+              <tr><td class="field">additional_tags</td><td class="type">String</td><td><div class="fill"><span class="fill-value">3.3%</span><span class="fill-bar"><span style="--pct: 3.3%"></span></span></div></td><td>Product tags and seasonal campaign flags (e.g. Bio, Sem Lactose)</td></tr>
+              <tr><td class="field">additional_content</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>The same value in every row; not usable as a variable</td></tr>
               <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical e-commerce product URL</td></tr>
               <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>High-res CDN product image link</td></tr>
             </tbody>
@@ -185,21 +175,23 @@
         <h2 id="limits-title">Known limits</h2>
         <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
         <ul class="limits">
-          <li>Standard supermarket retail catalog feed formatted according to GROCERY-PLP schema contract (31 fields).</li>
-          <li>Six optional taxonomy levels (category6 through category10) and store_id/product_std_code arrive empty as they are not exposed by the portal interface.</li>
-          <li>Price per unit (PPU) is captured for 82.2% of SKUs where measurable units (weight, volume, doses) apply. Items sold strictly by individual count without weight information leave PPU blank.</li>
-          <li>Promotional mechanics represent active shelf tags at the moment of catalog collection.</li>
-          <li>100% public retail catalog intelligence. Zero consumer or personal data.</li>
+          <li>Books (category1 Livros) make up 18,806 rows (35.1%). Filter on category1 if you only want grocery and household products.</li>
+          <li>This is the online catalogue, not a store price list: store_id is empty and prices are the web prices.</li>
+          <li>Not published by the source, columns kept empty: store_id, product_std_code, std_type, category5 to category10, promotion_end_date. category4 exists for 2.9% of products.</li>
+          <li>Unit price (ppu, unit_type) is shown for 39% of products; items sold by the piece without a weight leave it blank.</li>
+          <li>additional_content holds one value for every row. 78 products have category1 "undefined" as published.</li>
+          <li>Promotion tags are the shelf tags at the moment of collection.</li>
+          <li>No consumer or personal data.</li>
         </ul>
       </section>
 
       <section class="block" id="licence" aria-labelledby="licence-title">
         <h2 id="licence-title">Licence and delivery</h2>
-        <p class="block-desc">Available for retail analytics teams, consumer brand pricing managers, FMCG market researchers, and competitive intelligence systems.</p>
+        <p class="block-desc">For retail analysts, FMCG brands, price-monitoring teams and inflation research.</p>
         <dl class="options">
-          <div><dt>Recurring Feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
-          <div><dt>API Access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
-          <div><dt>Catalog Snapshot</dt><dd>One-time complete catalog delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</dd></div>
+          <div><dt>Snapshot export</dt><dd>One-time delivery of this file in CSV (semicolon, UTF-8 with BOM).</dd></div>
+          <div><dt>Recurring feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
+          <div><dt>API access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
         </dl>
         <p class="block-desc"><a class="link-arrow" href="../custom-data.html">Request a custom or recurring feed</a></p>
       </section>

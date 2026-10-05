@@ -76,8 +76,8 @@
           <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
           <input type="search" placeholder="Search by name, country or field" autocomplete="off">
         </label>
-        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">5</span></button>
-        <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">2</span></button>
+        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">6</span></button>
+        <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">3</span></button>
         <button class="filter-chip" type="button" data-filter="retail" aria-pressed="false">Retail<span class="filter-count">2</span></button>
         <button class="filter-chip" type="button" data-filter="official-statistics" aria-pressed="false">Official statistics<span class="filter-count">1</span></button>
         <button class="filter-chip" type="button" data-filter="portugal" aria-pressed="false">Portugal<span class="filter-count">3</span></button>
@@ -103,16 +103,33 @@
                 <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
               </div>
             </li>
-            <li class="dataset-row" data-tags="real-estate portugal" data-id="idealista-portugal">
+            <li class="dataset-row" data-tags="real-estate uk" data-id="onthemarket-uk">
+            <div>
+              <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Snapshot 2026-10-03</span></p>
+              <h3><a href="onthemarket-uk.html">OnTheMarket UK Residential Sale Listings</a></h3>
+              <p class="summary">UK sale listings with coordinates, floor area, asking price, bedrooms and bathrooms, and the listing agency with its office number.</p>
+            </div>
+            <dl class="facts">
+              <dt>Records</dt><dd>420,444</dd>
+              <dt>Columns</dt><dd>32</dd>
+              <dt>Agencies</dt><dd>12,719</dd>
+            </dl>
+            <div class="buy-box">
+              <p class="price"><span class="amount text">On request</span></p>
+              <a class="btn btn-primary btn-sm" href="mailto:sales@hlpdata.com?subject=OnTheMarket%20UK%20dataset">Ask for the file</a>
+              <a class="btn btn-secondary btn-sm" href="../samples/onthemarket_uk_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+            </div>
+          </li>
+          <li class="dataset-row" data-tags="real-estate portugal" data-id="idealista-portugal">
               <div>
-                <p class="kicker"><span>Real estate</span><span>Portugal</span><span>Snapshot 2026-09-20</span></p>
+                <p class="kicker"><span>Real estate</span><span>Portugal</span><span>Snapshot 2026-09-25</span></p>
                 <h3><a href="idealista-portugal.html">Idealista Portugal Real Estate Property Feed</a></h3>
-                <p class="summary">Sale listings across 13 districts with asking price, price per m², floor area and bedrooms filled for every row, plus advertised amenities.</p>
+                <p class="summary">Sale listings across all 20 districts and island regions with asking price, price per m², floor area and bedrooms in every row, plus advertised amenities.</p>
               </div>
               <dl class="facts">
-                <dt>Records</dt><dd>2,640</dd>
+                <dt>Records</dt><dd>101,868</dd>
                 <dt>Columns</dt><dd>32</dd>
-                <dt>Districts</dt><dd>13</dd>
+                <dt>Regions</dt><dd>20</dd>
               </dl>
               <div class="buy-box">
                 <p class="price"><span class="amount">$9.90</span><span class="unit">CSV snapshot</span></p>
@@ -123,12 +140,12 @@
             </li>
             <li class="dataset-row" data-tags="retail portugal" data-id="continente-portugal">
               <div>
-                <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-19</span></p>
+                <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-26</span></p>
                 <h3><a href="continente-portugal.html">Continente Supermarket FMCG Intelligence Catalog</a></h3>
-                <p class="summary">Shelf and promotion prices, unit prices per kg or litre, brand and a three-level category tree for Portugal's leading supermarket chain.</p>
+                <p class="summary">List and selling prices, promotion tags, brands and a three-level category tree from the Continente online catalogue, including its book department.</p>
               </div>
               <dl class="facts">
-                <dt>Records</dt><dd>11,711</dd>
+                <dt>Records</dt><dd>53,610</dd>
                 <dt>Columns</dt><dd>31</dd>
                 <dt>Format</dt><dd>CSV</dd>
               </dl>
@@ -192,8 +209,9 @@
             </thead>
             <tbody>
               <tr data-tags="real-estate uk" data-id="rightmove-uk"><td><a href="rightmove-uk.html">Rightmove UK</a></td><td>United Kingdom, 3,121 outcodes</td><td class="num">544,502</td><td class="num">32</td><td class="num">2026-09-21</td><td>CSV</td><td class="num">$14.90</td></tr>
-              <tr data-tags="real-estate portugal" data-id="idealista-portugal"><td><a href="idealista-portugal.html">Idealista Portugal</a></td><td>Portugal, 13 districts</td><td class="num">2,640</td><td class="num">32</td><td class="num">2026-09-20</td><td>CSV</td><td class="num">$9.90</td></tr>
-              <tr data-tags="retail portugal" data-id="continente-portugal"><td><a href="continente-portugal.html">Continente</a></td><td>Portugal, online catalogue</td><td class="num">11,711</td><td class="num">31</td><td class="num">2026-09-19</td><td>CSV</td><td class="num">$9.90</td></tr>
+              <tr data-tags="real-estate uk" data-id="onthemarket-uk"><td><a href="onthemarket-uk.html">OnTheMarket UK</a></td><td>United Kingdom, 12,719 agencies</td><td class="num">420,444</td><td class="num">32</td><td class="num">2026-10-03</td><td>CSV</td><td class="num">On request</td></tr>
+              <tr data-tags="real-estate portugal" data-id="idealista-portugal"><td><a href="idealista-portugal.html">Idealista Portugal</a></td><td>Portugal, 20 regions</td><td class="num">101,868</td><td class="num">32</td><td class="num">2026-09-25</td><td>CSV</td><td class="num">$9.90</td></tr>
+              <tr data-tags="retail portugal" data-id="continente-portugal"><td><a href="continente-portugal.html">Continente</a></td><td>Portugal, online catalogue</td><td class="num">53,610</td><td class="num">31</td><td class="num">2026-09-26</td><td>CSV</td><td class="num">$9.90</td></tr>
               <tr data-tags="retail global" data-id="farfetch-luxury"><td><a href="farfetch-luxury.html">Farfetch handbags</a></td><td>Global, 125 brands</td><td class="num">960</td><td class="num">35</td><td class="num">2026-09-21</td><td>CSV</td><td class="num">On request</td></tr>
               <tr data-tags="official-statistics portugal" data-id="portugal-area-intelligence"><td><a href="portugal-area-intelligence.html">Portugal Area Intelligence</a></td><td>Portugal, 308 concelhos</td><td class="num">308</td><td class="num">18</td><td class="num">2026-Q1</td><td>CSV, Parquet</td><td class="num">$19.00</td></tr>
             </tbody>
