@@ -1,7 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0f6b66"/>
-  <rect x="15" y="16" width="7" height="32" rx="2" fill="#ffffff"/>
-  <rect x="42" y="16" width="7" height="32" rx="2" fill="#ffffff"/>
-  <rect x="22" y="28.5" width="20" height="7" fill="#ffffff"/>
-  <rect x="42" y="38" width="7" height="10" rx="2" fill="#9fd6cf"/>
+  <!-- HLP Data mark: two data columns and one measured value between them, read together as an H -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14443f"/>
+      <stop offset="1" stop-color="#061716"/>
+    </linearGradient>
+    <linearGradient id="column" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#bfeee6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#tile)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="14.25" fill="none" stroke="#5cbcb1" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="13" y="13" width="10" height="38" rx="5" fill="url(#column)"/>
+  <rect x="41" y="13" width="10" height="38" rx="5" fill="url(#column)"/>
+  <rect x="27" y="27" width="10" height="10" rx="3.5" fill="#5cd0c1"/>
 </svg>
