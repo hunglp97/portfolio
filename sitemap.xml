@@ -61,6 +61,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://hlpdata.com/about.html</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://hlpdata.com/datasets/portugal-area-intelligence.html</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
