@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OnTheMarket UK Residential Sale Listings | HLP Data</title>
-  <meta name="description" content="420,444 UK residential sale listings from OnTheMarket with coordinates, floor area, prices and listing agency. REAL-ESTATE-BASIC schema, 32 columns, measured fill rates and a free sample.">
+  <meta name="description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.">
+  <meta name="hlp:version" content="b6cd343e0c99f2e0">
   <link rel="canonical" href="https://hlpdata.com/datasets/onthemarket-uk.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/onthemarket-uk.html">
   <meta property="og:site_name" content="HLP Data">
   <meta property="og:title" content="OnTheMarket UK Residential Sale Listings | HLP Data">
-  <meta property="og:description" content="420,444 UK residential sale listings from OnTheMarket with coordinates, floor area, prices and listing agency. REAL-ESTATE-BASIC schema, 32 columns, measured fill rates and a free sample.">
+  <meta property="og:description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.">
   <meta property="og:image" content="https://hlpdata.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
@@ -18,10 +19,10 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "OnTheMarket UK Residential Sale Listings",
-  "description": "420,444 UK residential sale listings from onthemarket.com with coordinates, floor area, asking price and listing agency, collected 2026-10-02 to 2026-10-03.",
+  "description": "420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.",
   "url": "https://hlpdata.com/datasets/onthemarket-uk.html",
-  "sameAs": "https://www.onthemarket.com/",
   "license": "https://hlpdata.com/terms.html",
+  "version": "b6cd343e0c99f2e0",
   "creator": {
     "@type": "Organization",
     "name": "HLP Data",
@@ -94,12 +95,12 @@
       <header class="product-head page-head">
         <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Collected 2026-10-02 to 2026-10-03</span><span>REAL-ESTATE-BASIC schema</span></p>
         <h1>OnTheMarket UK Residential Sale Listings</h1>
-        <p class="lead">420,444 residential sale listings from onthemarket.com: asking price, floor area, bedrooms and bathrooms, coordinates, and the listing agency with its office phone number, for 12,719 agencies across the UK.</p>
+        <p class="lead">420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.</p>
         <div class="metrics">
-          <div class="metric"><span class="label">Total listings</span><span class="value">420,444</span><span class="sub">Zero duplicate IDs</span></div>
-          <div class="metric"><span class="label">Agencies</span><span class="value">12,719</span><span class="sub">Listing agency in every row</span></div>
+          <div class="metric"><span class="label">Total listings</span><span class="value">420,444</span><span class="sub">100% unique IDs</span></div>
+          <div class="metric"><span class="label">Coverage</span><span class="value">6,093 areas</span><span class="sub">Distinct location labels</span></div>
           <div class="metric"><span class="label">Median asking price</span><span class="value">£340,000</span><span class="sub">£3,733 per m², median</span></div>
-          <div class="metric"><span class="label">Collected</span><span class="value">2026-10-03</span><span class="sub">Over two days from 2026-10-02; one-off snapshot</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-10-03</span><span class="sub">One-off snapshot</span></div>
         </div>
       </header>
 
@@ -111,64 +112,62 @@
           <a class="btn btn-secondary btn-block" href="../samples/onthemarket_uk_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
         </div>
         <ul class="includes">
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>420,444 rows, 32 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>420,444 rows, 30 columns</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-10-02 to 2026-10-03, one-off snapshot</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Delivered by download link once agreed</span></li>
         </ul>
-        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com?subject=OnTheMarket%20UK%20dataset">sales@hlpdata.com</a></p>
+        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
       </aside>
 
       <section class="block" id="sample" aria-labelledby="sample-title">
         <h2 id="sample-title">Sample rows</h2>
-        <p class="block-desc">20 real rows cut from the file you buy, spread across 20 areas. Same columns and encoding as the full snapshot.</p>
-        <div class="table-scroll" data-sample-src="../samples/onthemarket_uk_sample.csv" data-columns="title,property_type,price,rooms,bathrooms,city,agency_name" data-rows="8">
+        <p class="block-desc">Real rows cut from the file you buy, spread across the dataset. Same columns and encoding as the full snapshot.</p>
+        <div class="table-scroll" data-sample-src="../samples/onthemarket_uk_sample.csv" data-columns="title,property_type,price,rooms,bathrooms,city,latitude" data-rows="8">
           <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/onthemarket_uk_sample.csv" download>download the CSV</a>.</p>
         </div>
       </section>
 
       <section class="block" id="schema" aria-labelledby="schema-title">
         <h2 id="schema-title">Schema and fill rates</h2>
-        <p class="block-desc">32 columns in the REAL-ESTATE-BASIC layout. Fill rate is the share of the 420,444 rows that carry a value, measured on the delivered file.</p>
+        <p class="block-desc">30 columns in the REAL-ESTATE-BASIC layout. Fill rate is the share of the 420,444 rows that carry a value, measured on the delivered file.</p>
         <div class="table-scroll">
           <table class="table">
             <thead>
               <tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Fill rate</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
-              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>onthemarket.com</td></tr>
-              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection date (YYYY-MM-DD), 2026-10-02 to 2026-10-03</td></tr>
+              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Source website</td></tr>
+              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection date (YYYY-MM-DD)</td></tr>
               <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBR</td></tr>
               <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBP</td></tr>
-              <tr><td class="field">listing_id</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>OnTheMarket listing identifier, 100% unique</td></tr>
-              <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale in every row</td></tr>
-              <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Detached house (21.6%) | Semi-detached house (16.2%) | Apartment (12.7%) | Flat (12.4%) and more</td></tr>
-              <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing headline as published</td></tr>
-              <tr><td class="field">price</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price in GBP, median £340,000</td></tr>
-              <tr><td class="field">price_original</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price prior to any reduction</td></tr>
-              <tr><td class="field">price_per_sqm</td><td class="type">Float (£/m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price per square metre, median £3,733</td></tr>
-              <tr><td class="field">area_sqm</td><td class="type">Float (m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in m², median 95 m²</td></tr>
+              <tr><td class="field">listing_id</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Portal listing identifier, 100% unique</td></tr>
+              <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale or rent</td></tr>
+              <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Detached house 21.6%, Semi-detached house 16.2%, Apartment 12.7%</td></tr>
+              <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Title as published</td></tr>
+              <tr><td class="field">price</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking or selling price, median £340,000</td></tr>
+              <tr><td class="field">price_original</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price before any reduction</td></tr>
+              <tr><td class="field">price_per_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price per square metre, median £3,733</td></tr>
+              <tr><td class="field">area_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in m²</td></tr>
               <tr><td class="field">rooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">97.8%</span><span class="fill-bar"><span style="--pct: 97.8%"></span></span></div></td><td>Bedroom count</td></tr>
-              <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">92.9%</span><span class="fill-bar"><span style="--pct: 92.9%"></span></span></div></td><td>Bathroom count where the listing states it</td></tr>
-              <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">has_elevator</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">0.5%</span><span class="fill-bar"><span style="--pct: 0.5%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">has_parking</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">5.1%</span><span class="fill-bar"><span style="--pct: 5.1%"></span></span></div></td><td>Parking or garage flagged in the listing</td></tr>
-              <tr><td class="field">has_terrace</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">7%</span><span class="fill-bar"><span style="--pct: 7%"></span></span></div></td><td>Balcony or terrace flagged in the listing</td></tr>
-              <tr><td class="field">has_garden</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">5%</span><span class="fill-bar"><span style="--pct: 5%"></span></span></div></td><td>Garden flagged in the listing</td></tr>
-              <tr><td class="field">has_pool</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">0.3%</span><span class="fill-bar"><span style="--pct: 0.3%"></span></span></div></td><td>Swimming pool flagged in the listing</td></tr>
-              <tr><td class="field">energy_certificate</td><td class="type">Enum</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">region</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Portal location label, 6,093 values mixing towns, areas and postcode districts</td></tr>
-              <tr><td class="field">city</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Town or area</td></tr>
-              <tr><td class="field">neighborhood</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Finer locality label where published</td></tr>
-              <tr><td class="field">address_raw</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Address line with partial outcode as published</td></tr>
+              <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">92.9%</span><span class="fill-bar"><span style="--pct: 92.9%"></span></span></div></td><td>Bathroom count</td></tr>
+              <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Floor where stated</td></tr>
+              <tr><td class="field">has_elevator</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">0.5%</span><span class="fill-bar"><span style="--pct: 0.5%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_parking</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">5.1%</span><span class="fill-bar"><span style="--pct: 5.1%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_terrace</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">7%</span><span class="fill-bar"><span style="--pct: 7%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_garden</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">5%</span><span class="fill-bar"><span style="--pct: 5%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_pool</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">0.3%</span><span class="fill-bar"><span style="--pct: 0.3%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">energy_certificate</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">region</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Location label, 6093 distinct values</td></tr>
+              <tr><td class="field">city</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Town or locality</td></tr>
+              <tr><td class="field">neighborhood</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Finer locality where published</td></tr>
+              <tr><td class="field">address_raw</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Location line as published</td></tr>
               <tr><td class="field">latitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 latitude</td></tr>
               <tr><td class="field">longitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 longitude</td></tr>
-              <tr><td class="field">agency_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing estate agency, 12,719 distinct</td></tr>
-              <tr><td class="field">contact_phone</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing agency office number (business line)</td></tr>
-              <tr><td class="field">description</td><td class="type">Text</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Full agent listing description</td></tr>
-              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical listing URL, 100% absolute https</td></tr>
-              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">99.9%</span><span class="fill-bar"><span style="--pct: 99.9%"></span></span></div></td><td>Primary listing image URL</td></tr>
+              <tr><td class="field">description</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Description as published</td></tr>
+              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical page URL</td></tr>
+              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">99.9%</span><span class="fill-bar"><span style="--pct: 99.9%"></span></span></div></td><td>Primary image URL</td></tr>
             </tbody>
           </table>
         </div>
@@ -178,12 +177,13 @@
         <h2 id="limits-title">Known limits</h2>
         <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
         <ul class="limits">
-          <li>floor and energy_certificate are not published by the portal in this file and arrive empty.</li>
-          <li>Amenity flags are rare: parking 5.1%, terrace 7%, garden 5%, elevator 0.5%. Empty means not advertised.</li>
-          <li>region is the portal's own location label and mixes towns, areas and postcode districts (for example Ab10).</li>
-          <li>37 listings show a price below £1,000 (auctions and nominal guide prices); the highest is £100,000,000. Both are kept as published.</li>
-          <li>contact_phone is the agency's office number. There are no private sellers' names, numbers or email addresses.</li>
-          <li>Rows were collected over two days (2026-10-02 to 2026-10-03).</li>
+          <li>region is the portal&#x27;s own location label and mixes towns, areas and postcode districts (for example Ab10).</li>
+          <li>Removed from the download: agency_name, contact_phone. Agency and contact details are not part of any file we sell.</li>
+          <li>Not collected for this source, columns kept empty to preserve the schema: energy_certificate, floor.</li>
+          <li>Amenity flags carry a value only where the listing advertises the amenity (parking 5.1%, elevator 0.5%, terrace 7%, garden 5%, pool 0.3%). Empty means not advertised, not confirmed absent.</li>
+          <li>Asking prices span £1 to £100,000,000; outliers are kept as published.</li>
+          <li>Rows were collected between 2026-10-02 and 2026-10-03; values can change within that window.</li>
+          <li>No personal data: no private names, phone numbers or personal email addresses.</li>
         </ul>
       </section>
 
