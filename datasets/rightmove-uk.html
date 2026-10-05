@@ -2,36 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rightmove UK National Real Estate Census — HLP Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rightmove UK National Real Estate Census | HLP Data</title>
   <meta name="description" content="544,502 verified residential sale listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland, and Wales. 32-attribute REAL-ESTATE-BASIC schema.">
   <link rel="canonical" href="https://hlpdata.com/datasets/rightmove-uk.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-
-  <!-- OpenGraph / Social Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/rightmove-uk.html">
   <meta property="og:site_name" content="HLP Data">
-  <meta property="og:title" content="Rightmove UK National Real Estate Census — HLP Data">
+  <meta property="og:title" content="Rightmove UK National Real Estate Census | HLP Data">
   <meta property="og:description" content="Complete national census of 544,502 UK properties queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date. WGS84 GPS, asking prices, floor area in m², and agency data.">
-  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
-
-  <!-- Schema.org Dataset Graph -->
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,227 +49,183 @@
     ]
   }
   </script>
-
-  <!-- Fonts & Icons -->
+  <!-- site:assets -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=20261005b">
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="../style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="../script.js?v=20261005c"></script>
+  <!-- /site:assets -->
 </head>
-<body>
-
-  <!-- Floating Minimal Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="../index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
-        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="../custom-data.html" class="nav-link">Custom Data</a>
-        <a href="../api.html" class="nav-link">API</a>
-        <a href="../about.html" class="nav-link">About</a>
+<body data-nav="datasets">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a>
+        <a href="../api.html" data-nav="api">API</a>
+        <a href="../about.html" data-nav="about">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="../custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a></li>
+          <li><a href="../api.html" data-nav="api">API</a></li>
+          <li><a href="../about.html" data-nav="about">About</a></li>
+          <li><a class="btn btn-primary" href="../custom-data.html" data-nav="custom">Request custom data</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
+  <!-- /site:header -->
 
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
-    
-    <!-- Breadcrumb -->
-    <div style="margin-bottom: 1.5rem;">
-      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Rightmove UK</span>
-    </div>
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">Datasets</a></li>
+        <li aria-current="page">Rightmove UK</li>
+      </ol>
+    </nav>
 
-    <!-- Header Section -->
-    <div style="margin-bottom: 2.5rem;">
-      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="badge-tag">Real Estate &bull; United Kingdom</span>
-        <span class="badge-status approved">Snapshot 2026-09-21</span>
-        <span class="badge-tag">REAL-ESTATE-BASIC (32 Attributes)</span>
-      </div>
-      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
-        Rightmove UK National Real Estate Census
-      </h1>
-      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
-        A complete national census of the United Kingdom residential sale market: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland, and Wales — spanning 402 regions and 61 property types. Standardized with WGS84 geocoordinates, floor area in m², asking prices, and estate agency attribution.
-      </p>
-    </div>
-
-    <!-- Key Metrics Grid -->
-    <div class="auto-grid" style="margin-bottom: 2.5rem;">
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total Listings</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">544,502</div>
-        <div style="font-size: 0.75rem; color: var(--accent-emerald-light); margin-top: 0.25rem;">Zero duplicate IDs</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Geographic Coverage</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">3,121 / 3,121</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">100% UK Outcodes</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Pricing Statistics</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">£335,000</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Median asking price</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Collected</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">2026-09-21</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">One-off snapshot; refresh on request (custom feed)</div>
-      </div>
-    </div>
-
-    <!-- Action Bar -->
-    <div style="display: flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-      <a href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener" class="btn btn-buy">
-        <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download Snapshot ($14.90)
-      </a>
-      <a href="../samples/rightmove_uk_national_sample.csv" download class="btn btn-secondary">
-        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
-      </a>
-      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Rightmove%20UK%20Dataset" class="btn btn-ghost">
-        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Ask a question
-      </a>
-      <a href="../custom-data.html" class="btn btn-ghost">
-        Request Custom Sub-Region Filter
-      </a>
-    </div>
-    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 3rem;">
-      <i class="fa-solid fa-tag" style="margin-right: 4px;"></i> The price shown is the list price. Code <strong>WELCOME50</strong> is applied on Payhip at checkout (50% off).
-    </p>
-
-    <!-- Data Schema Table -->
-    <section style="margin-bottom: 3rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Schema Specification (32 Columns)</h2>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
-        Standardized according to REAL-ESTATE-BASIC specification with measured fill rates.
-      </p>
-
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
-        <table class="modal-table" style="width: 100%;">
-          <thead>
-            <tr>
-              <th>Field Name</th>
-              <th>Data Type</th>
-              <th>Measured fill rate</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>website_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>rightmove.co.uk</td></tr>
-            <tr><td><strong>competence_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Collection date (YYYY-MM-DD)</td></tr>
-            <tr><td><strong>country_code</strong></td><td><span class="badge-tag">ISO 3166-1</span></td><td><span class="text-emerald font-mono">100%</span></td><td>GBR</td></tr>
-            <tr><td><strong>currency_code</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>GBP</td></tr>
-            <tr><td><strong>listing_id</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Rightmove listing identifier — 100% unique, zero duplicates</td></tr>
-            <tr><td><strong>operation_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">100%</span></td><td>sale — every record in this dataset is a sale listing</td></tr>
-            <tr><td><strong>property_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">100%</span></td><td>61 distinct types (Detached, Semi-Detached, Terraced, Flat, Apartment...)</td></tr>
-            <tr><td><strong>title</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Listing headline as published</td></tr>
-            <tr><td><strong>price</strong></td><td><span class="badge-tag">Float (£)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Asking price in GBP — median £335,000, mean £480,592</td></tr>
-            <tr><td><strong>price_original</strong></td><td><span class="badge-tag">Float (£)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Asking price prior to any reduction</td></tr>
-            <tr><td><strong>price_per_sqm</strong></td><td><span class="badge-tag">Float (£/m²)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Normalized price per square metre</td></tr>
-            <tr><td><strong>area_sqm</strong></td><td><span class="badge-tag">Float (m²)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Floor area in square metres</td></tr>
-            <tr><td><strong>rooms</strong></td><td><span class="badge-tag">Integer</span></td><td><span class="text-emerald font-mono">97.6%</span></td><td>Bedroom count — share carrying a value above zero</td></tr>
-            <tr><td><strong>bathrooms</strong></td><td><span class="badge-tag">Integer</span></td><td><span class="text-emerald font-mono">93.3%</span></td><td>Bathroom count — share carrying a value above zero</td></tr>
-            <tr><td><strong>floor</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by UK source; column preserved, values empty</td></tr>
-            <tr><td><strong>has_elevator</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by UK source; column preserved, values empty</td></tr>
-            <tr><td><strong>has_parking</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">24.7%</span></td><td>Parking or garage flagged in the listing</td></tr>
-            <tr><td><strong>has_terrace</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">16.2%</span></td><td>Balcony or terrace flagged in the listing</td></tr>
-            <tr><td><strong>has_garden</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">27.6%</span></td><td>Garden flagged in the listing</td></tr>
-            <tr><td><strong>has_pool</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">1.5%</span></td><td>Swimming pool flagged in the listing</td></tr>
-            <tr><td><strong>energy_certificate</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by UK source; column preserved, values empty</td></tr>
-            <tr><td><strong>region</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>402 distinct regions — counties, boroughs, and Scottish shires</td></tr>
-            <tr><td><strong>city</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Town or city</td></tr>
-            <tr><td><strong>neighborhood</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Locality or district</td></tr>
-            <tr><td><strong>address_raw</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Address line with partial outcode as published</td></tr>
-            <tr><td><strong>latitude</strong></td><td><span class="badge-tag">Geo Float</span></td><td><span class="text-emerald font-mono">100%</span></td><td>WGS84 latitude</td></tr>
-            <tr><td><strong>longitude</strong></td><td><span class="badge-tag">Geo Float</span></td><td><span class="text-emerald font-mono">100%</span></td><td>WGS84 longitude</td></tr>
-            <tr><td><strong>agency_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Listing estate agency — commercial entity</td></tr>
-            <tr><td><strong>contact_phone</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Deliberately not collected; dataset contains zero personal contact data</td></tr>
-            <tr><td><strong>description</strong></td><td><span class="badge-tag">Text</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Full agent listing description</td></tr>
-            <tr><td><strong>itemurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Canonical listing URL — 100% absolute https</td></tr>
-            <tr><td><strong>imageurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Primary listing image URL</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Transparent Caveats -->
-    <div class="modal-notes" style="margin-bottom: 3rem;">
-      <h4>Data notes &amp; known caveats</h4>
-      <ul>
-        <li>342 listings (0.06%) carry a price below GBP 1,000, including some at GBP 1. These are genuine Rightmove entries — typically auction lots published with a nominal guide price. They are preserved rather than silently filtered so the dataset mirrors what the portal actually published. Apply your own price floor when modelling valuations.</li>
-        <li>Four schema fields (floor, has_elevator, energy_certificate, contact_phone) are not published by Rightmove and arrive empty. They remain in the file to keep the 32-column REAL-ESTATE-BASIC contract intact.</li>
-        <li>Zero personal data (no private phone numbers, names, or individual email addresses). 100% public property catalog intelligence.</li>
-      </ul>
-    </div>
-
-    <!-- Commercial License & Delivery -->
-    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Commercial Licensing & Delivery Options</h3>
-      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-        Available for hedge funds, real estate analytics firms, PropTech platforms, and appraisal systems under commercial enterprise license terms.
-      </p>
-      <div class="auto-grid" style="margin-bottom: 1.5rem;">
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Recurring Feed (custom)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</p>
+    <div class="container product">
+      <header class="product-head page-head">
+        <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Snapshot 2026-09-21</span><span>REAL-ESTATE-BASIC schema</span></p>
+        <h1>Rightmove UK National Real Estate Census</h1>
+        <p class="lead">A complete national census of the United Kingdom residential sale market: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland and Wales, spanning 402 regions and 61 property types. Standardized with WGS84 geocoordinates, floor area in m², asking prices, and estate agency attribution.</p>
+        <div class="metrics">
+          <div class="metric"><span class="label">Total listings</span><span class="value">544,502</span><span class="sub">Zero duplicate IDs</span></div>
+          <div class="metric"><span class="label">Geographic coverage</span><span class="value">3,121 / 3,121</span><span class="sub">100% UK Outcodes</span></div>
+          <div class="metric"><span class="label">Pricing statistics</span><span class="value">£335,000</span><span class="sub">Median asking price</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-21</span><span class="sub">One-off snapshot; refresh on request (custom feed)</span></div>
         </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">API Access (on request)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Programmatic access can be set up together with a custom feed. Ask us.</p>
-        </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Snapshot Export</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time national census delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
-        </div>
-      </div>
-      <a href="../custom-data.html" class="btn btn-secondary">
-        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request a Custom or Recurring Feed
-      </a>
-    </section>
+      </header>
 
+      <aside class="buy-panel" aria-label="Buy this dataset">
+        <p class="price"><span class="amount">$14.90</span><span class="unit">CSV snapshot</span></p>
+        <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-block" href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener">Buy on Payhip</a>
+          <a class="btn btn-secondary btn-block" href="../samples/rightmove_uk_national_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
+        </div>
+        <ul class="includes">
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>544,502 rows, 32 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-21, one-off snapshot</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Instant download after payment by card or PayPal</span></li>
+        </ul>
+        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com?subject=Rightmove%20UK%20dataset">sales@hlpdata.com</a></p>
+      </aside>
+
+      <section class="block" id="sample" aria-labelledby="sample-title">
+        <h2 id="sample-title">Sample rows</h2>
+        <p class="block-desc">Real rows from the free sample file, which has the same columns and encoding as the full snapshot.</p>
+        <div class="table-scroll" data-sample-src="../samples/rightmove_uk_national_sample.csv" data-columns="title,property_type,price,area_sqm,rooms,bathrooms,city,agency_name" data-rows="8">
+          <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/rightmove_uk_national_sample.csv" download>download the CSV</a>.</p>
+        </div>
+      </section>
+
+      <section class="block" id="schema" aria-labelledby="schema-title">
+        <h2 id="schema-title">Schema and fill rates</h2>
+        <p class="block-desc">32 columns in the REAL-ESTATE-BASIC layout. Fill rate is the share of rows that carry a value, measured on the delivered file.</p>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Fill rate</th><th scope="col">Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>rightmove.co.uk</td></tr>
+              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection date (YYYY-MM-DD)</td></tr>
+              <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBR</td></tr>
+              <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBP</td></tr>
+              <tr><td class="field">listing_id</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Rightmove listing identifier, 100% unique, zero duplicates</td></tr>
+              <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale: every record in this dataset is a sale listing</td></tr>
+              <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>61 distinct types (Detached, Semi-Detached, Terraced, Flat, Apartment...)</td></tr>
+              <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing headline as published</td></tr>
+              <tr><td class="field">price</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price in GBP, median £335,000, mean £480,592</td></tr>
+              <tr><td class="field">price_original</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price prior to any reduction</td></tr>
+              <tr><td class="field">price_per_sqm</td><td class="type">Float (£/m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Normalized price per square metre</td></tr>
+              <tr><td class="field">area_sqm</td><td class="type">Float (m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in square metres</td></tr>
+              <tr><td class="field">rooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">97.6%</span><span class="fill-bar"><span style="--pct: 97.6%"></span></span></div></td><td>Bedroom count, share carrying a value above zero</td></tr>
+              <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">93.3%</span><span class="fill-bar"><span style="--pct: 93.3%"></span></span></div></td><td>Bathroom count, share carrying a value above zero</td></tr>
+              <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
+              <tr><td class="field">has_elevator</td><td class="type">Boolean</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
+              <tr><td class="field">has_parking</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">24.7%</span><span class="fill-bar"><span style="--pct: 24.7%"></span></span></div></td><td>Parking or garage flagged in the listing</td></tr>
+              <tr><td class="field">has_terrace</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">16.2%</span><span class="fill-bar"><span style="--pct: 16.2%"></span></span></div></td><td>Balcony or terrace flagged in the listing</td></tr>
+              <tr><td class="field">has_garden</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">27.6%</span><span class="fill-bar"><span style="--pct: 27.6%"></span></span></div></td><td>Garden flagged in the listing</td></tr>
+              <tr><td class="field">has_pool</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">1.5%</span><span class="fill-bar"><span style="--pct: 1.5%"></span></span></div></td><td>Swimming pool flagged in the listing</td></tr>
+              <tr><td class="field">energy_certificate</td><td class="type">Enum</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
+              <tr><td class="field">region</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>402 distinct regions: counties, boroughs, and Scottish shires</td></tr>
+              <tr><td class="field">city</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Town or city</td></tr>
+              <tr><td class="field">neighborhood</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Locality or district</td></tr>
+              <tr><td class="field">address_raw</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Address line with partial outcode as published</td></tr>
+              <tr><td class="field">latitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 latitude</td></tr>
+              <tr><td class="field">longitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 longitude</td></tr>
+              <tr><td class="field">agency_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing estate agency, commercial entity</td></tr>
+              <tr><td class="field">contact_phone</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Deliberately not collected; dataset contains zero personal contact data</td></tr>
+              <tr><td class="field">description</td><td class="type">Text</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Full agent listing description</td></tr>
+              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical listing URL, 100% absolute https</td></tr>
+              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Primary listing image URL</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block" id="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">Known limits</h2>
+        <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
+        <ul class="limits">
+          <li>342 listings (0.06%) carry a price below GBP 1,000, including some at GBP 1. These are genuine Rightmove entries, typically auction lots published with a nominal guide price. They are preserved rather than silently filtered so the dataset mirrors what the portal actually published. Apply your own price floor when modelling valuations.</li>
+          <li>Four schema fields (floor, has_elevator, energy_certificate, contact_phone) are not published by Rightmove and arrive empty. They remain in the file to keep the 32-column REAL-ESTATE-BASIC contract intact.</li>
+          <li>Zero personal data (no private phone numbers, names, or individual email addresses). 100% public property catalog intelligence.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="licence" aria-labelledby="licence-title">
+        <h2 id="licence-title">Licence and delivery</h2>
+        <p class="block-desc">Available for hedge funds, real estate analytics firms, PropTech platforms, and appraisal systems under commercial enterprise license terms.</p>
+        <dl class="options">
+          <div><dt>Recurring Feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
+          <div><dt>API Access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
+          <div><dt>Snapshot Export</dt><dd>One-time national census delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</dd></div>
+        </dl>
+        <p class="block-desc"><a class="link-arrow" href="../custom-data.html">Request a custom or recurring feed</a></p>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="index.html">Datasets</a>
-        <a href="../custom-data.html">Custom Data</a>
-        <a href="../api.html">API Docs</a>
-        <a href="../terms.html">Terms & Compliance</a>
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="../datasets/index.html">Datasets</a></li>
+          <li><a href="../custom-data.html">Custom data</a></li>
+          <li><a href="../api.html">API</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="../script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>

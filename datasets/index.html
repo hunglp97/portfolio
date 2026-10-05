@@ -2,276 +2,239 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commercial Web Datasets Catalog — HLP Data</title>
-  <meta name="description" content="Datasets covering European real estate, FMCG supermarket retail, luxury goods and Portuguese official statistics. One-off snapshots with free samples, standardized schemas and measured fill rates.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dataset catalog | HLP Data</title>
+  <meta name="description" content="Real estate, supermarket retail, luxury goods and Portuguese official statistics. One-off snapshots with free samples, fixed schemas and measured fill rates.">
   <link rel="canonical" href="https://hlpdata.com/datasets/index.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-
-  <!-- OpenGraph / Social Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/index.html">
   <meta property="og:site_name" content="HLP Data">
-  <meta property="og:title" content="Commercial Web Datasets Catalog — HLP Data">
-  <meta property="og:description" content="Datasets covering European real estate, FMCG retail, luxury fashion and Portuguese official statistics. One-off snapshots with free samples.">
-  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
-
-  <!-- Fonts & Icons -->
+  <meta property="og:title" content="Dataset catalog | HLP Data">
+  <meta property="og:description" content="Real estate, retail, luxury and official-statistics datasets. One-off snapshots with free samples.">
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- site:assets -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=20261005b">
-  <!-- payhip-embed: verify snippet against Payhip dashboard "Get Your Embed Code" before rolling out to other products -->
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="../style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="../script.js?v=20261005c"></script>
+  <!-- /site:assets -->
+  <!-- Payhip embed: opens checkout on this page when payhip.js loads; the link still works without it -->
+  <script defer src="https://payhip.com/payhip.js"></script>
 </head>
-<body>
-
-  <!-- Floating Minimal Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="../index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="../index.html#datasets" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
-        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="../custom-data.html" class="nav-link">Custom Data</a>
-        <a href="../api.html" class="nav-link">API</a>
-        <a href="../about.html" class="nav-link">About</a>
+<body data-nav="datasets">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a>
+        <a href="../api.html" data-nav="api">API</a>
+        <a href="../about.html" data-nav="about">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-
-        <a href="../custom-data.html" class="btn-sm btn-primary">
-          <i class="fa-regular fa-paper-plane"></i> Request Feed
-        </a>
-      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="../custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a></li>
+          <li><a href="../api.html" data-nav="api">API</a></li>
+          <li><a href="../about.html" data-nav="about">About</a></li>
+          <li><a class="btn btn-primary" href="../custom-data.html" data-nav="custom">Request custom data</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
+  <!-- /site:header -->
 
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1180px; margin: 0 auto; padding-bottom: 5rem;">
-    
-    <div style="margin-bottom: 2.5rem;">
-      <a href="../index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-        &larr; Back to Overview
-      </a>
-      <div class="status-pill mt-3 mb-2">
-        <span class="pulse-dot"></span>
-        <span>Commercial Catalog</span>
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li>
+        <li aria-current="page">Datasets</li>
+      </ol>
+    </nav>
+
+    <div class="container">
+      <header class="page-head">
+        <h1>Dataset catalog</h1>
+        <p class="lead">Every dataset is a dated, one-off snapshot in a fixed schema, with a free sample and measured fill rates. Recurring refresh is available as a custom feed.</p>
+      </header>
+
+      <div class="filters" data-dataset-filter="catalog-list" role="search" aria-label="Filter datasets">
+        <label class="search">
+          <span class="visually-hidden">Search datasets</span>
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" placeholder="Search by name, country or field" autocomplete="off">
+        </label>
+        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">5</span></button>
+        <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">2</span></button>
+        <button class="filter-chip" type="button" data-filter="retail" aria-pressed="false">Retail<span class="filter-count">2</span></button>
+        <button class="filter-chip" type="button" data-filter="official-statistics" aria-pressed="false">Official statistics<span class="filter-count">1</span></button>
+        <button class="filter-chip" type="button" data-filter="portugal" aria-pressed="false">Portugal<span class="filter-count">3</span></button>
+        <p class="visually-hidden" id="catalog-list-status" aria-live="polite"></p>
       </div>
-      <h1 style="font-size: 2.5rem; font-weight: 800; margin-top: 0.75rem; letter-spacing: -0.02em;">
-        Dataset Catalog
-      </h1>
-      <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 0.5rem; line-height: 1.6; max-width: 800px;">
-        Scraped datasets are one-off snapshots, standardized to fixed schemas (REAL-ESTATE-BASIC, GROCERY-PLP, FASHION-PDP), each with its collection date and a free sample CSV. Recurring refresh is available on request as a custom feed.
-      </p>
-    </div>
 
-    <!-- Datasets Grid -->
-    <div class="datasets-grid">
-      
-      <!-- Rightmove UK -->
-      <article class="dataset-card">
-        <div class="dataset-top">
-          <span class="badge-tag">Real Estate &bull; United Kingdom</span>
-          <span class="badge-status approved">Snapshot 2026-09-21</span>
-        </div>
-        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-          <a href="rightmove-uk.html" style="color: inherit; text-decoration: none;">Rightmove UK National Real Estate Census</a>
-        </h3>
-        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
-          Complete national census of the UK residential sale market: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland, and Wales across 32 standardized attributes.
-        </p>
-        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
-          <div class="meta-item"><strong>544,502</strong> records</div>
-          <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
-          <div class="meta-item"><strong>100%</strong> 3,121 Outcodes</div>
-          <div class="meta-item"><strong>One-off</strong> snapshot</div>
-        </div>
-        <div class="dataset-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" style="text-align: center;" title="List price shown. Code WELCOME50 is applied on Payhip at checkout (50% off)">
-            <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($14.90)</span>
-          </a>
-          <a href="rightmove-uk.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
-          <a href="../samples/rightmove_uk_national_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.6rem; font-family: var(--font-mono);">List price &bull; WELCOME50 (50% off) applied at Payhip checkout</p>
-      </article>
-
-      <!-- Idealista Portugal -->
-      <article class="dataset-card">
-        <div class="dataset-top">
-          <span class="badge-tag">Real Estate &bull; Portugal</span>
-          <span class="badge-status approved">Snapshot 2026-09-20</span>
-        </div>
-        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-          <a href="idealista-portugal.html" style="color: inherit; text-decoration: none;">Idealista Portugal Real Estate Property Feed</a>
-        </h3>
-        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
-          Nationwide sale-listing coverage across all 13 Portuguese districts (Lisboa, Porto, Faro, Setúbal, Braga, Coimbra+). 100% fill on asking price, price/m², floor area, and bedroom count.
-        </p>
-        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
-          <div class="meta-item"><strong>2,640</strong> records</div>
-          <div class="meta-item"><strong>32</strong> cols (REAL-ESTATE-BASIC)</div>
-          <div class="meta-item"><strong>13</strong> Districts</div>
-          <div class="meta-item"><strong>One-off</strong> snapshot</div>
-        </div>
-        <div class="dataset-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="https://payhip.com/b/EgXZm?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" style="text-align: center;" title="List price shown. Code WELCOME50 is applied on Payhip at checkout (50% off)">
-            <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($9.90)</span>
-          </a>
-          <a href="idealista-portugal.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
-          <a href="../samples/idealista_real_estate_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.6rem; font-family: var(--font-mono);">List price &bull; WELCOME50 (50% off) applied at Payhip checkout</p>
-      </article>
-
-      <!-- Continente FMCG -->
-      <article class="dataset-card">
-        <div class="dataset-top">
-          <span class="badge-tag">Retail & FMCG &bull; Portugal</span>
-          <span class="badge-status approved">Snapshot 2026-09-19</span>
-        </div>
-        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-          <a href="continente-portugal.html" style="color: inherit; text-decoration: none;">Continente Supermarket FMCG Intelligence Catalog</a>
-        </h3>
-        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
-          Granular pricing, brand taxonomy, and promotion intelligence for Portugal's leading supermarket chain. Features complete 3-level category hierarchy, markdown tracking, and normalized unit prices (€/kg, €/L).
-        </p>
-        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
-          <div class="meta-item"><strong>11,711</strong> SKUs</div>
-          <div class="meta-item"><strong>31</strong> cols (GROCERY-PLP)</div>
-          <div class="meta-item"><strong>One-off</strong> snapshot</div>
-        </div>
-        <div class="dataset-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener" class="btn-sm btn-buy" style="text-align: center;" title="List price shown. Code WELCOME50 is applied on Payhip at checkout (50% off)">
-            <i class="fa-solid fa-bolt"></i> <span>Buy Snapshot ($9.90)</span>
-          </a>
-          <a href="continente-portugal.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
-          <a href="../samples/continente_grocery_plp_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.6rem; font-family: var(--font-mono);">List price &bull; WELCOME50 (50% off) applied at Payhip checkout</p>
-      </article>
-
-      <!-- Farfetch Luxury -->
-      <article class="dataset-card">
-        <div class="dataset-top">
-          <span class="badge-tag">Luxury Goods &bull; Global</span>
-          <span class="badge-status approved">Snapshot 2026-09-21</span>
-        </div>
-        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-          <a href="farfetch-luxury.html" style="color: inherit; text-decoration: none;">Farfetch Luxury Handbag Catalog</a>
-        </h3>
-        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
-          Curated catalog of 960 women’s handbag listings across 125 premier designer brands including Jacquemus, Valentino Garavani, Balmain, Bottega Veneta, and Saint Laurent.
-        </p>
-        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
-          <div class="meta-item"><strong>960</strong> SKUs</div>
-          <div class="meta-item"><strong>35</strong> cols (FASHION-PDP)</div>
-          <div class="meta-item"><strong>125</strong> Brands</div>
-          <div class="meta-item"><strong>One-off</strong> snapshot</div>
-        </div>
-        <div class="dataset-actions" style="display: flex; gap: 0.75rem;">
-          <a href="farfetch-luxury.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
-          <a href="../samples/farfetch_luxury_fashion_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
-        </div>
-      </article>
-
-      <!-- Portugal Area Intelligence -->
-      <article class="dataset-card">
-        <div class="dataset-top">
-          <span class="badge-tag">Official Statistics &bull; Portugal</span>
-          <span class="badge-status approved">Snapshot 2026-Q1</span>
-        </div>
-        <h3 class="dataset-name" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-          <a href="portugal-area-intelligence.html" style="color: inherit; text-decoration: none;">Portugal Area Intelligence — 308 Municipalities</a>
-        </h3>
-        <p class="dataset-summary" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 1rem;">
-          INE dwelling sale and rent medians plus Census 2021 population and housing for every concelho, on CAOP 2025 codes. Blanks explained, census totals reconciled, sources credited (CC BY).
-        </p>
-        <div class="dataset-meta" style="margin-top: auto; margin-bottom: 1.25rem;">
-          <div class="meta-item"><strong>308</strong> concelhos</div>
-          <div class="meta-item"><strong>8,932</strong> observations</div>
-          <div class="meta-item"><strong>CSV + Parquet</strong></div>
-          <div class="meta-item">One-off snapshot, release <strong>d735276c69252568</strong></div>
-        </div>
-        <div class="dataset-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a class="payhip-buy-button btn-sm btn-buy" href="https://payhip.com/b/CAYJH" data-theme="none" data-product="CAYJH" style="text-align: center;" title="Instant download from Payhip">
-            <i class="fa-solid fa-bolt"></i> <span>Instant Download ($19.00)</span>
-          </a>
-          <a href="portugal-area-intelligence.html" class="btn-sm btn-primary" style="flex: 1; text-align: center;">View Specification</a>
-          <a href="../samples/pt_area_intelligence_sample.csv" download class="btn-sm btn-secondary" style="text-align: center;">Sample CSV</a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- Need another dataset banner -->
-    <div class="analytics-cta-banner" style="margin-top: 3.5rem;">
-      <div class="cta-banner-content">
-        <div class="cta-banner-icon">
-          <i class="fa-solid fa-server text-emerald"></i>
-        </div>
-        <div>
-          <h4 class="cta-banner-title">Need a Public Website Dataset Not Listed Here?</h4>
-          <p class="cta-banner-desc">We can build a custom feed for your schema and delivery format, with recurring refresh on request.</p>
-        </div>
+  <ul class="dataset-list" id="catalog-list">
+            <li class="dataset-row" data-tags="real-estate uk" data-id="rightmove-uk">
+              <div>
+                <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Snapshot 2026-09-21</span></p>
+                <h3><a href="rightmove-uk.html">Rightmove UK National Real Estate Census</a></h3>
+                <p class="summary">Residential sale listings from every UK outcode, with coordinates, floor area, asking and original price, bedrooms, bathrooms and the listing agency.</p>
+              </div>
+              <dl class="facts">
+                <dt>Records</dt><dd>544,502</dd>
+                <dt>Columns</dt><dd>32</dd>
+                <dt>Outcodes</dt><dd>3,121</dd>
+              </dl>
+              <div class="buy-box">
+                <p class="price"><span class="amount">$14.90</span><span class="unit">CSV snapshot</span></p>
+                <a class="btn btn-primary btn-sm" href="https://payhip.com/b/raE5s?coupon=WELCOME50" target="_blank" rel="noopener">Buy on Payhip</a>
+                <a class="btn btn-secondary btn-sm" href="../samples/rightmove_uk_national_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+                <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
+              </div>
+            </li>
+            <li class="dataset-row" data-tags="real-estate portugal" data-id="idealista-portugal">
+              <div>
+                <p class="kicker"><span>Real estate</span><span>Portugal</span><span>Snapshot 2026-09-20</span></p>
+                <h3><a href="idealista-portugal.html">Idealista Portugal Real Estate Property Feed</a></h3>
+                <p class="summary">Sale listings across 13 districts with asking price, price per m², floor area and bedrooms filled for every row, plus advertised amenities.</p>
+              </div>
+              <dl class="facts">
+                <dt>Records</dt><dd>2,640</dd>
+                <dt>Columns</dt><dd>32</dd>
+                <dt>Districts</dt><dd>13</dd>
+              </dl>
+              <div class="buy-box">
+                <p class="price"><span class="amount">$9.90</span><span class="unit">CSV snapshot</span></p>
+                <a class="btn btn-primary btn-sm" href="https://payhip.com/b/EgXZm?coupon=WELCOME50" target="_blank" rel="noopener">Buy on Payhip</a>
+                <a class="btn btn-secondary btn-sm" href="../samples/idealista_real_estate_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+                <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
+              </div>
+            </li>
+            <li class="dataset-row" data-tags="retail portugal" data-id="continente-portugal">
+              <div>
+                <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-19</span></p>
+                <h3><a href="continente-portugal.html">Continente Supermarket FMCG Intelligence Catalog</a></h3>
+                <p class="summary">Shelf and promotion prices, unit prices per kg or litre, brand and a three-level category tree for Portugal's leading supermarket chain.</p>
+              </div>
+              <dl class="facts">
+                <dt>Records</dt><dd>11,711</dd>
+                <dt>Columns</dt><dd>31</dd>
+                <dt>Format</dt><dd>CSV</dd>
+              </dl>
+              <div class="buy-box">
+                <p class="price"><span class="amount">$9.90</span><span class="unit">CSV snapshot</span></p>
+                <a class="btn btn-primary btn-sm" href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener">Buy on Payhip</a>
+                <a class="btn btn-secondary btn-sm" href="../samples/continente_grocery_plp_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+                <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
+              </div>
+            </li>
+            <li class="dataset-row" data-tags="retail global" data-id="farfetch-luxury">
+              <div>
+                <p class="kicker"><span>Luxury retail</span><span>Global</span><span>Snapshot 2026-09-21</span></p>
+                <h3><a href="farfetch-luxury.html">Farfetch Luxury Handbag Catalog</a></h3>
+                <p class="summary">Women's handbags from 125 designer brands with checkout price, SKU, designer style code, category and two product images.</p>
+              </div>
+              <dl class="facts">
+                <dt>Records</dt><dd>960</dd>
+                <dt>Columns</dt><dd>35</dd>
+                <dt>Brands</dt><dd>125</dd>
+              </dl>
+              <div class="buy-box">
+                <p class="price"><span class="amount">On request</span></p>
+                <a class="btn btn-primary btn-sm" href="mailto:sales@hlpdata.com?subject=Farfetch%20Luxury%20Handbag%20Catalog">Ask for the file</a>
+                <a class="btn btn-secondary btn-sm" href="../samples/farfetch_luxury_fashion_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+              </div>
+            </li>
+          <!-- pt-area-intelligence:card:start -->
+          <li class="dataset-row" data-tags="official-statistics portugal" data-id="portugal-area-intelligence">
+            <div>
+              <p class="kicker"><span>Official statistics</span><span>Portugal</span><span>Snapshot 2026-Q1</span></p>
+              <h3><a href="portugal-area-intelligence.html">Portugal Area Intelligence: 308 municipalities</a></h3>
+              <p class="summary">INE dwelling sale and rent medians plus Census 2021 population and housing for every concelho, on CAOP 2025 codes. Blanks explained, sources credited (CC BY).</p>
+            </div>
+            <dl class="facts">
+              <dt>Concelhos</dt><dd>308</dd>
+              <dt>Observations</dt><dd>8,932</dd>
+              <dt>Format</dt><dd>CSV, Parquet</dd>
+            </dl>
+            <div class="buy-box">
+              <p class="price"><span class="amount">$19.00</span><span class="unit">data pack</span></p>
+              <a href="https://payhip.com/b/CAYJH" class="payhip-buy-button btn btn-primary btn-sm" data-theme="none" data-product="CAYJH">Buy now</a>
+              <a class="btn btn-secondary btn-sm" href="../samples/pt_area_intelligence_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Free sample</a>
+              <p class="price-note">Release d735276c69252568</p>
+            </div>
+          </li>
+          <!-- pt-area-intelligence:card:end -->
+          </ul>
+      <div class="empty-state" id="catalog-list-empty" hidden>
+        <p>No dataset matches that search.</p>
+        <p><button class="btn btn-secondary btn-sm" type="button" data-filter-reset>Clear filters</button> <a class="link-arrow" href="../custom-data.html">Request custom data</a></p>
       </div>
-      <div class="cta-banner-actions">
-        <a href="../custom-data.html" class="btn btn-primary">
-          <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Custom Dataset
-        </a>
-      </div>
-    </div>
 
+      <section class="block" id="compare" aria-labelledby="compare-title">
+        <h2 id="compare-title">Compare at a glance</h2>
+        <p class="block-desc">The same facts as above in one table. Prices are in US dollars for a one-off file.</p>
+        <div class="table-scroll" data-filter-sync="catalog-list">
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Dataset</th><th scope="col">Coverage</th><th scope="col" class="num">Rows</th><th scope="col" class="num">Columns</th><th scope="col">Collected</th><th scope="col">Format</th><th scope="col" class="num">Price</th></tr>
+            </thead>
+            <tbody>
+              <tr data-tags="real-estate uk" data-id="rightmove-uk"><td><a href="rightmove-uk.html">Rightmove UK</a></td><td>United Kingdom, 3,121 outcodes</td><td class="num">544,502</td><td class="num">32</td><td class="num">2026-09-21</td><td>CSV</td><td class="num">$14.90</td></tr>
+              <tr data-tags="real-estate portugal" data-id="idealista-portugal"><td><a href="idealista-portugal.html">Idealista Portugal</a></td><td>Portugal, 13 districts</td><td class="num">2,640</td><td class="num">32</td><td class="num">2026-09-20</td><td>CSV</td><td class="num">$9.90</td></tr>
+              <tr data-tags="retail portugal" data-id="continente-portugal"><td><a href="continente-portugal.html">Continente</a></td><td>Portugal, online catalogue</td><td class="num">11,711</td><td class="num">31</td><td class="num">2026-09-19</td><td>CSV</td><td class="num">$9.90</td></tr>
+              <tr data-tags="retail global" data-id="farfetch-luxury"><td><a href="farfetch-luxury.html">Farfetch handbags</a></td><td>Global, 125 brands</td><td class="num">960</td><td class="num">35</td><td class="num">2026-09-21</td><td>CSV</td><td class="num">On request</td></tr>
+              <tr data-tags="official-statistics portugal" data-id="portugal-area-intelligence"><td><a href="portugal-area-intelligence.html">Portugal Area Intelligence</a></td><td>Portugal, 308 concelhos</td><td class="num">308</td><td class="num">18</td><td class="num">2026-Q1</td><td>CSV, Parquet</td><td class="num">$19.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="custom-title">
+        <div class="cta-band">
+          <div>
+            <h2 id="custom-title">Need a source that is not listed?</h2>
+            <p>Tell us the website, the fields and how often you need them. You get a written quote with scope, format and refresh schedule.</p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="../custom-data.html">Request custom data</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="../custom-data.html">Custom Data</a>
-        <a href="../api.html">API Docs</a>
-        <a href="../terms.html">Terms & Compliance</a>
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="../datasets/index.html">Datasets</a></li>
+          <li><a href="../custom-data.html">Custom data</a></li>
+          <li><a href="../api.html">API</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="../script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>

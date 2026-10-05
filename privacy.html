@@ -2,201 +2,184 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — HLP Data</title>
-  <meta name="description" content="How HLP Data handles personal data: cookieless Umami analytics, Payhip purchases, emails and browser preferences.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy | HLP Data</title>
+  <meta name="description" content="How HLP Data handles personal data: cookieless Umami analytics, Payhip purchases, and emails.">
   <link rel="canonical" href="https://hlpdata.com/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/privacy.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="Privacy policy | HLP Data">
+  <meta property="og:description" content="How HLP Data handles personal data: cookieless Umami analytics, Payhip purchases, and emails.">
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <!-- site:assets -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=20261005b">
-
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="script.js?v=20261005c"></script>
+  <!-- /site:assets -->
 </head>
-<body>
-
-  <!-- Floating Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html#datasets" class="nav-link">Datasets</a>
-        <a href="index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="https://explore.hlpdata.com" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent); font-weight: 700;"><i class="fa-solid fa-bolt" style="font-size: 0.8rem; margin-right: 4px;"></i><span>Live Explorer</span></a>
-        <a href="index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="custom-data.html" class="nav-link">Custom Data</a>
-        <a href="api.html" class="nav-link">API</a>
-        <a href="about.html" class="nav-link">About</a>
+<body data-nav="">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img src="favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="datasets/index.html" data-nav="datasets">Datasets</a>
+        <a href="api.html" data-nav="api">API</a>
+        <a href="about.html" data-nav="about">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-
-        <a href="custom-data.html" class="btn-sm btn-primary">
-          <i class="fa-regular fa-paper-plane"></i> Request Custom Feed
-        </a>
-      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
     </div>
-  </header>
-
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 860px; margin: 0 auto;">
-    
-    <div style="margin-bottom: 2rem;">
-      <a href="index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; items-center; gap: 0.5rem;">
-        &larr; Back to Catalog & Overview
-      </a>
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em;">
-        Privacy Policy
-      </h1>
-      <p style="color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); margin-top: 0.5rem;">
-        Last Updated: October 5, 2026
-      </p>
-    </div>
-
-    <article class="legal-card">
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          1. Who We Are
-        </h2>
-        <p>
-          This policy explains what personal data HLP Data ("we", "us") handles when you visit <a href="https://hlpdata.com" style="color: var(--accent-emerald-light);">hlpdata.com</a>, buy a dataset, or write to us. For any privacy question or request, email <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>.
-        </p>
-      </section>
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          2. Operator
-        </h2>
-        <p>
-          This website and the HLP Data shop are operated by:
-        </p>
-        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
-          Lê Phước Hưng (trading as HLP Data)<br>
-          Gate 5, Etown, 24 Ap Bac Street, Ward 13, Tan Binh District, Ho Chi Minh City, Vietnam<br>
-          Email: <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>
-        </p>
-        <p style="margin-top: 0.5rem;">
-          More about the business is on our <a href="about.html" style="color: var(--accent-emerald-light);">About page</a>.
-        </p>
-      </section>
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          3. Website Analytics (Umami, no cookies)
-        </h2>
-        <p>
-          We use <a href="https://umami.is" target="_blank" rel="noopener" style="color: var(--accent-emerald-light);">Umami Cloud</a>, a privacy-friendly analytics service, to see how the site is used. Umami does not set cookies.
-        </p>
-        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
-          <li><strong>What is collected:</strong> aggregate page views (which page, the referring site, browser, device type and country) and anonymous events: clicks on buy buttons, sample file downloads and email links. No form content or email address is sent.</li>
-          <li><strong>What is not done:</strong> no personal profiles, no tracking across other websites, and no advertising or ad targeting.</li>
-          <li><strong>IP addresses:</strong> your IP address is not stored by us. Umami&rsquo;s own handling is described in the <a href="https://umami.is/privacy" target="_blank" rel="noopener" style="color: var(--accent-emerald-light);">Umami privacy policy</a>.</li>
-          <li><strong>How to opt out:</strong> use a content blocker that blocks <code>cloud.umami.is</code>. The site works the same without analytics.</li>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="datasets/index.html" data-nav="datasets">Datasets</a></li>
+          <li><a href="api.html" data-nav="api">API</a></li>
+          <li><a href="about.html" data-nav="about">About</a></li>
+          <li><a class="btn btn-primary" href="custom-data.html" data-nav="custom">Request custom data</a></li>
         </ul>
-      </section>
+      </div>
+    </nav>
+  </header>
+  <!-- /site:header -->
 
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          4. Preferences Stored in Your Browser
-        </h2>
-        <p>
-          Your theme (light/dark) and language choice are saved in your browser&rsquo;s local storage (<code>hlp_theme</code>, <code>hlp_lang</code>). They stay on your device and are not sent to us. If you have not picked a language, the site uses your browser&rsquo;s language setting; it does not look up your IP address or location to choose one.
-        </p>
-      </section>
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Privacy</li>
+      </ol>
+    </nav>
+    <div class="container">
+      <header class="page-head">
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated October 5, 2026</p>
+        <nav class="toc" aria-label="On this page">
+          <h2>On this page</h2>
+          <ol>
+          <li><a href="#who-we-are">Who We Are</a></li>
+          <li><a href="#operator">Operator</a></li>
+          <li><a href="#website-analytics-umami-no-cookies">Website Analytics (Umami, no cookies)</a></li>
+          <li><a href="#nothing-stored-in-your-browser">Nothing Stored in Your Browser</a></li>
+          <li><a href="#purchases-payhip-paypal-stripe">Purchases (Payhip, PayPal, Stripe)</a></li>
+          <li><a href="#emails-and-custom-data-requests">Emails and Custom Data Requests</a></li>
+          <li><a href="#hosting-and-third-party-resources">Hosting and Third-Party Resources</a></li>
+          <li><a href="#your-rights-and-contact">Your Rights and Contact</a></li>
+          </ol>
+        </nav>
+      </header>
+      <article class="prose">
+    <section>
+    <h2 id="who-we-are">1. Who We Are</h2>
+    <p>
+    This policy explains what personal data HLP Data ("we", "us") handles when you visit <a href="https://hlpdata.com">hlpdata.com</a>, buy a dataset, or write to us. For any privacy question or request, email <a href="mailto:privacy@hlpdata.com">privacy@hlpdata.com</a>.
+    </p>
+    </section>
 
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          5. Purchases (Payhip, PayPal, Stripe)
-        </h2>
-        <p>
-          Dataset purchases are processed by Payhip, which takes card and PayPal payments through PayPal or Stripe. On some pages the Payhip checkout opens on top of our page using Payhip&rsquo;s script; Payhip&rsquo;s own privacy policy applies to the checkout. We never see your full card details. Payhip shares with us the order details needed to deliver and support your purchase, such as your name, email address, the product bought and the amount paid.
-        </p>
-      </section>
+    <section>
+    <h2 id="operator">2. Operator</h2>
+    <p>
+    This website and the HLP Data shop are operated by:
+    </p>
+    <p class="address">
+    Lê Phước Hưng (trading as HLP Data)<br>
+    Gate 5, Etown, 24 Ap Bac Street, Ward 13, Tan Binh District, Ho Chi Minh City, Vietnam<br>
+    Email: <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+    </p>
+    <p>
+    More about the business is on our <a href="about.html">About page</a>.
+    </p>
+    </section>
 
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          6. Emails and Custom Data Requests
-        </h2>
-        <p>
-          When you email <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a> or <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>, we use your name, email address and the content of your message to answer your request, prepare quotes, deliver data and issue invoices. The custom data form on this site does not send anything to a server: it prepares an email in your own email app, and nothing is sent until you send that email.
-        </p>
-        <p style="margin-top: 0.5rem;">
-          We do not sell, rent or trade your contact details.
-        </p>
-      </section>
+    <section>
+    <h2 id="website-analytics-umami-no-cookies">3. Website Analytics (Umami, no cookies)</h2>
+    <p>
+    We use <a href="https://umami.is" target="_blank" rel="noopener">Umami Cloud</a>, a privacy-friendly analytics service, to see how the site is used. Umami does not set cookies.
+    </p>
+    <ul>
+    <li><strong>What is collected:</strong> aggregate page views (which page, the referring site, browser, device type and country) and anonymous events: clicks on buy buttons, sample file downloads and email links. No form content or email address is sent.</li>
+    <li><strong>What is not done:</strong> no personal profiles, no tracking across other websites, and no advertising or ad targeting.</li>
+    <li><strong>IP addresses:</strong> your IP address is not stored by us. Umami&rsquo;s own handling is described in the <a href="https://umami.is/privacy" target="_blank" rel="noopener">Umami privacy policy</a>.</li>
+    <li><strong>How to opt out:</strong> use a content blocker that blocks <code>cloud.umami.is</code>. The site works the same without analytics.</li>
+    </ul>
+    </section>
 
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          7. Hosting and Third-Party Resources
-        </h2>
-        <p>
-          The site is hosted on GitHub Pages, which may log visitor IP addresses for security purposes. Pages also load the Umami analytics script from <code>cloud.umami.is</code>, fonts from Google Fonts, icons from cdnjs (Cloudflare) and, on the home page, a chart library from jsDelivr; these providers receive your IP address when your browser fetches those files.
-        </p>
-      </section>
+    <section>
+    <h2 id="nothing-stored-in-your-browser">4. Nothing Stored in Your Browser</h2>
+    <p>
+    This site sets no cookies of its own and writes nothing to your browser&rsquo;s storage. Light or dark display follows your device setting. Earlier versions of the site saved a theme and language choice in local storage (<code>hlp_theme</code>, <code>hlp_lang</code>); those keys are no longer read or written, and you can remove them by clearing site data in your browser. The site never looks up your IP address or location.
+    </p>
+    </section>
 
-      <section>
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          8. Your Rights and Contact
-        </h2>
-        <p>
-          You can ask us to access, correct or delete the personal data we hold about you (for example, your emails and order records), subject to records we must keep for accounting purposes. Analytics data is aggregate and anonymous, so it cannot be linked back to you. Send requests to:
-        </p>
-        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
-          Email: <a href="mailto:privacy@hlpdata.com" style="color: var(--accent-emerald-light);">privacy@hlpdata.com</a>
-        </p>
-      </section>
+    <section>
+    <h2 id="purchases-payhip-paypal-stripe">5. Purchases (Payhip, PayPal, Stripe)</h2>
+    <p>
+    Dataset purchases are processed by Payhip, which takes card and PayPal payments through PayPal or Stripe. On some pages the Payhip checkout opens on top of our page using Payhip&rsquo;s script; Payhip&rsquo;s own privacy policy applies to the checkout. We never see your full card details. Payhip shares with us the order details needed to deliver and support your purchase, such as your name, email address, the product bought and the amount paid.
+    </p>
+    </section>
 
-    </article>
+    <section>
+    <h2 id="emails-and-custom-data-requests">6. Emails and Custom Data Requests</h2>
+    <p>
+    When you email <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a> or <a href="mailto:privacy@hlpdata.com">privacy@hlpdata.com</a>, we use your name, email address and the content of your message to answer your request, prepare quotes, deliver data and issue invoices. The custom data form on this site does not send anything to a server: it prepares an email in your own email app, and nothing is sent until you send that email.
+    </p>
+    <p>
+    We do not sell, rent or trade your contact details.
+    </p>
+    </section>
 
+    <section>
+    <h2 id="hosting-and-third-party-resources">7. Hosting and Third-Party Resources</h2>
+    <p>
+    The site is hosted on GitHub Pages, which may log visitor IP addresses for security purposes. Pages also load the Umami analytics script from <code>cloud.umami.is</code>, fonts from Google Fonts, icons from unpkg and, on pages with a buy button, the Payhip checkout script from <code>payhip.com</code>; these providers receive your IP address when your browser fetches those files.
+    </p>
+    </section>
+
+    <section>
+    <h2 id="your-rights-and-contact">8. Your Rights and Contact</h2>
+    <p>
+    You can ask us to access, correct or delete the personal data we hold about you (for example, your emails and order records), subject to records we must keep for accounting purposes. Analytics data is aggregate and anonymous, so it cannot be linked back to you. Send requests to:
+    </p>
+    <p>
+    Email: <a href="mailto:privacy@hlpdata.com">privacy@hlpdata.com</a>
+    </p>
+    </section>
+
+
+      </article>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><img src="favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="terms.html">Terms & Compliance</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="datasets/index.html">Datasets</a></li>
+          <li><a href="custom-data.html">Custom data</a></li>
+          <li><a href="api.html">API</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>

@@ -2,164 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About HLP Data</title>
   <meta name="description" content="Who operates HLP Data, what we sell (dataset snapshots, official-statistics data packs, custom data feeds) and how buying works.">
   <link rel="canonical" href="https://hlpdata.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hlpdata.com/about.html">
+  <meta property="og:site_name" content="HLP Data">
+  <meta property="og:title" content="About HLP Data">
+  <meta property="og:description" content="Who operates HLP Data, what we sell (dataset snapshots, official-statistics data packs, custom data feeds) and how buying works.">
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <!-- site:assets -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=20261005b">
-
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="script.js?v=20261005c"></script>
+  <!-- /site:assets -->
 </head>
-<body>
-
-  <!-- Floating Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html#datasets" class="nav-link">Datasets</a>
-        <a href="index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="https://explore.hlpdata.com" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent); font-weight: 700;"><i class="fa-solid fa-bolt" style="font-size: 0.8rem; margin-right: 4px;"></i><span>Live Explorer</span></a>
-        <a href="index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="custom-data.html" class="nav-link">Custom Data</a>
-        <a href="api.html" class="nav-link">API</a>
-        <a href="about.html" class="nav-link active" style="color: var(--accent-emerald-light);">About</a>
+<body data-nav="about">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><img src="favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="datasets/index.html" data-nav="datasets">Datasets</a>
+        <a href="api.html" data-nav="api">API</a>
+        <a href="about.html" data-nav="about" aria-current="page">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-
-        <a href="custom-data.html" class="btn-sm btn-primary">
-          <i class="fa-regular fa-paper-plane"></i> Request Custom Feed
-        </a>
+      <a class="btn btn-primary btn-sm header-cta" href="custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="datasets/index.html" data-nav="datasets">Datasets</a></li>
+          <li><a href="api.html" data-nav="api">API</a></li>
+          <li><a href="about.html" data-nav="about" aria-current="page">About</a></li>
+          <li><a class="btn btn-primary" href="custom-data.html" data-nav="custom">Request custom data</a></li>
+        </ul>
       </div>
-    </div>
+    </nav>
   </header>
+  <!-- /site:header -->
 
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 860px; margin: 0 auto;">
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+    <div class="container">
+      <header class="page-head">
+        <h1>About HLP Data</h1>
+        <p class="updated">Last updated October 5, 2026</p>
+      </header>
+      <article class="prose">
+    <section>
+    <h2 id="who-operates-hlp-data">Who Operates HLP Data</h2>
+    <p>
+    HLP Data is the trading name of an independent data business run by its owner. The website hlpdata.com and its shop are operated by:
+    </p>
+    <p class="address">
+    Lê Phước Hưng (trading as HLP Data)<br>
+    Gate 5, Etown, 24 Ap Bac Street, Ward 13, Tan Binh District, Ho Chi Minh City, Vietnam<br>
+    Email: <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+    </p>
+    </section>
 
-    <div style="margin-bottom: 2rem;">
-      <a href="index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-        &larr; Back to Catalog & Overview
-      </a>
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em;">
-        About HLP Data
-      </h1>
-      <p style="color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); margin-top: 0.5rem;">
-        Last Updated: October 5, 2026
-      </p>
+    <section>
+    <h2 id="what-we-sell">What We Sell</h2>
+    <ul>
+    <li><strong>Dated dataset snapshots:</strong> structured files compiled from public web pages, each tied to the date it was collected. See the <a href="datasets/index.html">dataset catalog</a>.</li>
+    <li><strong>Official-statistics data packs:</strong> ready-to-use files built from open official statistics, shipped with the source credits their licences require.</li>
+    <li><strong>Custom data feeds on request:</strong> a scope, format and refresh schedule agreed in writing for your use case. See <a href="custom-data.html">Custom Data</a>.</li>
+    </ul>
+    <p>
+    Each product page states what the file contains, its date and which licence applies. The licence types are explained in our <a href="terms.html">Terms</a>.
+    </p>
+    </section>
+
+    <section>
+    <h2 id="how-buying-works">How Buying Works</h2>
+    <ul>
+    <li><strong>Checkout:</strong> purchases go through Payhip&rsquo;s secure checkout (card or PayPal).</li>
+    <li><strong>Delivery:</strong> the download is available instantly after payment.</li>
+    <li><strong>Invoices:</strong> available on request; email <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a> with your order details and billing information.</li>
+    <li><strong>Refunds:</strong> handled as described in the <a href="terms.html">Terms</a>.</li>
+    </ul>
+    <p>
+    How we handle personal data is described in the <a href="privacy.html">Privacy Policy</a>.
+    </p>
+    </section>
+
+    <section>
+    <h2 id="contact">Contact</h2>
+    <p>
+    For questions about a dataset, a quote for a custom feed, or an invoice, write to:
+    </p>
+    <p>
+    Email: <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+    </p>
+    </section>
+
+
+      </article>
     </div>
-
-    <article class="legal-card">
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          Who Operates HLP Data
-        </h2>
-        <p>
-          HLP Data is the trading name of an independent data business run by its owner. The website hlpdata.com and its shop are operated by:
-        </p>
-        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
-          Lê Phước Hưng (trading as HLP Data)<br>
-          Gate 5, Etown, 24 Ap Bac Street, Ward 13, Tan Binh District, Ho Chi Minh City, Vietnam<br>
-          Email: <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>
-        </p>
-      </section>
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          What We Sell
-        </h2>
-        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
-          <li><strong>Dated dataset snapshots:</strong> structured files compiled from public web pages, each tied to the date it was collected. See the <a href="datasets/index.html" style="color: var(--accent-emerald-light);">dataset catalog</a>.</li>
-          <li><strong>Official-statistics data packs:</strong> ready-to-use files built from open official statistics, shipped with the source credits their licences require.</li>
-          <li><strong>Custom data feeds on request:</strong> a scope, format and refresh schedule agreed in writing for your use case. See <a href="custom-data.html" style="color: var(--accent-emerald-light);">Custom Data</a>.</li>
-        </ul>
-        <p style="margin-top: 0.5rem;">
-          Each product page states what the file contains, its date and which licence applies. The licence types are explained in our <a href="terms.html" style="color: var(--accent-emerald-light);">Terms</a>.
-        </p>
-      </section>
-
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          How Buying Works
-        </h2>
-        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
-          <li><strong>Checkout:</strong> purchases go through Payhip&rsquo;s secure checkout (card or PayPal).</li>
-          <li><strong>Delivery:</strong> the download is available instantly after payment.</li>
-          <li><strong>Invoices:</strong> available on request; email <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a> with your order details and billing information.</li>
-          <li><strong>Refunds:</strong> handled as described in the <a href="terms.html" style="color: var(--accent-emerald-light);">Terms</a>.</li>
-        </ul>
-        <p style="margin-top: 0.5rem;">
-          How we handle personal data is described in the <a href="privacy.html" style="color: var(--accent-emerald-light);">Privacy Policy</a>.
-        </p>
-      </section>
-
-      <section>
-        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
-          Contact
-        </h2>
-        <p>
-          For questions about a dataset, a quote for a custom feed, or an invoice, write to:
-        </p>
-        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
-          Email: <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>
-        </p>
-      </section>
-
-    </article>
-
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><img src="favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="terms.html">Terms & Compliance</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="datasets/index.html">Datasets</a></li>
+          <li><a href="custom-data.html">Custom data</a></li>
+          <li><a href="api.html">API</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>

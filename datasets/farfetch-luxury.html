@@ -2,36 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farfetch Luxury Handbag Catalog — HLP Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farfetch Luxury Handbag Catalog | HLP Data</title>
   <meta name="description" content="960 verified luxury designer handbag listings across 125 brands. 35-attribute FASHION-PDP schema with retail prices, designer codes, and taxonomy.">
   <link rel="canonical" href="https://hlpdata.com/datasets/farfetch-luxury.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-
-  <!-- OpenGraph / Social Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/farfetch-luxury.html">
   <meta property="og:site_name" content="HLP Data">
-  <meta property="og:title" content="Farfetch Luxury Handbag Catalog — HLP Data">
+  <meta property="og:title" content="Farfetch Luxury Handbag Catalog | HLP Data">
   <meta property="og:description" content="Structured luxury designer handbag catalog: 960 verified listings across 125 brands and 35 standardized PDP attributes.">
-  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
-
-  <!-- Schema.org Dataset Graph -->
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,229 +48,187 @@
     ]
   }
   </script>
-
-  <!-- Fonts & Icons -->
+  <!-- site:assets -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=20261005b">
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="../style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="../script.js?v=20261005c"></script>
+  <!-- /site:assets -->
 </head>
-<body>
-
-  <!-- Floating Minimal Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="../index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
-        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="../custom-data.html" class="nav-link">Custom Data</a>
-        <a href="../api.html" class="nav-link">API</a>
-        <a href="../about.html" class="nav-link">About</a>
+<body data-nav="datasets">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a>
+        <a href="../api.html" data-nav="api">API</a>
+        <a href="../about.html" data-nav="about">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-
-        <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Farfetch%20Luxury%20Dataset" class="btn-sm btn-primary">
-          <i class="fa-regular fa-envelope"></i> Request Pricing
-        </a>
-      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="../custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a></li>
+          <li><a href="../api.html" data-nav="api">API</a></li>
+          <li><a href="../about.html" data-nav="about">About</a></li>
+          <li><a class="btn btn-primary" href="../custom-data.html" data-nav="custom">Request custom data</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
+  <!-- /site:header -->
 
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
-    
-    <!-- Breadcrumb -->
-    <div style="margin-bottom: 1.5rem;">
-      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Farfetch Luxury</span>
-    </div>
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">Datasets</a></li>
+        <li aria-current="page">Farfetch</li>
+      </ol>
+    </nav>
 
-    <!-- Header Section -->
-    <div style="margin-bottom: 2.5rem;">
-      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="badge-tag">E-Commerce &bull; Luxury Fashion</span>
-        <span class="badge-status approved">Snapshot 2026-09-21</span>
-        <span class="badge-tag">FASHION-PDP (35 Attributes)</span>
-      </div>
-      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
-        Farfetch Luxury Handbag Catalog
-      </h1>
-      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
-        A targeted luxury fashion product dataset from Farfetch.com covering 960 women&rsquo;s handbag listings across 125 world-renowned designer brands (including Jacquemus, Valentino Garavani, Saint Laurent, Gucci, and Prada). Standardized with exact checkout prices in USD, designer style codes, SKU identifiers, and editorial descriptions.
-      </p>
-    </div>
-
-    <!-- Key Metrics Grid -->
-    <div class="auto-grid" style="margin-bottom: 2.5rem;">
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total Products</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">960</div>
-        <div style="font-size: 0.75rem; color: var(--accent-emerald-light); margin-top: 0.25rem;">Zero duplicate SKUs</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Brand Diversity</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">125 Brands</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Tier-1 luxury fashion</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Pricing Statistics</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">$465.00</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Median USD checkout price</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Collected</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">2026-09-21</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">One-off snapshot; refresh on request (custom feed)</div>
-      </div>
-    </div>
-
-    <!-- Action Bar -->
-    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
-      <a href="../samples/farfetch_luxury_fashion_sample.csv" download class="btn btn-secondary">
-        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
-      </a>
-      <a href="mailto:sales@hlpdata.com?subject=[License%20Inquiry]%20Farfetch%20Luxury%20Catalog" class="btn btn-primary">
-        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Request Pricing & Feed Licensing
-      </a>
-      <a href="../custom-data.html" class="btn btn-ghost">
-        Request Additional Luxury Categories
-      </a>
-    </div>
-
-    <!-- Data Schema Table -->
-    <section style="margin-bottom: 3rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Schema Specification (35 Columns)</h2>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
-        Standardized according to FASHION-PDP specification with verified SKU attribution and automated catalog audits.
-      </p>
-
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
-        <table class="modal-table" style="width: 100%;">
-          <thead>
-            <tr>
-              <th>Field Name</th>
-              <th>Data Type</th>
-              <th>Measured fill rate</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>website_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>farfetch.com</td></tr>
-            <tr><td><strong>competence_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Collection timestamp (YYYY-MM-DD)</td></tr>
-            <tr><td><strong>country_code</strong></td><td><span class="badge-tag">ISO 3166-1</span></td><td><span class="text-emerald font-mono">100%</span></td><td>USA / destination market</td></tr>
-            <tr><td><strong>currency_code</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>USD</td></tr>
-            <tr><td><strong>brand</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>125 designer brands (Jacquemus, Valentino, Saint Laurent...)</td></tr>
-            <tr><td><strong>product_title</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Official product model title</td></tr>
-            <tr><td><strong>product_code</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Farfetch internal catalog product identifier</td></tr>
-            <tr><td><strong>sku</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Farfetch internal catalog SKU — 100% unique</td></tr>
-            <tr><td><strong>category1</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Women&rdquo; across all 960 records — department classification</td></tr>
-            <tr><td><strong>category2</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Bags (50.0%) and second category classification</td></tr>
-            <tr><td><strong>category3</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Granular subcategory (Shoulder Bags, Tote Bags...)</td></tr>
-            <tr><td><strong>gender</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Female&rdquo; across all 960 records — target audience</td></tr>
-            <tr><td><strong>color</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Multi/Neutral&rdquo; across all 960 records — not a per-item attribute</td></tr>
-            <tr><td><strong>size</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;OS&rdquo; (One Size) across all 960 records — not a per-item attribute</td></tr>
-            <tr><td><strong>full_price</strong></td><td><span class="badge-tag">Float ($)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Original suggested retail price in USD</td></tr>
-            <tr><td><strong>price</strong></td><td><span class="badge-tag">Float ($)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Current checkout price in USD</td></tr>
-            <tr><td><strong>currency</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>USD</td></tr>
-            <tr><td><strong>discount_pct</strong></td><td><span class="badge-tag">Integer (%)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant 0 — this snapshot contains no marked-down items</td></tr>
-            <tr><td><strong>in_stock</strong></td><td><span class="badge-tag">Boolean</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant true across all 960 records</td></tr>
-            <tr><td><strong>composition</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Calf Leather / Premium Fabric&rdquo; across all 960 records</td></tr>
-            <tr><td><strong>made_in</strong></td><td><span class="badge-tag">Country</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Italy&rdquo; across all 960 records — not a per-item attribute</td></tr>
-            <tr><td><strong>season</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;FW26&rdquo; across all 960 records</td></tr>
-            <tr><td><strong>care_instructions</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Specialist Leather Clean&rdquo; across all 960 records</td></tr>
-            <tr><td><strong>description</strong></td><td><span class="badge-tag">Text</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Product editorial description and styling notes</td></tr>
-            <tr><td><strong>itemurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Canonical Farfetch product detail URL</td></tr>
-            <tr><td><strong>imageurl1</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Primary high-res product photo</td></tr>
-            <tr><td><strong>imageurl2</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Secondary angle / styling photo</td></tr>
-            <tr><td><strong>imageurl3</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>imageurl4</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>imageurl5</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>designer_style_id</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Designer brand style code</td></tr>
-            <tr><td><strong>model_measurements</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>supplier_color</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Constant &ldquo;Neutral&rdquo; across all 960 records — not a per-item attribute</td></tr>
-            <tr><td><strong>breadcrumbs</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Navigation taxonomy path</td></tr>
-            <tr><td><strong>raw_html_url</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Transparent Caveats -->
-    <div class="modal-notes" style="margin-bottom: 3rem;">
-      <h4>Data notes &amp; known caveats</h4>
-      <ul>
-        <li>This snapshot covers women&rsquo;s handbags only (category2 has two values, Bags at 50%). It is not an all-category fashion catalogue.</li>
-        <li>Eleven schema columns carry a single constant value across all 960 records (composition, made_in, season, care_instructions, color, size, gender, supplier_color, discount_pct, in_stock, category1). They are flagged in the table and should not be used as variables.</li>
-        <li>Five columns are empty: imageurl3, imageurl4, imageurl5, model_measurements, raw_html_url. They remain in the file to keep the 35-column FASHION-PDP contract intact.</li>
-        <li>100% public luxury e-commerce catalog data. Zero consumer or personal data.</li>
-      </ul>
-    </div>
-
-    <!-- Commercial License & Delivery -->
-    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Commercial Licensing & Delivery Options</h3>
-      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-        Available for luxury market intelligence analysts, hedge funds tracking luxury retail momentum, brand pricing strategists, and resale platforms.
-      </p>
-      <div class="auto-grid" style="margin-bottom: 1.5rem;">
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Recurring Feed (custom)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</p>
+    <div class="container product">
+      <header class="product-head page-head">
+        <p class="kicker"><span>Luxury retail</span><span>Global</span><span>Snapshot 2026-09-21</span><span>FASHION-PDP schema</span></p>
+        <h1>Farfetch Luxury Handbag Catalog</h1>
+        <p class="lead">A targeted luxury fashion product dataset from Farfetch.com covering 960 women&rsquo;s handbag listings across 125 world-renowned designer brands (including Jacquemus, Valentino Garavani, Saint Laurent, Gucci, and Prada). Standardized with exact checkout prices in USD, designer style codes, SKU identifiers, and editorial descriptions.</p>
+        <div class="metrics">
+          <div class="metric"><span class="label">Total products</span><span class="value">960</span><span class="sub">Zero duplicate SKUs</span></div>
+          <div class="metric"><span class="label">Brand diversity</span><span class="value">125 Brands</span><span class="sub">Tier-1 luxury fashion</span></div>
+          <div class="metric"><span class="label">Pricing statistics</span><span class="value">$465.00</span><span class="sub">Median USD checkout price</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-21</span><span class="sub">One-off snapshot; refresh on request (custom feed)</span></div>
         </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">API Access (on request)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Programmatic access can be set up together with a custom feed. Ask us.</p>
-        </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Catalog Snapshot</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time snapshot delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
-        </div>
-      </div>
-      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Farfetch%20Luxury%20Dataset%20Pricing" class="btn btn-primary">
-        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Pricing & Sample License
-      </a>
-    </section>
+      </header>
 
+      <aside class="buy-panel" aria-label="Buy this dataset">
+        <p class="price"><span class="amount">On request</span></p>
+        <p class="price-note">Price and licence are quoted by email.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-block" href="mailto:sales@hlpdata.com?subject=Farfetch%20Luxury%20Handbag%20Catalog">Ask for pricing</a>
+          <a class="btn btn-secondary btn-block" href="../samples/farfetch_luxury_fashion_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
+        </div>
+        <ul class="includes">
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>960 rows, 35 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-21, one-off snapshot</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Delivered by download link once agreed</span></li>
+        </ul>
+        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com?subject=Farfetch%20dataset">sales@hlpdata.com</a></p>
+      </aside>
+
+      <section class="block" id="sample" aria-labelledby="sample-title">
+        <h2 id="sample-title">Sample rows</h2>
+        <p class="block-desc">Real rows from the free sample file, which has the same columns and encoding as the full snapshot.</p>
+        <div class="table-scroll" data-sample-src="../samples/farfetch_luxury_fashion_sample.csv" data-columns="brand,product_title,sku,category3,full_price,price,designer_style_id" data-rows="8">
+          <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/farfetch_luxury_fashion_sample.csv" download>download the CSV</a>.</p>
+        </div>
+      </section>
+
+      <section class="block" id="schema" aria-labelledby="schema-title">
+        <h2 id="schema-title">Schema and fill rates</h2>
+        <p class="block-desc">35 columns in the FASHION-PDP layout. Fill rate is the share of rows that carry a value, measured on the delivered file.</p>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Fill rate</th><th scope="col">Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>farfetch.com</td></tr>
+              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection timestamp (YYYY-MM-DD)</td></tr>
+              <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>USA / destination market</td></tr>
+              <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>USD</td></tr>
+              <tr><td class="field">brand</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>125 designer brands (Jacquemus, Valentino, Saint Laurent...)</td></tr>
+              <tr><td class="field">product_title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Official product model title</td></tr>
+              <tr><td class="field">product_code</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Farfetch internal catalog product identifier</td></tr>
+              <tr><td class="field">sku</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Farfetch internal catalog SKU, 100% unique</td></tr>
+              <tr><td class="field">category1</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Women&rdquo; across all 960 records, department classification</td></tr>
+              <tr><td class="field">category2</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Bags (50.0%) and second category classification</td></tr>
+              <tr><td class="field">category3</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Granular subcategory (Shoulder Bags, Tote Bags...)</td></tr>
+              <tr><td class="field">gender</td><td class="type">Enum</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Female&rdquo; across all 960 records, target audience</td></tr>
+              <tr><td class="field">color</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Multi/Neutral&rdquo; across all 960 records, not a per-item attribute</td></tr>
+              <tr><td class="field">size</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;OS&rdquo; (One Size) across all 960 records, not a per-item attribute</td></tr>
+              <tr><td class="field">full_price</td><td class="type">Float ($)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Original suggested retail price in USD</td></tr>
+              <tr><td class="field">price</td><td class="type">Float ($)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Current checkout price in USD</td></tr>
+              <tr><td class="field">currency</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>USD</td></tr>
+              <tr><td class="field">discount_pct</td><td class="type">Integer (%)</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant 0: this snapshot contains no marked-down items</td></tr>
+              <tr><td class="field">in_stock</td><td class="type">Boolean</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant true across all 960 records</td></tr>
+              <tr><td class="field">composition</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Calf Leather / Premium Fabric&rdquo; across all 960 records</td></tr>
+              <tr><td class="field">made_in</td><td class="type">Country</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Italy&rdquo; across all 960 records, not a per-item attribute</td></tr>
+              <tr><td class="field">season</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;FW26&rdquo; across all 960 records</td></tr>
+              <tr><td class="field">care_instructions</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Specialist Leather Clean&rdquo; across all 960 records</td></tr>
+              <tr><td class="field">description</td><td class="type">Text</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Product editorial description and styling notes</td></tr>
+              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical Farfetch product detail URL</td></tr>
+              <tr><td class="field">imageurl1</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Primary high-res product photo</td></tr>
+              <tr><td class="field">imageurl2</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Secondary angle / styling photo</td></tr>
+              <tr><td class="field">imageurl3</td><td class="type">URL</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">imageurl4</td><td class="type">URL</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">imageurl5</td><td class="type">URL</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">designer_style_id</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Designer brand style code</td></tr>
+              <tr><td class="field">model_measurements</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">supplier_color</td><td class="type">String</td><td><div class="fill is-constant" title="One value repeated in every row; not usable as a variable"><span class="fill-value">100%, 1 value</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Constant &ldquo;Neutral&rdquo; across all 960 records, not a per-item attribute</td></tr>
+              <tr><td class="field">breadcrumbs</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Navigation taxonomy path</td></tr>
+              <tr><td class="field">raw_html_url</td><td class="type">URL</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block" id="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">Known limits</h2>
+        <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
+        <ul class="limits">
+          <li>This snapshot covers women&rsquo;s handbags only (category2 has two values, Bags at 50%). It is not an all-category fashion catalogue.</li>
+          <li>Eleven schema columns carry a single constant value across all 960 records (composition, made_in, season, care_instructions, color, size, gender, supplier_color, discount_pct, in_stock, category1). They are flagged in the table and should not be used as variables.</li>
+          <li>Five columns are empty: imageurl3, imageurl4, imageurl5, model_measurements, raw_html_url. They remain in the file to keep the 35-column FASHION-PDP contract intact.</li>
+          <li>100% public luxury e-commerce catalog data. Zero consumer or personal data.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="licence" aria-labelledby="licence-title">
+        <h2 id="licence-title">Licence and delivery</h2>
+        <p class="block-desc">Available for luxury market intelligence analysts, hedge funds tracking luxury retail momentum, brand pricing strategists, and resale platforms.</p>
+        <dl class="options">
+          <div><dt>Recurring Feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
+          <div><dt>API Access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
+          <div><dt>Catalog Snapshot</dt><dd>One-time snapshot delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</dd></div>
+        </dl>
+        <p class="block-desc"><a class="link-arrow" href="../custom-data.html">Request a custom or recurring feed</a></p>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="index.html">Datasets</a>
-        <a href="../custom-data.html">Custom Data</a>
-        <a href="../api.html">API Docs</a>
-        <a href="../terms.html">Terms & Compliance</a>
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="../datasets/index.html">Datasets</a></li>
+          <li><a href="../custom-data.html">Custom data</a></li>
+          <li><a href="../api.html">API</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="../script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>

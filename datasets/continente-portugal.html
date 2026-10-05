@@ -2,36 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Continente Supermarket FMCG Intelligence Catalog — HLP Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Continente Supermarket FMCG Intelligence Catalog | HLP Data</title>
   <meta name="description" content="11,711 verified supermarket grocery SKUs covering Portuguese retail FMCG. 31-attribute GROCERY-PLP schema with prices, PPU, promotions, and 3-level taxonomy.">
   <link rel="canonical" href="https://hlpdata.com/datasets/continente-portugal.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="theme-color" content="#090d16">
-
-  <!-- Anti-flicker inline theme initializer -->
-  <script>
-    (function() {
-      try {
-        const savedTheme = localStorage.getItem('hlp_theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        if (theme === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch(e) {}
-    })();
-  </script>
-
-  <!-- OpenGraph / Social Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/continente-portugal.html">
   <meta property="og:site_name" content="HLP Data">
-  <meta property="og:title" content="Continente Supermarket FMCG Intelligence Catalog — HLP Data">
+  <meta property="og:title" content="Continente Supermarket FMCG Intelligence Catalog | HLP Data">
   <meta property="og:description" content="Complete grocery catalog crawl of Continente.pt: 11,711 verified SKUs across 31 standardized attributes including unit prices and promotions.">
-  <meta property="og:image" content="https://hlpdata.com/favicon.svg">
-
-  <!-- Schema.org Dataset Graph -->
+  <meta property="og:image" content="https://hlpdata.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,228 +48,184 @@
     ]
   }
   </script>
-
-  <!-- Fonts & Icons -->
+  <!-- site:assets -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=20261005b">
-  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="../style.css?v=20261005c">
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)">
+  <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+  <script defer src="../script.js?v=20261005c"></script>
+  <!-- /site:assets -->
 </head>
-<body>
-
-  <!-- Floating Minimal Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="../index.html" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">hlpdata.com</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html" class="nav-link active" style="color: var(--accent-emerald-light);">Datasets</a>
-        <a href="../index.html#use-cases" class="nav-link">Use Cases</a>
-        <a href="../index.html#analytics" class="nav-link">Intelligence</a>
-        <a href="../index.html#pipeline" class="nav-link">Infrastructure</a>
-        <a href="../custom-data.html" class="nav-link">Custom Data</a>
-        <a href="../api.html" class="nav-link">API</a>
-        <a href="../about.html" class="nav-link">About</a>
+<body data-nav="datasets">
+  <!-- site:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a>
+        <a href="../api.html" data-nav="api">API</a>
+        <a href="../about.html" data-nav="about">About</a>
       </nav>
-
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <i class="fa-regular fa-sun theme-icon-sun"></i>
-          <i class="fa-regular fa-moon theme-icon-moon"></i>
-        </button>
-      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="../custom-data.html" data-nav="custom">Request custom data</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <div class="container">
+        <ul>
+          <li><a href="../datasets/index.html" data-nav="datasets" aria-current="page">Datasets</a></li>
+          <li><a href="../api.html" data-nav="api">API</a></li>
+          <li><a href="../about.html" data-nav="about">About</a></li>
+          <li><a class="btn btn-primary" href="../custom-data.html" data-nav="custom">Request custom data</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
+  <!-- /site:header -->
 
-  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 1080px; margin: 0 auto; padding-bottom: 5rem;">
-    
-    <!-- Breadcrumb -->
-    <div style="margin-bottom: 1.5rem;">
-      <a href="../index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Home</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">Datasets</a>
-      <span style="color: var(--text-muted); margin: 0 0.4rem;">/</span>
-      <span style="color: var(--accent-emerald-light); font-size: 0.85rem; font-family: var(--font-mono);">Continente FMCG</span>
-    </div>
+  <main id="main">
+    <nav class="container breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">Datasets</a></li>
+        <li aria-current="page">Continente</li>
+      </ol>
+    </nav>
 
-    <!-- Header Section -->
-    <div style="margin-bottom: 2.5rem;">
-      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="badge-tag">E-Commerce &bull; FMCG Retail</span>
-        <span class="badge-status approved">Snapshot 2026-09-19</span>
-        <span class="badge-tag">GROCERY-PLP (31 Attributes)</span>
-      </div>
-      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
-        Continente Supermarket FMCG Intelligence Catalog
-      </h1>
-      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 860px;">
-        A comprehensive retail intelligence catalog from Continente.pt: 11,711 verified consumer goods across 10 departmental aisles. Normalized with standard prices, unit prices (€/kg, €/L), promotional mechanics, brand extraction, package descriptions, and 3-tier category hierarchy.
-      </p>
-    </div>
-
-    <!-- Key Metrics Grid -->
-    <div class="auto-grid" style="margin-bottom: 2.5rem;">
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total SKUs</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">11,711</div>
-        <div style="font-size: 0.75rem; color: var(--accent-emerald-light); margin-top: 0.25rem;">Zero duplicate SKUs</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Category Depth</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">3 Tiers</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Aisle, category, subcategory</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Brand Extraction</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">99.0%</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Manufacturer &amp; private label</div>
-      </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Collected</div>
-        <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">2026-09-19</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">One-off snapshot; refresh on request (custom feed)</div>
-      </div>
-    </div>
-
-    <!-- Action Bar -->
-    <div style="display: flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-      <a href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener" class="btn btn-buy">
-        <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download Snapshot ($9.90)
-      </a>
-      <a href="../samples/continente_grocery_plp_sample.csv" download class="btn btn-secondary">
-        <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
-      </a>
-      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset" class="btn btn-ghost">
-        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Ask a question
-      </a>
-      <a href="../custom-data.html" class="btn btn-ghost">
-        Request Custom Category Scope
-      </a>
-    </div>
-    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 3rem;">
-      <i class="fa-solid fa-tag" style="margin-right: 4px;"></i> The price shown is the list price. Code <strong>WELCOME50</strong> is applied on Payhip at checkout (50% off).
-    </p>
-
-    <!-- Data Schema Table -->
-    <section style="margin-bottom: 3rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem;">Schema Specification (31 Columns)</h2>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">
-        Standardized according to GROCERY-PLP specification with measured fill rates.
-      </p>
-
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; overflow-x: auto;">
-        <table class="modal-table" style="width: 100%;">
-          <thead>
-            <tr>
-              <th>Field Name</th>
-              <th>Data Type</th>
-              <th>Measured fill rate</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>website_name</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>continente.pt</td></tr>
-            <tr><td><strong>competence_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Daily execution timestamp</td></tr>
-            <tr><td><strong>country_code</strong></td><td><span class="badge-tag">ISO 3166-1</span></td><td><span class="text-emerald font-mono">100%</span></td><td>PRT</td></tr>
-            <tr><td><strong>currency_code</strong></td><td><span class="badge-tag">ISO 4217</span></td><td><span class="text-emerald font-mono">100%</span></td><td>EUR</td></tr>
-            <tr><td><strong>store_id</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>product_code</strong></td><td><span class="badge-tag">String / ID</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Internal SKU identifier</td></tr>
-            <tr><td><strong>product_std_code</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>std_type</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>brand</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">99.0%</span></td><td>Manufacturer brand or private label</td></tr>
-            <tr><td><strong>product_title</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Normalized product name</td></tr>
-            <tr><td><strong>category1</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">99.9%</span></td><td>Tier 1 Department (Frescos, Mercearia, Bebidas...)</td></tr>
-            <tr><td><strong>category2</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">93.3%</span></td><td>Tier 2 Category aisle</td></tr>
-            <tr><td><strong>category3</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">87.4%</span></td><td>Tier 3 Granular sub-category</td></tr>
-            <tr><td><strong>category4</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">5.2%</span></td><td>Tier 4 Specific category classification</td></tr>
-            <tr><td><strong>category5</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">2.1%</span></td><td>Tier 5 Granular category classification</td></tr>
-            <tr><td><strong>category6</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>category7</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>category8</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>category9</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>category10</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>package_desc</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">97.6%</span></td><td>Net package volume / weight</td></tr>
-            <tr><td><strong>full_price</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Standard non-discounted catalog price</td></tr>
-            <tr><td><strong>price</strong></td><td><span class="badge-tag">Float (€)</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Effective transactional price</td></tr>
-            <tr><td><strong>ppu</strong></td><td><span class="badge-tag">Float (€/unit)</span></td><td><span class="text-emerald font-mono">82.2%</span></td><td>Normalized unit price (€/kg, €/L)</td></tr>
-            <tr><td><strong>unit_type</strong></td><td><span class="badge-tag">Enum</span></td><td><span class="text-emerald font-mono">82.2%</span></td><td>kg | L | un | dose</td></tr>
-            <tr><td><strong>promotion_type</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">31.4%</span></td><td>Promotion indicator (e.g. -10%, PVPR -20%, Leve 2 Pague 1)</td></tr>
-            <tr><td><strong>promotion_end_date</strong></td><td><span class="badge-tag">ISO Date</span></td><td><span class="text-muted font-mono">—</span></td><td>Not published by the source; column preserved, values empty</td></tr>
-            <tr><td><strong>additional_tags</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">4.6%</span></td><td>Product tags and seasonal campaign flags (e.g. Bio, Sem Lactose)</td></tr>
-            <tr><td><strong>additional_content</strong></td><td><span class="badge-tag">String</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Availability indicator (Disponível)</td></tr>
-            <tr><td><strong>itemurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>Canonical e-commerce product URL</td></tr>
-            <tr><td><strong>imageurl</strong></td><td><span class="badge-tag">URL</span></td><td><span class="text-emerald font-mono">100%</span></td><td>High-res CDN product image link</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Transparent Caveats -->
-    <div class="modal-notes" style="margin-bottom: 3rem;">
-      <h4>Data notes &amp; known caveats</h4>
-      <ul>
-        <li>Standard supermarket retail catalog feed formatted according to GROCERY-PLP schema contract (31 fields).</li>
-        <li>Six optional taxonomy levels (category6 through category10) and store_id/product_std_code arrive empty as they are not exposed by the portal interface.</li>
-        <li>Price per unit (PPU) is captured for 82.2% of SKUs where measurable units (weight, volume, doses) apply. Items sold strictly by individual count without weight information leave PPU blank.</li>
-        <li>Promotional mechanics represent active shelf tags at the moment of catalog collection.</li>
-        <li>100% public retail catalog intelligence. Zero consumer or personal data.</li>
-      </ul>
-    </div>
-
-    <!-- Commercial License & Delivery -->
-    <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem;">
-      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Commercial Licensing & Delivery Options</h3>
-      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-        Available for retail analytics teams, consumer brand pricing managers, FMCG market researchers, and competitive intelligence systems.
-      </p>
-      <div class="auto-grid" style="margin-bottom: 1.5rem;">
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Recurring Feed (custom)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</p>
+    <div class="container product">
+      <header class="product-head page-head">
+        <p class="kicker"><span>Retail and FMCG</span><span>Portugal</span><span>Snapshot 2026-09-19</span><span>GROCERY-PLP schema</span></p>
+        <h1>Continente Supermarket FMCG Intelligence Catalog</h1>
+        <p class="lead">A comprehensive retail intelligence catalog from Continente.pt: 11,711 verified consumer goods across 10 departmental aisles. Normalized with standard prices, unit prices (€/kg, €/L), promotional mechanics, brand extraction, package descriptions, and 3-tier category hierarchy.</p>
+        <div class="metrics">
+          <div class="metric"><span class="label">Total SKUs</span><span class="value">11,711</span><span class="sub">Zero duplicate SKUs</span></div>
+          <div class="metric"><span class="label">Category depth</span><span class="value">3 Tiers</span><span class="sub">Aisle, category, subcategory</span></div>
+          <div class="metric"><span class="label">Brand extraction</span><span class="value">99.0%</span><span class="sub">Manufacturer &amp; private label</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-19</span><span class="sub">One-off snapshot; refresh on request (custom feed)</span></div>
         </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">API Access (on request)</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Programmatic access can be set up together with a custom feed. Ask us.</p>
-        </div>
-        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
-          <strong style="color: var(--text-primary); font-size: 0.9rem;">Catalog Snapshot</strong>
-          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time complete catalog delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
-        </div>
-      </div>
-      <a href="../custom-data.html" class="btn btn-secondary">
-        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request a Custom or Recurring Feed
-      </a>
-    </section>
+      </header>
 
+      <aside class="buy-panel" aria-label="Buy this dataset">
+        <p class="price"><span class="amount">$9.90</span><span class="unit">CSV snapshot</span></p>
+        <p class="price-note">50% off with code WELCOME50, applied at checkout.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-block" href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener">Buy on Payhip</a>
+          <a class="btn btn-secondary btn-block" href="../samples/continente_grocery_plp_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
+        </div>
+        <ul class="includes">
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>11,711 rows, 31 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-19, one-off snapshot</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Instant download after payment by card or PayPal</span></li>
+        </ul>
+        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com?subject=Continente%20dataset">sales@hlpdata.com</a></p>
+      </aside>
+
+      <section class="block" id="sample" aria-labelledby="sample-title">
+        <h2 id="sample-title">Sample rows</h2>
+        <p class="block-desc">Real rows from the free sample file, which has the same columns and encoding as the full snapshot.</p>
+        <div class="table-scroll" data-sample-src="../samples/continente_grocery_plp_sample.csv" data-columns="product_title,brand,category1,category2,package_desc,full_price,price,ppu,unit_type" data-rows="8">
+          <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/continente_grocery_plp_sample.csv" download>download the CSV</a>.</p>
+        </div>
+      </section>
+
+      <section class="block" id="schema" aria-labelledby="schema-title">
+        <h2 id="schema-title">Schema and fill rates</h2>
+        <p class="block-desc">31 columns in the GROCERY-PLP layout. Fill rate is the share of rows that carry a value, measured on the delivered file.</p>
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Fill rate</th><th scope="col">Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>continente.pt</td></tr>
+              <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Daily execution timestamp</td></tr>
+              <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>PRT</td></tr>
+              <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>EUR</td></tr>
+              <tr><td class="field">store_id</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">product_code</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Internal SKU identifier</td></tr>
+              <tr><td class="field">product_std_code</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">std_type</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">brand</td><td class="type">String</td><td><div class="fill"><span class="fill-value">99.0%</span><span class="fill-bar"><span style="--pct: 99.0%"></span></span></div></td><td>Manufacturer brand or private label</td></tr>
+              <tr><td class="field">product_title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Normalized product name</td></tr>
+              <tr><td class="field">category1</td><td class="type">String</td><td><div class="fill"><span class="fill-value">99.9%</span><span class="fill-bar"><span style="--pct: 99.9%"></span></span></div></td><td>Tier 1 Department (Frescos, Mercearia, Bebidas...)</td></tr>
+              <tr><td class="field">category2</td><td class="type">String</td><td><div class="fill"><span class="fill-value">93.3%</span><span class="fill-bar"><span style="--pct: 93.3%"></span></span></div></td><td>Tier 2 Category aisle</td></tr>
+              <tr><td class="field">category3</td><td class="type">String</td><td><div class="fill"><span class="fill-value">87.4%</span><span class="fill-bar"><span style="--pct: 87.4%"></span></span></div></td><td>Tier 3 Granular sub-category</td></tr>
+              <tr><td class="field">category4</td><td class="type">String</td><td><div class="fill"><span class="fill-value">5.2%</span><span class="fill-bar"><span style="--pct: 5.2%"></span></span></div></td><td>Tier 4 Specific category classification</td></tr>
+              <tr><td class="field">category5</td><td class="type">String</td><td><div class="fill"><span class="fill-value">2.1%</span><span class="fill-bar"><span style="--pct: 2.1%"></span></span></div></td><td>Tier 5 Granular category classification</td></tr>
+              <tr><td class="field">category6</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">category7</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">category8</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">category9</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">category10</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">package_desc</td><td class="type">String</td><td><div class="fill"><span class="fill-value">97.6%</span><span class="fill-bar"><span style="--pct: 97.6%"></span></span></div></td><td>Net package volume / weight</td></tr>
+              <tr><td class="field">full_price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Standard non-discounted catalog price</td></tr>
+              <tr><td class="field">price</td><td class="type">Float (€)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Effective transactional price</td></tr>
+              <tr><td class="field">ppu</td><td class="type">Float (€/unit)</td><td><div class="fill"><span class="fill-value">82.2%</span><span class="fill-bar"><span style="--pct: 82.2%"></span></span></div></td><td>Normalized unit price (€/kg, €/L)</td></tr>
+              <tr><td class="field">unit_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">82.2%</span><span class="fill-bar"><span style="--pct: 82.2%"></span></span></div></td><td>kg | L | un | dose</td></tr>
+              <tr><td class="field">promotion_type</td><td class="type">String</td><td><div class="fill"><span class="fill-value">31.4%</span><span class="fill-bar"><span style="--pct: 31.4%"></span></span></div></td><td>Promotion indicator (e.g. -10%, PVPR -20%, Leve 2 Pague 1)</td></tr>
+              <tr><td class="field">promotion_end_date</td><td class="type">ISO Date</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by the source; column preserved, values empty</td></tr>
+              <tr><td class="field">additional_tags</td><td class="type">String</td><td><div class="fill"><span class="fill-value">4.6%</span><span class="fill-bar"><span style="--pct: 4.6%"></span></span></div></td><td>Product tags and seasonal campaign flags (e.g. Bio, Sem Lactose)</td></tr>
+              <tr><td class="field">additional_content</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Availability indicator (Disponível)</td></tr>
+              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical e-commerce product URL</td></tr>
+              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>High-res CDN product image link</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block" id="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">Known limits</h2>
+        <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
+        <ul class="limits">
+          <li>Standard supermarket retail catalog feed formatted according to GROCERY-PLP schema contract (31 fields).</li>
+          <li>Six optional taxonomy levels (category6 through category10) and store_id/product_std_code arrive empty as they are not exposed by the portal interface.</li>
+          <li>Price per unit (PPU) is captured for 82.2% of SKUs where measurable units (weight, volume, doses) apply. Items sold strictly by individual count without weight information leave PPU blank.</li>
+          <li>Promotional mechanics represent active shelf tags at the moment of catalog collection.</li>
+          <li>100% public retail catalog intelligence. Zero consumer or personal data.</li>
+        </ul>
+      </section>
+
+      <section class="block" id="licence" aria-labelledby="licence-title">
+        <h2 id="licence-title">Licence and delivery</h2>
+        <p class="block-desc">Available for retail analytics teams, consumer brand pricing managers, FMCG market researchers, and competitive intelligence systems.</p>
+        <dl class="options">
+          <div><dt>Recurring Feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
+          <div><dt>API Access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
+          <div><dt>Catalog Snapshot</dt><dd>One-time complete catalog delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</dd></div>
+        </dl>
+        <p class="block-desc"><a class="link-arrow" href="../custom-data.html">Request a custom or recurring feed</a></p>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+  <!-- site:footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"><img src="../favicon.svg" alt="" width="28" height="28">HLP Data</a>
+        <p>Documented datasets from public websites and official statistics, sold as dated snapshots with a free sample.</p>
       </div>
-      <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="index.html">Datasets</a>
-        <a href="../custom-data.html">Custom Data</a>
-        <a href="../api.html">API Docs</a>
-        <a href="../terms.html">Terms & Compliance</a>
-        <a href="../privacy.html">Privacy Policy</a>
-        <a href="../about.html">About</a>
-        <a href="mailto:sales@hlpdata.com">Contact</a>
-      </div>
-    </div>
-    <div class="footer-operator">
-      Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="../datasets/index.html">Datasets</a></li>
+          <li><a href="../custom-data.html">Custom data</a></li>
+          <li><a href="../api.html">API</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <p class="footer-operator">&copy; 2026 HLP Data. Operated by Lê Phước Hưng &middot; Ho Chi Minh City, Vietnam &middot; <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
     </div>
   </footer>
-
-  <script src="../script.js?v=20261005b"></script>
+  <!-- /site:footer -->
 </body>
 </html>
