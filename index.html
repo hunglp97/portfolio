@@ -248,6 +248,8 @@
       anonymize_ip: true
     });
   </script>
+  <!-- payhip-embed: verify snippet against Payhip dashboard "Get Your Embed Code" before rolling out to other products -->
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
   <!-- Cloudflare Web Analytics Beacon (0-Cookie, Privacy-first, <5KB) -->
   <!-- Nếu dùng DNS-only thì dán token vào đây: -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "CLOUDFLARE_BEACON_TOKEN"}'></script> -->
@@ -738,7 +740,7 @@
           </div>
           <div class="dataset-actions">
             <div class="dataset-btns">
-              <a href="https://payhip.com/b/CAYJH" target="_blank" rel="noopener" class="btn-sm btn-buy"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download ($19.00)</a>
+              <a class="payhip-buy-button btn-sm btn-buy" href="https://payhip.com/b/CAYJH" data-theme="none" data-product="CAYJH"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download ($19.00)</a>
               <a href="datasets/portugal-area-intelligence.html" class="btn-sm btn-ghost" title="Specification"><i class="fa-solid fa-file-lines"></i> Specs</a>
               <a href="samples/pt_area_intelligence_sample.csv" download class="btn-sm btn-secondary"><i class="fa-solid fa-download"></i> Free sample</a>
             </div>
