@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About HLP Data</title>
+  <meta name="description" content="Who operates HLP Data, what we sell (dataset snapshots, official-statistics data packs, custom data feeds) and how buying works.">
+  <link rel="canonical" href="https://hlpdata.com/about.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Anti-flicker inline theme initializer -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('hlp_theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=20261005b">
+
+  <!-- Analytics: Umami Cloud (cookieless; see privacy.html) -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
+</head>
+<body>
+
+  <!-- Floating Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">hlpdata.com</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#datasets" class="nav-link">Datasets</a>
+        <a href="index.html#use-cases" class="nav-link">Use Cases</a>
+        <a href="index.html#analytics" class="nav-link">Intelligence</a>
+        <a href="https://explore.hlpdata.com" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent); font-weight: 700;"><i class="fa-solid fa-bolt" style="font-size: 0.8rem; margin-right: 4px;"></i><span>Live Explorer</span></a>
+        <a href="index.html#pipeline" class="nav-link">Infrastructure</a>
+        <a href="custom-data.html" class="nav-link">Custom Data</a>
+        <a href="api.html" class="nav-link">API</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-regular fa-sun theme-icon-sun"></i>
+          <i class="fa-regular fa-moon theme-icon-moon"></i>
+        </button>
+
+        <a href="custom-data.html" class="btn-sm btn-primary">
+          <i class="fa-regular fa-paper-plane"></i> Request Custom Feed
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: calc(var(--header-height) + 40px); max-width: 860px; margin: 0 auto;">
+
+    <div style="margin-bottom: 2rem;">
+      <a href="index.html" style="color: var(--accent-emerald-light); font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+        &larr; Back to Catalog & Overview
+      </a>
+      <h1 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; letter-spacing: -0.02em;">
+        About HLP Data
+      </h1>
+      <p style="color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); margin-top: 0.5rem;">
+        Last Updated: October 5, 2026
+      </p>
+    </div>
+
+    <article class="legal-card">
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          Who Operates HLP Data
+        </h2>
+        <p>
+          HLP Data is the trading name of an independent data business run by its owner. The website hlpdata.com and its shop are operated by:
+        </p>
+        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
+          Lê Phước Hưng (trading as HLP Data)<br>
+          Gate 5, Etown, 24 Ap Bac Street, Ward 13, Tan Binh District, Ho Chi Minh City, Vietnam<br>
+          Email: <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          What We Sell
+        </h2>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
+          <li><strong>Dated dataset snapshots:</strong> structured files compiled from public web pages, each tied to the date it was collected. See the <a href="datasets/index.html" style="color: var(--accent-emerald-light);">dataset catalog</a>.</li>
+          <li><strong>Official-statistics data packs:</strong> ready-to-use files built from open official statistics, shipped with the source credits their licences require.</li>
+          <li><strong>Custom data feeds on request:</strong> a scope, format and refresh schedule agreed in writing for your use case. See <a href="custom-data.html" style="color: var(--accent-emerald-light);">Custom Data</a>.</li>
+        </ul>
+        <p style="margin-top: 0.5rem;">
+          Each product page states what the file contains, its date and which licence applies. The licence types are explained in our <a href="terms.html" style="color: var(--accent-emerald-light);">Terms</a>.
+        </p>
+      </section>
+
+      <section style="margin-bottom: 2rem;">
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          How Buying Works
+        </h2>
+        <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: disc;">
+          <li><strong>Checkout:</strong> purchases go through Payhip&rsquo;s secure checkout (card or PayPal).</li>
+          <li><strong>Delivery:</strong> the download is available instantly after payment.</li>
+          <li><strong>Invoices:</strong> available on request; email <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a> with your order details and billing information.</li>
+          <li><strong>Refunds:</strong> handled as described in the <a href="terms.html" style="color: var(--accent-emerald-light);">Terms</a>.</li>
+        </ul>
+        <p style="margin-top: 0.5rem;">
+          How we handle personal data is described in the <a href="privacy.html" style="color: var(--accent-emerald-light);">Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 style="color: var(--text-primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+          Contact
+        </h2>
+        <p>
+          For questions about a dataset, a quote for a custom feed, or an invoice, write to:
+        </p>
+        <p style="margin-top: 0.5rem; font-family: var(--font-mono); color: var(--text-primary);">
+          Email: <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a>
+        </p>
+      </section>
+
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>HLP Data</strong> &bull; Commercial web data infrastructure. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="terms.html">Terms & Compliance</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:sales@hlpdata.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20261005b"></script>
+</body>
+</html>
