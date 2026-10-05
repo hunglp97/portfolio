@@ -62,19 +62,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../style.css?v=20261005a">
-  <!-- payhip-embed: verify snippet against Payhip dashboard "Get Your Embed Code" before rolling out to other products -->
-  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
-  <!-- Analytics: Google Analytics 4 (same snippet on every page; see privacy.html) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XX0HJQJQN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-8XX0HJQJQN', {
-      send_page_view: true,
-      anonymize_ip: true
-    });
+    gtag('config', 'G-8XX0HJQJQN', { send_page_view: true, anonymize_ip: true });
   </script>
+  <!-- payhip-embed: so khớp với "Get Your Embed Code" trong dashboard Payhip trước khi áp cho sản phẩm khác -->
+  <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
 </head>
 <body>
   <header class="header">
@@ -140,7 +136,7 @@
     </div>
 
     <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
-      <a class="payhip-buy-button btn btn-buy" href="https://payhip.com/b/CAYJH" data-theme="none" data-product="CAYJH"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download ($19.00)</a>
+      <a href="https://payhip.com/b/CAYJH" class="payhip-buy-button btn btn-buy" data-theme="none" data-product="CAYJH"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Buy now — $19.00</a>
       <a href="../samples/pt_area_intelligence_sample.csv" download class="btn btn-secondary">
         <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Free Sample (10 concelhos)
       </a>
@@ -189,9 +185,9 @@
       </p>
       <ul style="color: var(--text-secondary); line-height: 1.6;">
         <li>Direção-Geral do Território (DGT), Carta Administrativa Oficial de Portugal CAOP 2025, CC BY. Informação modificada pela HLP Data.</li>
-        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
-        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
-        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (indicador, período de referência). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (INE 0011494, 2021; INE 0012276, 2021). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (INE 0012234, 2026-Q1). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
+        <li>Fonte: Instituto Nacional de Estatística, IP – Portugal (INE 0012598, 2024-S2). Informação modificada: normalizada e reorganizada pela HLP Data.</li>
       </ul>
     </section>
   </main>
