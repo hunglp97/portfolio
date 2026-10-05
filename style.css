@@ -2147,4 +2147,9 @@ body {
   min-height: 100px;
 }
 
-
+/* Responsive auto-fit grid (detail-page stat tiles and option cards) */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}

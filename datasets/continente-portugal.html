@@ -73,7 +73,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=20260922a">
+  <link rel="stylesheet" href="../style.css?v=20261005a">
 </head>
 <body>
 
@@ -99,10 +99,6 @@
           <i class="fa-regular fa-sun theme-icon-sun"></i>
           <i class="fa-regular fa-moon theme-icon-moon"></i>
         </button>
-
-        <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset" class="btn-sm btn-primary">
-          <i class="fa-regular fa-envelope"></i> Request Pricing
-        </a>
       </div>
     </div>
   </header>
@@ -134,7 +130,7 @@
     </div>
 
     <!-- Key Metrics Grid -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem;">
+    <div class="auto-grid" style="margin-bottom: 2.5rem;">
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem;">
         <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">Total SKUs</div>
         <div style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">11,711</div>
@@ -158,20 +154,23 @@
     </div>
 
     <!-- Action Bar -->
-    <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+    <div style="display: flex; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
       <a href="https://payhip.com/b/RKvdw?coupon=WELCOME50" target="_blank" rel="noopener" class="btn btn-buy">
         <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Instant Download Snapshot ($9.90)
       </a>
       <a href="../samples/continente_grocery_plp_sample.csv" download class="btn btn-secondary">
         <i class="fa-solid fa-download" style="margin-right: 6px;"></i> Download Sample CSV (Sanitized)
       </a>
-      <a href="mailto:sales@hlpdata.com?subject=[License%20Inquiry]%20Continente%20FMCG%20Catalog" class="btn btn-primary">
-        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Request Pricing & Feed Licensing
+      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset" class="btn btn-ghost">
+        <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Ask a question
       </a>
       <a href="../custom-data.html" class="btn btn-ghost">
         Request Custom Category Scope
       </a>
     </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0 3rem;">
+      <i class="fa-solid fa-tag" style="margin-right: 4px;"></i> The price shown is the list price. Code <strong>WELCOME50</strong> is applied on Payhip at checkout (50% off).
+    </p>
 
     <!-- Data Schema Table -->
     <section style="margin-bottom: 3rem;">
@@ -245,7 +244,7 @@
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
         Available for retail analytics teams, consumer brand pricing managers, FMCG market researchers, and competitive intelligence systems.
       </p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="auto-grid" style="margin-bottom: 1.5rem;">
         <div style="background: var(--bg-subtle); padding: 1rem; border-radius: 0.375rem; border: 1px solid var(--border);">
           <strong style="color: var(--text-primary); font-size: 0.9rem;">Recurring Feed (custom)</strong>
           <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</p>
@@ -259,8 +258,8 @@
           <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">One-time complete catalog delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</p>
         </div>
       </div>
-      <a href="mailto:sales@hlpdata.com?subject=[Inquiry]%20Continente%20FMCG%20Dataset%20Pricing" class="btn btn-primary">
-        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request Pricing & Sample License
+      <a href="../custom-data.html" class="btn btn-secondary">
+        <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Request a Custom or Recurring Feed
       </a>
     </section>
 
