@@ -1410,3 +1410,50 @@ function initAnalyticsCharts() {
   });
 }
 
+
+// ==========================================================================
+// Funnel measurement: begin_checkout, file_download, generate_lead.
+// Self-contained, no dependency. Sends to GA4 (gtag) and/or Umami when the
+// page has them; otherwise does nothing. No form content or email address
+// is sent. Capture phase so the Payhip overlay script cannot swallow clicks.
+// ==========================================================================
+(function () {
+  function hlpTrack(name, params) {
+    const p = params || {};
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, p);
+    } catch (e) {}
+    try {
+      if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, p);
+    } catch (e) {}
+  }
+  window.hlpTrack = hlpTrack;
+
+  function payhipProductId(href) {
+    const m = /payhip\.com\/b\/([A-Za-z0-9]+)/i.exec(href || '');
+    return m ? m[1] : '';
+  }
+
+  function fileNameOf(href) {
+    const clean = (href || '').split('#')[0].split('?')[0];
+    return clean.substring(clean.lastIndexOf('/') + 1);
+  }
+
+  document.addEventListener('click', function (e) {
+    const el = e.target && e.target.closest ? e.target.closest('a, .payhip-buy-button') : null;
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    const page = window.location.pathname;
+
+    if (el.classList.contains('payhip-buy-button') || /payhip\.com/i.test(href)) {
+      hlpTrack('begin_checkout', {
+        item_id: payhipProductId(href) || el.getAttribute('data-product') || '',
+        page: page
+      });
+    } else if (el.tagName === 'A' && (el.hasAttribute('download') || /\.csv$/i.test(href.split('#')[0].split('?')[0]))) {
+      hlpTrack('file_download', { file_name: fileNameOf(href) || el.getAttribute('download') || '' });
+    } else if (/^mailto:/i.test(href)) {
+      hlpTrack('generate_lead', { page: page });
+    }
+  }, true);
+})();

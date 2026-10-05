@@ -239,6 +239,9 @@
       const label = document.getElementById('copyRequestLabel');
       if (label) label.textContent = 'Copy request text';
 
+      if (typeof window.hlpTrack === 'function') {
+        window.hlpTrack('generate_lead', { page: window.location.pathname, method: 'custom_form' });
+      }
       window.location.href = mailtoUrl;
     }
 
