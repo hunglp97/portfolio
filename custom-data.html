@@ -160,23 +160,25 @@
             <i class="fa-solid fa-lock text-emerald"></i> Used only to answer your request
           </div>
           <button type="submit" class="btn btn-primary" id="submitBtn">
-            <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Submit Request
+            <i class="fa-regular fa-paper-plane" style="margin-right: 6px;"></i> Compose Request Email
           </button>
         </div>
       </form>
 
-      <!-- Success Confirmation Box -->
-      <div id="formSuccessMessage" class="hidden" style="text-align: center; padding: 2.5rem 1rem;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(16, 185, 129, 0.12); border: 1px solid var(--border-emerald); display: inline-flex; align-items: center; justify-content: center; font-size: 1.75rem; color: var(--accent-emerald); margin-bottom: 1rem;">
-          <i class="fa-solid fa-check"></i>
-        </div>
-        <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Custom Request Received</h3>
-        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
-          Thank you for submitting your custom dataset specification. Our data engineering team will review the target architecture and respond with a sample schema and feasibility audit within 1 business day.
+      <!-- Shown after submit: the request is NOT sent by this page; it is handed to the visitor's email app -->
+      <div id="formMailtoNotice" class="hidden" role="status" aria-live="polite" style="margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--bg-subtle);">
+        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.35rem;">
+          <i class="fa-regular fa-envelope" style="margin-right: 6px;"></i> Your email app should open with your request.
         </p>
-        <a href="index.html" class="btn btn-secondary">
-          Return to Catalog
-        </a>
+        <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+          Nothing is sent until you send that email. If it didn&rsquo;t open, email <a href="mailto:sales@hlpdata.com" style="color: var(--accent-emerald-light);">sales@hlpdata.com</a> and paste your request text.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary btn-sm" id="copyRequestBtn">
+            <i class="fa-regular fa-copy" style="margin-right: 6px;"></i> <span id="copyRequestLabel">Copy request text</span>
+          </button>
+          <a href="mailto:sales@hlpdata.com" class="btn btn-ghost btn-sm" id="reopenMailtoLink">Open email again</a>
+        </div>
       </div>
     </div>
 
@@ -200,23 +202,24 @@
 
   <script src="script.js?v=20261005a"></script>
   <script>
+    // The site has no backend: the request is composed here and handed to the
+    // visitor's email app via mailto:. We never claim it was received.
+    let lastRequestText = '';
+
     function handleCustomDataSubmit(e) {
       e.preventDefault();
-      const form = document.getElementById('customDataForm');
-      const success = document.getElementById('formSuccessMessage');
-      
-      const fullName = document.getElementById('fullName').value;
-      const workEmail = document.getElementById('workEmail').value;
-      const company = document.getElementById('company').value;
-      const targetWebsite = document.getElementById('targetWebsite').value;
-      const updateFrequency = document.getElementById('updateFrequency').value;
-      const deliveryPreference = document.getElementById('deliveryPreference').value;
-      const dataFields = document.getElementById('dataFields').value;
-      const notes = document.getElementById('notes').value;
+      const val = (id) => document.getElementById(id).value.trim();
+      const fullName = val('fullName');
+      const workEmail = val('workEmail');
+      const company = val('company');
+      const targetWebsite = val('targetWebsite');
+      const updateFrequency = val('updateFrequency');
+      const deliveryPreference = val('deliveryPreference');
+      const dataFields = val('dataFields');
+      const notes = val('notes');
 
-      // Construct mailto backup for transparency and zero-secret client-side reliability
-      const subject = encodeURIComponent(`[Custom Dataset Request] ${company} - ${targetWebsite}`);
-      const body = encodeURIComponent(
+      const subject = `[Custom Dataset Request] ${company} - ${targetWebsite}`;
+      const body =
         `Name: ${fullName}\n` +
         `Work Email: ${workEmail}\n` +
         `Company: ${company}\n` +
@@ -224,21 +227,31 @@
         `Update Frequency: ${updateFrequency}\n` +
         `Delivery Preference: ${deliveryPreference}\n\n` +
         `Required Fields:\n${dataFields}\n\n` +
-        `Additional Notes:\n${notes}`
-      );
+        `Additional Notes:\n${notes}`;
 
-      // Attempt mailto trigger in background
-      const mailtoUrl = `mailto:sales@hlpdata.com?subject=${subject}&body=${body}`;
-      
-      // Render success state
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
+      lastRequestText = `To: sales@hlpdata.com\nSubject: ${subject}\n\n${body}`;
+      const mailtoUrl = `mailto:sales@hlpdata.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      // Open email client safely
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-      }, 600);
+      const notice = document.getElementById('formMailtoNotice');
+      const reopen = document.getElementById('reopenMailtoLink');
+      if (reopen) reopen.setAttribute('href', mailtoUrl);
+      if (notice) notice.classList.remove('hidden');
+      const label = document.getElementById('copyRequestLabel');
+      if (label) label.textContent = 'Copy request text';
+
+      window.location.href = mailtoUrl;
     }
+
+    document.getElementById('copyRequestBtn').addEventListener('click', () => {
+      const label = document.getElementById('copyRequestLabel');
+      const done = (ok) => { if (label) label.textContent = ok ? 'Copied' : 'Copy failed - select and copy manually'; };
+      if (!lastRequestText) return;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(lastRequestText).then(() => done(true)).catch(() => done(fallbackCopyText(lastRequestText)));
+      } else {
+        done(fallbackCopyText(lastRequestText));
+      }
+    });
   </script>
 </body>
 </html>
