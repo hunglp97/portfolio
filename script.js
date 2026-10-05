@@ -502,6 +502,27 @@ function trackEvent(eventName, params = {}) {
 }
 window.trackEvent = trackEvent;
 
+// Replace an element's translatable text without destroying child elements
+// such as <i> icons: elements without children get textContent; otherwise
+// only their own non-blank text nodes are rewritten (or one is appended).
+function setI18nText(el, text) {
+  if (el.children.length === 0) {
+    el.textContent = text;
+    return;
+  }
+  const textNodes = Array.from(el.childNodes).filter(
+    n => n.nodeType === Node.TEXT_NODE && n.nodeValue.trim() !== ''
+  );
+  if (textNodes.length === 0) {
+    el.appendChild(document.createTextNode(' ' + text));
+    return;
+  }
+  const first = textNodes[0];
+  const lead = /^\s/.test(first.nodeValue) ? ' ' : '';
+  first.nodeValue = lead + text;
+  textNodes.slice(1).forEach(n => { n.nodeValue = ''; });
+}
+
 // Set active language across document
 function setLanguage(lang, persist = true) {
   if (!I18N_DICT[lang]) lang = 'en';
@@ -519,7 +540,7 @@ function setLanguage(lang, persist = true) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (I18N_DICT[lang][key]) {
-      el.textContent = I18N_DICT[lang][key];
+      setI18nText(el, I18N_DICT[lang][key]);
     }
   });
 
