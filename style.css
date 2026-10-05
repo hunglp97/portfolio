@@ -133,6 +133,7 @@ code, kbd, samp, .mono {
   font-size: 0.9em;
 }
 code {
+  overflow-wrap: anywhere;
   padding: 0.1em 0.35em;
   border-radius: 4px;
   background: var(--surface-2);
@@ -170,6 +171,10 @@ code {
   text-decoration: none;
 }
 .skip-link:focus { top: 12px; color: var(--accent-ink); }
+
+/* Grid and flex children default to min-width: auto, so a wide table would stretch the page past the
+   viewport on phones. Every layout grid lets its children shrink; tables scroll inside .table-scroll. */
+.hero > *, .split > *, .charts > *, .dataset-row > *, .cta-band > *, .form-layout > *, .metrics > *, .steps > * { min-width: 0; }
 
 .container {
   width: 100%;
@@ -268,7 +273,7 @@ code {
 .mobile-menu .btn { margin-top: var(--space-4); width: 100%; }
 
 @media (max-width: 860px) {
-  .site-nav, .header-cta { display: none; }
+  .site-nav, .site-header .header-cta { display: none; }
   .menu-button { display: inline-flex; }
 }
 
@@ -332,7 +337,7 @@ code {
 }
 .section-head p { margin-top: var(--space-2); color: var(--text-2); max-width: 60ch; }
 
-@media (min-width: 1024px) { .section { padding-block: var(--space-9); } }
+@media (min-width: 1024px) { .section { padding-block: calc(var(--space-8) + var(--space-4)); } }
 
 /* ---------- Hero ---------- */
 
@@ -340,13 +345,13 @@ code {
   display: grid;
   gap: var(--space-7);
   align-items: center;
-  padding-block: var(--space-7) var(--space-8);
+  padding-block: var(--space-6) var(--space-6);
 }
 @media (min-width: 1024px) {
   .hero {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: var(--space-8);
-    padding-block: var(--space-8) var(--space-9);
+    padding-block: var(--space-8) var(--space-6);
   }
 }
 
@@ -384,7 +389,8 @@ code {
 .hero-facts div { display: flex; flex-direction: column; gap: 2px; }
 
 @media (max-width: 520px) {
-  .hero-facts { grid-template-columns: 1fr 1fr; }
+  .hero-facts { gap: var(--space-4); }
+  .hero-facts dd { font-size: 1.125rem; }
 }
 
 /* File preview: a real excerpt of a sample file, used as the hero visual. */
@@ -409,6 +415,8 @@ code {
 .file-preview-head .file-name { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; }
 .file-preview-head .file-meta { color: var(--text-3); font-size: var(--step--1); }
 .file-preview .table-scroll { border: 0; border-radius: 0; }
+.file-preview .table td, .file-preview .table th { white-space: nowrap; }
+.file-preview .table .clip { max-width: 22ch; }
 .file-preview-foot {
   display: grid;
   gap: var(--space-3);
@@ -502,7 +510,7 @@ code {
   flex: 1 1 260px;
   max-width: 360px;
 }
-.search input { padding-left: 38px; }
+.search input[type="search"] { padding-left: 38px; }
 .search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-3); pointer-events: none; }
 
 .dataset-list { list-style: none; border-top: 1px solid var(--border); }
@@ -545,6 +553,7 @@ code {
 
 .buy-box { display: grid; gap: var(--space-2); }
 .price { display: flex; align-items: baseline; gap: 8px; }
+.price .amount.text { font-family: var(--font-sans); font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
 .price .amount { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.375rem; font-weight: 500; letter-spacing: -0.02em; }
 .price .unit { color: var(--text-3); font-size: var(--step--1); }
 .price-note { color: var(--text-3); font-size: var(--step--1); line-height: 1.45; }
@@ -586,6 +595,7 @@ code {
 @media (min-width: 1024px) { .charts { grid-template-columns: 1.15fr 0.85fr; } }
 
 .chart {
+  margin: 0;
   padding: var(--space-5);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -708,6 +718,7 @@ code {
   box-shadow: var(--shadow);
 }
 .buy-panel .price .amount { font-size: 1.75rem; }
+.buy-panel .price .amount.text { font-size: 1.25rem; }
 .buy-panel .actions { display: grid; gap: var(--space-2); margin-top: var(--space-4); }
 .buy-panel .price-note { margin-top: var(--space-2); }
 .buy-panel .includes { list-style: none; margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--border); display: grid; gap: 8px; font-size: 0.875rem; color: var(--text-2); }
@@ -766,7 +777,7 @@ pre.code {
   font-size: 0.8125rem;
   line-height: 1.7;
 }
-pre.code code { padding: 0; background: none; font-size: inherit; }
+pre.code code { padding: 0; background: none; font-size: inherit; overflow-wrap: normal; }
 pre.code .c { color: var(--text-3); }
 pre.code .s { color: var(--accent); }
 
