@@ -121,15 +121,34 @@
                 </select>
               </div>
               <div class="field-group full">
+                <label for="coverage">Coverage</label>
+                <input type="text" id="coverage" name="coverage" maxlength="500" placeholder="Whole country, or named cities">
+                <p class="help">Optional. Which regions, cities or categories you need.</p>
+              </div>
+              <div class="field-group">
+                <label for="deadline">When you need it</label>
+                <input type="text" id="deadline" name="deadline" maxlength="80" placeholder="Within two weeks, or by a date">
+              </div>
+              <div class="field-group">
+                <label for="budgetRange">Budget range</label>
+                <select id="budgetRange" name="budgetRange">
+                  <option value="">Not sure yet</option>
+                  <option value="Under $250">Under $250</option>
+                  <option value="$250-600">$250 to $600</option>
+                  <option value="$600-1500">$600 to $1,500</option>
+                  <option value="Over $1500">Over $1,500</option>
+                </select>
+              </div>
+              <div class="field-group full">
                 <label for="dataFields">Fields you need <span class="req">(required)</span></label>
                 <textarea id="dataFields" name="dataFields" required></textarea>
                 <p class="help">For example: product title, SKU, shelf price, promotion price, stock status, category path.</p>
                 <p class="error">Please list the fields you need.</p>
               </div>
               <div class="field-group full">
-                <label for="notes">Scope and volume</label>
+                <label for="notes">Notes</label>
                 <textarea id="notes" name="notes"></textarea>
-                <p class="help">Optional. Rough record count, regions, history you need, or compliance requirements.</p>
+                <p class="help">Optional. Rough record count, history you need, or compliance requirements.</p>
               </div>
             </div>
             <div class="form-actions">
