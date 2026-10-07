@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OnTheMarket UK Residential Sale Listings | HLP Data</title>
-  <meta name="description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.">
+  <meta name="description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, property type, bedrooms and bathrooms, coordinates, descriptions and listing links.">
   <meta name="hlp:version" content="b6cd343e0c99f2e0">
   <link rel="canonical" href="https://hlpdata.com/datasets/onthemarket-uk.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/onthemarket-uk.html">
   <meta property="og:site_name" content="HLP Data">
   <meta property="og:title" content="OnTheMarket UK Residential Sale Listings | HLP Data">
-  <meta property="og:description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.">
+  <meta property="og:description" content="420,444 residential sale listings from onthemarket.com across the UK: asking price, property type, bedrooms and bathrooms, coordinates, descriptions and listing links.">
   <meta property="og:image" content="https://hlpdata.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
@@ -19,7 +19,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "OnTheMarket UK Residential Sale Listings",
-  "description": "420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.",
+  "description": "420,444 residential sale listings from onthemarket.com across the UK: asking price, property type, bedrooms and bathrooms, coordinates, descriptions and listing links.",
   "url": "https://hlpdata.com/datasets/onthemarket-uk.html",
   "license": "https://hlpdata.com/terms.html",
   "version": "b6cd343e0c99f2e0",
@@ -95,11 +95,11 @@
       <header class="product-head page-head">
         <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Collected 2026-10-02 to 2026-10-03</span><span>REAL-ESTATE-BASIC schema</span></p>
         <h1>OnTheMarket UK Residential Sale Listings</h1>
-        <p class="lead">420,444 residential sale listings from onthemarket.com across the UK: asking price, price per m², floor area, bedrooms and bathrooms, coordinates, descriptions and listing links.</p>
+        <p class="lead">420,444 residential sale listings from onthemarket.com across the UK: asking price, property type, bedrooms and bathrooms, coordinates, descriptions and listing links.</p>
         <div class="metrics">
           <div class="metric"><span class="label">Total listings</span><span class="value">420,444</span><span class="sub">100% unique IDs</span></div>
           <div class="metric"><span class="label">Coverage</span><span class="value">6,093 areas</span><span class="sub">Distinct location labels</span></div>
-          <div class="metric"><span class="label">Median asking price</span><span class="value">£340,000</span><span class="sub">£3,733 per m², median</span></div>
+          <div class="metric"><span class="label">Median asking price</span><span class="value">£340,000</span><span class="sub">All listings with a price</span></div>
           <div class="metric"><span class="label">Collected</span><span class="value">2026-10-03</span><span class="sub">One-off snapshot</span></div>
         </div>
       </header>
@@ -146,9 +146,9 @@
               <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Detached house 21.6%, Semi-detached house 16.2%, Apartment 12.7%</td></tr>
               <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Title as published</td></tr>
               <tr><td class="field">price</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking or selling price, median £340,000</td></tr>
-              <tr><td class="field">price_original</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price before any reduction</td></tr>
-              <tr><td class="field">price_per_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price per square metre, median £3,733</td></tr>
-              <tr><td class="field">area_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in m²</td></tr>
+              <tr><td class="field">price_original</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Equal to price in this snapshot</td></tr>
+              <tr><td class="field">price_per_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price divided by area_sqm; derived from an estimated area on 100% of rows</td></tr>
+              <tr><td class="field">area_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in m²; estimated from the bedroom count on 100% of rows</td></tr>
               <tr><td class="field">rooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">97.8%</span><span class="fill-bar"><span style="--pct: 97.8%"></span></span></div></td><td>Bedroom count</td></tr>
               <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">92.9%</span><span class="fill-bar"><span style="--pct: 92.9%"></span></span></div></td><td>Bathroom count</td></tr>
               <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Floor where stated</td></tr>
@@ -180,6 +180,8 @@
           <li>Removed from the download: agency_name, contact_phone. Agency and contact details are not part of any file we sell.</li>
           <li>Not collected for this source, columns kept empty to preserve the schema: energy_certificate, floor.</li>
           <li>Amenity flags carry a value only where the listing advertises the amenity (parking 5.1%, elevator 0.5%, terrace 7%, garden 5%, pool 0.3%). Empty means not advertised, not confirmed absent.</li>
+          <li>The portal does not publish a floor area for every listing. On those rows area_sqm is an estimate from the bedroom count and price_per_sqm is derived from that estimate: neither is a measurement.</li>
+          <li>price_original equals price on every row: this snapshot carries no price-change information.</li>
           <li>Asking prices span £1 to £100,000,000; outliers are kept as published.</li>
           <li>Rows were collected between 2026-10-02 and 2026-10-03; values can change within that window.</li>
           <li>No personal data: no private names, phone numbers or personal email addresses.</li>
