@@ -4,50 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rightmove UK National Real Estate Census | HLP Data</title>
-  <meta name="description" content="544,502 verified residential sale listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland, and Wales. 32-attribute REAL-ESTATE-BASIC schema.">
+  <meta name="description" content="544,502 residential sale listings from rightmove.co.uk across England, Scotland and Wales, with WGS84 coordinates, asking price, property type, bedrooms and bathrooms.">
+  <meta name="hlp:version" content="c479b70193b5eb3f">
   <link rel="canonical" href="https://hlpdata.com/datasets/rightmove-uk.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hlpdata.com/datasets/rightmove-uk.html">
   <meta property="og:site_name" content="HLP Data">
   <meta property="og:title" content="Rightmove UK National Real Estate Census | HLP Data">
-  <meta property="og:description" content="Complete national census of 544,502 UK properties queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date. WGS84 GPS, asking prices, floor area in m², and agency data.">
+  <meta property="og:description" content="544,502 residential sale listings from rightmove.co.uk across England, Scotland and Wales, with WGS84 coordinates, asking price, property type, bedrooms and bathrooms.">
   <meta property="og:image" content="https://hlpdata.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "Rightmove UK National Real Estate Census",
-    "description": "Complete national census of the United Kingdom residential sale market from Rightmove.co.uk: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland and Wales across 32 standardized attributes.",
-    "url": "https://hlpdata.com/datasets/rightmove-uk.html",
-    "sameAs": "https://www.rightmove.co.uk/",
-    "license": "https://hlpdata.com/terms.html",
-    "creator": {
-      "@type": "Organization",
-      "name": "HLP Data",
-      "url": "https://hlpdata.com/"
-    },
-    "spatialCoverage": "United Kingdom",
-    "temporalCoverage": "2026",
-    "variableMeasured": [
-      "asking price",
-      "original price",
-      "price per square metre",
-      "floor area",
-      "bedrooms",
-      "bathrooms",
-      "property type",
-      "geocoordinates",
-      "listing agency"
-    ],
-    "distribution": [
-      {
-        "@type": "DataDownload",
-        "encodingFormat": "text/csv",
-        "contentUrl": "https://hlpdata.com/samples/rightmove_uk_national_sample.csv"
-      }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Rightmove UK National Real Estate Census",
+  "description": "544,502 residential sale listings from rightmove.co.uk across England, Scotland and Wales, with WGS84 coordinates, asking price, property type, bedrooms and bathrooms.",
+  "url": "https://hlpdata.com/datasets/rightmove-uk.html",
+  "license": "https://hlpdata.com/terms.html",
+  "version": "c479b70193b5eb3f",
+  "creator": {
+    "@type": "Organization",
+    "name": "HLP Data",
+    "url": "https://hlpdata.com/"
+  },
+  "spatialCoverage": "United Kingdom",
+  "temporalCoverage": "2026-09-20/2026-09-21",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://hlpdata.com/samples/rightmove_uk_national_sample.csv"
+    }
+  ]
+}
   </script>
   <!-- site:assets -->
   <link rel="icon" href="../favicon.ico?v=2" sizes="48x48">
@@ -103,14 +93,14 @@
 
     <div class="container product">
       <header class="product-head page-head">
-        <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Snapshot 2026-09-21</span><span>REAL-ESTATE-BASIC schema</span></p>
+        <p class="kicker"><span>Real estate</span><span>United Kingdom</span><span>Collected 2026-09-20 to 2026-09-21</span><span>REAL-ESTATE-BASIC schema</span></p>
         <h1>Rightmove UK National Real Estate Census</h1>
-        <p class="lead">A complete national census of the United Kingdom residential sale market: 544,502 verified listings queried 100% of all 3,121 UK outcodes; 2,760 had listings on the collection date across England, Scotland and Wales, spanning 402 regions and 61 property types. Standardized with WGS84 geocoordinates, floor area in m², asking prices, and estate agency attribution.</p>
+        <p class="lead">544,502 residential sale listings from rightmove.co.uk across England, Scotland and Wales, with WGS84 coordinates, asking price, property type, bedrooms and bathrooms.</p>
         <div class="metrics">
-          <div class="metric"><span class="label">Total listings</span><span class="value">544,502</span><span class="sub">Zero duplicate IDs</span></div>
-          <div class="metric"><span class="label">Geographic coverage</span><span class="value">3,121 / 3,121</span><span class="sub">100% UK Outcodes</span></div>
-          <div class="metric"><span class="label">Pricing statistics</span><span class="value">£335,000</span><span class="sub">Median asking price</span></div>
-          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-21</span><span class="sub">One-off snapshot; refresh on request (custom feed)</span></div>
+          <div class="metric"><span class="label">Total listings</span><span class="value">544,502</span><span class="sub">100% unique IDs</span></div>
+          <div class="metric"><span class="label">Coverage</span><span class="value">402 areas</span><span class="sub">Distinct location labels</span></div>
+          <div class="metric"><span class="label">Median asking price</span><span class="value">£335,000</span><span class="sub">£4,539 per m², median of published floor areas</span></div>
+          <div class="metric"><span class="label">Collected</span><span class="value">2026-09-21</span><span class="sub">One-off snapshot</span></div>
         </div>
       </header>
 
@@ -122,64 +112,62 @@
           <a class="btn btn-secondary btn-block" href="../samples/rightmove_uk_national_sample.csv" download><i class="ph ph-download-simple" aria-hidden="true"></i>Download free sample</a>
         </div>
         <ul class="includes">
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>544,502 rows, 32 columns</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>544,502 rows, 30 columns</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>CSV, UTF-8, semicolon separated</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-21, one-off snapshot</span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span>Collected 2026-09-20 to 2026-09-21, one-off snapshot</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Licensed for internal analysis (<a href="../terms.html#licences">terms</a>)</span></li>
           <li><i class="ph ph-check" aria-hidden="true"></i><span>Instant download after payment by card or PayPal</span></li>
         </ul>
-        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com?subject=Rightmove%20UK%20dataset">sales@hlpdata.com</a></p>
+        <p class="contact">Questions before buying? <a href="mailto:sales@hlpdata.com">sales@hlpdata.com</a></p>
       </aside>
 
       <section class="block" id="sample" aria-labelledby="sample-title">
         <h2 id="sample-title">Sample rows</h2>
-        <p class="block-desc">Real rows from the free sample file, which has the same columns and encoding as the full snapshot.</p>
-        <div class="table-scroll" data-sample-src="../samples/rightmove_uk_national_sample.csv" data-columns="title,property_type,price,area_sqm,rooms,bathrooms,city,agency_name" data-rows="8">
+        <p class="block-desc">Real rows cut from the file you buy, spread across the dataset. Same columns and encoding as the full snapshot.</p>
+        <div class="table-scroll" data-sample-src="../samples/rightmove_uk_national_sample.csv" data-columns="title,property_type,price,rooms,bathrooms,city,latitude,longitude" data-rows="8">
           <p class="sample-status">Loading sample rows. If nothing appears, <a href="../samples/rightmove_uk_national_sample.csv" download>download the CSV</a>.</p>
         </div>
       </section>
 
       <section class="block" id="schema" aria-labelledby="schema-title">
         <h2 id="schema-title">Schema and fill rates</h2>
-        <p class="block-desc">32 columns in the REAL-ESTATE-BASIC layout. Fill rate is the share of rows that carry a value, measured on the delivered file.</p>
+        <p class="block-desc">30 columns in the REAL-ESTATE-BASIC layout. Fill rate is the share of the 544,502 rows that carry a value, measured on the delivered file.</p>
         <div class="table-scroll">
           <table class="table">
             <thead>
               <tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Fill rate</th><th scope="col">Description</th></tr>
             </thead>
             <tbody>
-              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>rightmove.co.uk</td></tr>
+              <tr><td class="field">website_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Source website</td></tr>
               <tr><td class="field">competence_date</td><td class="type">ISO Date</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Collection date (YYYY-MM-DD)</td></tr>
               <tr><td class="field">country_code</td><td class="type">ISO 3166-1</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBR</td></tr>
               <tr><td class="field">currency_code</td><td class="type">ISO 4217</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>GBP</td></tr>
-              <tr><td class="field">listing_id</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Rightmove listing identifier, 100% unique, zero duplicates</td></tr>
-              <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale: every record in this dataset is a sale listing</td></tr>
-              <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>61 distinct types (Detached, Semi-Detached, Terraced, Flat, Apartment...)</td></tr>
-              <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing headline as published</td></tr>
-              <tr><td class="field">price</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price in GBP, median £335,000, mean £480,592</td></tr>
-              <tr><td class="field">price_original</td><td class="type">Float (£)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking price prior to any reduction</td></tr>
-              <tr><td class="field">price_per_sqm</td><td class="type">Float (£/m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Normalized price per square metre</td></tr>
-              <tr><td class="field">area_sqm</td><td class="type">Float (m²)</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in square metres</td></tr>
-              <tr><td class="field">rooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">97.6%</span><span class="fill-bar"><span style="--pct: 97.6%"></span></span></div></td><td>Bedroom count, share carrying a value above zero</td></tr>
-              <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">93.3%</span><span class="fill-bar"><span style="--pct: 93.3%"></span></span></div></td><td>Bathroom count, share carrying a value above zero</td></tr>
-              <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">has_elevator</td><td class="type">Boolean</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">has_parking</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">24.7%</span><span class="fill-bar"><span style="--pct: 24.7%"></span></span></div></td><td>Parking or garage flagged in the listing</td></tr>
-              <tr><td class="field">has_terrace</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">16.2%</span><span class="fill-bar"><span style="--pct: 16.2%"></span></span></div></td><td>Balcony or terrace flagged in the listing</td></tr>
-              <tr><td class="field">has_garden</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">27.6%</span><span class="fill-bar"><span style="--pct: 27.6%"></span></span></div></td><td>Garden flagged in the listing</td></tr>
-              <tr><td class="field">has_pool</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">1.5%</span><span class="fill-bar"><span style="--pct: 1.5%"></span></span></div></td><td>Swimming pool flagged in the listing</td></tr>
-              <tr><td class="field">energy_certificate</td><td class="type">Enum</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Not published by UK source; column preserved, values empty</td></tr>
-              <tr><td class="field">region</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>402 distinct regions: counties, boroughs, and Scottish shires</td></tr>
-              <tr><td class="field">city</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Town or city</td></tr>
-              <tr><td class="field">neighborhood</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Locality or district</td></tr>
-              <tr><td class="field">address_raw</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Address line with partial outcode as published</td></tr>
+              <tr><td class="field">listing_id</td><td class="type">String / ID</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Portal listing identifier, 100% unique</td></tr>
+              <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale or rent</td></tr>
+              <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Detached 23.1%, Semi-Detached 16.7%, Terraced 11.9%</td></tr>
+              <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Title as published</td></tr>
+              <tr><td class="field">price</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Asking or selling price, median £335,000</td></tr>
+              <tr><td class="field">price_original</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Equal to price in this snapshot</td></tr>
+              <tr><td class="field">price_per_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Price divided by area_sqm; derived from an estimated area on 95.9% of rows</td></tr>
+              <tr><td class="field">area_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Floor area in m²; estimated from the bedroom count on 95.9% of rows</td></tr>
+              <tr><td class="field">rooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Bedroom count</td></tr>
+              <tr><td class="field">bathrooms</td><td class="type">Integer</td><td><div class="fill"><span class="fill-value">94.8%</span><span class="fill-bar"><span style="--pct: 94.8%"></span></span></div></td><td>Bathroom count</td></tr>
+              <tr><td class="field">floor</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Floor where stated</td></tr>
+              <tr><td class="field">has_elevator</td><td class="type">Boolean</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_parking</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">24.7%</span><span class="fill-bar"><span style="--pct: 24.7%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_terrace</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">16.2%</span><span class="fill-bar"><span style="--pct: 16.2%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_garden</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">27.6%</span><span class="fill-bar"><span style="--pct: 27.6%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">has_pool</td><td class="type">Boolean</td><td><div class="fill"><span class="fill-value">1.1%</span><span class="fill-bar"><span style="--pct: 1.1%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">energy_certificate</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td></td></tr>
+              <tr><td class="field">region</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Location label, 402 distinct values</td></tr>
+              <tr><td class="field">city</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Town or locality</td></tr>
+              <tr><td class="field">neighborhood</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Finer locality where published</td></tr>
+              <tr><td class="field">address_raw</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Location line as published</td></tr>
               <tr><td class="field">latitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 latitude</td></tr>
               <tr><td class="field">longitude</td><td class="type">Geo Float</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>WGS84 longitude</td></tr>
-              <tr><td class="field">agency_name</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Listing estate agency, commercial entity</td></tr>
-              <tr><td class="field">contact_phone</td><td class="type">String</td><td><div class="fill is-empty"><span class="fill-value">not collected</span><span class="fill-bar"><span style="--pct: 0%"></span></span></div></td><td>Deliberately not collected; dataset contains zero personal contact data</td></tr>
-              <tr><td class="field">description</td><td class="type">Text</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Full agent listing description</td></tr>
-              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical listing URL, 100% absolute https</td></tr>
-              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Primary listing image URL</td></tr>
+              <tr><td class="field">description</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Description as published</td></tr>
+              <tr><td class="field">itemurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Canonical page URL</td></tr>
+              <tr><td class="field">imageurl</td><td class="type">URL</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Primary image URL</td></tr>
             </tbody>
           </table>
         </div>
@@ -189,19 +177,24 @@
         <h2 id="limits-title">Known limits</h2>
         <p class="block-desc">Read these before you buy. They are the reasons a file might not fit your use.</p>
         <ul class="limits">
-          <li>342 listings (0.06%) carry a price below GBP 1,000, including some at GBP 1. These are genuine Rightmove entries, typically auction lots published with a nominal guide price. They are preserved rather than silently filtered so the dataset mirrors what the portal actually published. Apply your own price floor when modelling valuations.</li>
-          <li>Four schema fields (floor, has_elevator, energy_certificate, contact_phone) are not published by Rightmove and arrive empty. They remain in the file to keep the 32-column REAL-ESTATE-BASIC contract intact.</li>
-          <li>Zero personal data (no private phone numbers, names, or individual email addresses). 100% public property catalog intelligence.</li>
+          <li>Removed from the download: agency_name, contact_phone. Agency and contact details are not part of any file we sell.</li>
+          <li>Not collected for this source, columns kept empty to preserve the schema: energy_certificate, floor, has_elevator.</li>
+          <li>Amenity flags carry a value only where the listing advertises the amenity (parking 24.7%, terrace 16.2%, garden 27.6%, pool 1.1%). Empty means not advertised, not confirmed absent.</li>
+          <li>The portal does not publish a floor area for 95.9% of listings. On those rows area_sqm is an estimate from the bedroom count and price_per_sqm is derived from that estimate: neither is a measurement.</li>
+          <li>price_original equals price on every row: this snapshot carries no price-change information.</li>
+          <li>Asking prices span £1 to £65,000,000; outliers are kept as published.</li>
+          <li>Rows were collected between 2026-09-20 and 2026-09-21; values can change within that window.</li>
+          <li>No personal data: no private names, phone numbers or personal email addresses.</li>
         </ul>
       </section>
 
       <section class="block" id="licence" aria-labelledby="licence-title">
         <h2 id="licence-title">Licence and delivery</h2>
-        <p class="block-desc">Available for hedge funds, real estate analytics firms, PropTech platforms, and appraisal systems under commercial enterprise license terms.</p>
+        <p class="block-desc">For investment funds, property platforms, PropTech teams and valuation models.</p>
         <dl class="options">
-          <div><dt>Recurring Feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
-          <div><dt>API Access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
-          <div><dt>Snapshot Export</dt><dd>One-time national census delivery in CSV (semicolon, UTF-8-SIG) or Parquet.</dd></div>
+          <div><dt>Snapshot export</dt><dd>One-time delivery of this file in CSV (semicolon, UTF-8 with BOM).</dd></div>
+          <div><dt>Recurring feed (custom)</dt><dd>Scheduled refresh delivered to your S3 bucket or SFTP. On request, quoted separately.</dd></div>
+          <div><dt>API access (on request)</dt><dd>Programmatic access can be set up together with a custom feed. Ask us.</dd></div>
         </dl>
         <p class="block-desc"><a class="link-arrow" href="../custom-data.html">Request a custom or recurring feed</a></p>
       </section>
