@@ -729,6 +729,11 @@ code {
 .block { padding-top: var(--space-7); }
 .block > h2 { margin-bottom: var(--space-2); }
 .block > .block-desc { margin-bottom: var(--space-5); color: var(--text-2); max-width: 64ch; }
+/* Text or a call to action that follows a list or a chart inside a block needs air above it. */
+.block > ul + p,
+.block > ul + .block-desc {
+  margin-top: var(--space-5);
+}
 
 .sample-status { padding: var(--space-5); color: var(--text-3); font-size: 0.875rem; }
 
