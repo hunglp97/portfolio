@@ -324,6 +324,74 @@
     });
   }
 
+  // ------------------------------------------------------------------
+  // Motion. All of it is decoration: the page is complete without it, and
+  // none of it runs when the visitor asks for reduced motion.
+  // ------------------------------------------------------------------
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const GLOW_CARDS = '.dataset-row, .feature-card, .steps > li';
+  const REVEAL_BLOCKS = 'main .section-head, .dataset-row, .feature-card, .chart, .steps > li, .cta-band, .cta-final, .faq details';
+
+  // Cards light up under the pointer: the stylesheet reads --mx / --my.
+  function initCardGlow() {
+    if (REDUCED || !window.matchMedia('(hover: hover)').matches) return;
+    document.addEventListener('pointermove', function (e) {
+      const card = e.target && e.target.closest ? e.target.closest(GLOW_CARDS) : null;
+      if (!card) return;
+      const box = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - box.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - box.top) + 'px');
+    }, { passive: true });
+  }
+
+  // Blocks that start below the fold fade up once as they scroll in. Blocks already on
+  // screen are never hidden, so nothing blinks while this script loads.
+  function initReveal() {
+    if (REDUCED || !('IntersectionObserver' in window)) return;
+    const fold = window.innerHeight;
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const node = entry.target;
+        observer.unobserve(node);
+        node.classList.remove('reveal-pending');
+        // The reveal transition would otherwise replace the card's own hover transition.
+        window.setTimeout(function () {
+          node.classList.remove('reveal');
+          node.style.removeProperty('transition-delay');
+        }, 900);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    const perParent = new Map();
+    document.querySelectorAll(REVEAL_BLOCKS).forEach(function (node) {
+      if (node.hidden || node.getBoundingClientRect().top < fold) return;
+      const k = perParent.get(node.parentNode) || 0;
+      perParent.set(node.parentNode, k + 1);
+      node.style.transitionDelay = (Math.min(k, 5) * 60) + 'ms';
+      node.classList.add('reveal', 'reveal-pending');
+      observer.observe(node);
+    });
+  }
+
+  // The hero totals count up to the number that is already in the page.
+  function initCountUp() {
+    if (REDUCED) return;
+    document.querySelectorAll('.hero-facts dd').forEach(function (node) {
+      const final = node.textContent.trim();
+      if (!/^\d[\d,]*$/.test(final)) return;
+      const target = Number(final.replace(/,/g, ''));
+      const started = performance.now();
+      const duration = 1100;
+      function frame(now) {
+        const p = Math.min(1, (now - started) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        node.textContent = p === 1 ? final : Math.round(target * eased).toLocaleString('en-US');
+        if (p < 1) window.requestAnimationFrame(frame);
+      }
+      window.requestAnimationFrame(frame);
+    });
+  }
+
   function ready(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
     else fn();
@@ -335,5 +403,8 @@
     initCharts();
     initSamples();
     initRequestForm();
+    initCardGlow();
+    initReveal();
+    initCountUp();
   });
 })();
