@@ -205,12 +205,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="style.css?v=20261009a">
+  <link rel="stylesheet" href="style.css?v=20261009b">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#080d16" media="(prefers-color-scheme: dark)">
   <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
-  <script defer src="script.js?v=20261009a"></script>
+  <script defer src="script.js?v=20261009b"></script>
   <!-- /site:assets -->
   <!-- Payhip embed: opens checkout on this page when payhip.js loads; the link still works without it -->
   <script defer src="https://payhip.com/payhip.js"></script>
@@ -250,7 +250,7 @@
         <section class="hero" aria-labelledby="hero-title">
         <div>
           <span class="eyebrow">Datasets with free samples</span>
-          <h1 id="hero-title"><span>Inspect the data</span> <span class="text-gradient">before you buy.</span></h1>
+          <h1 id="hero-title"><span>Inspect the data</span> <span>before you buy.</span></h1>
           <p class="lead">Property, grocery, luxury and municipal datasets. Each one ships with a free sample, a full schema and measured fill rates.</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" href="#datasets">Browse the 9 datasets<i class="ph ph-arrow-right" aria-hidden="true"></i></a>
@@ -266,7 +266,6 @@
 
         <figure class="file-preview">
           <figcaption class="file-preview-head">
-            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
             <span class="file-name">idealista_portugal_2026-09-25.csv</span>
             <span class="file-tag">free sample</span>
           </figcaption>
@@ -305,13 +304,15 @@
 
     <section class="section" id="datasets" aria-labelledby="datasets-title">
       <div class="container">
-        <div class="section-head center">
-          <span class="eyebrow">Catalog</span>
-          <h2 id="datasets-title">Datasets</h2>
-          <p>One-off snapshots with a collection date. Recurring refresh is available as a custom feed.</p>
+        <div class="section-head">
+          <div>
+            <h2 id="datasets-title">Datasets</h2>
+            <p>One-off snapshots with a collection date. Recurring refresh is available as a custom feed.</p>
+          </div>
+          <a class="link-arrow" href="datasets/index.html">Compare all datasets</a>
         </div>
 
-        <div class="filters center" data-dataset-filter="home-list" role="group" aria-label="Filter datasets">
+        <div class="filters" data-dataset-filter="home-list" role="group" aria-label="Filter datasets">
           <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All<span class="filter-count">6</span></button>
           <button class="filter-chip" type="button" data-filter="real-estate" aria-pressed="false">Real estate<span class="filter-count">3</span></button>
           <button class="filter-chip" type="button" data-filter="retail" aria-pressed="false">Retail<span class="filter-count">2</span></button>
@@ -496,58 +497,36 @@
           <p>No dataset in this group yet.</p>
           <p><button class="btn btn-secondary btn-sm" type="button" data-filter-reset>Show all datasets</button></p>
         </div>
-        <p class="section-foot"><a class="link-arrow" href="datasets/index.html">Compare all datasets side by side</a></p>
       </div>
     </section>
 
     <section class="section" id="what-you-get" aria-labelledby="what-title">
       <div class="container">
-        <div class="section-head center">
-          <span class="eyebrow">Included</span>
-          <h2 id="what-title">What every file comes with</h2>
-          <p>You see the real columns and real rows before paying. Gaps in the data are named on the product page, not discovered after purchase.</p>
+        <div class="section-head">
+          <div>
+            <h2 id="what-title">What every file comes with</h2>
+            <p>You see the real columns and real rows before paying. Gaps in the data are named on the product page, not discovered after purchase.</p>
+          </div>
         </div>
-        <ul class="feature-grid">
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-download-simple" aria-hidden="true"></i></span>
-            <h3>A free sample</h3>
-            <p>10 to 40 real rows cut from the file you buy, with the same columns and encoding.</p>
-          </li>
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-chart-bar" aria-hidden="true"></i></span>
-            <h3>Measured fill rates</h3>
-            <p>For every column, the share of rows that carry a value, measured on the delivered file rather than estimated.</p>
-          </li>
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-warning-circle" aria-hidden="true"></i></span>
-            <h3>Known limits, written down</h3>
-            <p>Fields a source does not publish are listed as not collected. Empty never silently means zero.</p>
-          </li>
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-calendar-blank" aria-hidden="true"></i></span>
-            <h3>A collection date</h3>
-            <p>Each file is a dated snapshot. If you need it refreshed on a schedule, that is a custom feed.</p>
-          </li>
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-file-csv" aria-hidden="true"></i></span>
-            <h3>Plain formats</h3>
-            <p>CSV in UTF-8 with a semicolon separator; the Portugal data pack also ships Parquet.</p>
-          </li>
-          <li class="feature-card">
-            <span class="feature-icon"><i class="ph ph-shield-check" aria-hidden="true"></i></span>
-            <h3>No personal data</h3>
-            <p>No private names, phone numbers or personal email addresses. Business listings only.</p>
-          </li>
-        </ul>
+        <dl class="feature-list">
+          <div><dt>A free sample</dt><dd>10 to 40 real rows cut from the file you buy, with the same columns and encoding.</dd></div>
+          <div><dt>Measured fill rates</dt><dd>For every column, the share of rows that carry a value, measured on the delivered file rather than estimated.</dd></div>
+          <div><dt>Known limits, written down</dt><dd>Fields a source does not publish are listed as not collected. Empty never silently means zero.</dd></div>
+          <div><dt>A collection date</dt><dd>Each file is a dated snapshot. If you need it refreshed on a schedule, that is a custom feed.</dd></div>
+          <div><dt>Plain formats</dt><dd>CSV in UTF-8 with a semicolon separator; the Portugal data pack also ships Parquet.</dd></div>
+          <div><dt>No personal data</dt><dd>No private names, phone numbers or personal email addresses. Business listings only.</dd></div>
+        </dl>
       </div>
     </section>
 
     <section class="section" id="insights" aria-labelledby="insights-title">
       <div class="container">
-        <div class="section-head center">
-          <span class="eyebrow">Insights</span>
-          <h2 id="insights-title">What the data shows</h2>
-          <p>Two results computed from the snapshots above, with the same numbers you get in the files.</p>
+        <div class="section-head">
+          <div>
+            <h2 id="insights-title">What the data shows</h2>
+            <p>Two results computed from the snapshots above, with the same numbers you get in the files.</p>
+          </div>
+          <a class="link-arrow" href="https://explore.hlpdata.com" target="_blank" rel="noopener">Query the samples in your browser</a>
         </div>
         <div class="charts">
           <figure class="chart" data-chart>
@@ -615,16 +594,16 @@
             </figcaption>
           </figure>
         </div>
-        <p class="section-foot"><a class="link-arrow" href="https://explore.hlpdata.com" target="_blank" rel="noopener">Query the samples in your browser</a></p>
       </div>
     </section>
 
     <section class="section" id="buying" aria-labelledby="buying-title">
       <div class="container">
-        <div class="section-head center">
-          <span class="eyebrow">How it works</span>
-          <h2 id="buying-title">How buying works</h2>
-          <p>Datasets need no account and no subscription: you pay once and download the file. The <a href="retail-report.html">monthly report</a> is a PayPal subscription you can cancel at any time.</p>
+        <div class="section-head">
+          <div>
+            <h2 id="buying-title">How buying works</h2>
+            <p>Datasets need no account and no subscription: you pay once and download the file. The <a href="retail-report.html">monthly report</a> is a PayPal subscription you can cancel at any time.</p>
+          </div>
         </div>
         <ol class="steps">
           <li>
@@ -661,7 +640,6 @@
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-head center">
-          <span class="eyebrow">FAQ</span>
           <h2 id="faq-title">Before you buy</h2>
           <p>Short answers to what buyers ask first. The full conditions are in the <a href="terms.html">terms</a>.</p>
         </div>
@@ -705,7 +683,6 @@
     <section class="section" aria-labelledby="custom-title">
       <div class="container">
         <div class="cta-final">
-          <span class="eyebrow">Custom data</span>
           <h2 id="custom-title">Need a source that is not listed?</h2>
           <p>Tell us the website, the fields and how often you need them. You get a written quote with scope, format and refresh schedule.</p>
           <div class="actions">
