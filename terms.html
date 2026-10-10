@@ -67,14 +67,14 @@
     <div class="container">
       <header class="page-head">
         <h1>Terms of Service & Data Compliance Policy</h1>
-        <p class="updated">Last updated October 8, 2026</p>
+        <p class="updated">Last updated October 10, 2026</p>
         <nav class="toc" aria-label="On this page">
           <h2>On this page</h2>
           <ol>
-          <li><a href="#operational-scope-service-model">Operational Scope & Service Model</a></li>
-          <li><a href="#100-public-data-sourcing-standard">100% Public Data Sourcing Standard</a></li>
-          <li><a href="#strict-zero-pii-policy-gdpr-ccpa-compliance">Strict Zero-PII Policy (GDPR & CCPA Compliance)</a></li>
-          <li><a href="#ethical-crawling-server-respect">Ethical Crawling & Server Respect</a></li>
+          <li><a href="#operational-scope-service-model">Who We Are</a></li>
+          <li><a href="#100-public-data-sourcing-standard">Public Data Only</a></li>
+          <li><a href="#strict-zero-pii-policy-gdpr-ccpa-compliance">Personal Data</a></li>
+          <li><a href="#ethical-crawling-server-respect">How We Collect</a></li>
           <li><a href="#licences">Licences by Product</a></li>
           <li><a href="#refunds">Refunds</a></li>
           <li><a href="#subscriptions">Subscriptions</a></li>
@@ -84,46 +84,40 @@
       </header>
       <article class="prose">
     <section>
-    <h2 id="operational-scope-service-model">1. Operational Scope & Service Model</h2>
+    <h2 id="operational-scope-service-model">1. Who We Are</h2>
     <p>
-    HLP Data ("we", "us", or "our") operates as an independent commercial web data provider offering structured alternative data feeds, standardized catalog datasets, and recurring delivery pipelines for commercial analytics, hedge funds, and enterprise business intelligence.
+    HLP Data ("we", "us", or "our") is an independent data provider operated by Lê Phước Hưng in Ho Chi Minh City, Vietnam. We sell dated snapshot datasets built from public websites and official statistics, a monthly report, and custom data feeds.
     </p>
     </section>
 
     <section>
-    <h2 id="100-public-data-sourcing-standard">2. 100% Public Data Sourcing Standard</h2>
+    <h2 id="100-public-data-sourcing-standard">2. Public Data Only</h2>
     <p>
-    HLP Data exclusively extracts and compiles facts, figures, and listings that are freely and publicly available on the open web. We do <strong>NOT</strong>:
+    We collect information that any visitor can see on a website without an account, and official statistics published as open data. We do not:
     </p>
     <ul>
-    <li>Circumvent paywalls, subscription access gates, or private user credentials.</li>
-    <li>Access non-public backends, unauthorized internal APIs, or confidential databases.</li>
-    <li>Collect data behind private user authentication.</li>
+    <li>Bypass paywalls or subscription gates.</li>
+    <li>Log in with user accounts or collect data that is only shown after a login.</li>
+    <li>Use leaked, private or confidential databases.</li>
     </ul>
     </section>
 
     <section>
-    <h2 id="strict-zero-pii-policy-gdpr-ccpa-compliance">3. Strict Zero-PII Policy (GDPR & CCPA Compliance)</h2>
+    <h2 id="strict-zero-pii-policy-gdpr-ccpa-compliance">3. Personal Data</h2>
     <p>
-    We strictly adhere to global privacy regulations including the European Union General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+    Our files describe properties, products and places, not people. Contact fields published with listings (agency names, phone numbers, email addresses) are removed from every file we sell.
     </p>
-    <div>
-    <strong>Zero Personally Identifiable Information Guarantee:</strong>
     <p>
-    Our extraction schemas (e.g. REAL-ESTATE-BASIC, GROCERY-PLP, FASHION-PDP) contain exclusively commercial and aggregate data: product titles, stock codes, pricing, specs, geocodes, and dimensions. We do not extract, store, or redistribute personal emails, telephone numbers, private identity records, or individual consumer profiles.
+    Free-text fields, such as listing descriptions, are kept as the advertiser published them. If you find personal data in one of our files, write to <a href="mailto:privacy@hlpdata.com">privacy@hlpdata.com</a> and we will remove it from that file and from later deliveries. How we handle the data of our own customers is described in the <a href="privacy.html">privacy policy</a>.
     </p>
-    </div>
     </section>
 
     <section>
-    <h2 id="ethical-crawling-server-respect">4. Ethical Crawling & Server Respect</h2>
-    <p>
-    Our automated ingestion engines are engineered for zero-impact crawling:
-    </p>
+    <h2 id="ethical-crawling-server-respect">4. How We Collect</h2>
     <ul>
-    <li><strong>Artificial Jitter & Delay:</strong> Requests maintain pacing intervals between 1.0s and 3.0s to avoid placing resource strain on origin servers.</li>
-    <li><strong>Zero DDoS Footprint:</strong> Strict concurrency caps prevent traffic spikes or performance degradation on target websites.</li>
-    <li><strong>Clean Architecture:</strong> We do not inject persistent trackers, invasive scripts, or malicious payloads into target domains.</li>
+    <li><strong>Rate limits:</strong> requests are capped per website and per network route, so a site receives no more than a set number of requests per minute from us.</li>
+    <li><strong>Automatic pauses:</strong> when a site refuses requests (HTTP 403 or 429), collection from that site stops automatically, for 5 minutes at first and up to 24 hours if refusals continue.</li>
+    <li><strong>No changes to the sites we read:</strong> we do not inject scripts or trackers into the websites we collect from.</li>
     </ul>
     </section>
 
@@ -169,7 +163,7 @@
     </p>
     <p>
     Email: <a href="mailto:privacy@hlpdata.com">privacy@hlpdata.com</a><br>
-    Commercial Entity: HLP Data &bull; Commercial Data Solutions
+    Operator: Lê Phước Hưng, Ho Chi Minh City, Vietnam
     </p>
     </section>
 
