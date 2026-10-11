@@ -26,7 +26,6 @@ All datasets are delivered with:
 | **[Rightmove UK National Census](https://hlpdata.com/datasets/rightmove-uk.html)** | 544,502 residential sale listings (100% of 3,121 UK outcodes) | 32 cols | `REAL-ESTATE-BASIC` | [Sample CSV](https://hlpdata.com/samples/rightmove_uk_national_sample.csv) |
 | **[Idealista Portugal Property Feed](https://hlpdata.com/datasets/idealista-portugal.html)** | 2,640 residential sale listings across 13 Portuguese districts | 32 cols | `REAL-ESTATE-BASIC` | [Sample CSV](https://hlpdata.com/samples/idealista_real_estate_sample.csv) |
 | **[Continente Supermarket FMCG](https://hlpdata.com/datasets/continente-portugal.html)** | 11,711 verified grocery SKUs across 10 departmental aisles | 31 cols | `GROCERY-PLP` | [Sample CSV](https://hlpdata.com/samples/continente_grocery_plp_sample.csv) |
-| **[Farfetch Luxury Handbag Catalog](https://hlpdata.com/datasets/farfetch-luxury.html)** | 960 designer handbag SKUs across 125 luxury brands | 35 cols | `FASHION-PDP` | [Sample CSV](https://hlpdata.com/samples/farfetch_luxury_fashion_sample.csv) |
 
 ---
 
@@ -45,7 +44,6 @@ The repository is built with a zero-dependency architecture ensuring maximum per
 │   ├── rightmove-uk.html        # Rightmove UK census detail & SLA fill rates
 │   ├── idealista-portugal.html  # Idealista Portugal property feed detail
 │   ├── continente-portugal.html # Continente FMCG catalog detail
-│   └── farfetch-luxury.html     # Farfetch luxury handbag catalog detail
 ├── samples/                     # Sanitized public sample CSV files
 ├── style.css                    # Responsive dark/light theme CSS3 system
 ├── script.js                    # Trilingual i18n runtime (EN/ES/PT) & modal inspector
