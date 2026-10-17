@@ -101,7 +101,7 @@
         <div class="metrics">
           <div class="metric"><span class="label">Total listings</span><span class="value">197,246</span><span class="sub">100% unique IDs</span></div>
           <div class="metric"><span class="label">Coverage</span><span class="value">29 areas</span><span class="sub">Distinct location labels</span></div>
-          <div class="metric"><span class="label">Median asking price</span><span class="value">€298,100</span><span class="sub">€2,167 per m², median of published floor areas</span></div>
+          <div class="metric"><span class="label">Median asking price</span><span class="value">€298,300</span><span class="sub">€2,167 per m², median of published floor areas</span></div>
           <div class="metric"><span class="label">Collected</span><span class="value">2026-10-13</span><span class="sub">One-off snapshot</span></div>
         </div>
       </header>
@@ -147,7 +147,7 @@
               <tr><td class="field">operation_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>sale or rent</td></tr>
               <tr><td class="field">property_type</td><td class="type">Enum</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Apartment 41.0%, House 25.5%, Land 21.1%</td></tr>
               <tr><td class="field">title</td><td class="type">String</td><td><div class="fill"><span class="fill-value">100%</span><span class="fill-bar"><span style="--pct: 100%"></span></span></div></td><td>Title as published</td></tr>
-              <tr><td class="field">price</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">98.7%</span><span class="fill-bar"><span style="--pct: 98.7%"></span></span></div></td><td>Asking or selling price, median €298,100</td></tr>
+              <tr><td class="field">price</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">98.7%</span><span class="fill-bar"><span style="--pct: 98.7%"></span></span></div></td><td>Asking or selling price, median €298,300</td></tr>
               <tr><td class="field">price_original</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">98.7%</span><span class="fill-bar"><span style="--pct: 98.7%"></span></span></div></td><td>Equal to price in this snapshot</td></tr>
               <tr><td class="field">price_per_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">98.7%</span><span class="fill-bar"><span style="--pct: 98.7%"></span></span></div></td><td>Price per square metre, median €2,167</td></tr>
               <tr><td class="field">area_sqm</td><td class="type">Float</td><td><div class="fill"><span class="fill-value">99.7%</span><span class="fill-bar"><span style="--pct: 99.7%"></span></span></div></td><td>Floor area in m²</td></tr>
@@ -181,7 +181,7 @@
           <li>Removed from the download: agency_name, contact_phone. Agency and contact details are not part of any file we sell.</li>
           <li>Not collected for this source, columns kept empty to preserve the schema: bathrooms, description, energy_certificate, floor, has_elevator, has_garden, has_parking, has_pool, has_terrace, imageurl, latitude, longitude.</li>
           <li>price_original equals price on every row: this snapshot carries no price-change information.</li>
-          <li>Asking prices span €1 to €999,999,999,999; outliers are kept as published.</li>
+          <li>Asking prices span €10 to €205,000,000; outliers are kept as published.</li>
           <li>No personal data: no private names, phone numbers or personal email addresses.</li>
         </ul>
       </section>
