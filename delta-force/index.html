@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delta Force Auto Redeem — Tự Động Đổi Quà Garena | HLP Data</title>
-  <meta name="description" content="Tiện ích mở rộng Chrome tự động đổi trọn bộ 395+ mã CDKey Delta Force trên Garena, tự động cập nhật mã mới từ server hlpdata.com, an toàn và hoàn toàn miễn phí.">
+  <meta name="description" content="Tiện ích mở rộng Chrome tự động đổi trọn bộ 645+ mã CDKey Delta Force trên Garena, tự động cập nhật mã mới từ server hlpdata.com, an toàn và hoàn toàn miễn phí.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
     :root {
@@ -308,12 +308,12 @@
         <div class="hero-badge">⚡ Auto Redeem CDKey Extension v1.0.0</div>
         <h1>Tự Động Đổi Mã Quà Tặng<br><span>Delta Force Garena</span></h1>
         <p class="subtitle">
-          Tiện ích mở rộng Chrome chuyên nghiệp: Tự động đổi trọn bộ 395+ mã CDKey vào hộp thư game, tự động nhận diện mã mới từ server hlpdata.com, an toàn tuyệt đối 100%.
+          Tiện ích mở rộng Chrome chuyên nghiệp: Tự động đổi trọn bộ 645+ mã CDKey vào hộp thư game, tự động nhận diện mã mới từ server hlpdata.com, an toàn tuyệt đối 100%.
         </p>
 
         <div class="stats-bar">
           <div class="stat-pill">
-            <strong id="live-count">395+</strong>
+            <strong id="live-count">645+</strong>
             <span>Mã quà tích hợp sẵn</span>
           </div>
           <div class="stat-pill">
@@ -394,7 +394,7 @@
     fetch('/api/df-codes.json')
       .then(res => res.json())
       .then(data => {
-        const count = data.count || (data.codes ? data.codes.length : 395);
+        const count = data.count || (data.codes ? data.codes.length : 645);
         document.getElementById('live-count').innerText = count + '+';
       })
       .catch(() => {});
