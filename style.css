@@ -1462,3 +1462,22 @@ input:focus, select:focus, textarea:focus { outline: 3px solid var(--accent); ou
 }
 
 .release-summary { margin-top: 16px; color: var(--text-2); font-size: 1rem; }
+.printable-guides { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
+.guide-intro h2 { max-width: 14ch; margin: 0 0 20px; }
+.guide-intro p { color: var(--text-2); max-width: 42ch; margin-bottom: 20px; }
+.guide-intro > a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; }
+.guide-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 36px; }
+.guide-list li { display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; }
+.guide-list h3 { font-size: 1.125rem; line-height: 1.4; letter-spacing: -.02em; margin-bottom: 8px; }
+.guide-list p { color: var(--text-2); font-size: .9375rem; line-height: 1.6; }
+.guide-list li > a { display: grid; grid-template-columns: auto 20px; gap: 4px 12px; align-content: center; min-height: 52px; font-size: .9375rem; font-weight: 600; }
+.guide-list small { grid-row: 2; color: var(--text-2); font-size: .875rem; font-weight: 400; }
+.guide-list a > [aria-hidden] { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 1.5rem; }
+@media (max-width: 900px) {
+  .printable-guides { grid-template-columns: 1fr; gap: 28px; }
+  .guide-intro h2, .guide-intro p { max-width: 42ch; }
+}
+@media (max-width: 600px) {
+  .guide-list li { grid-template-columns: 1fr; gap: 12px; }
+  .guide-list li > a { justify-content: start; gap: 4px 20px; }
+}

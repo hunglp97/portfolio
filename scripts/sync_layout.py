@@ -24,7 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PARTS = ("assets", "header", "footer")
-SKIP_DIRS = ("preview", "delta-force", "api", "downloads", "samples", "partials", "scripts", "node_modules")
+SKIP_DIRS = ("preview", "delta-force", "api", "downloads", "samples", "partials", "scripts", "node_modules", "tmp")
 _NAV = re.compile(r'<body[^>]*\sdata-nav="([a-z-]+)"')
 
 

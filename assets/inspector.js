@@ -25,6 +25,9 @@
     index = next;
     target = index / (model.fields.length - 1);
     const field = model.fields[index];
+    root.querySelectorAll('[data-tray]').forEach(function (part) {
+      part.toggleAttribute('data-active', Number(part.dataset.tray) === index);
+    });
     select.value = String(index);
     root.querySelector('[data-inspect-rate]').textContent = field.rate + '%';
     root.querySelector('[data-inspect-note]').textContent = field.note;

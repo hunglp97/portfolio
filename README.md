@@ -107,3 +107,27 @@ CSS and JavaScript, including mobile purchase order and section links.
 Local browser QA should block Umami, Payhip and form submission. Check 1440, 768 and 390px,
 both color schemes, reduced motion, JavaScript disabled, CSV load/error, filters/reset/sort,
 menu keyboard behavior and form validation. The site stores no UI preferences in the browser.
+
+### Printable Anatomy guides
+
+The figure has a PDF link and the homepage's `#guides` section offers three A4 formats:
+poster (1 page), annotated drawing (1 page) and detailed reading guide (2 pages). All three
+come from Anatomy's own `scripts/print.mjs` renderer, with the same SVG parts, field model
+and working selector as the website. They preserve the snapshot date, published source
+and missing-value caveats. They contain vector drawings and selectable text.
+
+```bash
+node scripts/print_guides.mjs --png
+python3 scripts/sync_layout.py
+python3 scripts/lint_site.py
+```
+
+Requires Chrome and the installed Anatomy skill at `~/.agents/skills/anatomy`; set
+`ANATOMY_HOME` for another installation. No npm packages are required. The wrapper builds
+an offline light page from the generated partial, captures four reduced-motion poses,
+prints all formats and copies only the PDFs into `downloads/`. HTML and PNG proofs stay in
+ignored `tmp/pdfs/`. Inspect every PDF page after regeneration; a successful page-count
+check alone does not rule out overlapping content. Reprint after changing the source model.
+
+The PDF icon/link uses Anatomy's MIT-licensed `pdf-button.mjs`. Its CSS is adapted to the
+site's external stylesheet and 44px touch targets; no inline style block is shipped.

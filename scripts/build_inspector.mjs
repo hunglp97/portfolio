@@ -1,8 +1,9 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as k from '../vendor/anatomy/iso-kit.mjs';
 import * as A from '../vendor/anatomy/audit.mjs';
+import { pdfButton } from '../vendor/anatomy/pdf-button.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const source = readFileSync(resolve(ROOT, 'datasets/idealista-portugal.html'), 'utf8');
@@ -89,9 +90,15 @@ slab('ruler',ruler,8,.6,'lo',{inner:k.lineSvg(ticks.minor,{tone:'lo'})+k.lineSvg
 const states=A.uniformStates(12);
 A.settle(R,P,{states});
 R.items.sort((a,b)=>a.key-b.key);
-const svg=k.figureSvg({width:W,height:H,label:'A desktop card inspection machine. Four trays encode the published fill rates of four dataset fields by stack height. A scanner moves to the selected field.',body:R.items.map(item=>item.moving?`<g data-scanner>${item.svg}</g>`:item.svg)});
+const svg=k.figureSvg({width:W,height:H,label:'A desktop card inspection machine. Four trays encode the published fill rates of four dataset fields by stack height. A scanner moves to the selected field.',body:R.items.map(item=>{
+  const tray=item.name.match(/^tray\.(\d)\./)?.[1];
+  return `<g data-name="${item.name}"${item.moving?' data-scanner':''}${tray!==undefined?` data-tray="${tray}"${tray==='0'?' data-active="true"':''}`:''}>${item.svg}</g>`;
+})});
 const delta=k.iso([180,0,0],P).map((n,i)=>n-k.iso([0,0,0],P)[i]);
 const first=model.fields[0];
+const pdf='downloads/data-inspection-detailed-a4.pdf';
+// Keep the Anatomy link/icon, with the site's external CSS and 44px touch target.
+const printable=existsSync(resolve(ROOT,pdf))?`<div class="inspector-downloads">${pdfButton(pdf,'Open the two-page data inspection guide (PDF)').replace(/<style>[\s\S]*?<\/style>/,'')}<a href="#guides">All printable guides</a></div>`:'';
 const partial=`<figure class="data-inspector iso iso-plate" data-ui aria-labelledby="inspector-title">
   <figcaption class="inspector-head"><h2 id="inspector-title">Look inside a dataset.</h2><a href="${model.source}" class="inspector-source">View schema</a></figcaption>
   <p class="inspector-meta">${model.dataset} · ${model.rows.toLocaleString('en-US')} rows · ${model.date}</p>
@@ -99,6 +106,7 @@ const partial=`<figure class="data-inspector iso iso-plate" data-ui aria-labelle
   <div class="inspector-control"><label for="inspect-field">Inspect a field</label><select id="inspect-field" data-inspect-field disabled>${model.fields.map((f,i)=>`<option value="${i}">${f.label} · ${f.rate}% filled</option>`).join('')}</select><button type="button" class="inspector-tour" data-inspect-tour aria-pressed="false" hidden>Play tour</button></div>
   <div class="inspector-result" aria-live="polite" aria-atomic="true"><p><strong data-inspect-rate>${first.rate}%</strong><span>of rows have a value</span></p><p data-inspect-note>${first.note}</p></div>
   <p class="inspector-caption">Stack height shows field completeness, not dataset coverage. Published snapshot figures; this is not a live scan.</p>
+  ${printable}
   <noscript><p class="inspector-caption">Price 100%; price per m² 100%; parking advertised 53.7%; floor 42.9%. <a href="${model.source}">Read the full schema and limits</a>.</p></noscript>
   <script type="application/json" id="inspection-model">${JSON.stringify(model)}</script>
 </figure>`;
