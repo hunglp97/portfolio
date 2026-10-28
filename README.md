@@ -118,6 +118,7 @@ and missing-value caveats. They contain vector drawings and selectable text.
 
 ```bash
 node scripts/print_guides.mjs --png
+node scripts/preview_guides.mjs
 python3 scripts/sync_layout.py
 python3 scripts/lint_site.py
 ```
@@ -131,3 +132,14 @@ check alone does not rule out overlapping content. Reprint after changing the so
 
 The PDF icon/link uses Anatomy's MIT-licensed `pdf-button.mjs`. Its CSS is adapted to the
 site's external stylesheet and 44px touch targets; no inline style block is shipped.
+
+The exhibition layout makes the bench the main working exhibit. Its four fields can be
+selected by the native buttons, by clicking a physical tray, or with arrows/Home/End on
+the focused drawing. The original select and a static field summary remain available
+when JavaScript is disabled. Automatic motion pauses offscreen and stops under reduced
+motion. The guide preview changes when a download link is focused or hovered, with a
+short crossfade (an instant change under reduced motion).
+
+`preview_guides.mjs` requires Poppler's `pdftoppm`. It renders the first page of each
+published PDF to the three `assets/guide-*.png` files. Run it after reprinting so the
+website preview always matches the file being downloaded.

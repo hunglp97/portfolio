@@ -90,23 +90,29 @@ slab('ruler',ruler,8,.6,'lo',{inner:k.lineSvg(ticks.minor,{tone:'lo'})+k.lineSvg
 const states=A.uniformStates(12);
 A.settle(R,P,{states});
 R.items.sort((a,b)=>a.key-b.key);
-const svg=k.figureSvg({width:W,height:H,label:'A desktop card inspection machine. Four trays encode the published fill rates of four dataset fields by stack height. A scanner moves to the selected field.',body:R.items.map(item=>{
+const svg=k.figureSvg({width:W,height:H,label:'A desktop card inspection machine. Four trays encode the published fill rates of four dataset fields by stack height. Tap a tray to move the scanner and inspect that field.',body:R.items.map(item=>{
   const tray=item.name.match(/^tray\.(\d)\./)?.[1];
   return `<g data-name="${item.name}"${item.moving?' data-scanner':''}${tray!==undefined?` data-tray="${tray}"${tray==='0'?' data-active="true"':''}`:''}>${item.svg}</g>`;
-})});
+})}).replace('viewBox="0 0 640 320"','viewBox="130 10 380 304"');
 const delta=k.iso([180,0,0],P).map((n,i)=>n-k.iso([0,0,0],P)[i]);
 const first=model.fields[0];
 const pdf='downloads/data-inspection-detailed-a4.pdf';
 // Keep the Anatomy link/icon, with the site's external CSS and 44px touch target.
 const printable=existsSync(resolve(ROOT,pdf))?`<div class="inspector-downloads">${pdfButton(pdf,'Open the two-page data inspection guide (PDF)').replace(/<style>[\s\S]*?<\/style>/,'')}<a href="#guides">All printable guides</a></div>`:'';
 const partial=`<figure class="data-inspector iso iso-plate" data-ui aria-labelledby="inspector-title">
-  <figcaption class="inspector-head"><h2 id="inspector-title">Look inside a dataset.</h2><a href="${model.source}" class="inspector-source">View schema</a></figcaption>
+  <figcaption class="inspector-head"><h2 id="inspector-title">One snapshot. Four fields.</h2><a href="${model.source}" class="inspector-source">View the full schema <span aria-hidden="true">↗</span></a></figcaption>
   <p class="inspector-meta">${model.dataset} · ${model.rows.toLocaleString('en-US')} rows · ${model.date}</p>
-  <div class="inspector-art" data-delta-x="${delta[0]}" data-delta-y="${delta[1]}">${svg}</div>
-  <div class="inspector-control"><label for="inspect-field">Inspect a field</label><select id="inspect-field" data-inspect-field disabled>${model.fields.map((f,i)=>`<option value="${i}">${f.label} · ${f.rate}% filled</option>`).join('')}</select><button type="button" class="inspector-tour" data-inspect-tour aria-pressed="false" hidden>Play tour</button></div>
+  <div class="inspector-layout">
+  <div class="inspector-art" tabindex="-1" role="slider" aria-disabled="true" aria-label="Select a field on the inspection bench. Use the arrow keys, Home or End." aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-valuetext="${first.label}: ${first.rate}% filled" data-delta-x="${delta[0]}" data-delta-y="${delta[1]}">${svg}</div>
+  <div class="inspector-desk">
+  <div class="inspector-fields" aria-label="Field completeness" hidden>${model.fields.map((f,i)=>`<button type="button" data-inspect-choice="${i}" aria-pressed="${i===0}"><span>${f.label}</span><strong>${f.rate}%</strong><span class="inspector-field-fill" aria-hidden="true" style="--field-fill:${f.rate}%"></span></button>`).join('')}</div>
+  <div class="inspector-control"><label for="inspect-field">Inspect a field</label><select id="inspect-field" data-inspect-field disabled>${model.fields.map((f,i)=>`<option value="${i}">${f.label} · ${f.rate}% filled</option>`).join('')}</select><span class="inspector-hint">Tap a tray to inspect.</span><button type="button" class="inspector-tour" data-inspect-tour aria-pressed="false" hidden>Play tour</button></div>
   <div class="inspector-result" aria-live="polite" aria-atomic="true"><p><strong data-inspect-rate>${first.rate}%</strong><span>of rows have a value</span></p><p data-inspect-note>${first.note}</p></div>
+  </div></div>
+  <div class="inspector-foot">
   <p class="inspector-caption">Stack height shows field completeness, not dataset coverage. Published snapshot figures; this is not a live scan.</p>
   ${printable}
+  </div>
   <noscript><p class="inspector-caption">Price 100%; price per m² 100%; parking advertised 53.7%; floor 42.9%. <a href="${model.source}">Read the full schema and limits</a>.</p></noscript>
   <script type="application/json" id="inspection-model">${JSON.stringify(model)}</script>
 </figure>`;

@@ -126,3 +126,59 @@
   .inspector-control select { font-size: .875rem; }
   .inspector-tour { padding-inline: 10px; }
 }
+.data-inspector { padding: 24px 32px; border-radius: 0; }
+.inspector-head h2 { font-size: 1rem; }
+.inspector-source { gap: 10px; }
+.inspector-meta { margin-top: 0; }
+.inspector-layout { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr); gap: 40px; align-items: center; }
+.inspector-art { width: min(100%, 580px); margin: 0 auto; touch-action: pan-y; }
+.inspector-art:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.inspector-art [data-tray] { cursor: pointer; }
+.inspector-art [data-active] .iso-edge { stroke-width: 1.25px; }
+.inspector-fields { display: grid; gap: 4px; }
+.inspector-fields[hidden] { display: none; }
+.inspector-fields button { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; min-height: 56px; padding: 12px 16px; border: 0; border-radius: 0; background: transparent; color: var(--text-2); font: inherit; text-align: left; cursor: pointer; transition: background-color 200ms, color 200ms; }
+.inspector-fields button strong { font-size: 1.125rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.inspector-fields button:hover, .inspector-fields button[aria-pressed="true"] { color: var(--text); background: var(--surface); }
+.inspector-field-fill { position: absolute; bottom: 0; left: 16px; right: 16px; height: 2px; background: var(--bar-track); }
+.inspector-field-fill::after { content: ''; display: block; height: 100%; width: var(--field-fill); background: var(--text-3); transition: background-color 200ms; }
+[aria-pressed="true"] .inspector-field-fill::after { background: var(--accent); }
+.data-inspector[data-enhanced] .inspector-control select, .data-inspector[data-enhanced] .inspector-control label { display: none; }
+.data-inspector[data-enhanced] .inspector-control { display: flex; justify-content: flex-end; margin-top: 12px; }
+.inspector-tour { min-height: 44px; background: transparent; padding-inline: 12px; }
+.inspector-tour::before { content: '▶'; display: inline-block; font-size: .75em; margin-right: 8px; }
+.inspector-tour[aria-pressed="true"]::before { content: 'Ⅱ'; }
+.inspector-result { display: block; margin-top: 20px; min-height: 132px; }
+.inspector-result > p:first-child { display: flex; align-items: center; gap: 16px; }
+.inspector-result strong { font-size: 3.5rem; }
+.inspector-result span { max-width: 10ch; line-height: 1.4; }
+.inspector-result [data-inspect-note] { margin-top: 12px; max-width: 35ch; }
+.inspector-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.inspector-caption { margin: 0; max-width: 65ch; }
+.inspector-downloads { flex-shrink: 0; margin: 0; }
+@media (max-width: 900px) {
+  .data-inspector { padding: 24px; }
+  .inspector-layout { grid-template-columns: 1.25fr 1fr; gap: 24px; }
+  .inspector-result strong { font-size: 2.5rem; }
+  .inspector-foot { align-items: start; }
+}
+@media (max-width: 600px) {
+  .data-inspector { padding: 20px; }
+  .inspector-head h2 { font-size: 1rem; }
+  .inspector-head { gap: 4px; }
+  .inspector-meta { font-size: .875rem; margin-top: 4px; }
+  .inspector-layout { display: block; }
+  .inspector-art { width: min(100%, 340px); margin: 12px auto; }
+  .inspector-fields { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .inspector-fields button { flex-wrap: wrap; gap: 4px; padding: 12px; font-size: .875rem; min-height: 72px; }
+  .inspector-field-fill { left: 12px; right: 12px; }
+  .inspector-result { min-height: 118px; margin-top: 12px; }
+  .inspector-result strong { font-size: 2.5rem; }
+  .inspector-result [data-inspect-note] { max-width: none; }
+  .inspector-foot { display: block; }
+  .inspector-caption { font-size: .875rem; }
+  .inspector-downloads { margin-top: 12px; }
+}
+.data-inspector[data-enhanced] .inspector-control { justify-content: space-between; gap: 12px; }
+.inspector-hint { color: var(--text-2); font-size: .875rem; }
+.data-inspector:not([data-enhanced]) .inspector-hint { display: none; }
