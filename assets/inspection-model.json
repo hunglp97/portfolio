@@ -1,0 +1,50 @@
+{
+  "dataset": "Idealista Portugal",
+  "date": "2026-09-25",
+  "rows": 101868,
+  "source": "datasets/idealista-portugal.html#schema",
+  "fields": [
+    {
+      "key": "price",
+      "label": "Asking price",
+      "note": "Every row has an asking price.",
+      "rate": 100,
+      "x": -90
+    },
+    {
+      "key": "price_per_sqm",
+      "label": "Price per m²",
+      "note": "Every row has a price per square metre.",
+      "rate": 100,
+      "x": -30
+    },
+    {
+      "key": "has_parking",
+      "label": "Parking advertised",
+      "note": "Empty means not advertised, not confirmed absent.",
+      "rate": 53.7,
+      "x": 30
+    },
+    {
+      "key": "floor",
+      "label": "Floor",
+      "note": "A floor value is present only where the source states it.",
+      "rate": 42.9,
+      "x": 90
+    }
+  ],
+  "projection": {
+    "origin": [
+      314.02445652382943,
+      181.45604179761574
+    ],
+    "scale": 1.0485525730152918,
+    "azimuth": 35,
+    "elevation": 36
+  },
+  "delta": [
+    136.93485557174682,
+    114.94918897283651
+  ],
+  "parts": 63
+}

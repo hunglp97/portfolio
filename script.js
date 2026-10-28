@@ -44,15 +44,22 @@
     const button = document.querySelector('.menu-button');
     const menu = document.getElementById('mobile-menu');
     if (!button || !menu) return;
+    button.closest('header').classList.add('menu-ready');
     const icon = button.querySelector('i');
+    const label = button.querySelector('[data-menu-label]');
     const setOpen = function (open) {
       menu.setAttribute('data-open', open ? 'true' : 'false');
       button.setAttribute('aria-expanded', open ? 'true' : 'false');
       button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       if (icon) icon.className = open ? 'ph ph-x' : 'ph ph-list';
+      if (label) label.textContent = open ? 'Close' : 'Menu';
     };
     button.addEventListener('click', function () {
       setOpen(menu.getAttribute('data-open') !== 'true');
+    });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('click', function (e) {
+      if (!menu.contains(e.target) && !button.contains(e.target)) setOpen(false);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menu.getAttribute('data-open') === 'true') {
@@ -87,11 +94,25 @@
         const badge = chip.querySelector('.filter-count');
         if (badge) badge.textContent = String(count);
         chip.addEventListener('click', function () {
+          if (list.hasAttribute('data-preview')) list.setAttribute('data-preview', 'false');
           active = tag;
           chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
           apply();
         });
       });
+      if (list.id === 'catalog-list') {
+        const label = el('label', 'filter-view', 'View');
+        const select = el('select');
+        select.setAttribute('aria-label', 'Filter datasets');
+        chips.forEach(function (chip) {
+          const option = el('option', '', chip.textContent.replace(/(\D)(\d+)$/, '$1 ($2)'));
+          option.value = chip.getAttribute('data-filter');
+          select.appendChild(option);
+          chip.addEventListener('click', function () { select.value = option.value; });
+        });
+        select.addEventListener('change', function () { chips.find(function (chip) { return chip.getAttribute('data-filter') === select.value; }).click(); });
+        label.appendChild(select); root.appendChild(label); root.classList.add('has-mobile-view');
+      }
       if (search) search.addEventListener('input', apply);
 
       function hasTag(row, tag) {
@@ -113,7 +134,13 @@
         });
         linked.forEach(function (row) { row.hidden = !visible[row.getAttribute('data-id')]; });
         if (empty) empty.hidden = shown !== 0;
-        if (status) status.textContent = shown === rows.length ? 'Showing all ' + shown + ' datasets' : 'Showing ' + shown + ' of ' + rows.length + ' datasets';
+        if (status) status.textContent = list.getAttribute('data-preview') === 'true' ?
+          'Showing ' + Math.min(3, shown) + ' selected datasets from a catalog of ' + rows.length :
+          shown === rows.length ? 'Showing all ' + shown + ' datasets' : 'Showing ' + shown + ' of ' + rows.length + ' datasets';
+        const more = list.parentElement.querySelector('.home-list-more p');
+        if (more) more.textContent = list.getAttribute('data-preview') === 'true' ?
+          'Showing a selection. The full catalog includes every dataset.' :
+          'Showing every matching dataset. Search and compare in the full catalog.';
       }
 
       const reset = empty ? empty.querySelector('[data-filter-reset]') : null;
@@ -122,9 +149,103 @@
           active = 'all';
           if (search) search.value = '';
           chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === 'all' ? 'true' : 'false'); });
+          const view = root.querySelector('.filter-view select');
+          if (view) view.value = 'all';
           apply();
         });
       }
+      apply();
+    });
+  }
+
+  function initCatalogSort() {
+    const control = document.querySelector('[data-dataset-sort]');
+    const list = document.getElementById('catalog-list');
+    if (!control || !list) return;
+    const rows = Array.from(list.querySelectorAll('.dataset-row'));
+    const values = rows.map(function (row, index) {
+      const snapshot = row.querySelector('.kicker')?.textContent.match(/Snapshot\s+(\d{4})(?:-(\d{2})-(\d{2})|-Q([1-4]))/);
+      const date = snapshot ? Date.UTC(Number(snapshot[1]), snapshot[4] ? (Number(snapshot[4]) - 1) * 3 : Number(snapshot[2]) - 1, snapshot[3] ? Number(snapshot[3]) : 1) : 0;
+      const priceText = row.querySelector('.amount')?.textContent || '';
+      const price = /\d/.test(priceText) ? Number(priceText.replace(/[^\d.]/g, '')) : Infinity;
+      return { row: row, original: index, newest: date, rows: Number((row.querySelector('.facts dd')?.textContent || '0').replace(/[^\d]/g, '')), price: price };
+    });
+    control.addEventListener('change', function () {
+      const key = control.value;
+      values.slice().sort(function (a, b) {
+        const delta = key === 'original' ? a.original - b.original : key === 'price' ? a.price - b.price : b[key] - a[key];
+        return delta || a.original - b.original;
+      }).forEach(function (item) { list.appendChild(item.row); });
+      const status = document.getElementById('catalog-list-status');
+      if (status) status.textContent = 'Sorted by ' + control.selectedOptions[0].textContent.toLowerCase() + '. ' + rows.filter(function (r) { return !r.hidden; }).length + ' datasets shown.';
+    });
+  }
+
+  function initReadingTools() {
+    const prose = document.querySelector('.prose');
+    if (prose && !document.querySelector('.toc')) {
+      const headings = Array.from(prose.querySelectorAll('h2'));
+      if (headings.length > 2) {
+        const nav = el('nav', 'toc');
+        nav.setAttribute('aria-label', 'On this page');
+        nav.appendChild(el('p', '', 'On this page'));
+        const links = el('ul');
+        headings.forEach(function (heading, i) {
+          if (!heading.id) heading.id = 'section-' + (i + 1);
+          const li = el('li');
+          const a = el('a', '', heading.textContent);
+          a.href = '#' + heading.id; li.appendChild(a); links.appendChild(li);
+        });
+        nav.appendChild(links); prose.prepend(nav);
+      }
+    }
+    const head = document.querySelector('.product-head');
+    if (head) {
+      const nav = el('nav', 'product-jumps');
+      nav.setAttribute('aria-label', 'Dataset sections');
+      [['sample', 'Sample rows'], ['schema', 'Schema'], ['limits', 'Known limits'], ['licence', 'Licence']].forEach(function (item) {
+        if (!document.getElementById(item[0])) return;
+        const a = el('a', '', item[1]); a.href = '#' + item[0]; nav.appendChild(a);
+      });
+      if (nav.children.length) head.appendChild(nav);
+    }
+    document.querySelectorAll('.buy-panel .includes').forEach(function (list) {
+      const details = el('details', 'buy-details');
+      const summary = el('summary', '', 'What is included');
+      details.open = matchMedia('(min-width: 1024px)').matches;
+      list.before(details); details.appendChild(summary); details.appendChild(list);
+      matchMedia('(min-width: 1024px)').addEventListener('change', function (e) { details.open = e.matches; });
+    });
+    document.querySelectorAll('pre.code').forEach(function (pre) {
+      const wrap = el('div', 'code-wrap');
+      pre.before(wrap); wrap.appendChild(pre);
+      const button = el('button', 'code-copy', 'Copy code');
+      button.type = 'button';
+      button.addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(pre.textContent);
+          button.textContent = 'Copied';
+        } catch (_) {
+          const range = document.createRange(); range.selectNodeContents(pre);
+          const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
+          button.textContent = 'Code selected';
+        }
+        window.setTimeout(function () { button.textContent = 'Copy code'; }, 2000);
+      });
+      wrap.appendChild(button);
+    });
+    document.querySelectorAll('.table-scroll').forEach(function (box) {
+      const hint = el('p', 'scroll-help', 'Swipe or scroll to see every column.');
+      hint.hidden = true; box.after(hint);
+      function update() {
+        const scrolls = box.scrollWidth > box.clientWidth + 2;
+        hint.hidden = !scrolls;
+        if (scrolls) { box.tabIndex = 0; box.setAttribute('role', 'region'); box.setAttribute('aria-label', 'Scrollable data table'); }
+        else { box.removeAttribute('tabindex'); box.removeAttribute('role'); box.removeAttribute('aria-label'); }
+      }
+      update();
+      if ('ResizeObserver' in window) new ResizeObserver(update).observe(box);
+      new MutationObserver(update).observe(box, { childList: true });
     });
   }
 
@@ -289,6 +410,7 @@
     showLeadStatus();
     const form = document.getElementById('customDataForm');
     if (!form) return;
+    form.noValidate = true;
     const started = form.querySelector('input[name="t"]');
     if (started) started.value = String(Date.now());
 
@@ -302,6 +424,13 @@
 
     const fields = form.querySelectorAll('.field-group input, .field-group textarea, .field-group select');
     fields.forEach(function (input) {
+      const group = input.closest('.field-group');
+      const descriptions = [];
+      group.querySelectorAll('.help, .error').forEach(function (text, i) {
+        if (!text.id) text.id = input.id + '-hint-' + i;
+        descriptions.push(text.id);
+      });
+      if (descriptions.length) input.setAttribute('aria-describedby', descriptions.join(' '));
       input.addEventListener('blur', function () { if (input.value) validate(input); });
       input.addEventListener('input', function () {
         const group = input.closest('.field-group');
@@ -329,7 +458,7 @@
   // none of it runs when the visitor asks for reduced motion.
   // ------------------------------------------------------------------
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const REVEAL_BLOCKS = 'main .section-head, .dataset-list, .feature-list, .charts, .steps, .cta-band, .cta-final, .faq';
+  const REVEAL_BLOCKS = 'main .section-head h2, main .section-head p, main .section-head > .link-arrow, .feature-list > div, .chart, .steps > li, .cta-band > *, .cta-final > *, .faq > details';
 
   // Blocks that start below the fold fade up once as they scroll in. Blocks already on
   // screen are never hidden, so nothing blinks while this script loads.
@@ -361,9 +490,11 @@
   ready(function () {
     initMenu();
     initFilters();
+    initCatalogSort();
     initCharts();
     initSamples();
     initRequestForm();
+    initReadingTools();
     initReveal();
   });
 })();

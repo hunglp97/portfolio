@@ -20,12 +20,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="style.css?v=20261009b">
+  <link rel="stylesheet" href="style.css?v=20261028a">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#080d16" media="(prefers-color-scheme: dark)">
   <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
-  <script defer src="script.js?v=20261009b"></script>
+  <script defer src="script.js?v=20261028a"></script>
   <!-- /site:assets -->
 </head>
 <body data-nav="custom">
@@ -41,7 +41,7 @@
         <a href="about.html" data-nav="about">About</a>
       </nav>
       <a class="btn btn-primary btn-sm header-cta" href="custom-data.html" data-nav="custom" aria-current="page">Request custom data</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span data-menu-label>Menu</span></button>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
       <div class="container">
@@ -76,32 +76,23 @@
             <h2 id="formStatusTitle"></h2>
             <p id="formStatusText"></p>
           </div>
-          <form class="form-card" id="customDataForm" action="https://admin.hlpdata.com/api/leads" method="post" novalidate>
+          <form class="form-card" id="customDataForm" action="https://admin.hlpdata.com/api/leads" method="post">
             <input type="hidden" name="t" value="">
             <div class="hp-field" aria-hidden="true">
               <label for="hlp_hp">Leave this field empty</label>
               <input type="text" id="hlp_hp" name="hlp_hp" tabindex="-1" autocomplete="off">
             </div>
-            <div class="form-grid">
-              <div class="field-group">
-                <label for="fullName">Your name <span class="req">(required)</span></label>
-                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
-                <p class="error">Please enter your name.</p>
-              </div>
-              <div class="field-group">
-                <label for="workEmail">Work email <span class="req">(required)</span></label>
-                <input type="email" id="workEmail" name="workEmail" autocomplete="email" required>
-                <p class="error">Please enter an email address we can reply to.</p>
-              </div>
-              <div class="field-group">
-                <label for="company">Company or organisation <span class="req">(required)</span></label>
-                <input type="text" id="company" name="company" autocomplete="organization" required>
-                <p class="error">Please enter your company or organisation.</p>
-              </div>
-              <div class="field-group">
+            <fieldset><legend>What data do you need?</legend><div class="form-grid">
+              <div class="field-group full">
                 <label for="targetWebsite">Website or websites <span class="req">(required)</span></label>
                 <input type="text" id="targetWebsite" name="targetWebsite" placeholder="example.com, or a list of domains" required>
                 <p class="error">Please name at least one website.</p>
+              </div>
+              <div class="field-group full">
+                <label for="dataFields">Fields you need <span class="req">(required)</span></label>
+                <textarea id="dataFields" name="dataFields" required></textarea>
+                <p class="help">For example: product title, SKU, shelf price, promotion price, stock status, category path.</p>
+                <p class="error">Please list the fields you need.</p>
               </div>
               <div class="field-group">
                 <label for="updateFrequency">How often</label>
@@ -114,6 +105,30 @@
                 </select>
               </div>
               <div class="field-group">
+                <label for="coverage">Coverage</label>
+                <input type="text" id="coverage" name="coverage" maxlength="500" placeholder="Whole country, or named cities">
+                <p class="help">Optional. Which regions, cities or categories you need.</p>
+              </div>
+            </div></fieldset>
+            <fieldset><legend>Where should we reply?</legend><div class="form-grid">
+              <div class="field-group">
+                <label for="fullName">Your name <span class="req">(required)</span></label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                <p class="error">Please enter your name.</p>
+              </div>
+              <div class="field-group">
+                <label for="workEmail">Work email <span class="req">(required)</span></label>
+                <input type="email" id="workEmail" name="workEmail" autocomplete="email" required>
+                <p class="error">Please enter an email address we can reply to.</p>
+              </div>
+              <div class="field-group full">
+                <label for="company">Company or organisation <span class="req">(required)</span></label>
+                <input type="text" id="company" name="company" autocomplete="organization" required>
+                <p class="error">Please enter your company or organisation.</p>
+              </div>
+            </div></fieldset>
+            <details class="form-options"><summary>Delivery, timing and other details (optional)</summary><div class="form-grid">
+              <div class="field-group">
                 <label for="deliveryPreference">Delivery</label>
                 <select id="deliveryPreference" name="deliveryPreference">
                   <option value="CSV / Parquet">CSV or Parquet download</option>
@@ -122,16 +137,11 @@
                   <option value="SFTP">SFTP</option>
                 </select>
               </div>
-              <div class="field-group full">
-                <label for="coverage">Coverage</label>
-                <input type="text" id="coverage" name="coverage" maxlength="500" placeholder="Whole country, or named cities">
-                <p class="help">Optional. Which regions, cities or categories you need.</p>
-              </div>
               <div class="field-group">
                 <label for="deadline">When you need it</label>
                 <input type="text" id="deadline" name="deadline" maxlength="80" placeholder="Within two weeks, or by a date">
               </div>
-              <div class="field-group">
+              <div class="field-group full">
                 <label for="budgetRange">Budget range</label>
                 <select id="budgetRange" name="budgetRange">
                   <option value="">Not sure yet</option>
@@ -142,17 +152,11 @@
                 </select>
               </div>
               <div class="field-group full">
-                <label for="dataFields">Fields you need <span class="req">(required)</span></label>
-                <textarea id="dataFields" name="dataFields" required></textarea>
-                <p class="help">For example: product title, SKU, shelf price, promotion price, stock status, category path.</p>
-                <p class="error">Please list the fields you need.</p>
-              </div>
-              <div class="field-group full">
                 <label for="notes">Notes</label>
                 <textarea id="notes" name="notes"></textarea>
                 <p class="help">Optional. Rough record count, history you need, or compliance requirements.</p>
               </div>
-            </div>
+            </div></details>
             <div class="form-actions">
               <p>We store your request so we can reply, as described in the <a href="privacy.html#emails-and-custom-data-requests">privacy policy</a>.</p>
               <button class="btn btn-primary" type="submit" id="submitBtn">Send request</button>
