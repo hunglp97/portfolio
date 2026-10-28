@@ -114,6 +114,17 @@
     overlay.classList.remove('is-fading');
   }
   overlay.addEventListener('animationend', commitPreview);
+  // Warm only near the print display, before a visitor reaches its format links.
+  if ('IntersectionObserver' in window) {
+    const warmer = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+      document.querySelectorAll('[data-guide-image]').forEach(function (link) {
+        const image = new Image(); image.src = link.dataset.guideImage;
+      });
+      warmer.disconnect();
+    }, { rootMargin: '1000px 0px' });
+    warmer.observe(preview.parentElement);
+  }
   reduced.addEventListener('change', function () {
     if (reduced.matches && overlay.classList.contains('is-fading')) commitPreview();
   });

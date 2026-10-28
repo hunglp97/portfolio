@@ -31,12 +31,12 @@ all support the same act of inspection. No invented customer work or stock image
 
 The preview PNGs are generated from the published PDF bytes by `scripts/preview_guides.mjs`.
 Run it after reprinting. The three preview images total about 395 KB and are loaded lazily;
-the additional format previews load when requested. The geometry remains a 63-solid SVG
+the additional format previews warm as the print display approaches the viewport. The geometry remains a 63-solid SVG
 with no WebGL or framework dependency.
 
 ## Verification
 
-- Site synchronization and source lint: 24 pages clean, version `20261028c`.
+- Site synchronization and source lint: 24 pages clean, version `20261028d`.
 - Existing browser matrix: 144 page checks and 14 interaction checks pass, covering three
   viewport sizes and both themes. The targeted homepage review was repeated after the
   tablet layout correction.
@@ -57,6 +57,9 @@ Evidence is retained in the task's `hlpdata-audit/` folder: `whoa-final-3/`, `wh
 `whoa-qa/`, `whoa-interactions/`, `whoa-motion.json` and the Anatomy line-check captures.
 The first local matrix run encountered a preview-server navigation timeout; it was rerun
 after restarting the local server with quiet request logging and completed successfully.
+Public preview checks wait for the selected image to decode, within a 3-second bound,
+rather than assuming that a cold CDN request always finishes in 200ms. A measured 1.36-second
+first hover led to warming the other preview images near the print display, before selection.
 
 ## Final critique
 

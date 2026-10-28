@@ -139,6 +139,7 @@ the focused drawing. The original select and a static field summary remain avail
 when JavaScript is disabled. Automatic motion pauses offscreen and stops under reduced
 motion. The guide preview changes when a download link is focused or hovered, with a
 short crossfade (an instant change under reduced motion).
+The remaining preview images are warmed once the print display approaches the viewport.
 
 `preview_guides.mjs` requires Poppler's `pdftoppm`. It renders the first page of each
 published PDF to the three `assets/guide-*.png` files. Run it after reprinting so the
