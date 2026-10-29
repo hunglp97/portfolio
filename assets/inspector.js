@@ -44,15 +44,16 @@
       choices.forEach(function (button) {
         button.setAttribute('aria-pressed', String(Number(button.dataset.inspectChoice) === index));
       });
-      const metricVal = item.rate !== undefined ? item.rate + '%' : item.metric;
+      const displayRate = item.rate !== undefined ? item.rate + '%' : item.metric;
+      const ariaVal = item.rate !== undefined ? item.label + ': ' + item.rate + '% filled' : item.label + ': ' + item.metric;
       art.setAttribute('aria-valuenow', String(index));
-      art.setAttribute('aria-valuetext', item.label + ': ' + metricVal);
+      art.setAttribute('aria-valuetext', ariaVal);
       root.querySelectorAll('[data-tray], [data-stage]').forEach(function (part) {
         const val = Number(part.dataset.tray !== undefined ? part.dataset.tray : part.dataset.stage);
         part.toggleAttribute('data-active', val === index);
       });
       if (select) select.value = String(index);
-      if (rateEl) rateEl.textContent = metricVal;
+      if (rateEl) rateEl.textContent = displayRate;
       if (subEl && item.sub) subEl.textContent = item.sub;
       if (noteEl) noteEl.textContent = item.note;
       if (reduced.matches) { position = target; draw(); }
