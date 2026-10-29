@@ -1,8 +1,9 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as k from '../vendor/anatomy/iso-kit.mjs';
+import * as G from '../vendor/anatomy/lathe.mjs';
 import * as A from '../vendor/anatomy/audit.mjs';
+import { shop, paint, inspectorPartial, publish, camera, DOWN } from './anatomy-shop.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -10,204 +11,180 @@ const model = {
   title: 'Retail price index caliper',
   subtitle: 'Continente shelf analysis · 38,383 products',
   stages: [
-    {
-      id: 'overall',
-      label: '1. All 209 groups',
-      metric: '56.0%',
-      sub: 'Own-brand price index',
-      note: 'Overall median: retailer private label sells at 56.0% of the manufacturer-brand price (€0.56 vs €1.00).',
-      x: -90
-    },
-    {
-      id: 'dairy',
-      label: '2. Dairy & Milk',
-      metric: '52.4%',
-      sub: 'High volume staples',
-      note: 'Staple dairy products show aggressive private-label penetration with deep price gaps (€0.52 vs €1.00).',
-      x: -30
-    },
-    {
-      id: 'pantry',
-      label: '3. Dry Groceries',
-      metric: '58.1%',
-      sub: 'Packaged foods',
-      note: 'Manufacturer brand equity holds a stronger price premium in packaged dry foods (€0.58 vs €1.00).',
-      x: 30
-    },
-    {
-      id: 'cleaning',
-      label: '4. Cleaning & Home',
-      metric: '48.7%',
-      sub: 'Deepest discount gap',
-      note: 'Chemical and cleaning categories exhibit the largest absolute unit-price discount (€0.49 vs €1.00).',
-      x: 90
-    }
+    { id: 'overall', label: '1. All 209 groups', metric: '56.0%', rate: 56.0, sub: 'Own-brand price index', note: 'Overall median: retailer private label sells at 56.0% of the manufacturer-brand price (€0.56 vs €1.00).' },
+    { id: 'dairy', label: '2. Dairy & Milk', metric: '52.4%', rate: 52.4, sub: 'High volume staples', note: 'Staple dairy products show aggressive private-label penetration with deep price gaps (€0.52 vs €1.00).' },
+    { id: 'pantry', label: '3. Dry Groceries', metric: '58.1%', rate: 58.1, sub: 'Packaged foods', note: 'Manufacturer brand equity holds a stronger price premium in packaged dry foods (€0.58 vs €1.00).' },
+    { id: 'cleaning', label: '4. Cleaning & Home', metric: '48.7%', rate: 48.7, sub: 'Deepest discount gap', note: 'Chemical and cleaning categories exhibit the largest absolute unit-price discount (€0.49 vs €1.00).' }
   ]
 };
 
-const W = 640, H = 340;
-const base = { x: -140, y: -65, w: 280, d: 120, r: 6 };
-const P = k.fitProjection([...k.boxCorners(base, -6, 8), ...k.boxCorners({ x: -100, y: -45, w: 200, d: 80, r: 0 }, 16, 96)], W, H, { pad: 16, azimuth: 35, elevation: 36 });
+// One dial turn is 40 units of plunger travel and reads 100%, so a block 0.4 × rate tall reads its own rate.
+const PER_TURN = 40;
+const STATION_X = [-90, -30, 30, 90];
+const PLATE = { x: -150, y: -72, w: 300, d: 134, r: 6 };
+const PLATE_H = 16;
+const FENCE = { x: -138, y: -68, w: 276, d: 8, r: 1 };
+const ANVIL_TOP = 3.5;
+const BLOCK_H = model.stages.map((st) => st.rate * 0.4);
+const BLOCK_TOPS = BLOCK_H.map((h) => ANVIL_TOP + h);
+const DIAL = { r: 18, z: 76, h: 10 };
+const DIAL_TOP = DIAL.z + DIAL.h;
+const GLAND = 64;
+const TIP_REST = 31;
+const TIP_R = 1.7;
+const STROKE = 8;
+const POST_Y = -48;
+const X0 = STATION_X[0];
+
+const W = 640, H = 450;
+const P = k.fitProjection([
+  ...k.boxCorners(PLATE, -PLATE_H - 10, 0),
+  ...[X0, -X0].flatMap((x) => [[x, POST_Y, 112], [x - DIAL.r, 0, DIAL_TOP], [x + DIAL.r + 6, 0, DIAL_TOP]])
+], W, H, { pad: 10, azimuth: 56, elevation: 32 });
 const R = A.recorder(P, { order: ['gauge'] });
-let count = 0;
+const T = shop(P, R, { piece: 'gauge', move: [STATION_X[3] - X0, 0, 0] });
+const { S, L, at } = T;
 
-function slab(name, plan, z, h, tone = 'mid', options = {}) {
-  const { moving = false, inner = '', lit = false, piece = 'fixed', ...meta } = options;
-  const paths = k.slabOf(plan, z, h, P, 5, Math.min(0.7, h / 3));
-  const svg = k.solidSvg(paths, { tone, lit, inner });
-  R.put({
-    name, piece: moving ? 'gauge' : piece, move: moving ? [180, 0, 0] : undefined,
-    at: [plan.x + plan.w / 2, plan.y + plan.d / 2, z + h / 2], svg,
-    shapes: [R.solid(A.slab(plan, z, h, { name, ...meta }, 5))], moving
-  });
-  count++;
+// 1. Granite surface plate on four levelling feet with knurled lock nuts.
+for (const [i, [x, y]] of k.corners(PLATE, 24).entries()) {
+  T.cyl(`stand.foot.${i}.pad`, x, y, 8, -PLATE_H - 10, 2.5, 'lo', { bevel: 0.5 });
+  T.cyl(`stand.foot.${i}.stem`, x, y, 2.6, -PLATE_H - 7.5, 3, 'mid', { crease: 'none' });
+  T.cyl(`stand.foot.${i}.nut`, x, y, 6, -PLATE_H - 4.5, 4.5, 'mid', { knurl: 30 });
 }
-
-function screws(plan, z) {
-  return k.dotsSvg(k.corners(plan, Math.min(3, plan.w / 4, plan.d / 4)).map(([x, y]) => k.iso([x, y, z], P)), { size: 0.6, tone: 'hi' });
-}
-
-// 1. Surface Plate on 4 Leveling Feet
-for (const [i, [x, y]] of k.corners(base, 18).entries()) {
-  slab(`stand.foot.${i}`, { x: x - 7, y: y - 7, w: 14, d: 14, r: 3 }, -6, 3, 'lo');
-  slab(`stand.pad.${i}`, { x: x - 6, y: y - 6, w: 12, d: 12, r: 2 }, -3, 3, 'lo');
-}
-slab('stand.deck', base, 0, 8, 'mid', { inner: screws(base, 8) + k.lineSvg(k.planOutline(k.insetPlan(base, 5), 8, P), { tone: 'faint' }) });
-
-// 2. Rear Precision Ground Guide Rail for Stand Carriage
-for (const x of [-124, 112]) {
-  const mountPlan = { x, y: -52, w: 12, d: 16, r: 2 };
-  slab(`rail.mount.${x}`, mountPlan, 8, 5, 'mid', { inner: screws(mountPlan, 13) });
-}
-slab('rail.bar', { x: -124, y: -47, w: 248, d: 6, r: 1 }, 13, 4, 'hi');
-for (const x of [-130, 124]) {
-  slab(`rail.stop.${x}`, { x, y: -49, w: 6, d: 10, r: 1 }, 8, 11, 'lo');
-}
-
-// 3. Four Anvil Stations with Calibrated FMCG Price-Index Gauge Blocks (centered at y = 0)
-const rates = [56.0, 52.4, 58.1, 48.7];
-model.stages.forEach((st, i) => {
-  const cx = st.x;
-  const anvil = { x: cx - 18, y: -16, w: 36, d: 32, r: 3 };
-  slab(`station.${i}.anvil`, anvil, 8, 4, 'mid', { inner: screws(anvil, 12) });
-  // Calibrated steel gauge block (height 20 to 24)
-  const blockH = Math.round(rates[i] * 0.40);
-  const block = { x: cx - 12, y: -10, w: 24, d: 20, r: 1 };
-  slab(`station.${i}.block`, block, 12, blockH, 'hi', { lit: true });
-  // Reference cap (max top is 12 + 23 + 1 = 36)
-  slab(`station.${i}.cap`, { x: cx - 10, y: -8, w: 20, d: 16, r: 1 }, 12 + blockH, 1, 'hi');
+const slot = (y) => ({ x: -134, y, w: 268, d: 4.4, r: 2.2 });
+const tSlot = (plan) => `<path class="iso-shade" data-shade="0" d="${k.onTop(k.ringOf(plan, 6), 0, P, true)}"/>` +
+  L(k.planOutline(plan, 0, P, 6), { tone: 'lo' }) + L(k.planOutline(k.insetPlan(plan, 1.1), 0, P, 6), { tone: 'faint' });
+const RULER = { x: -126, y: 44, w: 200, d: 7, r: 1 };
+const LABEL = { x: 92, y: 40, w: 40, d: 15, r: 1.5 };
+T.slab('stand.plate', PLATE, -PLATE_H, PLATE_H, 'mid', {
+  bevel: 1.6, steps: 8,
+  inner: L(k.sideSeam(PLATE, -PLATE_H + 4, P, 8), { tone: 'faint' }) +
+    L(k.planOutline(k.insetPlan(PLATE, 5), 0, P), { tone: 'faint' }) +
+    tSlot(slot(-25)) + tSlot(slot(21)) +
+    T.screwsAt(k.corners(PLATE, 10), 0, 2)
 });
 
-// 4. Front Reference Ruler on Base
-const ruler = { x: -120, y: 44, w: 240, d: 5, r: 1 };
-const ticks = k.topTicks(-115, 115, 5, 5, 44, 8.6, [2, 3.8], P);
-slab('ruler', ruler, 8, 0.6, 'lo', { inner: k.lineSvg(ticks.minor, { tone: 'lo' }) + k.lineSvg(ticks.major, { tone: 'mid' }) });
-
-// 5. Moving Precision Dial Indicator Height Stand (Initial X = -90 over Station 0)
-const cx = -90;
-const carriage = { x: cx - 18, y: -52, w: 36, d: 16, r: 2 };
-slab('gauge.carriage', carriage, 17, 8, 'hi', { moving: true, inner: screws(carriage, 25) });
-// Post plinth
-slab('gauge.post.plinth', { x: cx - 10, y: -48, w: 20, d: 8, r: 2 }, 25, 5, 'mid', { moving: true });
-// Segmented post: lower column
-slab('gauge.column.lower', { x: cx - 6, y: -47, w: 12, d: 6, r: 1.5 }, 30, 46, 'hi', { moving: true });
-// Articulated Clamp Collar
-const collar = { x: cx - 11, y: -49, w: 22, d: 10, r: 2 };
-slab('gauge.clamp.collar', collar, 76, 12, 'lo', { moving: true });
-// Knurled Locking Thumbscrew on collar side
-slab('gauge.clamp.screw', { x: cx - 18, y: -47, w: 7, d: 6, r: 1.5 }, 79, 6, 'hi', { moving: true });
-// Upper post
-slab('gauge.column.upper', { x: cx - 6, y: -47, w: 12, d: 6, r: 1.5 }, 88, 8, 'hi', { moving: true });
-// Column Finial Knob
-slab('gauge.column.knob', { x: cx - 8, y: -48, w: 16, d: 8, r: 2 }, 96, 4, 'lo', { moving: true });
-
-// Horizontal Cross-Arm extending forward from collar to y = -6
-slab('gauge.cross.arm', { x: cx - 4, y: -39, w: 8, d: 33, r: 1.5 }, 79, 6, 'hi', { moving: true });
-// Arm End Collar holding the dial indicator
-slab('gauge.arm.collar', { x: cx - 7, y: -6, w: 14, d: 12, r: 2 }, 77, 10, 'lo', { moving: true });
-
-// Top Spindle Dust Cap & Stem above collar
-slab('gauge.spindle.stem', { x: cx - 4, y: -4, w: 8, d: 8, r: 2 }, 87, 8, 'hi', { moving: true });
-slab('gauge.spindle.cap', { x: cx - 5, y: -5, w: 10, d: 10, r: 2 }, 95, 4, 'lo', { moving: true });
-
-// Dial Main Casing (flush below collar, z = 63..77, centered at y = 0)
-const dialPlan = { x: cx - 15, y: -14, w: 30, d: 28, r: 14 };
-const dialRings = k.ring(cx, 0, 11, 77, P, 24) + k.ring(cx, 0, 9, 77, P, 24) + k.ring(cx, 0, 2, 77, P, 12);
-slab('gauge.dial.casing', dialPlan, 63, 14, 'hi', { moving: true, inner: screws(dialPlan, 77) });
-
-// Lower Spindle Sleeve (flush below casing, z = 49..63, centered at y = 0)
-slab('gauge.spindle.sleeve', { x: cx - 4, y: -4, w: 8, d: 8, r: 2 }, 49, 14, 'mid', { moving: true });
-// Vertical Plunger Stylus / Contact Point (z = 38..49, clears block tops at z <= 36)
-slab('gauge.plunger.stem', { x: cx - 2.5, y: -2.5, w: 5, d: 5, r: 1 }, 40, 9, 'hi', { moving: true, lit: true });
-slab('gauge.plunger.tip', { x: cx - 3.5, y: -3.5, w: 7, d: 7, r: 2 }, 38, 2, 'lo', { moving: true });
-
-const states = A.uniformStates(12);
-A.settle(R, P, { states });
-R.items.sort((a, b) => a.key - b.key);
-
-const svg = k.figureSvg({
-  width: W, height: H,
-  label: 'A precision dial indicator height gauge stand measuring calibrated retail price parity blocks across FMCG categories.',
-  body: R.items.map(item => {
-    const st = item.name.match(/^station\.(\d)\./)?.[1];
-    return `<g data-name="${item.name}"${item.moving ? ' data-scanner' : ''}${st !== undefined ? ` data-stage="${st}"${st === '0' ? ' data-active="true"' : ''}` : ''}>${item.svg}</g>`;
-  })
-}).replace('viewBox="0 0 640 340"', 'viewBox="130 10 380 320"');
-
-const delta = k.iso([180, 0, 0], P).map((n, i) => n - k.iso([0, 0, 0], P)[i]);
-const first = model.stages[0];
-
-const partial = `<figure class="data-inspector data-caliper iso iso-plate" data-ui aria-labelledby="caliper-title">
-  <figcaption class="inspector-head">
-    <h2 id="caliper-title">Price Index Caliper · Measured Own-Brand Gap</h2>
-    <span class="inspector-source">Continente Portugal Online Shelf Census</span>
-  </figcaption>
-  <p class="inspector-meta">209 comparable groups &middot; 38,383 products &middot; Precision dial indicator height gauge</p>
-  <div class="inspector-layout">
-    <div class="inspector-art" tabindex="-1" role="slider" aria-disabled="true" aria-label="Select a retail category to inspect. Use the arrow keys, Home or End." aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-valuetext="${first.label}: ${first.metric}" data-delta-x="${delta[0]}" data-delta-y="${delta[1]}">
-      ${svg}
-    </div>
-    <div class="inspector-desk">
-      <div class="inspector-fields" aria-label="Retail categories" hidden>
-        ${model.stages.map((st, i) => `
-          <button type="button" data-inspect-choice="${i}" aria-pressed="${i === 0}">
-            <span>${st.label}</span>
-            <strong>${st.metric}</strong>
-            <span class="inspector-field-fill" aria-hidden="true" style="--field-fill:${rates[i]}%"></span>
-          </button>
-        `).join('')}
-      </div>
-      <div class="inspector-control">
-        <label for="inspect-caliper-stage">Inspect category</label>
-        <select id="inspect-caliper-stage" data-inspect-field disabled>
-          ${model.stages.map((st, i) => `<option value="${i}">${st.label} · ${st.sub}</option>`).join('')}
-        </select>
-        <span class="inspector-hint">Tap a category anvil to inspect.</span>
-        <button type="button" class="inspector-tour" data-inspect-tour aria-pressed="false" hidden>Play tour</button>
-      </div>
-      <div class="inspector-result" aria-live="polite" aria-atomic="true">
-        <p><strong data-inspect-rate>${first.metric}</strong><span data-inspect-sub>${first.sub}</span></p>
-        <p data-inspect-note>${first.note}</p>
-      </div>
-    </div>
-  </div>
-  <div class="inspector-foot">
-    <p class="inspector-caption">Height gauge indicator measures calibrated price-index blocks. Low block = deep private-label discount gap; tall block = strong manufacturer brand equity.</p>
-  </div>
-  <script type="application/json" id="caliper-model">${JSON.stringify(model)}</script>
-</figure>`;
-
-writeFileSync(resolve(ROOT, 'partials/data-caliper.html'), partial + '\n');
-
-const reportPath = resolve(ROOT, 'retail-report.html');
-let report = readFileSync(reportPath, 'utf8');
-const start = '<!-- anatomy:retail-caliper -->', end = '<!-- /anatomy:retail-caliper -->';
-if (report.includes(start)) {
-  report = report.replace(new RegExp(start + '[\\s\\S]*?' + end), start + '\n' + partial + '\n' + end);
-} else {
-  report = report.replace('<aside class="buy-panel"', `${start}\n${partial}\n${end}\n\n      <aside class="buy-panel"`);
+// 2. Rear straightedge fence with a scale along its top, and two end stops.
+const fenceTicks = k.topTicks(-132, 132, 4, 5, FENCE.y + 0.6, 10, [1.4, 2.6], P);
+T.slab('fence.bar', FENCE, 0, 10, 'mid', {
+  bevel: 0.5, steps: 3,
+  inner: L(fenceTicks.minor, { tone: 'lo' }) + L(fenceTicks.major, { tone: 'mid' }) +
+    T.screwsAt([-120, -60, 0, 60, 120].map((x) => [x, FENCE.y + 5.6]), 10, 1.2)
+});
+for (const x of [-143, 143]) {
+  T.cyl(`fence.stop.${x}`, x, FENCE.y + 4, 4, 0, 9, 'mid', { bevel: 0.5, seams: [3] });
+  T.cyl(`fence.stop.${x}.cap`, x, FENCE.y + 4, 2.4, 9, 2, 'lo');
 }
-writeFileSync(reportPath, report);
 
-console.log(`Built retail caliper height stand: ${count} solids; rates from Continente census`);
-A.auditOrExit(R, P, { states });
+// 3. Front scale strip and a name plate.
+const rulerTicks = k.topTicks(RULER.x + 4, RULER.x + RULER.w - 4, 4, 5, RULER.y + 0.8, 0.6, [2, 3.6], P);
+T.slab('ruler', RULER, 0, 0.6, 'lo', { crease: 'none', bevel: 0, steps: 3, inner: L(rulerTicks.minor, { tone: 'lo' }) + L(rulerTicks.major, { tone: 'mid' }) });
+const ruleLine = (y, len) => L(k.lineOnTop([LABEL.x + 5, y], [LABEL.x + 5 + len, y], 0.8, P), { tone: 'lo', free: true });
+T.slab('label.plate', LABEL, 0, 0.8, 'lo', {
+  bevel: 0, steps: 4,
+  inner: L(k.planOutline(k.insetPlan(LABEL, 1.6), 0.8, P, 4), { tone: 'faint' }) + ruleLine(LABEL.y + 4.5, 24) + ruleLine(LABEL.y + 7.5, 18) + ruleLine(LABEL.y + 10.5, 21) +
+    k.dotsSvg([at([LABEL.x + 2.8, LABEL.y + 7.5, 0.8]), at([LABEL.x + LABEL.w - 2.8, LABEL.y + 7.5, 0.8])], { size: 0.45 })
+});
+
+// 4. Four stations: a lapped platen, a wrung stack of gauge blocks 0.4 × rate tall, and a strap clamp.
+STATION_X.forEach((sx, i) => {
+  const n = `station.${i}`;
+  T.cyl(`${n}.platen`, sx, 0, 15, 0, ANVIL_TOP, 'mid', { bevel: 0.6, steps: 64, inner: L(k.ring(sx, 0, 12.2, ANVIL_TOP, P, 48), { tone: 'faint' }) });
+  const plan = { x: sx - 9, y: -7, w: 18, d: 14, r: 0.6 };
+  const lower = BLOCK_H[i] - 6;
+  const size = k.faceTextSvg(k.sideMatrix([sx + 8, 7, ANVIL_TOP + lower * 0.62], ANVIL_TOP + lower * 0.62, P, 'left'), BLOCK_H[i].toFixed(2), { size: 2.2, tone: 'lo', anchor: 'end' });
+  T.slab(`${n}.block.lower`, plan, ANVIL_TOP, lower, 'hi', { bevel: 0.5, steps: 3, inner: size });
+  T.slab(`${n}.block.upper`, plan, ANVIL_TOP + lower, 6, 'hi', { bevel: 0.5, steps: 3, inner: L(k.planOutline(k.insetPlan(plan, 2), BLOCK_TOPS[i], P, 3), { tone: 'faint' }) });
+  T.slab(`${n}.heel`, { x: sx - 4, y: 21, w: 8, d: 6, r: 0.8 }, 0, ANVIL_TOP, 'lo', { steps: 3 });
+  T.slab(`${n}.strap`, { x: sx - 3.5, y: 9, w: 7, d: 18, r: 1 }, ANVIL_TOP, 2, 'mid', { steps: 3, bevel: 0.4 });
+  T.cyl(`${n}.washer`, sx, 18, 2.9, ANVIL_TOP + 2, 0.6, 'lo');
+  T.cyl(`${n}.bolt`, sx, 18, 2.2, ANVIL_TOP + 2.6, 2, 'mid', { steps: 6, extra: k.dotsSvg([at([sx, 18, ANVIL_TOP + 4.6])], { size: 0.5, tone: 'lo' }) });
+});
+
+// 5. The height stand, built over station 1 and slid along the fence: magnetic base, post, clamp, arm.
+const cx = X0;
+const BASE = { x: cx - 21, y: FENCE.y + FENCE.d, w: 42, d: 30, r: 2.5 };
+const DECK = k.insetPlan(BASE, 1.5);
+const KNOB = [cx + 11, -38];
+T.slab('gauge.base', BASE, 0, 13, 'mid', { moving: true, bevel: 0.6, steps: 4, inner: L(k.sideSeam(BASE, 6.5, P, 4), { tone: 'faint' }) });
+const MAG_OFF = -Math.PI / 2, MAG_ON = Math.PI / 2;
+const magMark = (a) => L(k.lineOnTop([KNOB[0] + Math.sin(a) * 6.2, KNOB[1] - Math.cos(a) * 6.2], [KNOB[0] + Math.sin(a) * 8.2, KNOB[1] - Math.cos(a) * 8.2], 17, P), { tone: 'mid', free: 'end' });
+// The needle and the MAG lever are rebuilt by the page; drawn here at rest so the still picture is true.
+const NEEDLE = { c: [cx, 0, DIAL_TOP + 0.2], r: DIAL.r - 4, tail: 3.4 };
+const needleAt = (turn) => {
+  const a = turn * Math.PI * 2, [x, y, z] = NEEDLE.c;
+  return k.lineOnTop([x - Math.sin(a) * NEEDLE.tail, y + Math.cos(a) * NEEDLE.tail], [x + Math.sin(a) * NEEDLE.r, y - Math.cos(a) * NEEDLE.r], z, P);
+};
+const MAG = { c: [KNOB[0], KNOB[1], 22.2], r: 4.2, off: MAG_OFF, on: MAG_ON };
+const leverAt = (a) => k.lineOnTop([MAG.c[0] - Math.sin(a) * 1.6, MAG.c[1] + Math.cos(a) * 1.6], [MAG.c[0] + Math.sin(a) * MAG.r, MAG.c[1] - Math.cos(a) * MAG.r], MAG.c[2], P);
+const lever = `<path data-lever class="iso-line" data-tone="hi" data-free="end" d="${leverAt(MAG_ON)}"/>` + k.dotsSvg([at(MAG.c)], { size: 0.6, tone: 'hi' });
+const needle = `<path data-needle class="iso-line" data-tone="lit" data-free="start" d="${needleAt((BLOCK_TOPS[0] - ANVIL_TOP) / PER_TURN)}"/>` + k.dotsSvg([at(NEEDLE.c)], { size: 0.9, tone: 'hi' });
+T.slab('gauge.deck', DECK, 13, 4, 'mid', {
+  moving: true, bevel: 0.5, steps: 4,
+  inner: magMark(MAG_OFF) + magMark(MAG_ON) + T.screwsAt([[DECK.x + 3, DECK.y + DECK.d - 3], [DECK.x + DECK.w - 3, DECK.y + DECK.d - 3]], 17, 1.1)
+});
+T.cyl('gauge.mag.knob', KNOB[0], KNOB[1], 5, 17, 5, 'mid', { moving: true, knurl: 34, bevel: 0.4, inner: L(k.ring(KNOB[0], KNOB[1], 3.6, 22, P, 24), { tone: 'faint' }), extra: lever });
+T.cyl('gauge.post.collar', cx, POST_Y, 6, 17, 4, 'mid', { moving: true, bevel: 0.4 });
+T.cyl('gauge.post.lower', cx, POST_Y, 3.4, 21, 63, 'hi', { moving: true, crease: 'none', seams: [44, 64] });
+const CLAMP = { x: cx - 7, y: POST_Y - 7, w: 14, d: 14, r: 2.5 };
+T.slab('gauge.clamp', CLAMP, 84, 12, 'mid', { moving: true, bevel: 0.6, steps: 4, inner: L(k.sideSeam(CLAMP, 90, P, 4), { tone: 'faint' }) });
+T.thumb('gauge.clamp.screw', G.frameAlong([CLAMP.x + CLAMP.w, POST_Y + 2, 90], [1, 0, 0]), [1.3, 2.4], [2.8, 4.2], { moving: true });
+T.cyl('gauge.post.upper', cx, POST_Y, 3.4, 96, 14, 'hi', { moving: true, crease: 'none' });
+T.cyl('gauge.post.cap', cx, POST_Y, 4, 110, 2, 'mid', { moving: true, bevel: 0.4 });
+const ARM_Y0 = CLAMP.y + CLAMP.d, ARM_Y1 = -DIAL.r - 6;
+T.disc('gauge.arm', G.frameAlong([cx, ARM_Y0, 90], [0, 1, 0]), 0, ARM_Y1 - ARM_Y0, 2.4, 'hi', { moving: true });
+const LUG = { x: cx - 4, y: ARM_Y1, w: 8, d: 6.15, r: 1 };
+T.slab('gauge.lug', LUG, 80, 14, 'mid', { moving: true, steps: 3, bevel: 0.4 });
+T.cyl('gauge.lug.screw', cx, ARM_Y1 + 3, 2, 94, 4, 'mid', { moving: true, knurl: 16 });
+
+// 6. The dial indicator: knurled bezel, 100-division face, bezel lock, stem and a plunger on a ball tip.
+const ticks = k.radialTicks(cx, 0, DIAL.r - 2.6, 100, 5, DIAL_TOP, [1, 1.9], P);
+const decades = k.radialTicks(cx, 0, DIAL.r - 2.6, 10, 1, DIAL_TOP, [0, 3], P);
+const face = [
+  L(k.knurl(cx, 0, DIAL.r, DIAL_TOP - 3.4, DIAL_TOP, 96, P, 0.3), { tone: 'lo' }),
+  L(k.sideArc(cx, 0, DIAL.r, DIAL_TOP - 3.4, P, 40), { tone: 'faint' }),
+  L(k.ring(cx, 0, DIAL.r - 2.2, DIAL_TOP, P, 72), { tone: 'lo' }),
+  L(ticks.minor, { tone: 'lo' }), L(ticks.major, { tone: 'mid' }), L(decades.major, { tone: 'hi' }),
+  L(k.ring(cx, 0, 4.2, DIAL_TOP, P, 24), { tone: 'faint' }),
+  k.faceTextSvg(k.topMatrix([cx, 7.4], DIAL_TOP, P, 'x'), '0.4', { size: 2.2, tone: 'lo', anchor: 'middle' })
+].join('');
+T.cyl('gauge.dial.case', cx, 0, DIAL.r, DIAL.z, DIAL.h, 'hi', { moving: true, steps: 72, bevel: 0.8, crease: 'lo', inner: face, extra: needle });
+T.thumb('gauge.dial.lock', G.frameAlong([cx + DIAL.r, 0, DIAL.z + 4.5], [1, 0, 0]), [1.1, 2], [2.2, 3], { moving: true });
+T.cyl('gauge.dial.stem', cx, 0, 3.2, GLAND, DIAL.z - GLAND, 'mid', { moving: true, seams: [70], inner: L(k.ring(cx, 0, 1.5, GLAND, P, 16), { tone: 'faint' }) });
+
+const ROD_F = G.frameAlong([cx, 0, GLAND], DOWN);
+const ROD_TO = GLAND - (TIP_REST + TIP_R);
+const rod = G.rodOut(ROD_F, 0, ROD_TO, 1.1, P, { stroke: STROKE });
+const tipC = [cx, 0, TIP_REST + TIP_R];
+T.put('gauge.plunger', [cx, 0, (GLAND + TIP_REST) / 2],
+  `<g data-stroke><clipPath id="caliper-plunger-clip"><path data-hold d="${rod.clip}"/></clipPath>` +
+  `<g clip-path="url(#caliper-plunger-clip)">${S(rod.paths, { tone: 'hi', lit: true, crease: 'none' })}</g>` +
+  `${S(G.sphereOf(tipC, TIP_R, P), { tone: 'hi', lit: true })}</g>`,
+  [A.disc(ROD_F, 0, ROD_TO, 1.1, { owner: 'gauge.plunger' }), A.ball(tipC, TIP_R, { owner: 'gauge.plunger' })],
+  { moving: true });
+
+const svg = paint(R, P, {
+  width: W, height: H, states: A.uniformStates(12),
+  label: 'A dial indicator on a height stand rides a straightedge on a granite surface plate. Under it stand four wrung stacks of gauge blocks, each 0.4 units tall per percentage point of the own-brand price index, so the plunger drops onto a stack and the needle reads that category.'
+});
+
+model.rig = {
+  kind: 'caliper', P: camera(P), perTurn: PER_TURN, zero: ANVIL_TOP, rest: TIP_REST, tops: BLOCK_TOPS,
+  needle: NEEDLE, mag: MAG
+};
+
+const delta = k.iso([STATION_X[3] - X0, 0, 0], P).map((n, i) => n - k.iso([0, 0, 0], P)[i]);
+const partial = inspectorPartial({
+  cls: 'data-caliper', id: 'caliper', model, svg, delta,
+  title: 'Price Index Caliper · Measured Own-Brand Gap',
+  source: 'Continente Portugal Online Shelf Census',
+  meta: '209 comparable groups &middot; 38,383 products &middot; Dial indicator on a granite height stand',
+  ariaLabel: 'Select a retail category to inspect. Use the arrow keys, Home or End.',
+  fieldsLabel: 'Retail categories', selectLabel: 'Inspect category', hint: 'Tap a gauge-block stack to measure.',
+  fill: (st) => st.rate,
+  caption: 'Each gauge-block stack is 0.4 units tall per point of the own-brand price index. The stand switches its magnet off, slides along the fence, switches it on and lowers the plunger onto the stack; one dial turn is 40 units, so the needle reads the category\'s index in percent.'
+});
+publish(ROOT, { partialPath: 'partials/data-caliper.html', pagePath: 'retail-report.html', marker: 'retail-caliper', partial });
+
+console.log(`Built retail caliper height stand: ${T.count()} solids; rates from Continente census`);
+A.auditOrExit(R, P, { states: A.uniformStates(12) });

@@ -182,3 +182,17 @@
 .data-inspector[data-enhanced] .inspector-control { justify-content: space-between; gap: 12px; }
 .inspector-hint { color: var(--text-2); font-size: .875rem; }
 .data-inspector:not([data-enhanced]) .inspector-hint { display: none; }
+.inspector-art [data-needle] { stroke: var(--accent); stroke-width: 1.1px; }
+.inspector-art [data-lever] { stroke-width: 1.2px; }
+.inspector-art [data-when="on"] { display: none; }
+.inspector-art [data-engaged] [data-when="on"] { display: inline; }
+.inspector-art [data-engaged] [data-when="off"] { display: none; }
+.inspector-art [data-lamp] { --lamp: var(--accent); }
+.inspector-art [data-lamp="amber"] { --lamp: #f5a524; }
+.inspector-art [data-lamp="green"] { --lamp: #2fbf71; }
+.inspector-art [data-lamp="red"] { --lamp: #e5484d; }
+.inspector-art [data-lamp] .iso-solid > path:not(.iso-edge) { transition: fill 240ms, stroke 240ms; }
+.inspector-art [data-lamp][data-engaged] .iso-solid > path:not(.iso-edge) { fill: var(--lamp); stroke: var(--lamp); }
+.inspector-art [data-lamp][data-engaged] .iso-solid > .iso-top, .inspector-art [data-lamp][data-engaged] .iso-solid > .iso-shade[data-shade="3"] { fill: color-mix(in srgb, var(--lamp) 55%, #fff); stroke: color-mix(in srgb, var(--lamp) 55%, #fff); }
+.inspector-art [data-lamp][data-engaged] { filter: drop-shadow(0 0 3px var(--lamp)); }
+@media (prefers-reduced-motion: reduce) { .inspector-art [data-lamp] .iso-solid > path:not(.iso-edge) { transition: none; } }
