@@ -1502,8 +1502,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid var(--accent); ou
 .dataset-row { border-radius: 0; transition: background-color 220ms; }
 .dataset-row h3 { font-size: 1.25rem; letter-spacing: -.03em; }
 .site-footer { overflow: hidden; }
-.footer-wordmark { font-size: clamp(5rem, 19vw, 20rem); font-weight: 800; letter-spacing: -.085em; line-height: .8; white-space: nowrap; text-align: center; margin: 24px 0 -12px; color: var(--text); }
-.footer-wordmark span { color: var(--teal-text); }
+
 @media (max-width: 1000px) {
   .hero-copy { grid-template-columns: 1.3fr 1fr; gap: 28px; }
   .hero h1 { font-size: clamp(2.75rem, 6.3vw, 5rem); }
@@ -1522,7 +1521,7 @@ input:focus, select:focus, textarea:focus { outline: 3px solid var(--accent); ou
   .hero-facts dt { font-size: .875rem; }
   .sample-workspace { padding-block: 0; }
   .section-head h2, .sample-intro h2, .guide-intro h2 { font-size: 2rem; }
-  .footer-wordmark { margin-top: 12px; margin-bottom: -4px; }
+
 }
 .catalog-page .page-head h1 { font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -.065em; }
 .dataset-list { gap: 0; }
