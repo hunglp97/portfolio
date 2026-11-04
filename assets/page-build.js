@@ -8,18 +8,13 @@
       !window.CSS || !CSS.supports('mask-size', '100% 100%')) {
     html.removeAttribute('data-page-build-boot'); return;
   }
-  // One introduction per browser, shared by every route and every later release.
-  // Claim before painting so reloads/new tabs cannot restart an interrupted intro.
-  try {
-    if (localStorage.getItem('hlpdata:swarm-seen')) {
-      html.setAttribute('data-page-build-seen', '');
-      html.removeAttribute('data-page-build-boot'); return;
-    }
-    localStorage.setItem('hlpdata:swarm-seen', '1');
-  } catch (_) {
+  // The head claims the single introduction before hiding anything. A later
+  // visit, denied storage or a missing bootstrap always keeps the page static.
+  if (!window.__pageBuildFirstVisit) {
     html.setAttribute('data-page-build-seen', '');
     html.removeAttribute('data-page-build-boot'); return;
   }
+  window.__pageBuildFirstVisit = false;
   const scriptURL = document.currentScript.src;
   const omit = 'script,style,noscript,template,option,.visually-hidden,.skip-link,.hp-field,[aria-hidden="true"],.page-build-layer,.page-build-tools';
   const media = 'svg,img,video,canvas,iframe,pre,.inspector-art';

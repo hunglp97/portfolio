@@ -11,7 +11,7 @@ let browser;
 async function page(setup){
  const p=await browser.newPage({width:390,height:844,mobile:true});
  await p.send('Network.enable');await p.send('Network.setBlockedURLs',{urls:['*cloud.umami.is*','*payhip.com*','*fonts.googleapis.com*','*fonts.gstatic.com*','*unpkg.com*']});
- await p.send('Page.addScriptToEvaluateOnNewDocument',{source:`window.qaBlank=false;document.addEventListener('DOMContentLoaded',()=>{let n=0;function sample(){window.qaBlank ||= !!document.querySelector('main') && getComputedStyle(document.querySelector('main')).opacity==='0';if(n++<90)requestAnimationFrame(sample)}sample()});`});
+ await p.send('Page.addScriptToEvaluateOnNewDocument',{source:`window.qaBlank=false;window.qaIntro=false;new MutationObserver(()=>{const main=document.querySelector('main');window.qaBlank ||= !!main && getComputedStyle(main).opacity==='0';window.qaIntro ||= !!document.documentElement && document.documentElement.hasAttribute('data-page-build-intro');}).observe(document,{subtree:true,childList:true,attributes:true,attributeFilter:['data-page-build-intro','data-page-build-boot']});`});
  if(setup)await setup(p);return p;
 }
 async function staticPage(p,label){
@@ -27,7 +27,7 @@ async function staticPage(p,label){
 try{
  browser=await Browser.launch({extraArgs:['--user-data-dir='+profile]});
  let p=await page();await p.goto(base,{settleMs:160});
- check(await p.eval('document.documentElement.hasAttribute("data-page-build-intro")'),'first visit: automatic intro starts');
+ check(await p.eval('window.qaIntro===true'),'first visit: automatic intro is observed');
  check(await p.eval('localStorage.getItem("hlpdata:swarm-seen")==="1"'),'first visit: seen flag is written before completion');
  check(await p.eval('document.querySelectorAll(".page-build-agent").length===8'),'first visit: cursor swarm is present');
  // Reload while the first intro is still running: it must never start over.

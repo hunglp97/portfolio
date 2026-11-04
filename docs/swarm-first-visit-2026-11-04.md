@@ -5,8 +5,9 @@ repeat on any subsequent opening. This policy supersedes the replay and
 storage-free behavior of the earlier renderer.
 
 The stable localStorage key `hlpdata:swarm-seen` is shared across every route on
-this origin and is independent of release or query-string versions. The engine
-writes it before starting the first intro. An interrupted intro, reload,
+this origin and is independent of release or query-string versions. The early head bootstrap
+writes it before hiding the first frame, then passes a single-use token to the
+engine. A denied storage write therefore cannot blank the page. An interrupted intro, reload,
 navigation, new tab or later browser session therefore opens a complete page.
 The early head bootstrap checks the same key before hiding anything, preventing
 an empty flash for returning visitors. Existing ordinary reveal classes also
@@ -38,9 +39,12 @@ Validation:
   profile before each fresh-visitor case and asserts toolbar retirement instead
   of the removed replay action. The persistence suite never clears the marker
   between its returning-visitor scenarios.
+- Eight additional guard checks passed: a blocked engine consumes the first visit,
+  the timeout releases the page and revokes its token, a late-loaded engine cannot
+  restart it, and the next opening stays static.
 - Site lint validates all 24 shared-layout pages. Syntax, design source lint and
   immutable bundle/source equality are checked before release.
 
-The release uses `20261104f` and content-hashed renderer assets. Earlier immutable
+The release uses `20261104g` and content-hashed renderer assets. Earlier immutable
 assets remain available for cached HTML. Public deployment and browser read-back
 are separate from local verification.
