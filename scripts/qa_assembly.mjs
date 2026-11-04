@@ -38,19 +38,19 @@ try {
   for (const width of [1440, 768, 390]) for (const theme of ['light', 'dark']) for (const motion of ['no-preference', 'reduce']) {
     const key = `${width}-${theme}-${motion}`;
     const p = await page(width, theme, motion);
-    if (motion === 'no-preference') {
-      check(await p.eval((w) => document.querySelector('[data-assembly]').hasAttribute('data-assembling') === (w > 900 && matchMedia('(pointer: fine)').matches), width), `${key}: introduction follows device capability`);
-    }
+    check(await p.eval(() => document.querySelector('[data-assembly]').hasAttribute('data-assembling')), `${key}: visible introduction starts on page open`);
     await sleep(1800);
     check(await p.eval('document.documentElement.scrollWidth <= innerWidth'), `${key}: no page overflow`);
     check(await p.eval('getComputedStyle(document.querySelector("h1")).opacity === "1"'), `${key}: title readable`);
     const hidden = await p.eval('document.querySelector("[data-assembly-play]").hidden');
-    check(hidden === (motion === 'reduce'), `${key}: motion preference respected`);
-    if (motion === 'no-preference') {
+    check(!hidden, `${key}: animation control remains discoverable`);
+    if (await p.eval('document.querySelector("[data-assembly]").hasAttribute("data-assembling")')) await click(p, '[data-assembly-play]');
+    {
       await click(p, '[data-assembly-play]');
       await sleep(250);
       check(await p.eval('document.querySelector("[data-assembly]").hasAttribute("data-assembling")'), `${key}: build starts`);
       check(await p.eval('[...document.querySelectorAll(".assembly-cursor")].every(c => +getComputedStyle(c).opacity > 0)'), `${key}: four cursors appear`);
+      check(await p.eval('getComputedStyle(document.querySelector(".assembly-layer")).display !== "none"'), `${key}: explicit playback is visible with either motion preference`);
       check(await p.eval(() => {
         const r = document.querySelector('.inspector-art').getBoundingClientRect();
         return [...document.querySelectorAll('.assembly-cursor > span')].every(el => {
@@ -59,14 +59,16 @@ try {
         });
       }), `${key}: cursor labels stay inside the artwork`);
       if (theme === 'light') {
-        await p.screenshot({ path: `${out}/${width}-building.jpg` });
+        await p.screenshot({ path: `${out}/${width}-${motion}-building.jpg` });
       }
       await click(p, '[data-inspect-choice="3"]');
       check(await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling")'), `${key}: field click interrupts build`);
       check(await p.eval(() => document.querySelector('[data-inspect-choice="3"]').getAttribute('aria-pressed') === 'true'), `${key}: real field selection works`);
+      // Chrome can retain cancelled SVG animation objects until the next paint.
+      await p.eval(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       check(await p.eval('[...document.querySelectorAll(".iso-solid")].every(el => el.getAnimations().length === 0)'), `${key}: cancelled animations cleaned up`);
       await click(p, '[data-assembly-play]');
-      await sleep(3600);
+      await sleep(4200);
       check(await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling")'), `${key}: finite build completes`);
       check(await p.eval('[...document.querySelectorAll(".iso-solid")].every(el => el.getAnimations().length === 0)'), `${key}: no retained animations`);
       await click(p, '[data-assembly-play]');
@@ -76,10 +78,6 @@ try {
       await p.eval('window.scrollTo({top:document.body.scrollHeight,behavior:"instant"})');
       await sleep(350);
       check(await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling")'), `${key}: offscreen work stops`);
-    } else {
-      check(await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling") && document.querySelectorAll(".iso-solid")[0].getAnimations().length === 0'), `${key}: no assembly under reduced motion`);
-      await click(p, '[data-inspect-choice="2"]');
-      check(await p.eval('document.querySelector("[data-inspect-rate]").textContent === "53.7%"'), `${key}: reduced motion retains interaction`);
     }
     await p.eval('document.querySelector(".inspector-art").focus()');
     await p.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Home', code: 'Home' });
@@ -91,6 +89,7 @@ try {
   }
   const p = await page(1440, 'light', 'no-preference');
   await sleep(1800);
+  if (await p.eval('document.querySelector("[data-assembly]").hasAttribute("data-assembling")')) await click(p, '[data-assembly-play]');
   await click(p, '[data-assembly-play]');
   await p.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   // Media-query changes are delivered asynchronously on Chrome's rendering task.
@@ -98,7 +97,7 @@ try {
   let stopped = false;
   for (let i = 0; i < 20 && !stopped; i++) {
     await sleep(50);
-    stopped = await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling") && document.querySelector("[data-assembly-play]").hidden');
+    stopped = await p.eval('!document.querySelector("[data-assembly]").hasAttribute("data-assembling") && !document.querySelector("[data-assembly-play]").hidden');
   }
   check(stopped, 'changing preference while playing cancels the build');
   await p.send('Page.close');

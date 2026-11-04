@@ -144,10 +144,12 @@ The remaining preview images are warmed once the print display approaches the vi
 ### Cursor assembly introduction
 
 The homepage inspection bench has an original four-cursor assembly sequence in
-`assets/assembly.js` and `assets/assembly.css`. Desktop visitors with a fine pointer
-see one 1.6-second introduction. The Watch/Replay button runs a 3.4-second version;
-touch and tablet visitors opt in. Reduced motion keeps the finished figure and its
-normal field controls. No extension, framework, audio, storage or new network service
+`assets/assembly.js` and `assets/assembly.css`. Visitors see one four-second
+introduction when the artwork enters view. The prominent Play/Replay animation button
+always remains available. At the owner's explicit request the finite introduction
+also runs in in-app browsers reporting reduced motion. A change to the preference
+during playback cancels it. No motion preference is saved or changed.
+No extension, framework, audio, storage or new network service
 is involved.
 
 The sequence animates the existing SVG solids and temporarily pauses the scanner's

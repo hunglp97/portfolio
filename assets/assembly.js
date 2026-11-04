@@ -11,7 +11,6 @@
   if (!svg || !button || !status) return;
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const desktop = matchMedia('(min-width: 901px) and (pointer: fine)');
   const labels = ['Price', 'Price / m²', 'Parking', 'Floor'];
   const layer = document.createElement('div');
   layer.className = 'assembly-layer';
@@ -28,13 +27,15 @@
   art.append(layer);
 
   const parts = Array.from(svg.querySelectorAll('[data-name] > .iso-solid'));
-  let animations = [], frame = 0, started = 0, duration = 0, active = false, seen = false;
+  let animations = [], frame = 0, started = 0, duration = 0, active = false, seen = false, inView = false;
+  let motionAtStart = reduced.matches;
   let bounds, jobs = [];
   const clamp = function (v) { return Math.min(1, Math.max(0, v)); };
   const ease = function (v) { return 1 - Math.pow(1 - clamp(v), 3); };
 
   function availability() {
-    button.hidden = reduced.matches;
+    button.hidden = false;
+    if (!active) status.textContent = 'Choose a field to inspect.';
   }
 
   function finish() {
@@ -44,7 +45,7 @@
     animations = [];
     agents.forEach(function (agent) { agent.cursor.style.opacity = '0'; });
     root.removeAttribute('data-assembling');
-    button.textContent = seen ? 'Replay build' : 'Watch the build';
+    button.textContent = seen ? 'Replay animation' : 'Play animation';
     button.setAttribute('aria-label', button.textContent);
     status.textContent = 'Choose a field to inspect.';
     if (active) {
@@ -56,7 +57,7 @@
   function tick(now) {
     frame = 0;
     if (!active) return;
-    if (reduced.matches || document.hidden) { finish(); availability(); return; }
+    if (document.hidden || reduced.matches !== motionAtStart) { finish(); return; }
     const t = now - started;
     agents.forEach(function (agent, i) {
       const queue = agent.targets;
@@ -78,15 +79,16 @@
     else frame = requestAnimationFrame(tick);
   }
 
-  function start(short) {
-    if (reduced.matches || document.hidden) return;
+  function start() {
+    if (document.hidden) return;
     finish();
     bounds = art.getBoundingClientRect();
     if (!bounds.width || !bounds.height) return;
     active = true;
+    motionAtStart = reduced.matches;
     seen = true;
     root.dispatchEvent(new CustomEvent('inspect-assembly', { detail: true }));
-    duration = short ? 1600 : 3400;
+    duration = 4000;
     jobs = [];
     agents.forEach(function (agent) {
       agent.targets = [];
@@ -129,20 +131,37 @@
     frame = requestAnimationFrame(tick);
   }
 
-  button.addEventListener('click', function () { if (active) finish(); else start(false); });
+  button.addEventListener('click', function () { if (active) finish(); else start(); });
   // Reading or operating the exhibit always takes priority over its introduction.
   root.addEventListener('pointerdown', function (event) { if (active && !button.contains(event.target)) finish(); }, true);
   root.addEventListener('keydown', function (event) {
     if (active && (event.key === 'Escape' || !button.contains(event.target))) finish();
   }, true);
   reduced.addEventListener('change', function () { finish(); availability(); });
-  document.addEventListener('visibilitychange', function () { if (document.hidden) finish(); });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) finish();
+    else if (!seen && inView) start();
+  });
   window.addEventListener('pagehide', finish);
-  if (window.ResizeObserver) new ResizeObserver(function () { if (active) finish(); }).observe(art);
+  window.addEventListener('pageshow', function (event) {
+    if (!event.persisted) return;
+    seen = false;
+    if (inView && !document.hidden) start();
+  });
+  if (window.ResizeObserver) new ResizeObserver(function () {
+    if (!active) return;
+    finish();
+    // Font loading and responsive layout can resize the art during its first run.
+    // Re-measure and continue with a fresh sequence rather than losing the intro.
+    if (inView && !document.hidden) start();
+  }).observe(art);
   const observer = new IntersectionObserver(function (entries) {
-    const visible = entries[entries.length - 1].isIntersecting;
-    if (!visible) { if (active) finish(); return; }
-    if (!seen && !reduced.matches && desktop.matches) start(true);
+    const entry = entries[entries.length - 1];
+    inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+    if (!inView) { if (active) finish(); return; }
+    // The owner explicitly requested a visible introduction on every page open,
+    // including in-app browsers that report reduced motion by default.
+    if (!seen) start();
   }, { threshold: 0.25 });
   observer.observe(art);
   availability();
