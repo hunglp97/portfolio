@@ -152,7 +152,9 @@ It follows the supplied Swarm Rebuild video reference; the implementation and
 pointer artwork are original. No reference-project source is redistributed.
 
 `assets/page-build.js` and `assets/page-build.css` are loaded through the shared
-asset partial on all 24 pages. A short bootstrap guard prevents a flash of the
+asset partial on all 24 pages. Run `node scripts/package_swarm.mjs` before
+`python3 scripts/sync_layout.py` after editing either renderer source; the partial
+loads content-hashed release copies so CDN caches cannot mix releases. A short bootstrap guard prevents a flash of the
 finished page and releases it within three seconds if the renderer is blocked.
 The real DOM keeps its layout, semantics, links, inputs and text throughout.
 Temporary inert duplicates are drawing-tool feedback only. Pointer interaction

@@ -30,7 +30,7 @@ those projects is redistributed.
 text, media and controls. The homepage has approximately 407 layers (the exact
 count varies with responsive and progressively enabled native controls), rather
 than the previous 179 masked content blocks. All 24 routes inherit the renderer
-through the existing shared-asset generator, version `20261104d`.
+through the existing shared-asset generator, version `20261104e`.
 
 The initial canvas lasts about one second. Twelve colored cursors (eight on
 phones) orbit the HLP mark, then draw parent frames before their children.
@@ -58,6 +58,15 @@ The frame loop stops when visible work ends. Geometry reads are batched; glyph
 Ranges are recalculated for reflow, not on every scroll tick. Drawing tools are
 removed from hit testing and the render tree when inactive. Dense visible queues
 have a bounded waiting fallback. No storage, audio or new service is involved.
+
+## Release asset integrity
+
+Public read-back found stale responses at the old fixed asset paths. The shared
+partial now uses physical, content-hashed filenames produced by
+`node scripts/package_swarm.mjs`. The source remains `assets/page-build.js` and
+`.css`; their release copies are byte-identical. Run the packager before
+`sync_layout.py` after changing either source. Existing release copies are retained
+for cached HTML. No CDN purge or client cache clearing is required.
 
 ## Fallbacks and explicit motion exception
 
