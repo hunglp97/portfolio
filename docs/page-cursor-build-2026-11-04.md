@@ -1,3 +1,5 @@
+> Historical release `20261104c`, superseded by [the video-based renderer](swarm-render-2026-11-04.md).
+
 # Page-wide cursor construction
 
 ## Corrected scope

@@ -35,9 +35,9 @@ async function click(p, selector) {
 
 async function settleVisible(p) {
   let settled = false;
-  for (let i = 0; i < 55 && !settled; i++) {
+  for (let i = 0; i < 130 && !settled; i++) {
     await sleep(100);
-    settled = await p.eval(() => [...document.querySelectorAll('[data-build-state]:not([data-build-state="done"])')].every(e => {
+    settled = await p.eval(() => [...document.querySelectorAll('[data-build-state]:not([data-build-state="done"]),[data-build-surface]:not([data-build-surface="done"])')].every(e => {
       const r = e.getBoundingClientRect(); return r.width < 1 || r.height < 1 || r.bottom <= 68 || r.top >= innerHeight - 12;
     }));
   }
@@ -56,7 +56,8 @@ try {
     const key = `${width}-${theme}-${motion}`;
     const p = await open('', width, theme, motion);
     check(await p.eval('document.documentElement.hasAttribute("data-page-build")'), key + ': automatic full-page construction starts');
-    check(await p.eval('document.querySelector("h1").getAttribute("data-build-state") === "building"'), key + ': the real headline is being typed');
+    check(await p.eval('document.documentElement.hasAttribute("data-page-build-intro") && getComputedStyle(document.querySelector("main")).opacity === "0"'), key + ': blank canvas before reconstruction');
+    check(await p.eval('document.querySelectorAll("[data-build-surface]").length > 50'), key + ': backgrounds and structural frames are reconstructed');
     check(await p.eval('document.querySelectorAll("[data-build-state]").length > 100'), key + ': covers the whole page');
     check(await p.eval('[...document.querySelectorAll("[data-build-state]")].every(e=>!e.parentElement.closest("[data-build-state]"))'), key + ': no conflicting nested masks');
     check(await p.eval('getComputedStyle(document.querySelector(".page-build-layer")).pointerEvents === "none"'), key + ': cursors cannot block controls');
@@ -72,20 +73,21 @@ try {
     check(await p.eval('document.querySelector("[data-filter=retail]").getAttribute("aria-pressed") === "true"'), key + ': native filter works');
     check(await p.eval('[...document.querySelectorAll("#home-list > li:not([hidden])")].every(e=>e.dataset.tags.includes("retail"))'), key + ': filter still selects the right rows');
     await click(p, '[data-page-build-toggle]');
-    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building]").length === 0'), key + ': Show full page reveals everything');
-    check(await p.eval('document.querySelectorAll(".page-build-agent").length === (innerWidth<600?3:4)'), key + ': cursor budget is bounded');
+    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building],[data-build-surface=pending],[data-build-surface=building],[data-build-surface=painting]").length === 0'), key + ': Show full page reveals everything');
+    check(await p.eval('document.querySelectorAll(".page-build-agent").length === (innerWidth<600?8:12)'), key + ': cursor budget is bounded');
     check(await p.eval('document.documentElement.scrollWidth <= innerWidth'), key + ': no horizontal overflow');
     await click(p, '[data-page-build-toggle]');
     let replaying = false;
-    for (let i = 0; i < 20 && !replaying; i++) {
+    for (let i = 0; i < 40 && !replaying; i++) {
       await sleep(100);
       replaying = await p.eval('!!document.querySelector("#datasets [data-build-state=building]")');
     }
     check(replaying, key + ': replay rebuilds the current section');
     await p.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
-    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building]").length === 0'), key + ': Escape reveals the full page');
+    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building],[data-build-surface=pending],[data-build-surface=building],[data-build-surface=painting]").length === 0'), key + ': Escape reveals the full page');
     check(p.consoleErrors.length === 0, key + ': no runtime errors ' + p.consoleErrors.join(';'));
     await p.send('Page.close');
+    console.log(key + ': checked');
   }
 
   // Every section must visibly construct, including the bottom half and footer.
@@ -116,7 +118,7 @@ try {
       check(await p.eval('document.querySelector("input[type=email]").closest("[data-build-state]").dataset.buildState === "done"'), 'form: focus reveals the field immediately');
     }
     await click(p, '[data-page-build-toggle]');
-    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building]").length === 0'), path + ': complete native page is available');
+    check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building],[data-build-surface=pending],[data-build-surface=building],[data-build-surface=painting]").length === 0'), path + ': complete native page is available');
     check(await p.eval('getComputedStyle(document.querySelector("h1")).opacity === "1"'), path + ': title visible');
     check(p.consoleErrors.length === 0, path + ': no runtime exceptions ' + p.consoleErrors.join(';'));
     await p.send('Page.close');
@@ -126,7 +128,7 @@ try {
     const p = await open('', width);
     await p.eval(() => { const el = document.querySelector('[data-inspect-choice="3"]'); el.focus(); el.click(); });
     check(await p.eval('document.querySelector("[data-inspect-rate]").textContent === "42.9%"'), width + ': field inspection survives construction');
-    check(await p.eval('document.querySelector(".inspector-fields").dataset.buildState === "done"'), width + ': keyboard focus reveals the real control group');
+    check(await p.eval(() => document.querySelector('[data-inspect-choice="3"]').dataset.buildState === 'done'), width + ': keyboard focus reveals the real control group');
     await p.eval('document.querySelector(".inspector-art").focus()');
     await p.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Home', code: 'Home' });
     check(await p.eval('document.querySelector(".inspector-art").getAttribute("aria-valuenow") === "0"'), width + ': drawing keyboard controls work');
@@ -166,4 +168,4 @@ try {
 
 writeFileSync(resolve(out, 'results.json'), JSON.stringify(results, null, 2));
 console.log(`${results.filter(r => r.ok).length}/${results.length} checks passed`);
-if (results.some(r => !r.ok)) process.exitCode = 1;
+process.exit(results.some(r => !r.ok) ? 1 : 0);

@@ -143,39 +143,53 @@ The remaining preview images are warmed once the print display approaches the vi
 
 ### Page-wide cursor construction
 
-Every published page builds itself as the visitor scrolls: cursors type headings
-line by line, draw controls and media frames, then place repeated data rows. The
-original engine is `assets/page-build.js` with `assets/page-build.css`, included by
-the shared asset partial on all 24 pages. It replaces the earlier bench-only demo.
+Every published page begins as a blank canvas. A colored cursor swarm gathers
+around the HLP mark, then draws structural frames and surfaces before adding
+content. Cursors drag boxes with dimensions, type real glyphs, enlarge headings,
+sweep images into place and drag copies from completed repeated items. The same
+renderer builds later sections on scroll, including tables, charts and the footer.
+It follows the supplied Swarm Rebuild video reference; the implementation and
+pointer artwork are original. No reference-project source is redistributed.
 
-It animates the real DOM; links, tables, filters, input values, source content and
-accessibility semantics remain intact. Pointer interaction and keyboard focus
-immediately reveal their target. Show full page or Escape reveals everything;
-Replay page rebuilds the current viewport and stages the sections below it.
-Offscreen content starts when it enters view. At most four cursors run at once
-(three on phones), with no idle animation loop. Backgrounding stops active work.
+`assets/page-build.js` and `assets/page-build.css` are loaded through the shared
+asset partial on all 24 pages. A short bootstrap guard prevents a flash of the
+finished page and releases it within three seconds if the renderer is blocked.
+The real DOM keeps its layout, semantics, links, inputs and text throughout.
+Temporary inert duplicates are drawing-tool feedback only. Pointer interaction
+or keyboard focus reveals the native target and its containing surfaces.
 
-At the owner's explicit request the page starts automatically even in in-app
-browsers reporting reduced motion. No browser preference is changed or stored.
-JavaScript-disabled and unsupported browsers show the complete static site; a
-runtime failure reveals all content. No extension, audio, framework or new network
-service is involved. The cursor layer never receives pointer events.
+Show full page or Escape reveals everything. Replay page restarts the blank-canvas
+sequence in the current viewport. Tour automatically scrolls after each viewport
+finishes; 1× / 2× / 3× changes build speed. There are at most 12 cursors (8 on
+phones). Idle agents flock during construction and the entire layer stops when
+visible work ends. Backgrounding suspends work. The toolbar moves away from
+visible headings and space is reserved below the final footer.
 
-To repeat the browser interaction checks, start a local server and run:
+At the owner's explicit request, reconstruction starts automatically even when
+an in-app browser reports reduced motion. No browser preference is changed or
+stored. JavaScript-disabled and unsupported browsers show the complete static
+site; a runtime failure reveals all content. No extension, audio, framework or
+new network service is involved. The cursor layer never receives pointer events.
+
+For browser QA, start a local server and run:
 
 ```bash
 python3 -m http.server 8765 --bind 127.0.0.1
 # In a second terminal, with Node 22+ and Chrome installed:
 node scripts/qa_page_build.mjs http://127.0.0.1:8765/
+node scripts/qa_swarm_render.mjs http://127.0.0.1:8765/
 ```
 
-The QA command uses the installed design-taste-frontend skill's Chrome helper; set
+The commands use the design-taste-frontend skill's Chrome helper; set
 `TASTE_SKILL_HOME` if it is outside `~/.codex/skills/design-taste-frontend`.
-It blocks third-party analytics, checkout and font services, checks three viewport
-widths in both themes and motion preferences, walks every homepage section, and
-smokes all 24 routes. Screenshots and results are in ignored
-`.taste-skill/page-build-qa/`. See `docs/page-cursor-build-2026-11-04.md` for scope
-and validation. Earlier cursor reports describe superseded releases.
+External analytics, checkout and fonts are blocked during QA. The interaction
+suite covers three widths, both themes and motion preferences, every homepage
+section, all 24 routes and native controls. The visual behavior suite records
+frame geometry to check blank start, parent-before-child construction, glyph
+progress, heading resizing and actual duplicate dragging. Artifacts stay in
+ignored `.taste-skill/`. See `docs/swarm-render-2026-11-04.md` for the video
+observations, final validation and visual critique. Earlier cursor reports are
+historical and describe superseded releases.
 
 `preview_guides.mjs` requires Poppler's `pdftoppm`. It renders the first page of each
 published PDF to the three `assets/guide-*.png` files. Run it after reprinting so the
