@@ -8,15 +8,19 @@
   <link rel="stylesheet" href="{{root}}style.css?v={{v}}">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#080d16" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="{{root}}assets/swarm-render.680054e63b4a.css">
+  <link rel="stylesheet" href="{{root}}assets/swarm-render.5ad254a47f6a.css">
   <script>
-  // Keep the first frame blank; a blocked or failed engine releases the native page.
-  if (Element.prototype.animate && window.IntersectionObserver && window.CSS && CSS.supports('mask-size', '100% 100%')) {
-    document.documentElement.setAttribute('data-page-build-boot', '');
-    window.__pageBuildGuard = setTimeout(function () { document.documentElement.removeAttribute('data-page-build-boot'); }, 3000);
-  }
+  // Only an unseen browser gets a blank first frame. Storage failure keeps the page static.
+  try {
+    if (localStorage.getItem('hlpdata:swarm-seen')) {
+      document.documentElement.setAttribute('data-page-build-seen', '');
+    } else if (Element.prototype.animate && window.IntersectionObserver && window.CSS && CSS.supports('mask-size', '100% 100%')) {
+      document.documentElement.setAttribute('data-page-build-boot', '');
+      window.__pageBuildGuard = setTimeout(function () { document.documentElement.removeAttribute('data-page-build-boot'); }, 3000);
+    }
+  } catch (_) { document.documentElement.setAttribute('data-page-build-seen', ''); }
   </script>
-  <script defer src="{{root}}assets/swarm-render.0ed2314a2d91.js"></script>
+  <script defer src="{{root}}assets/swarm-render.58004ce58af0.js"></script>
   <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script async src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
   <script defer src="{{root}}script.js?v={{v}}"></script>

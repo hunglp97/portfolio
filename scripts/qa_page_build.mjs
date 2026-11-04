@@ -15,6 +15,8 @@ const browser = await Browser.launch();
 async function open(path = '', width = 1440, theme = 'light', motion = 'reduce', setup) {
   const p = await browser.newPage({ width, height: 1000, mobile: width < 600 });
   await p.send('Network.enable');
+  // Each animation case models a fresh visitor in this isolated QA profile.
+  await p.send('Storage.clearDataForOrigin', { origin: new URL(base).origin, storageTypes: 'local_storage' });
   await p.send('Network.setBlockedURLs', { urls: ['*cloud.umami.is*', '*payhip.com*', '*fonts.googleapis.com*', '*fonts.gstatic.com*', '*unpkg.com*'] });
   await p.send('Emulation.setEmulatedMedia', { features: [
     { name: 'prefers-color-scheme', value: theme }, { name: 'prefers-reduced-motion', value: motion }
@@ -76,13 +78,8 @@ try {
     check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building],[data-build-surface=pending],[data-build-surface=building],[data-build-surface=painting]").length === 0'), key + ': Show full page reveals everything');
     check(await p.eval('document.querySelectorAll(".page-build-agent").length === (innerWidth<600?8:12)'), key + ': cursor budget is bounded');
     check(await p.eval('document.documentElement.scrollWidth <= innerWidth'), key + ': no horizontal overflow');
-    await click(p, '[data-page-build-toggle]');
-    let replaying = false;
-    for (let i = 0; i < 40 && !replaying; i++) {
-      await sleep(100);
-      replaying = await p.eval('!!document.querySelector("#datasets [data-build-state=building]")');
-    }
-    check(replaying, key + ': replay rebuilds the current section');
+    check(await p.eval('document.querySelector(".page-build-tools").hidden'), key + ': skip retires the toolbar');
+    check(await p.eval('![...document.querySelectorAll("button")].some(b=>/replay/i.test(b.textContent))'), key + ': no replay control exists');
     await p.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
     check(await p.eval('document.querySelectorAll("[data-build-state=pending],[data-build-state=building],[data-build-surface=pending],[data-build-surface=building],[data-build-surface=painting]").length === 0'), key + ': Escape reveals the full page');
     check(p.consoleErrors.length === 0, key + ': no runtime errors ' + p.consoleErrors.join(';'));

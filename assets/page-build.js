@@ -8,6 +8,18 @@
       !window.CSS || !CSS.supports('mask-size', '100% 100%')) {
     html.removeAttribute('data-page-build-boot'); return;
   }
+  // One introduction per browser, shared by every route and every later release.
+  // Claim before painting so reloads/new tabs cannot restart an interrupted intro.
+  try {
+    if (localStorage.getItem('hlpdata:swarm-seen')) {
+      html.setAttribute('data-page-build-seen', '');
+      html.removeAttribute('data-page-build-boot'); return;
+    }
+    localStorage.setItem('hlpdata:swarm-seen', '1');
+  } catch (_) {
+    html.setAttribute('data-page-build-seen', '');
+    html.removeAttribute('data-page-build-boot'); return;
+  }
   const scriptURL = document.currentScript.src;
   const omit = 'script,style,noscript,template,option,.visually-hidden,.skip-link,.hp-field,[aria-hidden="true"],.page-build-layer,.page-build-tools';
   const media = 'svg,img,video,canvas,iframe,pre,.inspector-art';
@@ -69,7 +81,7 @@
   function pending() { return records.some(r => r.state !== 'done'); }
   function stats() {
     const done = records.filter(r => r.state === 'done').length;
-    toggle.textContent = pending() ? 'Show full page' : 'Replay page';
+    tools.hidden = disabled || !pending();
     status.textContent = initial ? 'Preparing the canvas' : disabled ? 'Page ready' : done + ' / ' + records.length + ' layers';
     tools.toggleAttribute('data-working', active.size > 0 || initial);
     tourButton.setAttribute('aria-pressed', String(tour));
@@ -431,12 +443,6 @@
     if (initial) { initial = false; html.removeAttribute('data-page-build-intro'); intro.style.opacity = '0'; }
     dirty = true; wake();
   }
-  function replay() {
-    revealAll(false); initial = true; introStart = 0;
-    html.setAttribute('data-page-build-intro', '');
-    records.forEach(r => { state(r, 'pending'); r.waiting = performance.now(); });
-    agents.forEach(a => { a.vx = a.vy = 0; }); dirty = true; stats(); wake();
-  }
   try {
     html.setAttribute('data-page-build', ''); html.setAttribute('data-page-build-intro', '');
     document.body.append(layer, tools); rulers();
@@ -461,8 +467,8 @@
     document.addEventListener('focusin', e => { if (!e.target.closest('.page-build-tools')) release(e.target); }, true);
     document.addEventListener('pointermove', e => { mouse = { x: e.clientX, y: e.clientY }; }, { passive: true });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') revealAll(true); });
-    toggle.addEventListener('click', () => { if (pending()) revealAll(true); else replay(); });
-    tourButton.addEventListener('click', () => { if (disabled) replay(); tour = !tour; tourAt = performance.now(); stats(); wake(); });
+    toggle.addEventListener('click', () => revealAll(true));
+    tourButton.addEventListener('click', () => { if (disabled || !pending()) return; tour = !tour; tourAt = performance.now(); stats(); wake(); });
     speedButton.addEventListener('click', () => {
       active.forEach(finish); speed = speed === 3 ? 1 : speed + 1;
       speedButton.textContent = speed + '×'; speedButton.setAttribute('aria-label', 'Build speed: ' + speed + ' times'); wake();
@@ -482,7 +488,7 @@
     });
     window.addEventListener('pagehide', () => revealAll(true));
     window.addEventListener('beforeprint', () => revealAll(true));
-    window.addEventListener('pageshow', e => { if (e.persisted) replay(); });
+    window.addEventListener('pageshow', e => { if (e.persisted) revealAll(true); });
     window.addEventListener('error', failOpen, { once: true });
     stats(); wake();
   } catch (_) { failOpen(); }

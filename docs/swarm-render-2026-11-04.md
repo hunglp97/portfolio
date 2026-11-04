@@ -1,3 +1,5 @@
+> This full-rebuild release is historical. The current [first-visit policy](swarm-first-visit-2026-11-04.md) overrides its replay and storage behavior.
+
 # Swarm-style progressive page render
 
 ## Reference and corrected acceptance

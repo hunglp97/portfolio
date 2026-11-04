@@ -106,7 +106,7 @@ CSS and JavaScript, including mobile purchase order and section links.
 
 Local browser QA should block Umami, Payhip and form submission. Check 1440, 768 and 390px,
 both color schemes, reduced motion, JavaScript disabled, CSV load/error, filters/reset/sort,
-menu keyboard behavior and form validation. The site stores no UI preferences in the browser.
+menu keyboard behavior and form validation. A local flag remembers that the introductory construction has already been shown.
 
 ### Printable Anatomy guides
 
@@ -143,7 +143,7 @@ The remaining preview images are warmed once the print display approaches the vi
 
 ### Page-wide cursor construction
 
-Every published page begins as a blank canvas. A colored cursor swarm gathers
+The first page opened by a new browser begins as a blank canvas. A colored cursor swarm gathers
 around the HLP mark, then draws structural frames and surfaces before adding
 content. Cursors drag boxes with dimensions, type real glyphs, enlarge headings,
 sweep images into place and drag copies from completed repeated items. The same
@@ -160,16 +160,18 @@ The real DOM keeps its layout, semantics, links, inputs and text throughout.
 Temporary inert duplicates are drawing-tool feedback only. Pointer interaction
 or keyboard focus reveals the native target and its containing surfaces.
 
-Show full page or Escape reveals everything. Replay page restarts the blank-canvas
-sequence in the current viewport. Tour automatically scrolls after each viewport
+Show full page or Escape reveals everything and ends the introduction. The
+`hlpdata:swarm-seen` local flag prevents it from running again on reload, navigation,
+new tabs or future visits. The key is independent of the release version. There is
+no replay control; returning through the back-forward cache stays static. Tour automatically scrolls after each viewport
 finishes; 1× / 2× / 3× changes build speed. There are at most 12 cursors (8 on
 phones). Idle agents flock during construction and the entire layer stops when
 visible work ends. Backgrounding suspends work. The toolbar moves away from
 visible headings and space is reserved below the final footer.
 
 At the owner's explicit request, reconstruction starts automatically even when
-an in-app browser reports reduced motion. No browser preference is changed or
-stored. JavaScript-disabled and unsupported browsers show the complete static
+an in-app browser reports reduced motion. The browser motion preference is unchanged; only the anonymous introduction-seen
+flag is stored locally. If storage is unavailable, the page stays static. JavaScript-disabled and unsupported browsers show the complete static
 site; a runtime failure reveals all content. No extension, audio, framework or
 new network service is involved. The cursor layer never receives pointer events.
 
@@ -180,6 +182,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 # In a second terminal, with Node 22+ and Chrome installed:
 node scripts/qa_page_build.mjs http://127.0.0.1:8765/
 node scripts/qa_swarm_render.mjs http://127.0.0.1:8765/
+node scripts/qa_first_visit.mjs http://127.0.0.1:8765/
 ```
 
 The commands use the design-taste-frontend skill's Chrome helper; set

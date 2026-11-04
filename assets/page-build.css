@@ -1,6 +1,7 @@
 /* The owner requests a blank canvas and a full visual rebuild, including reduced-motion browsers. */
 html[data-page-build] body { padding-bottom: 88px; }
 html[data-page-build-settling] * { transition: none !important; }
+html[data-page-build-seen] .reveal-pending { opacity: 1; transform: none; transition: none !important; }
 html[data-page-build-boot] .site-header,
 html[data-page-build-boot] main,
 html[data-page-build-boot] .site-footer,
@@ -73,6 +74,7 @@ html[data-page-build-working]:not([data-page-build-intro]) .page-build-ruler { o
 .page-build-tools button:hover,
 .page-build-tools button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 .page-build-tools button:focus-visible { outline: 2px solid currentColor; outline-offset: -3px; }
+.page-build-tools[hidden] { display: none; }
 @media (max-width: 600px) {
   .page-build-tools { width: calc(100% - 24px); right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); justify-content: space-between; gap: 0; }
   .page-build-tools > span { padding: 0 5px; min-width: 0; font-size: 10px; }

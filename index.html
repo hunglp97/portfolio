@@ -178,21 +178,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap"> <!-- taste-skill-ignore: brand type retained; monospace loaded for literal code -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="style.css?v=20261104e">
+  <link rel="stylesheet" href="style.css?v=20261104f">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#080d16" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="assets/swarm-render.680054e63b4a.css">
+  <link rel="stylesheet" href="assets/swarm-render.5ad254a47f6a.css">
   <script>
-  // Keep the first frame blank; a blocked or failed engine releases the native page.
-  if (Element.prototype.animate && window.IntersectionObserver && window.CSS && CSS.supports('mask-size', '100% 100%')) {
-    document.documentElement.setAttribute('data-page-build-boot', '');
-    window.__pageBuildGuard = setTimeout(function () { document.documentElement.removeAttribute('data-page-build-boot'); }, 3000);
-  }
+  // Only an unseen browser gets a blank first frame. Storage failure keeps the page static.
+  try {
+    if (localStorage.getItem('hlpdata:swarm-seen')) {
+      document.documentElement.setAttribute('data-page-build-seen', '');
+    } else if (Element.prototype.animate && window.IntersectionObserver && window.CSS && CSS.supports('mask-size', '100% 100%')) {
+      document.documentElement.setAttribute('data-page-build-boot', '');
+      window.__pageBuildGuard = setTimeout(function () { document.documentElement.removeAttribute('data-page-build-boot'); }, 3000);
+    }
+  } catch (_) { document.documentElement.setAttribute('data-page-build-seen', ''); }
   </script>
-  <script defer src="assets/swarm-render.0ed2314a2d91.js"></script>
+  <script defer src="assets/swarm-render.58004ce58af0.js"></script>
   <!-- Analytics: Umami Cloud, cookieless (see privacy.html) -->
   <script async src="https://cloud.umami.is/script.js" data-website-id="15652ad1-786f-4ccc-8f8e-29c595f59129"></script>
-  <script defer src="script.js?v=20261104e"></script>
+  <script defer src="script.js?v=20261104f"></script>
   <!-- /site:assets -->
   <link rel="stylesheet" href="assets/inspector.css?v=20261029a">
   <script defer src="assets/inspector.js?v=20261104a"></script>
