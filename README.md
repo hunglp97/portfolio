@@ -141,36 +141,41 @@ motion. The guide preview changes when a download link is focused or hovered, wi
 short crossfade (an instant change under reduced motion).
 The remaining preview images are warmed once the print display approaches the viewport.
 
-### Cursor assembly introduction
+### Page-wide cursor construction
 
-The homepage inspection bench has an original four-cursor assembly sequence in
-`assets/assembly.js` and `assets/assembly.css`. Visitors see one four-second
-introduction when the artwork enters view. The prominent Play/Replay animation button
-always remains available. At the owner's explicit request the finite introduction
-also runs in in-app browsers reporting reduced motion. A change to the preference
-during playback cancels it. No motion preference is saved or changed.
-No extension, framework, audio, storage or new network service
-is involved.
+Every published page builds itself as the visitor scrolls: cursors type headings
+line by line, draw controls and media frames, then place repeated data rows. The
+original engine is `assets/page-build.js` with `assets/page-build.css`, included by
+the shared asset partial on all 24 pages. It replaces the earlier bench-only demo.
 
-The sequence animates the existing SVG solids and temporarily pauses the scanner's
-tour. Pointer or keyboard interaction, Escape, leaving the viewport, resizing,
-backgrounding the page and changing the motion preference cancel it and restore the
-finished figure. The decorative cursor layer never receives pointer events.
+It animates the real DOM; links, tables, filters, input values, source content and
+accessibility semantics remain intact. Pointer interaction and keyboard focus
+immediately reveal their target. Show full page or Escape reveals everything;
+Replay page rebuilds the current viewport and stages the sections below it.
+Offscreen content starts when it enters view. At most four cursors run at once
+(three on phones), with no idle animation loop. Backgrounding stops active work.
+
+At the owner's explicit request the page starts automatically even in in-app
+browsers reporting reduced motion. No browser preference is changed or stored.
+JavaScript-disabled and unsupported browsers show the complete static site; a
+runtime failure reveals all content. No extension, audio, framework or new network
+service is involved. The cursor layer never receives pointer events.
 
 To repeat the browser interaction checks, start a local server and run:
 
 ```bash
 python3 -m http.server 8765 --bind 127.0.0.1
 # In a second terminal, with Node 22+ and Chrome installed:
-node scripts/qa_assembly.mjs http://127.0.0.1:8765/
+node scripts/qa_page_build.mjs http://127.0.0.1:8765/
 ```
 
 The QA command uses the installed design-taste-frontend skill's Chrome helper; set
 `TASTE_SKILL_HOME` if it is outside `~/.codex/skills/design-taste-frontend`.
-It blocks HTTPS requests (including analytics and checkout scripts), checks three
-viewport widths in both themes and motion preferences, and writes screenshots and
-results to ignored `.taste-skill/swarm-qa/`. See
-`docs/cursor-assembly-2026-11-04.md` for the reference review and validation record.
+It blocks third-party analytics, checkout and font services, checks three viewport
+widths in both themes and motion preferences, walks every homepage section, and
+smokes all 24 routes. Screenshots and results are in ignored
+`.taste-skill/page-build-qa/`. See `docs/page-cursor-build-2026-11-04.md` for scope
+and validation. Earlier cursor reports describe superseded releases.
 
 `preview_guides.mjs` requires Poppler's `pdftoppm`. It renders the first page of each
 published PDF to the three `assets/guide-*.png` files. Run it after reprinting so the

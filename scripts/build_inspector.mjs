@@ -99,10 +99,9 @@ const first=model.fields[0];
 const pdf='downloads/data-inspection-detailed-a4.pdf';
 // Keep the Anatomy link/icon, with the site's external CSS and 44px touch target.
 const printable=existsSync(resolve(ROOT,pdf))?`<div class="inspector-downloads">${pdfButton(pdf,'Open the two-page data inspection guide (PDF)').replace(/<style>[\s\S]*?<\/style>/,'')}<a href="#guides">All printable guides</a></div>`:'';
-const partial=`<figure class="data-inspector iso iso-plate" data-ui data-assembly aria-labelledby="inspector-title">
+const partial=`<figure class="data-inspector iso iso-plate" data-ui aria-labelledby="inspector-title">
   <figcaption class="inspector-head"><h2 id="inspector-title">One snapshot. Four fields.</h2><a href="${model.source}" class="inspector-source">View the full schema <span aria-hidden="true">↗</span></a></figcaption>
   <p class="inspector-meta">${model.dataset} · ${model.rows.toLocaleString('en-US')} rows · ${model.date}</p>
-  <div class="assembly-tools"><p class="assembly-status" data-assembly-status>Choose a field to inspect.</p><button class="assembly-play" type="button" data-assembly-play hidden>Play animation</button></div>
   <div class="inspector-layout">
   <div class="inspector-art" tabindex="-1" role="slider" aria-disabled="true" aria-label="Select a field on the inspection bench. Use the arrow keys, Home or End." aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-valuetext="${first.label}: ${first.rate}% filled" data-delta-x="${delta[0]}" data-delta-y="${delta[1]}">${svg}</div>
   <div class="inspector-desk">

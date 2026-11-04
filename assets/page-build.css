@@ -1,0 +1,35 @@
+/* Cursor construction is a requested page effect; native pointer and scrolling stay intact. */
+html[data-page-build] body { padding-bottom: 84px; }
+html[data-page-build] [data-build-state="pending"] { opacity: 0; }
+html[data-page-build] [data-build-state="pending"],
+html[data-page-build] [data-build-state="building"] { transition: none !important; }
+html[data-page-build] [data-build-state="building"] { mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000); mask-repeat: no-repeat; mask-position: 0 0; } /* taste-skill-ignore: two opaque alpha-mask planes for text reveal, no visible gradient */
+.page-build-layer { position: fixed; inset: 0; z-index: 45; pointer-events: none; overflow: clip; contain: layout paint; }
+.page-build-agent { position: absolute; top: 0; left: 0; opacity: 0; color: var(--accent); will-change: transform; }
+.page-build-agent svg { display: block; overflow: visible; }
+.page-build-pointer { fill: currentColor; stroke: var(--bg); stroke-width: 1.5px; }
+.page-build-agent .page-build-beam { display: none; fill: none; stroke: currentColor; stroke-width: 2px; }
+.page-build-agent[data-tool="text"] .page-build-pointer { display: none; }
+.page-build-agent[data-tool="text"] .page-build-beam { display: block; }
+.page-build-agent > span { position: absolute; left: 20px; top: 24px; padding: 3px 8px; white-space: nowrap; border-radius: 3px; background: var(--accent); color: var(--accent-ink); font: 600 11px/1.5 var(--font-sans); }
+.page-build-agent.is-left > span { left: auto; right: 6px; }
+.page-build-agent.is-above > span { top: auto; bottom: 6px; }
+.page-build-guide { position: absolute; left: 0; top: 0; opacity: 0; border: 1px solid var(--accent); transform-origin: top left; } /* taste-skill-ignore: temporary construction-tool outline requested by the owner */
+.page-build-guide::before, .page-build-guide::after { content: ''; position: absolute; width: 5px; height: 5px; background: var(--accent); }
+.page-build-guide::before { top: -3px; left: -3px; }
+.page-build-guide::after { bottom: -3px; right: -3px; }
+.page-build-guide[data-tool="row"] { border-style: dashed; }
+.page-build-guide[data-tool="text"] { border: 0; border-bottom: 1px solid var(--accent); } /* taste-skill-ignore: temporary type-tool baseline, removed when typing finishes */
+.page-build-tools { position: fixed; right: 20px; bottom: 20px; z-index: 46; display: flex; align-items: center; gap: 14px; padding: 6px 6px 6px 16px; border-radius: 4px; background: var(--surface-2); color: var(--text); font: 500 13px/1.4 var(--font-sans); }
+.page-build-tools button { min-height: 44px; padding: 8px 14px; border: 0; border-radius: 4px; background: var(--accent); color: var(--accent-ink); font: 600 13px/1.4 var(--font-sans); cursor: pointer; }
+.page-build-tools button:hover { background: var(--accent-hover); }
+.page-build-tools button:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .page-build-tools { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); left: 12px; justify-content: space-between; gap: 8px; }
+  .page-build-tools > span { font-size: 12px; }
+  .page-build-agent > span { font-size: 10px; }
+}
+@media print {
+  [data-build-state] { opacity: 1 !important; mask-image: none !important; }
+  .page-build-tools, .page-build-layer { display: none !important; }
+}

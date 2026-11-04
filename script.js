@@ -463,7 +463,7 @@
   // Blocks that start below the fold fade up once as they scroll in. Blocks already on
   // screen are never hidden, so nothing blinks while this script loads.
   function initReveal() {
-    if (REDUCED || !('IntersectionObserver' in window)) return;
+    if (REDUCED || document.documentElement.hasAttribute('data-page-build') || !('IntersectionObserver' in window)) return;
     const fold = window.innerHeight;
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
