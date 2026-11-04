@@ -141,6 +141,35 @@ motion. The guide preview changes when a download link is focused or hovered, wi
 short crossfade (an instant change under reduced motion).
 The remaining preview images are warmed once the print display approaches the viewport.
 
+### Cursor assembly introduction
+
+The homepage inspection bench has an original four-cursor assembly sequence in
+`assets/assembly.js` and `assets/assembly.css`. Desktop visitors with a fine pointer
+see one 1.6-second introduction. The Watch/Replay button runs a 3.4-second version;
+touch and tablet visitors opt in. Reduced motion keeps the finished figure and its
+normal field controls. No extension, framework, audio, storage or new network service
+is involved.
+
+The sequence animates the existing SVG solids and temporarily pauses the scanner's
+tour. Pointer or keyboard interaction, Escape, leaving the viewport, resizing,
+backgrounding the page and changing the motion preference cancel it and restore the
+finished figure. The decorative cursor layer never receives pointer events.
+
+To repeat the browser interaction checks, start a local server and run:
+
+```bash
+python3 -m http.server 8765 --bind 127.0.0.1
+# In a second terminal, with Node 22+ and Chrome installed:
+node scripts/qa_assembly.mjs http://127.0.0.1:8765/
+```
+
+The QA command uses the installed design-taste-frontend skill's Chrome helper; set
+`TASTE_SKILL_HOME` if it is outside `~/.codex/skills/design-taste-frontend`.
+It blocks HTTPS requests (including analytics and checkout scripts), checks three
+viewport widths in both themes and motion preferences, and writes screenshots and
+results to ignored `.taste-skill/swarm-qa/`. See
+`docs/cursor-assembly-2026-11-04.md` for the reference review and validation record.
+
 `preview_guides.mjs` requires Poppler's `pdftoppm`. It renders the first page of each
 published PDF to the three `assets/guide-*.png` files. Run it after reprinting so the
 website preview always matches the file being downloaded.

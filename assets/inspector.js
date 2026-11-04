@@ -197,7 +197,7 @@
     let shown = null;
 
     let index = 0, position = 0, target = 0, speed = 0, last = 0, clock = 0, time = 0;
-    let visible = false, frame = 0, touring = !reduced.matches;
+    let visible = false, frame = 0, touring = !reduced.matches, assembling = false;
 
     if (select) select.disabled = false;
     if (play) play.hidden = false;
@@ -290,12 +290,17 @@
     }
 
     function run() {
-      if (!frame && visible && !document.hidden && !reduced.matches) {
+      if (!frame && visible && !document.hidden && !reduced.matches && !assembling) {
         last = 0; frame = requestAnimationFrame(tick);
       }
     }
 
     function stop() { if (frame) cancelAnimationFrame(frame); frame = 0; last = 0; }
+
+    root.addEventListener('inspect-assembly', function (event) {
+      assembling = event.detail === true;
+      if (assembling) stop(); else run();
+    });
 
     function setTour(next) {
       touring = next;

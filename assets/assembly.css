@@ -1,0 +1,30 @@
+/* The signature move stays inside the exhibit. The page keeps its native cursor. */
+.assembly-tools { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; min-height: 44px; margin-top: 12px; }
+.assembly-status { flex: 1; margin: 0; color: var(--text-2); font-size: .875rem; }
+.assembly-play { display: inline-flex; flex-shrink: 0; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; background: var(--surface); color: var(--text); font: inherit; font-size: .875rem; border: 0; border-radius: 4px; cursor: pointer; transition: background-color 180ms, transform 140ms; }
+.assembly-play::before { content: '↗'; color: var(--accent); font-size: 1.125rem; }
+[data-assembling] .assembly-play::before { content: '×'; }
+.assembly-play:hover { background: var(--accent-soft); }
+.assembly-play:active { transform: scale(.97); }
+.assembly-play:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.assembly-play[hidden] { display: none; }
+[data-assembly] .inspector-art { position: relative; }
+.assembly-layer { position: absolute; inset: 0; overflow: clip; pointer-events: none; contain: layout paint; }
+.assembly-cursor { position: absolute; left: 0; top: 0; opacity: 0; color: var(--accent); }
+.assembly-cursor > svg { display: block; overflow: visible; fill: currentColor; stroke: var(--surface-2); stroke-width: 1.5px; }
+.assembly-cursor > span { position: absolute; left: 20px; top: 22px; padding: 4px 8px; border-radius: 3px; white-space: nowrap; background: var(--accent); color: var(--accent-ink); font-family: inherit; font-size: 11px; font-weight: 600; line-height: 1.5; }
+.assembly-cursor.is-left > span { left: auto; right: 4px; }
+.assembly-cursor.is-above > span { top: auto; bottom: 6px; }
+[data-assembling] .assembly-cursor { will-change: transform, opacity; }
+[data-assembling] .iso-solid { transform-box: fill-box; transform-origin: center; }
+@media (max-width: 600px) {
+  .assembly-tools { align-items: flex-start; gap: 8px; }
+  .assembly-status { font-size: .8125rem; }
+  .assembly-play { font-size: .8125rem; padding-inline: 10px; }
+  .assembly-cursor > span { font-size: 10px; padding: 2px 5px; left: 14px; top: 19px; }
+  .assembly-cursor > svg { width: 18px; height: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assembly-layer, .assembly-play { display: none; }
+  .assembly-play { transition: none; }
+}
